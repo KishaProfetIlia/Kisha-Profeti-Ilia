@@ -182,20 +182,52 @@
   .footer-bottom .orthodoxy-motto { font-family: 'EB Garamond', serif; font-style: italic; font-size: 13px; color: rgba(201,168,76,0.5); }
 
   /* ─── RESPONSIVE ─── */
-  @media (max-width: 900px) {
-    .posts-grid { grid-template-columns: 1fr; }
-    .post-card.featured { grid-template-columns: 1fr; }
-    .post-card.featured .post-card-img { min-height: 200px; }
-    .history-inner { grid-template-columns: 1fr; }
-    .categories-grid { grid-template-columns: 1fr 1fr; }
-    .footer-inner { grid-template-columns: 1fr 1fr; }
-    .header-inner { flex-direction: column; gap: 16px; text-align: center; }
-  }
-  @media (max-width: 600px) {
-    .categories-grid { grid-template-columns: 1fr 1fr; }
-    .footer-inner { grid-template-columns: 1fr; }
-    .nav-inner { overflow-x: auto; justify-content: flex-start; }
-  }
+@media (max-width: 900px) {
+  .history-inner { grid-template-columns: 1fr; gap: 30px; }
+  .history-img-frame { aspect-ratio: 16/9; }
+  .history-text h3 { font-size: 24px; }
+  .categories-grid { grid-template-columns: 1fr 1fr; }
+  .footer-inner { grid-template-columns: 1fr 1fr; }
+  .header-inner { flex-direction: column; gap: 16px; text-align: center; }
+  .nav-inner { overflow-x: auto; justify-content: flex-start; padding: 0 20px; }
+}
+
+@media (max-width: 600px) {
+  .lang-bar .container { padding: 0 16px; }
+  .lang-bar-left { gap: 6px; }
+  .instagram-link svg { width: 18px; height: 18px; }
+  .header-inner { padding: 20px; }
+  .church-name-block h1 { font-size: 16px; }
+  .church-name-block p { font-size: 12px; }
+  .hero { padding: 60px 20px; min-height: 70vh; }
+  .hero h2 { font-size: 28px; }
+  .hero-subtitle { font-size: 15px; }
+  .hero-cta { padding: 12px 24px; font-size: 11px; }
+  .hero-arch { display: none; }
+  .history-inner { padding: 0 20px; gap: 24px; }
+  .history-inner { direction: ltr !important; }
+  .history-text h3 { font-size: 22px; }
+  .history-text p { font-size: 15px; }
+  .history-stats { grid-template-columns: 1fr 1fr; gap: 12px; }
+  .stat-box .num { font-size: 26px; }
+  .history-img-frame { aspect-ratio: 4/3; }
+  .categories-grid { grid-template-columns: 1fr 1fr; gap: 12px; }
+  .cat-card { padding: 18px 12px; }
+  .cat-icon { font-size: 28px; }
+  .cat-card h4 { font-size: 11px; }
+  .cat-card p { font-size: 12px; }
+  .footer-inner { grid-template-columns: 1fr; gap: 30px; padding: 0 20px 40px; }
+  .footer-bottom { padding: 16px 20px; }
+  .footer-bottom p { font-size: 10px; }
+  .nav-link { font-size: 10px; padding: 14px 12px; letter-spacing: 1px; }
+}
+
+@media (max-width: 380px) {
+  .hero h2 { font-size: 22px; }
+  .categories-grid { grid-template-columns: 1fr; }
+  .history-stats { grid-template-columns: 1fr 1fr; }
+  .church-name-block h1 { font-size: 14px; }
+}
 
   /* ─── ANIMATIONS ─── */
   @keyframes fadeInUp { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: translateY(0); } }
