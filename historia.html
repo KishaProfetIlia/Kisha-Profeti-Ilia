@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="sq">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Historia – Kisha "Profeti Ilia"</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Noto+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --gold: #C9A84C;
+    --gold-light: #E8C97A;
+    --gold-pale: #F5EDD8;
+    --deep-blue: #1A1F3C;
+    --mid-blue: #2D3561;
+    --warm-dark: #0F0E0B;
+    --parchment: #FAF6EE;
+    --red-byzantine: #8B1A1A;
+    --cream: #F2EDE4;
+    --text-dark: #1A1715;
+    --text-mid: #4A4035;
+    --text-light: #9A8E7E;
+    --border: rgba(201,168,76,0.25);
+    --shadow: 0 4px 30px rgba(15,14,11,0.15);
+  }
+  * { margin:0; padding:0; box-sizing:border-box; user-select:none; -webkit-user-select:none; }
+  html { scroll-behavior:smooth; }
+  body { font-family:'EB Garamond',Georgia,serif; background:var(--parchment); color:var(--text-dark); overflow-x:hidden; }
+
+  /* LANG BAR */
+  .lang-bar { background:var(--deep-blue); padding:8px 0; }
+  .lang-bar .container { display:flex; justify-content:space-between; align-items:center; padding:0 40px; }
+  .lang-bar-left { display:flex; align-items:center; gap:10px; }
+  .icon-link { display:flex; align-items:center; color:rgba(255,255,255,0.7); text-decoration:none; transition:color .25s; }
+  .icon-link:hover { color:#fff; }
+  .lang-bar-right { display:flex; align-items:center; gap:8px; }
+  .lang-label { font-family:'Noto Sans',sans-serif; font-size:11px; font-weight:500; letter-spacing:1.5px; text-transform:uppercase; color:#fff; margin-right:4px; }
+  .lang-btn { background:transparent; border:1px solid rgba(201,168,76,0.4); color:rgba(255,255,255,0.65); padding:4px 12px; font-family:'Noto Sans',sans-serif; font-size:11px; font-weight:500; letter-spacing:1.5px; text-transform:uppercase; cursor:pointer; transition:all .25s; border-radius:2px; }
+  .lang-btn:hover,.lang-btn.active { background:var(--gold); border-color:var(--gold); color:var(--deep-blue); }
+
+  /* HEADER */
+  header { background:var(--deep-blue); position:relative; overflow:hidden; }
+  header::before { content:''; position:absolute; inset:0; background: radial-gradient(ellipse 60% 80% at 50% -20%,rgba(201,168,76,.12) 0%,transparent 70%), url("data:image/svg+xml,%3Csvg width='60' height='60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M30 5 L35 20 L50 20 L38 29 L43 44 L30 35 L17 44 L22 29 L10 20 L25 20Z' fill='none' stroke='rgba(201,168,76,0.06)' stroke-width='1'/%3E%3C/svg%3E") repeat; pointer-events:none; }
+  .header-inner { position:relative; z-index:1; display:flex; align-items:center; padding:28px 40px; }
+  .church-identity { display:flex; align-items:center; gap:20px; }
+  .cross-icon { width:52px; height:52px; flex-shrink:0; border-radius:50%; object-fit:cover; }
+  .church-name-block h1 { font-family:'Cinzel',serif; font-size:22px; font-weight:700; color:var(--gold-light); letter-spacing:1px; line-height:1.2; }
+  .church-name-block p { font-family:'EB Garamond',serif; font-style:italic; font-size:13.5px; color:rgba(255,255,255,.5); margin-top:3px; }
+
+  /* NAV */
+  nav { background:var(--mid-blue); border-top:1px solid rgba(201,168,76,.2); border-bottom:1px solid rgba(201,168,76,.2); position:sticky; top:0; z-index:100; }
+  .nav-inner { display:flex; align-items:center; justify-content:center; padding:0 40px; flex-wrap:wrap; }
+  .nav-link { font-family:'Cinzel',serif; font-size:11px; font-weight:600; letter-spacing:1.8px; text-transform:uppercase; color:rgba(255,255,255,.65); text-decoration:none; padding:16px 20px; position:relative; transition:color .25s; white-space:nowrap; }
+  .nav-link::after { content:''; position:absolute; bottom:0; left:50%; right:50%; height:2px; background:var(--gold); transition:left .3s,right .3s; }
+  .nav-link:hover { color:var(--gold-light); }
+  .nav-link:hover::after,.nav-link.active::after { left:15%; right:15%; }
+  .nav-link.active { color:var(--gold-light); }
+
+  /* PAGE TITLE */
+  .page-title-section { background:var(--deep-blue); padding:60px 40px 50px; text-align:center; position:relative; overflow:hidden; }
+  .page-title-section::before { content:''; position:absolute; inset:0; background:radial-gradient(ellipse 70% 100% at 50% 0%,rgba(201,168,76,.1) 0%,transparent 70%); pointer-events:none; }
+  .eyebrow { font-family:'Noto Sans',sans-serif; font-size:10px; font-weight:500; letter-spacing:4px; text-transform:uppercase; color:var(--gold); margin-bottom:14px; display:flex; align-items:center; justify-content:center; gap:12px; position:relative; z-index:1; }
+  .eyebrow::before,.eyebrow::after { content:''; display:block; width:40px; height:1px; background:var(--gold); opacity:.5; }
+  .page-title-section h2 { font-family:'Cinzel',serif; font-size:clamp(32px,5vw,52px); font-weight:900; color:#fff; letter-spacing:4px; text-transform:uppercase; position:relative; z-index:1; }
+  .title-line { width:80px; height:2px; background:linear-gradient(90deg,transparent,var(--gold),transparent); margin:18px auto 0; }
+
+  /* HISTORY BODY */
+  .history-body { max-width:820px; margin:0 auto; padding:70px 40px 60px; }
+  .chapter { margin-bottom:52px; }
+  .chapter-date { font-family:'Noto Sans',sans-serif; font-size:10px; font-weight:500; letter-spacing:3px; text-transform:uppercase; color:var(--gold); margin-bottom:10px; }
+  .chapter-title { font-family:'Cinzel',serif; font-size:17px; font-weight:700; color:var(--deep-blue); letter-spacing:.8px; margin-bottom:20px; display:flex; align-items:center; gap:14px; }
+  .chapter-title::after { content:''; flex:1; height:1px; background:linear-gradient(90deg,var(--gold) 0%,transparent 100%); opacity:.5; }
+  .history-body p { font-family:'EB Garamond',serif; font-size:18.5px; line-height:1.95; color:var(--text-mid); margin-bottom:18px; }
+  .history-body p:last-child { margin-bottom:0; }
+  blockquote { border-left:3px solid var(--gold); margin:36px 0; padding:18px 28px; background:var(--cream); }
+  blockquote p { font-style:italic; font-size:19px; color:var(--deep-blue); margin-bottom:0; }
+  .section-divider { display:flex; align-items:center; justify-content:center; gap:14px; margin:50px 0; color:var(--gold); font-size:14px; letter-spacing:8px; }
+  .section-divider::before,.section-divider::after { content:''; flex:1; height:1px; background:var(--gold); opacity:.3; }
+
+  /* PHOTOS */
+  .photos-section { max-width:820px; margin:0 auto; padding:0 40px 80px; }
+  .photos-heading { font-family:'Cinzel',serif; font-size:13px; font-weight:700; letter-spacing:2.5px; text-transform:uppercase; color:var(--deep-blue); margin-bottom:24px; display:flex; align-items:center; gap:14px; }
+  .photos-heading::after { content:''; flex:1; height:1px; background:linear-gradient(90deg,var(--gold) 0%,transparent 100%); opacity:.5; }
+  .photos-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:14px; }
+  .photo-item { position:relative; aspect-ratio:4/3; overflow:hidden; cursor:pointer; border:1px solid var(--border); background:linear-gradient(135deg,var(--deep-blue),var(--mid-blue)); opacity:0; transform:translateY(20px); transition:opacity .5s ease,transform .5s ease,box-shadow .3s; }
+  .photo-item.visible { opacity:1; transform:translateY(0); }
+  .photo-item img { width:100%; height:100%; object-fit:cover; transition:transform .5s ease; display:block; }
+  .photo-item:hover img { transform:scale(1.06); }
+  .photo-item:hover { box-shadow:0 10px 40px rgba(201,168,76,.15); }
+  .photo-item::after { content:''; position:absolute; inset:0; background:rgba(26,31,60,.35); opacity:0; transition:opacity .3s; }
+  .photo-item:hover::after { opacity:1; }
+  .zoom-icon { position:absolute; bottom:12px; right:12px; width:34px; height:34px; background:var(--gold); border-radius:50%; display:flex; align-items:center; justify-content:center; z-index:2; opacity:0; transform:scale(.7); transition:opacity .3s,transform .3s; }
+  .photo-item:hover .zoom-icon { opacity:1; transform:scale(1); }
+
+  /* LIGHTBOX */
+  .lightbox { position:fixed; inset:0; background:rgba(10,12,25,.96); z-index:1000; display:flex; align-items:center; justify-content:center; opacity:0; pointer-events:none; transition:opacity .3s; }
+  .lightbox.open { opacity:1; pointer-events:all; }
+  .lightbox-backdrop { position:absolute; inset:0; cursor:pointer; }
+  .lightbox-content { position:relative; z-index:1; max-width:90vw; max-height:90vh; display:flex; flex-direction:column; align-items:center; }
+  .lightbox-img-wrap { max-width:90vw; max-height:82vh; display:flex; align-items:center; justify-content:center; }
+  .lightbox-img-wrap img { max-width:85vw; max-height:80vh; object-fit:contain; border:1px solid rgba(201,168,76,.2); box-shadow:0 20px 80px rgba(0,0,0,.7); display:block; }
+  .lightbox-placeholder { width:min(600px,85vw); height:min(420px,70vh); background:linear-gradient(135deg,var(--deep-blue),var(--mid-blue)); border:1px solid rgba(201,168,76,.2); }
+  .lightbox-close { position:fixed; top:24px; right:28px; width:44px; height:44px; background:rgba(201,168,76,.15); border:1px solid rgba(201,168,76,.3); border-radius:50%; color:var(--gold-light); font-size:20px; cursor:pointer; display:flex; align-items:center; justify-content:center; transition:all .2s; z-index:2; line-height:1; }
+  .lightbox-close:hover { background:var(--gold); color:var(--deep-blue); transform:rotate(90deg); }
+  .lightbox-arrow { position:fixed; top:50%; transform:translateY(-50%); width:48px; height:48px; background:rgba(201,168,76,.12); border:1px solid rgba(201,168,76,.25); border-radius:50%; color:var(--gold-light); cursor:pointer; display:flex; align-items:center; justify-content:center; transition:all .2s; z-index:2; }
+  .lightbox-arrow:hover { background:var(--gold); color:var(--deep-blue); }
+  .lightbox-arrow.prev { left:20px; }
+  .lightbox-arrow.next { right:20px; }
+  .lightbox-counter { margin-top:14px; font-family:'Noto Sans',sans-serif; font-size:10px; letter-spacing:2px; text-transform:uppercase; color:rgba(201,168,76,.5); }
+
+  /* FOOTER */
+  footer { background:var(--warm-dark); padding:60px 0 0; }
+  .footer-inner { max-width:1200px; margin:0 auto; padding:0 40px 50px; display:grid; grid-template-columns:1.5fr 1fr; gap:50px; }
+  .footer-col h5 { font-family:'Cinzel',serif; font-size:11px; font-weight:700; letter-spacing:2px; text-transform:uppercase; color:var(--gold); margin-bottom:18px; padding-bottom:10px; border-bottom:1px solid rgba(201,168,76,.2); }
+  .footer-links { list-style:none; }
+  .footer-links li { padding:6px 0; }
+  .footer-links a { font-family:'EB Garamond',serif; font-size:15px; color:rgba(255,255,255,.45); text-decoration:none; transition:color .2s; display:flex; align-items:center; gap:8px; }
+  .footer-links a::before { content:'›'; color:var(--gold); opacity:0; transition:opacity .2s; }
+  .footer-links a:hover { color:rgba(255,255,255,.8); }
+  .footer-links a:hover::before { opacity:1; }
+  .footer-bottom { border-top:1px solid rgba(255,255,255,.06); padding:20px 40px; max-width:1200px; margin:0 auto; }
+  .footer-bottom p { font-family:'Noto Sans',sans-serif; font-size:11px; color:rgba(255,255,255,.25); letter-spacing:.5px; }
+
+  /* RESPONSIVE */
+  @media (max-width:700px) {
+    .history-body,.photos-section { padding-left:20px; padding-right:20px; }
+    .page-title-section { padding:40px 20px 36px; }
+    .lightbox-arrow { display:none; }
+    .footer-inner { grid-template-columns:1fr; }
+  }
+</style>
+</head>
+<body>
+
+<!-- LANG BAR -->
+<div class="lang-bar">
+  <div class="container">
+    <div class="lang-bar-left">
+      <a href="https://www.instagram.com/kisha.profet.ilia_korce" target="_blank" class="icon-link" aria-label="Instagram">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><rect x="2" y="2" width="20" height="20" rx="5.5" stroke="white" stroke-width="1.8"/><circle cx="12" cy="12" r="4.2" stroke="white" stroke-width="1.8"/><circle cx="17.5" cy="6.5" r="1.1" fill="white"/></svg>
+      </a>
+      <a href="https://www.facebook.com/KishaProfetiIliaKorce" class="icon-link" aria-label="Facebook">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><rect x="2" y="2" width="20" height="20" rx="5.5" stroke="white" stroke-width="1.8"/><path d="M13 21V13h2.5l.5-3H13V8.5c0-.8.4-1.5 1.5-1.5H16V4.5S15 4 13.5 4C11 4 10 5.5 10 7.5V10H7.5v3H10v8" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+      <a href="#" class="icon-link" aria-label="Email">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><rect x="2" y="4" width="20" height="16" rx="3" stroke="white" stroke-width="1.8"/><path d="M2 7L12 13L22 7" stroke="white" stroke-width="1.8" stroke-linecap="round"/></svg>
+      </a>
+      <a href="https://maps.app.goo.gl/imSxKzHyRxWEduUb6" class="icon-link" aria-label="Location">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M12 2C8.7 2 6 4.7 6 8c0 5 6 14 6 14s6-9 6-14c0-3.3-2.7-6-6-6z" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><circle cx="12" cy="8" r="2.5" stroke="white" stroke-width="1.8"/></svg>
+      </a>
+    </div>
+    <div class="lang-bar-right">
+      <span class="lang-label">Gjuha</span>
+      <button class="lang-btn active" onclick="setLang('sq')">AL</button>
+      <button class="lang-btn" onclick="setLang('en')">EN</button>
+      <button class="lang-btn" onclick="setLang('el')">ΕΛ</button>
+    </div>
+  </div>
+</div>
+
+<!-- HEADER -->
+<header>
+  <div class="header-inner">
+    <div class="church-identity">
+      <img class="cross-icon" src="logo.png" alt="Kisha Profeti Ilia">
+      <div class="church-name-block">
+        <h1>Kisha Orthodhokse "Profeti Ilia"</h1>
+        <p>Kisha Orthodhokse Autoqefale e Shqipërisë – Korçë</p>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-inner">
+    <a href="index.html" class="nav-link">Kryefaqja</a>
+    <a href="historia.html" class="nav-link active">Historia</a>
+    <a href="galeria.html" class="nav-link">Galeria</a>
+    <a href="#" class="nav-link">Katekizëm</a>
+    <a href="#" class="nav-link">Evente</a>
+  </div>
+</nav>
+
+<!-- PAGE TITLE -->
+<div class="page-title-section">
+  <div class="eyebrow">Kisha Profeti Ilia</div>
+  <h2>Historia</h2>
+  <div class="title-line"></div>
+</div>
+
+<!-- HISTORY TEXT -->
+<article class="history-body">
+
+  <div class="chapter">
+    <div class="chapter-date">Shekulli XIX</div>
+    <h3 class="chapter-title">Fillimet e Kishës</h3>
+    <p>Kisha Orthodhokse "Profeti Ilia" është një ndër kishat më të vjetra dhe më të dashura të qytetit të Korçës. Historia e saj fillon në shekullin e XIX-të, në një periudhë kur komuniteti orthodhoks i Korçës po konsolidohej dhe po ndërtonte themelet shpirtërore të jetës së tij fetare. Kisha u ngrit me duart dhe sakrificën e besimtarëve të thjeshtë korçarë, të cilët e donin fenë dhe traditat e tyre me tërë zemrën.</p>
+    <p>Ndërtimi i kishës ishte një projekt i gjithë komunitetit. Burra dhe gra të moshave të ndryshme kontribuan me punë, me gur dhe me besimin e tyre të palëkundur. Arkitektura e kishës pasqyron stilin karakteristik të kishave orthodhokse të Ballkanit, me elemente bizantine që e bëjnë atë unike në peizazhin urban të Korçës.</p>
+  </div>
+
+  <blockquote>
+    <p>"Kisha nuk është vetëm ndërtesë guri — ajo është zemra shpirtërore e bashkësisë, vendi ku brezat takohen me Perëndinë."</p>
+  </blockquote>
+
+  <div class="chapter">
+    <div class="chapter-date">Fundi i Shekullit XIX – Fillimi i XX</div>
+    <h3 class="chapter-title">Rritja dhe Konsolidimi</h3>
+    <p>Në fund të shekullit të XIX-të dhe fillimin e shekullit të XX-të, Kisha "Profeti Ilia" u bë qendra shpirtërore e lagjes dhe e të gjithë atyre besimtarëve që i përkisnin devotshmërisë orthodhokse të qytetit. Priftërinjtë e kësaj periudhe ishin njerëz të mençur dhe të devotshëm, të cilët jo vetëm shërbenin liturgjikisht, por edhe mësonin fëmijët, kujdeseshin për të varfërit dhe ruheshin traditat e shenjta të Kishës.</p>
+    <p>Gjatë kësaj periudhe kisha mori formën e saj të plotë — ikonostasi u zbukurua me ikona të çmuara, kambanorja u ngrit dhe tingulli i kambanave filloi të binte mbi qytetin e Korçës si thirrje për lutje dhe si shenjë e pranisë së Perëndisë në mes të popullit. Muzika bizantine, e mësuar brez pas brezi, mbushte muret e gurta të tempullit me himnin e pafundmë të lavdisë hyjnore.</p>
+    <p>Kjo ishte gjithashtu koha e Rilindjes Kombëtare Shqiptare, dhe Kisha "Profeti Ilia" luajti rolin e saj — jo vetëm si institucion fetar, por edhe si hapësirë ku identiteti shqiptar dhe tradita orthodhokse bashkëjetuan me dinjitet dhe krenari.</p>
+  </div>
+
+  <div class="section-divider">✦ ✦ ✦</div>
+
+  <div class="chapter">
+    <div class="chapter-date">Shekulli XX — Periudhat e Vështira</div>
+    <h3 class="chapter-title">Vitet e Sprovës</h3>
+    <p>Shekulli i XX-të solli me vete ndryshime të mëdha dhe sprova të rënda për kishën dhe komunitetin e saj. Luftërat ballkanike, dy luftërat botërore dhe më pas instalimi i regjimit komunist në Shqipëri ndikuan thellë në jetën fetare të vendit. Viti 1967 shënoi një pikë të zezë në historinë e kishës — regjimi i Enver Hoxhës ndaloi fenë dhe shpalli Shqipërinë shtetin e parë ateist në botë.</p>
+    <p>Kisha "Profeti Ilia", si shumë kisha të tjera në vend, u mbyll, u profanua dhe u përdor për qëllime të tjera nga pushteti komunist. Besimtarët u detyruan të praktikojnë besimin e tyre fshehurazi, në heshtje dhe me rrezik personal. Por besimi nuk vdiq — ai mbijetoi në zemrat e nënave dhe gjysheve, në lutjet e fshehta të familjeve, në traditën që kalohej me gojë brez pas brezi.</p>
+    <p>Edhe në ato vite të errëta, kisha qëndroi si ndërtesë — muret e saj të gurta mbijetuan, edhe pse heshtura dhe të braktisura nga funksioni i tyre i shenjtë. Ato mure prisnin ditën kur kambana do të binte sërish.</p>
+  </div>
+
+  <div class="chapter">
+    <div class="chapter-date">Pas Vitit 1990</div>
+    <h3 class="chapter-title">Ringjallja</h3>
+    <p>Me rënien e komunizmit dhe hapjen e Shqipërisë pas vitit 1990, filloi ringjallja e jetës fetare në vend. Kisha "Profeti Ilia" u hap sërish, u riparua dhe u kthye në atë që gjithmonë kishte qenë — shtëpia e Perëndisë dhe qendra shpirtërore e komunitetit orthodhoks të Korçës. Besimtarët u kthyen me lot gëzimi, me lutje dhe me falënderim.</p>
+    <p>Nën kujdesin e Kishës Orthodhokse Autoqefale të Shqipërisë dhe udhëheqjen e Kryepiskopit Anastas, i cili i dha një impuls të ri gjithë jetës kishtare shqiptare, kisha filloi një fazë të re. U restaurua ikonostasi, u pikturuan ikona të reja, u formua kori dhe shërbesat hyjnore u rimorën me të gjithë solemnitetin e tyre liturgjik.</p>
+    <p>Sot, Kisha "Profeti Ilia" është jo vetëm një monument historik dhe shpirtëror, por edhe një bashkësi e gjallë besimtarësh të çdo moshe, që mblidhen çdo të diel dhe festë për të ndarë besimin, traditën dhe dashurinë e tyre për Krishtin dhe Kishën e Tij.</p>
+  </div>
+
+  <blockquote>
+    <p>"Profeti Ilia ishte i zjarrtë në besimin e tij — dhe kjo kishë, e cila mban emrin e tij, vazhdon të mbajë gjallë atë zjarr shpirtëror në zemrat e besimtarëve korçarë."</p>
+  </blockquote>
+
+  <div class="chapter">
+    <div class="chapter-date">20 Korrik — Çdo Vit</div>
+    <h3 class="chapter-title">Festa e Patronit</h3>
+    <p>Kulmi i vitit liturgjik për kishën tonë është Festa e Shën Profetit Ilia, e kremtuar çdo vit me 20 Korrik. Ky është momenti kur kisha bëhet vendtakim i besimtarëve jo vetëm nga lagjja dhe qyteti, por nga e gjithë Korça dhe rrethinat. Agrypnia e mbrëmjes, Liturgjia Hyjnore e mëngjesit dhe grumbullimi i madh i besimtarëve e kthejnë këtë ditë në një festë të vërtetë shpirtërore.</p>
+    <p>Profeti Ilia është një figurë e madhe e Besëlidhjes së Vjetër — njeriu i zjarrshëm që u ngrit kundër idhujtarisë, që iu lut Perëndisë dhe mori përgjigje me zjarr nga qielli, dhe që u mor lart nga Perëndia pa parë vdekjen. Emri i tij mbi kishën tonë është jo vetëm nderim historik, por thirrje e vazhdueshme për besim të gjallë dhe të zjarrtë.</p>
+  </div>
+
+</article>
+
+<!-- PHOTOS -->
+<section class="photos-section">
+  <div class="photos-heading">Foto Historike</div>
+  <div class="photos-grid">
+    <div class="photo-item" onclick="openLightbox(0)">
+      <div class="zoom-icon">
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="6.5" cy="6.5" r="4.5" stroke="#1A1F3C" stroke-width="1.6"/><path d="M10 10L14 14" stroke="#1A1F3C" stroke-width="1.6" stroke-linecap="round"/><path d="M6.5 4.5v4M4.5 6.5h4" stroke="#1A1F3C" stroke-width="1.4" stroke-linecap="round"/></svg>
+      </div>
+    </div>
+    <div class="photo-item" onclick="openLightbox(1)">
+      <div class="zoom-icon">
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="6.5" cy="6.5" r="4.5" stroke="#1A1F3C" stroke-width="1.6"/><path d="M10 10L14 14" stroke="#1A1F3C" stroke-width="1.6" stroke-linecap="round"/><path d="M6.5 4.5v4M4.5 6.5h4" stroke="#1A1F3C" stroke-width="1.4" stroke-linecap="round"/></svg>
+      </div>
+    </div>
+    <div class="photo-item" onclick="openLightbox(2)">
+      <div class="zoom-icon">
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="6.5" cy="6.5" r="4.5" stroke="#1A1F3C" stroke-width="1.6"/><path d="M10 10L14 14" stroke="#1A1F3C" stroke-width="1.6" stroke-linecap="round"/><path d="M6.5 4.5v4M4.5 6.5h4" stroke="#1A1F3C" stroke-width="1.4" stroke-linecap="round"/></svg>
+      </div>
+    </div>
+    <div class="photo-item" onclick="openLightbox(3)">
+      <div class="zoom-icon">
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="6.5" cy="6.5" r="4.5" stroke="#1A1F3C" stroke-width="1.6"/><path d="M10 10L14 14" stroke="#1A1F3C" stroke-width="1.6" stroke-linecap="round"/><path d="M6.5 4.5v4M4.5 6.5h4" stroke="#1A1F3C" stroke-width="1.4" stroke-linecap="round"/></svg>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LIGHTBOX -->
+<div class="lightbox" id="lightbox">
+  <div class="lightbox-backdrop" onclick="closeLightbox()"></div>
+  <button class="lightbox-close" onclick="closeLightbox()">✕</button>
+  <button class="lightbox-arrow prev" onclick="changePhoto(-1)">
+    <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M11 4L6 9L11 14" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+  </button>
+  <button class="lightbox-arrow next" onclick="changePhoto(1)">
+    <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M7 4L12 9L7 14" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+  </button>
+  <div class="lightbox-content">
+    <div class="lightbox-img-wrap" id="lightboxImgWrap"></div>
+    <div class="lightbox-counter" id="lightboxCounter"></div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <div class="church-identity">
+        <img class="cross-icon" src="logo.png" alt="Kisha Profeti Ilia">
+        <div style="margin-left:4px">
+          <div style="font-family:'Cinzel',serif;font-size:18px;font-weight:700;color:var(--gold-light);letter-spacing:1px;">Kisha "Profeti Ilia"</div>
+        </div>
+      </div>
+    </div>
+    <div class="footer-col">
+      <h5>Lidhje të Shpejta</h5>
+      <ul class="footer-links">
+        <li><a href="index.html">Kryefaqja</a></li>
+        <li><a href="historia.html">Historia</a></li>
+        <li><a href="galeria.html">Galeria</a></li>
+        <li><a href="#">Evente</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2026 Kisha Orthodhokse "Profeti Ilia" – Korçë.</p>
+  </div>
+</footer>
+
+<script>
+const photos = [{ src: null },{ src: null },{ src: null },{ src: null }];
+let current = 0;
+
+function openLightbox(i) {
+  current = i;
+  renderLightbox();
+  document.getElementById('lightbox').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+function closeLightbox() {
+  document.getElementById('lightbox').classList.remove('open');
+  document.body.style.overflow = '';
+}
+function changePhoto(dir) {
+  current = (current + dir + photos.length) % photos.length;
+  renderLightbox();
+}
+function renderLightbox() {
+  const wrap = document.getElementById('lightboxImgWrap');
+  const p = photos[current];
+  wrap.innerHTML = p.src
+    ? `<img src="${p.src}" alt="Foto historike">`
+    : `<div class="lightbox-placeholder"></div>`;
+  document.getElementById('lightboxCounter').textContent = `${current + 1} / ${photos.length}`;
+}
+
+document.addEventListener('keydown', e => {
+  if (!document.getElementById('lightbox').classList.contains('open')) return;
+  if (e.key === 'ArrowRight') changePhoto(1);
+  if (e.key === 'ArrowLeft') changePhoto(-1);
+  if (e.key === 'Escape') closeLightbox();
+});
+
+const obs = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting)
+      setTimeout(() => entry.target.classList.add('visible'), entry.target.dataset.delay || 0);
+  });
+}, { threshold: 0.08 });
+
+document.querySelectorAll('.photo-item').forEach((el, i) => {
+  el.dataset.delay = i * 100;
+  obs.observe(el);
+});
+
+function setLang(lang) {
+  document.querySelectorAll('.lang-btn').forEach(b => b.classList.remove('active'));
+  document.querySelector(`.lang-btn[onclick="setLang('${lang}')"]`).classList.add('active');
+  document.documentElement.lang = lang;
+}
+</script>
+</body>
+</html>

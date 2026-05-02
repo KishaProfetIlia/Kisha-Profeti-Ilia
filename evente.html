@@ -1,0 +1,847 @@
+<!DOCTYPE html>
+<html lang="sq">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Evente – Kisha "Profeti Ilia"</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Noto+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+
+<style>
+  :root {
+    --gold: #C9A84C;
+    --gold-light: #E8C97A;
+    --gold-pale: #F5EDD8;
+    --deep-blue: #1A1F3C;
+    --mid-blue: #2D3561;
+    --warm-dark: #0F0E0B;
+    --parchment: #FAF6EE;
+    --stone: #8B7D6B;
+    --red-byzantine: #8B1A1A;
+    --cream: #F2EDE4;
+    --text-dark: #1A1715;
+    --text-mid: #4A4035;
+    --text-light: #9A8E7E;
+    --border: rgba(201,168,76,0.25);
+    --shadow: 0 4px 30px rgba(15,14,11,0.15);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: 'EB Garamond', Georgia, serif;
+    background: var(--parchment);
+    color: var(--text-dark);
+    overflow-x: hidden;
+  }
+
+  * { user-select: none; -webkit-user-select: none; }
+
+  /* ─── LANGUAGE BAR ─── */
+  .lang-bar { background: var(--deep-blue); padding: 8px 0; }
+  .lang-bar .container { display: flex; justify-content: space-between; align-items: center; padding: 0 40px; }
+  .lang-bar-left { display: flex; align-items: center; gap: 10px; }
+  .instagram-link { display: flex; align-items: center; justify-content: center; color: rgba(255,255,255,0.7); transition: color 0.25s; text-decoration: none; }
+  .instagram-link:hover { color: #fff; }
+  .lang-bar-right { display: flex; align-items: center; gap: 8px; }
+  .lang-label { font-family: 'Noto Sans', sans-serif; font-size: 11px; font-weight: 500; letter-spacing: 1.5px; text-transform: uppercase; color: #fff; margin-right: 4px; }
+  .lang-btn { background: transparent; border: 1px solid rgba(201,168,76,0.4); color: rgba(255,255,255,0.65); padding: 4px 12px; font-family: 'Noto Sans', sans-serif; font-size: 11px; font-weight: 500; letter-spacing: 1.5px; text-transform: uppercase; cursor: pointer; transition: all 0.25s; border-radius: 2px; }
+  .lang-btn:hover, .lang-btn.active { background: var(--gold); border-color: var(--gold); color: var(--deep-blue); }
+
+  /* ─── HEADER ─── */
+  header { background: var(--deep-blue); position: relative; overflow: hidden; }
+  header::before {
+    content: '';
+    position: absolute; inset: 0;
+    background:
+      radial-gradient(ellipse 60% 80% at 50% -20%, rgba(201,168,76,0.12) 0%, transparent 70%),
+      url("data:image/svg+xml,%3Csvg width='60' height='60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M30 5 L35 20 L50 20 L38 29 L43 44 L30 35 L17 44 L22 29 L10 20 L25 20Z' fill='none' stroke='rgba(201,168,76,0.06)' stroke-width='1'/%3E%3C/svg%3E") repeat;
+    pointer-events: none;
+  }
+  .header-inner { position: relative; z-index: 1; display: flex; align-items: center; justify-content: space-between; padding: 28px 40px; }
+  .church-identity { display: flex; align-items: center; gap: 20px; text-decoration: none; }
+  .cross-icon { width: 52px; height: 52px; flex-shrink: 0; border-radius: 50%; object-fit: cover; }
+  .church-name-block h1 { font-family: 'Cinzel', serif; font-size: 22px; font-weight: 700; color: var(--gold-light); letter-spacing: 1px; line-height: 1.2; }
+  .church-name-block p { font-family: 'EB Garamond', serif; font-style: italic; font-size: 13.5px; color: rgba(255,255,255,0.5); margin-top: 3px; letter-spacing: 0.5px; }
+
+  /* ─── PAGE HERO BANNER ─── */
+  .page-banner {
+    background: linear-gradient(170deg, rgba(26,31,60,0.95) 0%, rgba(19,24,58,0.92) 100%);
+    padding: 70px 40px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .page-banner::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: radial-gradient(ellipse 70% 60% at 50% 50%, rgba(201,168,76,0.08) 0%, transparent 70%);
+  }
+  .page-banner-arch {
+    position: absolute; top: 0; left: 50%; transform: translateX(-50%);
+    width: 500px; height: 300px;
+    border: 1px solid rgba(201,168,76,0.08);
+    border-radius: 50% 50% 0 0 / 100% 100% 0 0;
+    pointer-events: none;
+  }
+  .page-banner-content { position: relative; z-index: 1; max-width: 600px; margin: 0 auto; }
+  .page-banner-eyebrow {
+    font-family: 'Noto Sans', sans-serif; font-size: 10px; font-weight: 500;
+    letter-spacing: 4px; text-transform: uppercase; color: var(--gold);
+    margin-bottom: 16px; display: flex; align-items: center; justify-content: center; gap: 12px;
+  }
+  .page-banner-eyebrow::before, .page-banner-eyebrow::after {
+    content: ''; display: block; width: 40px; height: 1px; background: var(--gold); opacity: 0.5;
+  }
+  .page-banner h2 {
+    font-family: 'Cinzel', serif; font-size: clamp(28px, 4vw, 46px); font-weight: 900;
+    color: #fff; line-height: 1.15; margin-bottom: 12px;
+    text-shadow: 0 2px 40px rgba(201,168,76,0.2);
+  }
+  .page-banner h2 span { color: var(--gold-light); }
+  .page-banner-sub {
+    font-family: 'EB Garamond', serif; font-style: italic; font-size: 18px;
+    color: rgba(255,255,255,0.5); margin-top: 12px; line-height: 1.6;
+  }
+
+  /* ─── EVENTS TABS ─── */
+  .events-tabs-bar {
+    background: var(--cream);
+    border-bottom: 1px solid var(--border);
+    display: flex; justify-content: center; gap: 0;
+  }
+  .events-tab-btn {
+    background: transparent; border: none;
+    font-family: 'Cinzel', serif; font-size: 12px; font-weight: 600;
+    letter-spacing: 1.8px; text-transform: uppercase;
+    color: var(--text-light); padding: 18px 36px;
+    cursor: pointer; transition: all 0.25s;
+    position: relative; border-bottom: 3px solid transparent;
+    display: flex; align-items: center; gap: 10px;
+  }
+  .events-tab-btn:hover { color: var(--deep-blue); }
+  .events-tab-btn.active {
+    color: var(--deep-blue);
+    border-bottom-color: var(--gold);
+  }
+  .tab-icon { font-size: 18px; }
+
+  /* ─── MAIN EVENTS AREA ─── */
+  .events-main { max-width: 1100px; margin: 0 auto; padding: 60px 40px; }
+
+  .tab-panel { display: none; }
+  .tab-panel.active { display: block; }
+
+  .section-heading { display: flex; align-items: center; gap: 16px; margin-bottom: 36px; }
+  .section-heading h3 { font-family: 'Cinzel', serif; font-size: 18px; font-weight: 700; color: var(--deep-blue); letter-spacing: 1px; white-space: nowrap; }
+  .section-heading .rule { flex: 1; height: 1px; background: linear-gradient(90deg, var(--gold) 0%, transparent 100%); }
+  .section-heading .ornament { color: var(--gold); font-size: 18px; flex-shrink: 0; }
+
+  /* ─── EVENT LIST LINKS ─── */
+  .event-list { list-style: none; margin-bottom: 16px; }
+  .event-list-item {
+    border: 1px solid var(--border);
+    background: #fff;
+    margin-bottom: 2px;
+    transition: border-color 0.2s;
+    position: relative;
+  }
+  .event-list-item::before {
+    content: ''; position: absolute; left: 0; top: 0; bottom: 0;
+    width: 3px; background: var(--gold);
+    transform: scaleY(0); transition: transform 0.3s; transform-origin: bottom;
+  }
+  .event-list-item:hover::before,
+  .event-list-item.open::before { transform: scaleY(1); }
+
+  .event-trigger {
+    width: 100%; background: none; border: none; cursor: pointer;
+    display: flex; align-items: center; gap: 20px;
+    padding: 18px 22px; text-align: left;
+    transition: background 0.2s;
+  }
+  .event-trigger:hover { background: var(--gold-pale); }
+  .event-list-item.open .event-trigger { background: var(--gold-pale); }
+
+  .event-trigger-date {
+    font-family: 'Cinzel', serif; font-size: 12px; font-weight: 700;
+    color: var(--gold); min-width: 110px; flex-shrink: 0;
+    letter-spacing: 0.5px;
+  }
+  .event-trigger-name {
+    font-family: 'EB Garamond', serif; font-size: 16px; font-weight: 500;
+    color: var(--deep-blue); flex: 1;
+  }
+  .event-trigger-names {
+    font-family: 'Noto Sans', sans-serif; font-size: 11px;
+    color: var(--text-light); letter-spacing: 0.5px; margin-top: 2px;
+  }
+  .event-trigger-arrow {
+    width: 20px; height: 20px; flex-shrink: 0; color: var(--gold);
+    transition: transform 0.3s;
+  }
+  .event-list-item.open .event-trigger-arrow { transform: rotate(180deg); }
+
+  /* ─── EVENT DETAIL PANEL ─── */
+  .event-detail {
+    display: none;
+    border-top: 1px solid var(--border);
+    padding: 32px 28px;
+    background: #fff;
+  }
+  .event-list-item.open .event-detail { display: flex; gap: 36px; }
+
+  .event-photo {
+    width: 320px; flex-shrink: 0;
+    background: linear-gradient(135deg, var(--deep-blue), var(--mid-blue));
+    display: flex; align-items: center; justify-content: center;
+    font-size: 60px; color: rgba(255,255,255,0.15);
+    overflow: hidden; aspect-ratio: 4/3;
+    border: 1px solid var(--border);
+    position: relative;
+  }
+  .event-photo img { width: 100%; height: 100%; object-fit: cover; position: absolute; inset: 0; }
+
+  .event-info { flex: 1; }
+  .event-info-title {
+    font-family: 'Cinzel', serif; font-size: 20px; font-weight: 700;
+    color: var(--deep-blue); margin-bottom: 6px;
+  }
+  .event-info-subtitle {
+    font-family: 'EB Garamond', serif; font-style: italic; font-size: 15px;
+    color: var(--stone); margin-bottom: 20px;
+  }
+  .event-info-grid {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 16px 28px;
+    margin-bottom: 22px;
+  }
+  .event-field label {
+    font-family: 'Noto Sans', sans-serif; font-size: 9px; font-weight: 500;
+    letter-spacing: 2px; text-transform: uppercase; color: var(--gold);
+    display: block; margin-bottom: 4px;
+  }
+  .event-field span {
+    font-family: 'EB Garamond', serif; font-size: 16px; color: var(--text-dark);
+  }
+  .event-divider { width: 60px; height: 1px; background: var(--gold); opacity: 0.4; margin-bottom: 16px; }
+  .event-description {
+    font-family: 'EB Garamond', serif; font-size: 16px; line-height: 1.8;
+    color: var(--text-mid);
+  }
+  .event-tag {
+    display: inline-block;
+    background: var(--red-byzantine); color: #fff;
+    font-family: 'Noto Sans', sans-serif; font-size: 9px; font-weight: 500;
+    letter-spacing: 1.5px; text-transform: uppercase;
+    padding: 4px 10px; border-radius: 1px; margin-bottom: 16px;
+  }
+
+  /* ─── FOOTER ─── */
+  footer { background: var(--warm-dark); padding: 60px 0 0; }
+  .footer-inner { max-width: 1200px; margin: 0 auto; padding: 0 40px 50px; display: grid; grid-template-columns: 1.5fr 1fr 1fr 1fr; gap: 50px; }
+  .footer-brand p { font-family: 'EB Garamond', serif; font-style: italic; font-size: 14.5px; color: rgba(255,255,255,0.35); margin-top: 16px; line-height: 1.7; }
+  .footer-col h5 { font-family: 'Cinzel', serif; font-size: 11px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--gold); margin-bottom: 18px; padding-bottom: 10px; border-bottom: 1px solid rgba(201,168,76,0.2); }
+  .footer-links { list-style: none; }
+  .footer-links li { padding: 6px 0; }
+  .footer-links a { font-family: 'EB Garamond', serif; font-size: 15px; color: rgba(255,255,255,0.45); text-decoration: none; transition: color 0.2s; display: flex; align-items: center; gap: 8px; }
+  .footer-links a::before { content: '›'; color: var(--gold); opacity: 0; transition: opacity 0.2s; }
+  .footer-links a:hover { color: rgba(255,255,255,0.8); }
+  .footer-links a:hover::before { opacity: 1; }
+  .footer-bottom { border-top: 1px solid rgba(255,255,255,0.06); padding: 20px 40px; max-width: 1200px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; }
+  .footer-bottom p { font-family: 'Noto Sans', sans-serif; font-size: 11px; color: rgba(255,255,255,0.25); letter-spacing: 0.5px; }
+  .footer-bottom .orthodoxy-motto { font-family: 'EB Garamond', serif; font-style: italic; font-size: 13px; color: rgba(201,168,76,0.5); }
+
+  /* ─── RESPONSIVE ─── */
+  @media (max-width: 900px) {
+    .footer-inner { grid-template-columns: 1fr 1fr; }
+    .header-inner { flex-direction: column; gap: 16px; text-align: center; }
+    .event-list-item.open .event-detail { flex-direction: column; }
+    .event-photo { width: 100%; aspect-ratio: 16/9; }
+    .event-info-grid { grid-template-columns: 1fr; }
+  }
+  @media (max-width: 600px) {
+    .events-main { padding: 40px 20px; }
+    .footer-inner { grid-template-columns: 1fr; }
+    .nav-inner { overflow-x: auto; justify-content: flex-start; }
+    .lang-bar .container { padding: 0 20px; }
+    .header-inner { padding: 20px; }
+    .page-banner { padding: 50px 20px; }
+    .events-tabs-bar { gap: 0; }
+    .events-tab-btn { padding: 14px 18px; font-size: 10px; }
+  }
+
+  /* ─── ANIMATIONS ─── */
+  @keyframes fadeInUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+  .event-list-item { animation: fadeInUp 0.5s ease both; }
+  .event-list-item:nth-child(1) { animation-delay: 0.05s; }
+  .event-list-item:nth-child(2) { animation-delay: 0.12s; }
+  .event-list-item:nth-child(3) { animation-delay: 0.19s; }
+  .event-list-item:nth-child(4) { animation-delay: 0.26s; }
+  .event-list-item:nth-child(5) { animation-delay: 0.33s; }
+</style>
+</head>
+<body>
+
+<!-- LANGUAGE BAR -->
+<div class="lang-bar">
+  <div class="container">
+    <div class="lang-bar-right" style="margin-left:auto;">
+      <span class="lang-label" id="lang-label-text">Gjuha</span>
+      <button class="lang-btn" onclick="setLang('sq')">AL</button>
+      <button class="lang-btn" onclick="setLang('en')">EN</button>
+      <button class="lang-btn" onclick="setLang('el')">ΕΛ</button>
+    </div>
+  </div>
+</div>
+
+<!-- HEADER -->
+<header>
+  <div class="header-inner">
+    <a href="index.html" class="church-identity">
+      <img class="cross-icon" src="logo.png" alt="Kisha Profeti Ilia">
+      <div class="church-name-block">
+        <h1 data-t="header_title"></h1>
+        <p data-t="header_subtitle"></p>
+      </div>
+    </a>
+  </div>
+</header>
+
+<!-- PAGE BANNER -->
+<div class="page-banner">
+  <div class="page-banner-arch"></div>
+  <div class="page-banner-content">
+    <div class="page-banner-eyebrow" data-t="events_eyebrow"></div>
+    <h2><span data-t="events_title"></span></h2>
+
+  </div>
+</div>
+
+<!-- TABS BAR -->
+<div class="events-tabs-bar">
+  <button class="events-tab-btn active" onclick="switchTab('baptisms')" id="tab-baptisms">
+    <span class="tab-icon">✦</span>
+    <span data-t="tab_baptisms"></span>
+  </button>
+  <button class="events-tab-btn" onclick="switchTab('marriages')" id="tab-marriages">
+    <span class="tab-icon">♥</span>
+    <span data-t="tab_marriages"></span>
+  </button>
+</div>
+
+<!-- EVENTS MAIN -->
+<div class="events-main">
+
+  <!-- ── BAPTISMS PANEL ── -->
+  <div class="tab-panel active" id="panel-baptisms">
+    <div class="section-heading">
+      <span class="ornament">✦</span>
+      <h3 data-t="baptisms_heading"></h3>
+      <div class="rule"></div>
+    </div>
+
+    <ul class="event-list" id="baptisms-list">
+
+      <li class="event-list-item" id="b1">
+        <button class="event-trigger" onclick="toggleEvent('b1')">
+          <div class="event-trigger-date">15 Janar 2025</div>
+          <div>
+            <div class="event-trigger-name" data-t="b1_name"></div>
+            <div class="event-trigger-names" data-t="b1_parents"></div>
+          </div>
+          <svg class="event-trigger-arrow" viewBox="0 0 20 20" fill="none">
+            <path d="M5 7.5L10 12.5L15 7.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </button>
+        <div class="event-detail">
+          <div class="event-photo">🕊️</div>
+          <div class="event-info">
+            <div class="event-tag" data-t="tag_baptism"></div>
+            <h3 class="event-info-title" data-t="b1_name"></h3>
+            <p class="event-info-subtitle" data-t="b1_info_subtitle"></p>
+            <div class="event-divider"></div>
+            <div class="event-info-grid">
+              <div class="event-field">
+                <label data-t="field_date"></label>
+                <span>15 Janar 2025</span>
+              </div>
+              <div class="event-field">
+                <label data-t="field_officiant"></label>
+                <span data-t="b1_officiant"></span>
+              </div>
+              <div class="event-field">
+                <label data-t="field_parents"></label>
+                <span data-t="b1_parents_full"></span>
+              </div>
+              <div class="event-field">
+                <label data-t="field_godparent"></label>
+                <span data-t="b1_godparent"></span>
+              </div>
+            </div>
+            <p class="event-description" data-t="b1_desc"></p>
+          </div>
+        </div>
+      </li>
+
+      <li class="event-list-item" id="b2">
+        <button class="event-trigger" onclick="toggleEvent('b2')">
+          <div class="event-trigger-date">8 Mars 2025</div>
+          <div>
+            <div class="event-trigger-name" data-t="b2_name"></div>
+            <div class="event-trigger-names" data-t="b2_parents"></div>
+          </div>
+          <svg class="event-trigger-arrow" viewBox="0 0 20 20" fill="none">
+            <path d="M5 7.5L10 12.5L15 7.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </button>
+        <div class="event-detail">
+          <div class="event-photo">🕊️</div>
+          <div class="event-info">
+            <div class="event-tag" data-t="tag_baptism"></div>
+            <h3 class="event-info-title" data-t="b2_name"></h3>
+            <p class="event-info-subtitle" data-t="b2_info_subtitle"></p>
+            <div class="event-divider"></div>
+            <div class="event-info-grid">
+              <div class="event-field">
+                <label data-t="field_date"></label>
+                <span>8 Mars 2025</span>
+              </div>
+              <div class="event-field">
+                <label data-t="field_officiant"></label>
+                <span data-t="b2_officiant"></span>
+              </div>
+              <div class="event-field">
+                <label data-t="field_parents"></label>
+                <span data-t="b2_parents_full"></span>
+              </div>
+              <div class="event-field">
+                <label data-t="field_godparent"></label>
+                <span data-t="b2_godparent"></span>
+              </div>
+            </div>
+            <p class="event-description" data-t="b2_desc"></p>
+          </div>
+        </div>
+      </li>
+
+      <li class="event-list-item" id="b3">
+        <button class="event-trigger" onclick="toggleEvent('b3')">
+          <div class="event-trigger-date">22 Qershor 2025</div>
+          <div>
+            <div class="event-trigger-name" data-t="b3_name"></div>
+            <div class="event-trigger-names" data-t="b3_parents"></div>
+          </div>
+          <svg class="event-trigger-arrow" viewBox="0 0 20 20" fill="none">
+            <path d="M5 7.5L10 12.5L15 7.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </button>
+        <div class="event-detail">
+          <div class="event-photo">🕊️</div>
+          <div class="event-info">
+            <div class="event-tag" data-t="tag_baptism"></div>
+            <h3 class="event-info-title" data-t="b3_name"></h3>
+            <p class="event-info-subtitle" data-t="b3_info_subtitle"></p>
+            <div class="event-divider"></div>
+            <div class="event-info-grid">
+              <div class="event-field">
+                <label data-t="field_date"></label>
+                <span>22 Qershor 2025</span>
+              </div>
+              <div class="event-field">
+                <label data-t="field_officiant"></label>
+                <span data-t="b3_officiant"></span>
+              </div>
+              <div class="event-field">
+                <label data-t="field_parents"></label>
+                <span data-t="b3_parents_full"></span>
+              </div>
+              <div class="event-field">
+                <label data-t="field_godparent"></label>
+                <span data-t="b3_godparent"></span>
+              </div>
+            </div>
+            <p class="event-description" data-t="b3_desc"></p>
+          </div>
+        </div>
+      </li>
+
+    </ul>
+  </div><!-- end baptisms panel -->
+
+  <!-- ── MARRIAGES PANEL ── -->
+  <div class="tab-panel" id="panel-marriages">
+    <div class="section-heading">
+      <span class="ornament">♥</span>
+      <h3 data-t="marriages_heading"></h3>
+      <div class="rule"></div>
+    </div>
+
+    <ul class="event-list" id="marriages-list">
+
+      <li class="event-list-item" id="m1">
+        <button class="event-trigger" onclick="toggleEvent('m1')">
+          <div class="event-trigger-date">2 Shkurt 2025</div>
+          <div>
+            <div class="event-trigger-name" data-t="m1_names"></div>
+            <div class="event-trigger-names" data-t="m1_subtitle"></div>
+          </div>
+          <svg class="event-trigger-arrow" viewBox="0 0 20 20" fill="none">
+            <path d="M5 7.5L10 12.5L15 7.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </button>
+        <div class="event-detail">
+          <div class="event-photo">⛪</div>
+          <div class="event-info">
+            <div class="event-tag" data-t="tag_marriage"></div>
+            <h3 class="event-info-title" data-t="m1_names"></h3>
+            <p class="event-info-subtitle" data-t="m1_subtitle"></p>
+            <div class="event-divider"></div>
+            <div class="event-info-grid">
+              <div class="event-field">
+                <label data-t="field_date"></label>
+                <span>2 Shkurt 2025</span>
+              </div>
+              <div class="event-field">
+                <label data-t="field_officiant"></label>
+                <span data-t="m1_officiant"></span>
+              </div>
+              <div class="event-field">
+                <label data-t="field_witness"></label>
+                <span data-t="m1_witness"></span>
+              </div>
+              <div class="event-field">
+                <label data-t="field_location"></label>
+                <span data-t="field_location_val"></span>
+              </div>
+            </div>
+            <p class="event-description" data-t="m1_desc"></p>
+          </div>
+        </div>
+      </li>
+
+      <li class="event-list-item" id="m2">
+        <button class="event-trigger" onclick="toggleEvent('m2')">
+          <div class="event-trigger-date">17 Maj 2025</div>
+          <div>
+            <div class="event-trigger-name" data-t="m2_names"></div>
+            <div class="event-trigger-names" data-t="m2_subtitle"></div>
+          </div>
+          <svg class="event-trigger-arrow" viewBox="0 0 20 20" fill="none">
+            <path d="M5 7.5L10 12.5L15 7.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </button>
+        <div class="event-detail">
+          <div class="event-photo">⛪</div>
+          <div class="event-info">
+            <div class="event-tag" data-t="tag_marriage"></div>
+            <h3 class="event-info-title" data-t="m2_names"></h3>
+            <p class="event-info-subtitle" data-t="m2_subtitle"></p>
+            <div class="event-divider"></div>
+            <div class="event-info-grid">
+              <div class="event-field">
+                <label data-t="field_date"></label>
+                <span>17 Maj 2025</span>
+              </div>
+              <div class="event-field">
+                <label data-t="field_officiant"></label>
+                <span data-t="m2_officiant"></span>
+              </div>
+              <div class="event-field">
+                <label data-t="field_witness"></label>
+                <span data-t="m2_witness"></span>
+              </div>
+              <div class="event-field">
+                <label data-t="field_location"></label>
+                <span data-t="field_location_val"></span>
+              </div>
+            </div>
+            <p class="event-description" data-t="m2_desc"></p>
+          </div>
+        </div>
+      </li>
+
+      <li class="event-list-item" id="m3">
+        <button class="event-trigger" onclick="toggleEvent('m3')">
+          <div class="event-trigger-date">14 Shtator 2025</div>
+          <div>
+            <div class="event-trigger-name" data-t="m3_names"></div>
+            <div class="event-trigger-names" data-t="m3_subtitle"></div>
+          </div>
+          <svg class="event-trigger-arrow" viewBox="0 0 20 20" fill="none">
+            <path d="M5 7.5L10 12.5L15 7.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </button>
+        <div class="event-detail">
+          <div class="event-photo">⛪</div>
+          <div class="event-info">
+            <div class="event-tag" data-t="tag_marriage"></div>
+            <h3 class="event-info-title" data-t="m3_names"></h3>
+            <p class="event-info-subtitle" data-t="m3_subtitle"></p>
+            <div class="event-divider"></div>
+            <div class="event-info-grid">
+              <div class="event-field">
+                <label data-t="field_date"></label>
+                <span>14 Shtator 2025</span>
+              </div>
+              <div class="event-field">
+                <label data-t="field_officiant"></label>
+                <span data-t="m3_officiant"></span>
+              </div>
+              <div class="event-field">
+                <label data-t="field_witness"></label>
+                <span data-t="m3_witness"></span>
+              </div>
+              <div class="event-field">
+                <label data-t="field_location"></label>
+                <span data-t="field_location_val"></span>
+              </div>
+            </div>
+            <p class="event-description" data-t="m3_desc"></p>
+          </div>
+        </div>
+      </li>
+
+    </ul>
+  </div><!-- end marriages panel -->
+
+</div><!-- end events-main -->
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <a href="index.html" class="church-identity" style="text-decoration:none;">
+        <div class="church-name-block">
+          <h1 data-t="footer_church_name" style="font-family:'Cinzel',serif;font-size:18px;color:var(--gold-light);font-weight:700;letter-spacing:1px;"></h1>
+        </div>
+      </a>
+    </div>
+    <div class="footer-col">
+      <h5 data-t="footer_quick_links"></h5>
+      <ul class="footer-links">
+        <li><a href="index.html" data-t="nav_home"></a></li>
+        <li><a href="index.html#historia" data-t="nav_history"></a></li>
+        <li><a href="index.html#liturgjia" data-t="nav_liturgy"></a></li>
+        <li><a href="index.html#lajme" data-t="nav_news"></a></li>
+        <li><a href="events.html" data-t="nav_events"></a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2026 Kisha "Profeti Ilia" — Korçë</p>
+  </div>
+</footer>
+
+
+<script>
+// ════════════════════════════════════════════════════════════════
+//  TRANSLATIONS — all three languages
+// ════════════════════════════════════════════════════════════════
+const T = {
+
+  // ── Shared UI ──
+  lang_label:        { sq: 'Gjuha',       en: 'Language',   el: 'Γλώσσα' },
+
+  // ── Header  ──
+  header_title:      { sq: 'Kisha "Profeti Ilia"', en: 'Church "Prophet Elijah"', el: 'Ναός «Προφήτης Ηλίας»' },
+
+
+  // ── Page banner ──
+  events_eyebrow:    { sq: 'Kisha Profeti Ilia', en: 'Church Prophet Elijah', el: 'Ναός Προφήτης Ηλίας' },
+  events_title:      { sq: 'Ngjarjet e Kishës',  en: 'Church Events',         el: 'Εκδηλώσεις Ναού' },
+  events_subtitle:   {
+    sq: 'Pagezimet dhe martesat e shënuara në Kishën tonë',
+    en: 'Baptisms and marriages celebrated in our Church',
+    el: 'Βαπτίσεις και γάμοι στον Ναό μας'
+  },
+
+  // ── Tabs ──
+  tab_baptisms:      { sq: 'Pagezimet',   en: 'Baptisms',     el: 'Βαπτίσεις' },
+  tab_marriages:     { sq: 'Kurorëzim',    en: 'Marriages',    el: 'Γάμοι' },
+
+  // ── Section headings ──
+  baptisms_heading:  { sq: 'Pagezimet',   en: 'Baptisms',     el: 'Βαπτίσεις' },
+  marriages_heading: { sq: 'Kurorëzim',    en: 'Marriages',    el: 'Γάμοι' },
+
+  // ── Tags ──
+  tag_baptism:       { sq: 'Pagëzim',     en: 'Baptism',      el: 'Βαπτισμός' },
+  tag_marriage:      { sq: 'Martesë',     en: 'Marriage',     el: 'Γάμος' },
+
+  // ── Field labels ──
+  field_date:        { sq: 'Data',        en: 'Date',         el: 'Ημερομηνία' },
+  field_officiant:   { sq: 'Celebranti',  en: 'Officiant',    el: 'Ιερουργός' },
+  field_parents:     { sq: 'Prindërit',   en: 'Parents',      el: 'Γονείς' },
+  field_godparent:   { sq: 'Kumbarë/e',   en: 'Godparent',    el: 'Νονός/Νονά' },
+  field_witness:     { sq: 'Dëshmitarët', en: 'Witnesses',    el: 'Μάρτυρες' },
+  field_location:    { sq: 'Vendi',       en: 'Location',     el: 'Τόπος' },
+  field_location_val:{ sq: 'Kisha "Profeti Ilia", Korçë', en: 'Church "Prophet Elijah", Korçë', el: 'Ναός «Προφήτης Ηλίας», Κορυτσά' },
+
+  // ════════════════════════════
+  //  BAPTISMS DATA
+  // ════════════════════════════
+
+  b1_name:           { sq: 'Pagëzimi i Gjeorg Dinos',   en: 'Baptism of Gjeorg Dino',    el: 'Βαπτισμός Γεωργίου Ντίνο' },
+  b1_parents:        { sq: 'Fëmijë i: Artan & Elona Dino', en: 'Child of: Artan & Elona Dino', el: 'Τέκνο: Artan & Elona Dino' },
+  b1_info_subtitle:  { sq: 'Sakramenti i Pagëzimit', en: 'Sacrament of Baptism', el: 'Μυστήριο Βαπτίσματος' },
+  b1_officiant:      { sq: 'At. Konstantinos', en: 'Fr. Konstantinos', el: 'π. Κωνσταντίνος' },
+  b1_parents_full:   { sq: 'Artan & Elona Dino', en: 'Artan & Elona Dino', el: 'Artan & Elona Dino' },
+  b1_godparent:      { sq: 'Nikos Papas', en: 'Nikos Papas', el: 'Νίκος Παπάς' },
+  b1_desc:           {
+    sq: 'Gjeorgu u pagëzua në Kishën e Profetit Ilia, duke u bërë pjesëtar i Kishës Orthodhokse. Sakramenti u krye me solemnitet të plotë, i rrethuar nga familja dhe të afërmit.',
+    en: 'Gjeorg was baptized at the Church of Prophet Elijah, becoming a member of the Orthodox Church. The sacrament was performed with full solemnity, surrounded by family and loved ones.',
+    el: 'Ο Γεώργιος βαπτίστηκε στον Ναό του Προφήτη Ηλία, γινόμενος μέλος της Ορθόδοξης Εκκλησίας. Το μυστήριο τελέστηκε με πλήρη επισημότητα, παρουσία της οικογένειας και των οικείων.'
+  },
+
+  b2_name:           { sq: 'Pagëzimi i Maria Koçit',    en: 'Baptism of Maria Koçi',     el: 'Βαπτισμός Μαρίας Κότσι' },
+  b2_parents:        { sq: 'Fëmijë i: Petro & Arta Koçi', en: 'Child of: Petro & Arta Koçi', el: 'Τέκνο: Petro & Arta Koçi' },
+  b2_info_subtitle:  { sq: 'Sakramenti i Pagëzimit', en: 'Sacrament of Baptism', el: 'Μυστήριο Βαπτίσματος' },
+  b2_officiant:      { sq: 'At. Konstantinos', en: 'Fr. Konstantinos', el: 'π. Κωνσταντίνος' },
+  b2_parents_full:   { sq: 'Petro & Arta Koçi', en: 'Petro & Arta Koçi', el: 'Petro & Arta Koçi' },
+  b2_godparent:      { sq: 'Eleni Stefani', en: 'Eleni Stefani', el: 'Ελένη Στεφάνη' },
+  b2_desc:           {
+    sq: 'Maria u mirëprit në gjirin e Kishës Orthodhokse nëpërmjet Sakramentit të Shenjtë të Pagëzimit. Ceremonia u zhvillua me gëzim të madh familjar.',
+    en: 'Maria was welcomed into the Orthodox Church through the Holy Sacrament of Baptism. The ceremony was held with great family joy.',
+    el: 'Η Μαρία καλωσορίστηκε στην Ορθόδοξη Εκκλησία μέσω του Ιερού Μυστηρίου του Βαπτίσματος. Η τελετή πραγματοποιήθηκε με μεγάλη οικογενειακή χαρά.'
+  },
+
+  b3_name:           { sq: 'Pagëzimi i Ilias Muçaj',    en: 'Baptism of Ilias Muçaj',    el: 'Βαπτισμός Ηλία Μουτσάι' },
+  b3_parents:        { sq: 'Fëmijë i: Vasil & Zana Muçaj', en: 'Child of: Vasil & Zana Muçaj', el: 'Τέκνο: Vasil & Zana Muçaj' },
+  b3_info_subtitle:  { sq: 'Sakramenti i Pagëzimit', en: 'Sacrament of Baptism', el: 'Μυστήριο Βαπτίσματος' },
+  b3_officiant:      { sq: 'At. Konstantinos', en: 'Fr. Konstantinos', el: 'π. Κωνσταντίνος' },
+  b3_parents_full:   { sq: 'Vasil & Zana Muçaj', en: 'Vasil & Zana Muçaj', el: 'Vasil & Zana Muçaj' },
+  b3_godparent:      { sq: 'Kristaq Hodo', en: 'Kristaq Hodo', el: 'Κρίσταχ Χόντο' },
+  b3_desc:           {
+    sq: 'Iliasi mori emrin e Profetit Ilia, shenjtë të kishës sonë, duke filluar rrugëtimin e tij shpirtëror brenda Kishës Orthodhokse Autoqefale Shqiptare.',
+    en: 'Ilias received the name of Prophet Elijah, patron saint of our church, beginning his spiritual journey within the Albanian Autocephalous Orthodox Church.',
+    el: 'Ο Ηλίας έλαβε το όνομα του Προφήτη Ηλία, πολιούχου του ναού μας, ξεκινώντας την πνευματική του πορεία στην Αυτοκέφαλη Ορθόδοξη Εκκλησία Αλβανίας.'
+  },
+
+  // ════════════════════════════
+  //  MARRIAGES DATA
+  // ════════════════════════════
+
+  m1_names:          { sq: 'Dhimitri Kosta & Jolanda Gjoka', en: 'Dhimitri Kosta & Jolanda Gjoka', el: 'Δημήτρης Κώστα & Γιολάντα Γκιόκα' },
+  m1_subtitle:       { sq: 'Martesë Orthodhokse', en: 'Orthodox Marriage', el: 'Ορθόδοξος Γάμος' },
+  m1_officiant:      { sq: 'At. Konstantinos', en: 'Fr. Konstantinos', el: 'π. Κωνσταντίνος' },
+  m1_witness:        { sq: 'Aleko & Vera Sina', en: 'Aleko & Vera Sina', el: 'Αλέκος & Βέρα Σίνα' },
+  m1_desc:           {
+    sq: 'Dhimitri dhe Jolanda u bashkuan në Sakramentin e Shenjtë të Martesës para Zotit, duke nisur një jetë të re bashkë në besim dhe dashuri orthodhokse.',
+    en: 'Dhimitri and Jolanda were united in the Holy Sacrament of Marriage before God, beginning a new life together in Orthodox faith and love.',
+    el: 'Ο Δημήτρης και η Γιολάντα ενώθηκαν στο Ιερό Μυστήριο του Γάμου ενώπιον του Θεού, ξεκινώντας μια νέα ζωή μαζί με ορθόδοξη πίστη και αγάπη.'
+  },
+
+  m2_names:          { sq: 'Nikos Papas & Elena Doci', en: 'Nikos Papas & Elena Doci', el: 'Νίκος Παπάς & Ελένη Ντότσι' },
+  m2_subtitle:       { sq: 'Martesë Orthodhokse', en: 'Orthodox Marriage', el: 'Ορθόδοξος Γάμος' },
+  m2_officiant:      { sq: 'At. Konstantinos', en: 'Fr. Konstantinos', el: 'π. Κωνσταντίνος' },
+  m2_witness:        { sq: 'Thoma & Katerina Goro', en: 'Thoma & Katerina Goro', el: 'Θωμάς & Κατερίνα Γκόρο' },
+  m2_desc:           {
+    sq: 'Nikosi dhe Elena u kurorëzuan në kishë me bekimin e Zotit. Ceremonia u zhvillua në festën e Shën Konstantinit dhe Helenës, datë e dashur për çiftin.',
+    en: 'Nikos and Elena were crowned in church with God\'s blessing. The ceremony took place on the feast of Saints Constantine and Helen, a cherished date for the couple.',
+    el: 'Ο Νίκος και η Ελένη στεφανώθηκαν στον ναό με την ευλογία του Θεού. Η τελετή έλαβε χώρα την εορτή των Αγίων Κωνσταντίνου και Ελένης.'
+  },
+
+  m3_names:          { sq: 'Andi Marku & Sofia Tela', en: 'Andi Marku & Sofia Tela', el: 'Άντι Μάρκου & Σοφία Τέλα' },
+  m3_subtitle:       { sq: 'Martesë Orthodhokse', en: 'Orthodox Marriage', el: 'Ορθόδοξος Γάμος' },
+  m3_officiant:      { sq: 'At. Konstantinos', en: 'Fr. Konstantinos', el: 'π. Κωνσταντίνος' },
+  m3_witness:        { sq: 'Grigor & Ana Çapo', en: 'Grigor & Ana Çapo', el: 'Γρηγόρης & Άννα Τσάπο' },
+  m3_desc:           {
+    sq: 'Andi dhe Sofia u bashkuan në martesë në ditën e Ngritjes së Kryqit të Shenjtë, duke e shenjtëruar këtë festë të madhe orthodhokse me dashurinë e tyre.',
+    en: 'Andi and Sofia joined in marriage on the Feast of the Holy Cross, sanctifying this great Orthodox feast with their love.',
+    el: 'Ο Άντι και η Σοφία παντρεύτηκαν την ημέρα της Υψώσεως του Τιμίου Σταυρού, ευλογώντας αυτή τη μεγάλη ορθόδοξη εορτή με την αγάπη τους.'
+  },
+
+  // ── Footer ──
+  footer_church_name:  { sq: 'Kisha "Profeti Ilia"', en: 'Church "Prophet Elijah"', el: 'Ναός «Προφήτης Ηλίας»' },
+  footer_church_desc:  {
+    sq: 'Kisha Orthodhokse Autoqefale e Shqipërisë\nMitropolia e Shenjtë Korçë',
+    en: 'Autocephalous Orthodox Church of Albania\nHoly Metropolis of Korçë',
+    el: 'Αυτοκέφαλη Ορθόδοξη Εκκλησία Αλβανίας\nΙερά Μητρόπολη Κορυτσάς'
+  },
+  footer_quick_links:  { sq: 'Lidhje të Shpejta', en: 'Quick Links', el: 'Γρήγοροι Σύνδεσμοι' },
+  footer_hours_title:  { sq: 'Orari', en: 'Hours', el: 'Ώρες' },
+  footer_hours1:       { sq: 'E Diel: Liturgji 08:00', en: 'Sunday: Liturgy 08:00', el: 'Κυριακή: Λειτουργία 08:00' },
+  footer_hours2:       { sq: 'E Shtunë: Esperino 18:00', en: 'Saturday: Vespers 18:00', el: 'Σάββατο: Εσπερινός 18:00' },
+  footer_hours3:       { sq: 'Festa: sipas kalendarit', en: 'Feasts: per calendar', el: 'Εορτές: κατά ημερολόγιο' },
+  contact_title:       { sq: 'Kontakt', en: 'Contact', el: 'Επικοινωνία' },
+  contact_address:     { sq: 'Rruga Shen Gjini, Korçë', en: 'Shen Gjini Street, Korçë', el: 'Οδός Shen Gjini, Κορυτσά' },
+
+}; // end T
+
+
+// ════════════════════════════════════════════════════════════════
+//  LANGUAGE ENGINE — synced with index.html via localStorage
+// ════════════════════════════════════════════════════════════════
+
+let currentLang = 'sq';
+
+function setLang(lang) {
+  currentLang = lang;
+
+  // Save to localStorage so index.html picks it up too
+  try { localStorage.setItem('churchLang', lang); } catch(e) {}
+
+  // Buttons
+  document.querySelectorAll('.lang-btn').forEach(btn => btn.classList.remove('active'));
+  const activeBtn = document.querySelector(`.lang-btn[onclick="setLang('${lang}')"]`);
+  if (activeBtn) activeBtn.classList.add('active');
+
+  // Label
+  document.getElementById('lang-label-text').textContent = T.lang_label[lang];
+
+  // html lang attr
+  document.documentElement.lang = lang;
+
+  // Render all [data-t] elements
+  document.querySelectorAll('[data-t]').forEach(el => {
+    const key = el.getAttribute('data-t');
+    const entry = T[key];
+    if (!entry) return;
+    const text = entry[lang] || entry['sq'] || '';
+    el.innerHTML = text.replace(/\n/g, '<br>');
+  });
+}
+
+// On load: read language saved by index.html (or default sq)
+(function() {
+  let saved = 'sq';
+  try { saved = localStorage.getItem('churchLang') || 'sq'; } catch(e) {}
+  setLang(saved);
+})();
+
+
+// ════════════════════════════════════════════════════════════════
+//  TAB SWITCHING
+// ════════════════════════════════════════════════════════════════
+
+function switchTab(tab) {
+  document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.events-tab-btn').forEach(b => b.classList.remove('active'));
+  document.getElementById('panel-' + tab).classList.add('active');
+  document.getElementById('tab-' + tab).classList.add('active');
+}
+
+
+// ════════════════════════════════════════════════════════════════
+//  EVENT TOGGLE (expand / collapse)
+// ════════════════════════════════════════════════════════════════
+
+function toggleEvent(id) {
+  const item = document.getElementById(id);
+  const isOpen = item.classList.contains('open');
+
+  // Close all first
+  document.querySelectorAll('.event-list-item.open').forEach(el => el.classList.remove('open'));
+
+  // Open clicked one (unless it was already open)
+  if (!isOpen) {
+    item.classList.add('open');
+    // Smooth scroll so header doesn't hide it
+    setTimeout(() => {
+      item.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    }, 100);
+  }
+}
+</script>
+
+</body>
+</html>
