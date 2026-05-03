@@ -81,11 +81,6 @@
     position: relative;
     overflow: hidden;
   }
-  .page-banner::before {
-    content: '';
-    position: absolute; inset: 0;
-    background: radial-gradient(ellipse 70% 60% at 50% 50%, rgba(201,168,76,0.08) 0%, transparent 70%);
-  }
   .page-banner-arch {
     position: absolute; top: 0; left: 50%; transform: translateX(-50%);
     width: 500px; height: 300px;
@@ -345,7 +340,7 @@
   <div class="page-banner-arch"></div>
   <div class="page-banner-content">
     <div class="page-banner-eyebrow" data-t="events_eyebrow"></div>
-    <h2><span data-t="events_title"></span></h2>
+    <h2 data-t="events_title"></h2>
 
   </div>
 </div>
@@ -508,7 +503,7 @@ const T = {
 
   // ── Page banner ──
   events_eyebrow:    { sq: 'Kisha Profeti Ilia', en: 'Church Prophet Elijah', el: 'Ναός Προφήτης Ηλίας' },
-  events_title:      { sq: 'Ngjarjet e Kishës',  en: 'Church Events',         el: 'Εκδηλώσεις Ναού' },
+  events_title: { sq: 'Eventet', en: 'Events', el: 'Εκδηλώσεις' },
   events_subtitle:   {
     sq: 'Pagezimet dhe martesat e shënuara në Kishën tonë',
     en: 'Baptisms and marriages celebrated in our Church',
