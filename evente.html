@@ -6,7 +6,7 @@
 <title>Evente – Kisha "Profeti Ilia"</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Noto+Sans:wght@300;400;500&display=swap" rel="stylesheet">
-
+ 
 <style>
   :root {
     --gold: #C9A84C;
@@ -25,7 +25,7 @@
     --border: rgba(201,168,76,0.25);
     --shadow: 0 4px 30px rgba(15,14,11,0.15);
   }
-
+ 
   * { margin: 0; padding: 0; box-sizing: border-box; }
   html { scroll-behavior: smooth; }
   body {
@@ -34,9 +34,9 @@
     color: var(--text-dark);
     overflow-x: hidden;
   }
-
+ 
   * { user-select: none; -webkit-user-select: none; }
-
+ 
   /* ─── LANGUAGE BAR ─── */
   .lang-bar { background: var(--deep-blue); padding: 8px 0; }
   .lang-bar .container { display: flex; justify-content: space-between; align-items: center; padding: 0 40px; }
@@ -47,7 +47,7 @@
   .lang-label { font-family: 'Noto Sans', sans-serif; font-size: 11px; font-weight: 500; letter-spacing: 1.5px; text-transform: uppercase; color: #fff; margin-right: 4px; }
   .lang-btn { background: transparent; border: 1px solid rgba(201,168,76,0.4); color: rgba(255,255,255,0.65); padding: 4px 12px; font-family: 'Noto Sans', sans-serif; font-size: 11px; font-weight: 500; letter-spacing: 1.5px; text-transform: uppercase; cursor: pointer; transition: all 0.25s; border-radius: 2px; }
   .lang-btn:hover, .lang-btn.active { background: var(--gold); border-color: var(--gold); color: var(--deep-blue); }
-
+ 
   /* ─── HEADER ─── */
   header { background: var(--deep-blue); position: relative; overflow: hidden; }
   header::before {
@@ -63,7 +63,7 @@
   .cross-icon { width: 52px; height: 52px; flex-shrink: 0; border-radius: 50%; object-fit: cover; }
   .church-name-block h1 { font-family: 'Cinzel', serif; font-size: 22px; font-weight: 700; color: var(--gold-light); letter-spacing: 1px; line-height: 1.2; }
   .church-name-block p { font-family: 'EB Garamond', serif; font-style: italic; font-size: 13.5px; color: rgba(255,255,255,0.5); margin-top: 3px; letter-spacing: 0.5px; }
-
+ 
   /* ─── NAVIGATION ─── */
   nav { background: var(--mid-blue); border-top: 1px solid rgba(201,168,76,0.2); border-bottom: 1px solid rgba(201,168,76,0.2); position: sticky; top: 0; z-index: 100; }
   .nav-inner { display: flex; align-items: center; justify-content: center; padding: 0 40px; gap: 0; flex-wrap: wrap; }
@@ -72,41 +72,15 @@
   .nav-link:hover { color: var(--gold-light); }
   .nav-link:hover::after, .nav-link.active::after { left: 15%; right: 15%; }
   .nav-link.active { color: var(--gold-light); }
-
-  /* ─── PAGE HERO BANNER ─── */
-  .page-banner {
-    background: linear-gradient(170deg, rgba(26,31,60,0.95) 0%, rgba(19,24,58,0.92) 100%);
-    padding: 70px 40px;
-    text-align: center;
-    position: relative;
-    overflow: hidden;
-  }
-  .page-banner-arch {
-    position: absolute; top: 0; left: 50%; transform: translateX(-50%);
-    width: 500px; height: 300px;
-    border: 1px solid rgba(201,168,76,0.08);
-    border-radius: 50% 50% 0 0 / 100% 100% 0 0;
-    pointer-events: none;
-  }
-  .page-banner-content { position: relative; z-index: 1; max-width: 600px; margin: 0 auto; }
-  .page-banner-eyebrow {
-    font-family: 'Noto Sans', sans-serif; font-size: 10px; font-weight: 500;
-    letter-spacing: 4px; text-transform: uppercase; color: var(--gold);
-    margin-bottom: 16px; display: flex; align-items: center; justify-content: center; gap: 12px;
-  }
-  .page-banner-eyebrow::before, .page-banner-eyebrow::after {
-    content: ''; display: block; width: 40px; height: 1px; background: var(--gold); opacity: 0.5;
-  }
-  .page-banner h2 {
-    font-family: 'Cinzel', serif; font-size: clamp(28px, 4vw, 46px); font-weight: 900;
-    color: #fff; line-height: 1.15; margin-bottom: 12px;
-  }
-  .page-banner h2 span { color: var(--gold-light); }
-  .page-banner-sub {
-    font-family: 'EB Garamond', serif; font-style: italic; font-size: 18px;
-    color: rgba(255,255,255,0.5); margin-top: 12px; line-height: 1.6;
-  }
-
+ 
+  /* ─── PAGE TITLE (matching katekizem.html exactly) ─── */
+  .page-title-section { background: var(--deep-blue); padding: 60px 40px 50px; text-align: center; position: relative; overflow: hidden; }
+  .page-title-section::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse 70% 100% at 50% 0%, rgba(201,168,76,0.1) 0%, transparent 70%); pointer-events: none; }
+  .eyebrow { font-family: 'Noto Sans', sans-serif; font-size: 10px; font-weight: 500; letter-spacing: 4px; text-transform: uppercase; color: var(--gold); margin-bottom: 14px; display: flex; align-items: center; justify-content: center; gap: 12px; position: relative; z-index: 1; }
+  .eyebrow::before, .eyebrow::after { content: ''; display: block; width: 40px; height: 1px; background: var(--gold); opacity: 0.5; }
+  .page-title-section h2 { font-family: 'Cinzel', serif; font-size: clamp(32px, 5vw, 52px); font-weight: 900; color: #fff; letter-spacing: 4px; text-transform: uppercase; position: relative; z-index: 1; }
+  .title-line { width: 80px; height: 2px; background: linear-gradient(90deg, transparent, var(--gold), transparent); margin: 18px auto 0; }
+ 
   /* ─── EVENTS TABS ─── */
   .events-tabs-bar {
     background: var(--cream);
@@ -128,18 +102,18 @@
     border-bottom-color: var(--gold);
   }
   .tab-icon { font-size: 18px; }
-
+ 
   /* ─── MAIN EVENTS AREA ─── */
   .events-main { max-width: 1100px; margin: 0 auto; padding: 60px 40px; }
-
+ 
   .tab-panel { display: none; }
   .tab-panel.active { display: block; }
-
+ 
   .section-heading { display: flex; align-items: center; gap: 16px; margin-bottom: 36px; }
   .section-heading h3 { font-family: 'Cinzel', serif; font-size: 18px; font-weight: 700; color: var(--deep-blue); letter-spacing: 1px; white-space: nowrap; }
   .section-heading .rule { flex: 1; height: 1px; background: linear-gradient(90deg, var(--gold) 0%, transparent 100%); }
   .section-heading .ornament { color: var(--gold); font-size: 18px; flex-shrink: 0; }
-
+ 
   /* ─── EVENT LIST LINKS ─── */
   .event-list { list-style: none; margin-bottom: 16px; }
   .event-list-item {
@@ -156,7 +130,7 @@
   }
   .event-list-item:hover::before,
   .event-list-item.open::before { transform: scaleY(1); }
-
+ 
   .event-trigger {
     width: 100%; background: none; border: none; cursor: pointer;
     display: flex; align-items: center; gap: 20px;
@@ -165,7 +139,7 @@
   }
   .event-trigger:hover { background: var(--gold-pale); }
   .event-list-item.open .event-trigger { background: var(--gold-pale); }
-
+ 
   .event-trigger-date {
     font-family: 'Cinzel', serif; font-size: 12px; font-weight: 700;
     color: var(--gold); min-width: 110px; flex-shrink: 0;
@@ -184,7 +158,7 @@
     transition: transform 0.3s;
   }
   .event-list-item.open .event-trigger-arrow { transform: rotate(180deg); }
-
+ 
   /* ─── EVENT DETAIL PANEL ─── */
   .event-detail {
     display: none;
@@ -193,7 +167,7 @@
     background: #fff;
   }
   .event-list-item.open .event-detail { display: flex; gap: 36px; }
-
+ 
   .event-photo {
     width: 320px; flex-shrink: 0;
     background: linear-gradient(135deg, var(--deep-blue), var(--mid-blue));
@@ -204,7 +178,7 @@
     position: relative;
   }
   .event-photo img { width: 100%; height: 100%; object-fit: cover; position: absolute; inset: 0; }
-
+ 
   .event-info { flex: 1; }
   .event-info-title {
     font-family: 'Cinzel', serif; font-size: 20px; font-weight: 700;
@@ -238,7 +212,7 @@
     letter-spacing: 1.5px; text-transform: uppercase;
     padding: 4px 10px; border-radius: 1px; margin-bottom: 16px;
   }
-
+ 
   /* ─── FOOTER ─── */
   footer { background: var(--warm-dark); padding: 60px 0 0; }
   .footer-inner { max-width: 1200px; margin: 0 auto; padding: 0 40px 50px; display: grid; grid-template-columns: 1.5fr 1fr 1fr 1fr; gap: 50px; }
@@ -253,7 +227,7 @@
   .footer-bottom { border-top: 1px solid rgba(255,255,255,0.06); padding: 20px 40px; max-width: 1200px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; }
   .footer-bottom p { font-family: 'Noto Sans', sans-serif; font-size: 11px; color: rgba(255,255,255,0.25); letter-spacing: 0.5px; }
   .footer-bottom .orthodoxy-motto { font-family: 'EB Garamond', serif; font-style: italic; font-size: 13px; color: rgba(201,168,76,0.5); }
-
+ 
   /* ─── BAPTISM RULES ─── */
   .baptism-rules { max-width: 680px; }
   .rule-intro p { font-family: 'EB Garamond', serif; font-size: 17px; line-height: 1.85; color: var(--text-mid); margin-bottom: 36px; font-style: italic; }
@@ -267,7 +241,7 @@
   .rule-list li:last-child { border-bottom: none; }
   .rule-list li::before { content: '›'; color: var(--gold); font-size: 18px; flex-shrink: 0; }
   .rule-note { background: var(--cream); border-left: 3px solid var(--gold); padding: 16px 22px; font-family: 'EB Garamond', serif; font-style: italic; font-size: 15.5px; color: var(--text-light); margin-top: 8px; line-height: 1.7; }
-
+ 
   /* ─── RESPONSIVE ─── */
   @media (max-width: 900px) {
     .footer-inner { grid-template-columns: 1fr 1fr; }
@@ -282,11 +256,11 @@
     .nav-inner { overflow-x: auto; justify-content: flex-start; }
     .lang-bar .container { padding: 0 20px; }
     .header-inner { padding: 20px; }
-    .page-banner { padding: 50px 20px; }
+    .page-title-section { padding: 40px 20px 36px; }
     .events-tabs-bar { gap: 0; }
     .events-tab-btn { padding: 14px 18px; font-size: 10px; }
   }
-
+ 
   /* ─── ANIMATIONS ─── */
   @keyframes fadeInUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
   .event-list-item { animation: fadeInUp 0.5s ease both; }
@@ -298,7 +272,7 @@
 </style>
 </head>
 <body>
-
+ 
 <!-- LANGUAGE BAR -->
 <div class="lang-bar">
   <div class="container">
@@ -324,7 +298,7 @@
     </div>
   </div>
 </div>
-
+ 
 <!-- HEADER -->
 <header>
   <div class="header-inner">
@@ -337,7 +311,7 @@
     </a>
   </div>
 </header>
-
+ 
 <!-- NAVIGATION -->
 <nav>
   <div class="nav-inner">
@@ -348,17 +322,14 @@
     <a href="evente.html" class="nav-link active">Evente</a>
   </div>
 </nav>
-
-<!-- PAGE BANNER -->
-<div class="page-banner">
-  <div class="page-banner-arch"></div>
-  <div class="page-banner-content">
-    <div class="page-banner-eyebrow" data-t="events_eyebrow"></div>
-    <h2 data-t="events_title"></h2>
-
-  </div>
+ 
+<!-- PAGE TITLE (now matching katekizem.html exactly) -->
+<div class="page-title-section">
+  <div class="eyebrow" data-t="events_eyebrow"></div>
+  <h2 data-t="events_title"></h2>
+  <div class="title-line"></div>
 </div>
-
+ 
 <!-- TABS BAR -->
 <div class="events-tabs-bar">
   <button class="events-tab-btn active" onclick="switchTab('baptisms')" id="tab-baptisms">
@@ -370,10 +341,10 @@
     <span data-t="tab_marriages"></span>
   </button>
 </div>
-
+ 
 <!-- EVENTS MAIN -->
 <div class="events-main">
-
+ 
   <!-- ── BAPTISMS PANEL ── -->
   <div class="tab-panel active" id="panel-baptisms">
     <div class="section-heading">
@@ -381,12 +352,12 @@
       <h3 data-t="baptisms_heading"></h3>
       <div class="rule"></div>
     </div>
-
+ 
     <div class="baptism-rules">
       <div class="rule-intro">
         <p>Pagëzimi është Sakramenti i parë dhe themelor i jetës krishterë. Më poshtë gjeni kërkesat dhe sendet e nevojshme për kryerjen e tij.</p>
       </div>
-
+ 
       <div class="rule-block">
         <div class="rule-block-title">
           <span class="rule-icon">✦</span>
@@ -394,7 +365,7 @@
         </div>
         <p class="rule-text">Kumbari duhet të jetë i pagëzuar në Kishën Orthodhokse.</p>
       </div>
-
+ 
       <div class="rule-block">
         <div class="rule-block-title">
           <span class="rule-icon">✦</span>
@@ -409,13 +380,13 @@
           <li>Shapka, rroba banje, niktiko — për personin që do të pagëzohet</li>
         </ul>
       </div>
-
+ 
       <div class="rule-note">
         Për çdo pyetje shtesë rreth ceremonisë, kontaktoni priftin e kishës pas shërbimit ose nëpërmjet emailit.
       </div>
     </div>
   </div><!-- end baptisms panel -->
-
+ 
   <!-- ── MARRIAGES PANEL ── -->
   <div class="tab-panel" id="panel-marriages">
     <div class="section-heading">
@@ -423,12 +394,12 @@
       <h3 data-t="marriages_heading"></h3>
       <div class="rule"></div>
     </div>
-
+ 
     <div class="baptism-rules">
       <div class="rule-intro">
         <p>Kurorëzimi është Sakramenti i Shenjtë i Martesës Orthodhokse. Më poshtë gjeni dokumentet e kërkuara dhe sendet e nevojshme për kryerjen e tij.</p>
       </div>
-
+ 
       <div class="rule-block">
         <div class="rule-block-title">
           <span class="rule-icon">✦</span>
@@ -439,7 +410,7 @@
           <li>Certifikata e Celebrimit</li>
         </ul>
       </div>
-
+ 
       <div class="rule-block">
         <div class="rule-block-title">
           <span class="rule-icon">✦</span>
@@ -447,7 +418,7 @@
         </div>
         <p class="rule-text">Kumbara duhet të jetë e kurorëzuar në Kishën Orthodhokse (nëse është e martuar).</p>
       </div>
-
+ 
       <div class="rule-block">
         <div class="rule-block-title">
           <span class="rule-icon">✦</span>
@@ -461,15 +432,15 @@
           <li>Dy lambadha (2 qirinj)</li>
         </ul>
       </div>
-
+ 
       <div class="rule-note">
         Për çdo pyetje shtesë rreth ceremonisë së kurorëzimit, kontaktoni priftin e kishës pas shërbimit ose nëpërmjet emailit.
       </div>
     </div>
   </div><!-- end marriages panel -->
-
+ 
 </div><!-- end events-main -->
-
+ 
 <!-- FOOTER -->
 <footer>
   <div class="footer-inner">
@@ -496,44 +467,43 @@
     <p>© 2026 Kisha "Profeti Ilia" — Korçë</p>
   </div>
 </footer>
-
-
+ 
+ 
 <script>
 // ════════════════════════════════════════════════════════════════
 //  TRANSLATIONS — all three languages
 // ════════════════════════════════════════════════════════════════
 const T = {
-
+ 
   nav_home:        { sq: 'Kryefaqja',  en: 'Home',      el: 'Αρχική' },
   nav_history:     { sq: 'Historia',   en: 'History',   el: 'Ιστορία' },
   nav_sermons:     { sq: 'Galeria',    en: 'Gallery',   el: 'Γκαλερί' },
   nav_catechism:   { sq: 'Katekizëm', en: 'Catechism', el: 'Κατήχηση' },
   nav_events:      { sq: 'Evente',     en: 'Events',    el: 'Εκδηλώσεις' },
-
+ 
   // ── Shared UI ──
   lang_label:        { sq: 'Gjuha',       en: 'Language',   el: 'Γλώσσα' },
-
+ 
   // ── Header  ──
   header_title:      { sq: 'Kisha "Profeti Ilia" Korçë', en: 'Church "Prophet Elijah"', el: 'Ναός «Προφήτης Ηλίας»' },
-
-
-  // ── Page banner ──
+ 
+  // ── Page title ──
   events_eyebrow:    { sq: 'Kisha Profeti Ilia', en: '"Prophet Elijah" Church Korçë', el: 'Ναός Προφήτης Ηλίας' },
-  events_title: { sq: 'Eventet', en: 'Events', el: 'Εκδηλώσεις' },
-  header_subtitle: { sq: 'Mitropolia e Shenjtë Korçë', en: 'Holy Metropolis of Korçë', el: 'Ιερά Μητρόπολη Κορυτσάς' },
-
+  events_title:      { sq: 'Eventet', en: 'Events', el: 'Εκδηλώσεις' },
+  header_subtitle:   { sq: 'Mitropolia e Shenjtë Korçë', en: 'Holy Metropolis of Korçë', el: 'Ιερά Μητρόπολη Κορυτσάς' },
+ 
   // ── Tabs ──
   tab_baptisms:      { sq: 'Pagezimet',   en: 'Baptisms',     el: 'Βαπτίσεις' },
   tab_marriages:     { sq: 'Kurorëzim',    en: 'Marriages',    el: 'Γάμοι' },
-
+ 
   // ── Section headings ──
   baptisms_heading:  { sq: 'Pagezimet',   en: 'Baptisms',     el: 'Βαπτίσεις' },
   marriages_heading: { sq: 'Kurorëzim',    en: 'Marriages',    el: 'Γάμοι' },
-
+ 
   // ── Tags ──
   tag_baptism:       { sq: 'Pagëzim',     en: 'Baptism',      el: 'Βαπτισμός' },
   tag_marriage:      { sq: 'Martesë',     en: 'Marriage',     el: 'Γάμος' },
-
+ 
   // ── Field labels ──
   field_date:        { sq: 'Data',        en: 'Date',         el: 'Ημερομηνία' },
   field_officiant:   { sq: 'Celebranti',  en: 'Officiant',    el: 'Ιερουργός' },
@@ -542,123 +512,31 @@ const T = {
   field_witness:     { sq: 'Dëshmitarët', en: 'Witnesses',    el: 'Μάρτυρες' },
   field_location:    { sq: 'Vendi',       en: 'Location',     el: 'Τόπος' },
   field_location_val:{ sq: 'Kisha "Profeti Ilia", Korçë', en: 'Church "Prophet Elijah", Korçë', el: 'Ναός «Προφήτης Ηλίας», Κορυτσά' },
-
-  // ════════════════════════════
-  //  BAPTISMS DATA
-  // ════════════════════════════
-
-  b1_name:           { sq: 'Pagëzimi i Gjeorg Dinos',   en: 'Baptism of Gjeorg Dino',    el: 'Βαπτισμός Γεωργίου Ντίνο' },
-  b1_parents:        { sq: 'Fëmijë i: Artan & Elona Dino', en: 'Child of: Artan & Elona Dino', el: 'Τέκνο: Artan & Elona Dino' },
-  b1_info_subtitle:  { sq: 'Sakramenti i Pagëzimit', en: 'Sacrament of Baptism', el: 'Μυστήριο Βαπτίσματος' },
-  b1_officiant:      { sq: 'At. Konstantinos', en: 'Fr. Konstantinos', el: 'π. Κωνσταντίνος' },
-  b1_parents_full:   { sq: 'Artan & Elona Dino', en: 'Artan & Elona Dino', el: 'Artan & Elona Dino' },
-  b1_godparent:      { sq: 'Nikos Papas', en: 'Nikos Papas', el: 'Νίκος Παπάς' },
-  b1_desc:           {
-    sq: 'Gjeorgu u pagëzua në Kishën e Profetit Ilia, duke u bërë pjesëtar i Kishës Orthodhokse. Sakramenti u krye me solemnitet të plotë, i rrethuar nga familja dhe të afërmit.',
-    en: 'Gjeorg was baptized at the Church of Prophet Elijah, becoming a member of the Orthodox Church. The sacrament was performed with full solemnity, surrounded by family and loved ones.',
-    el: 'Ο Γεώργιος βαπτίστηκε στον Ναό του Προφήτη Ηλία, γινόμενος μέλος της Ορθόδοξης Εκκλησίας. Το μυστήριο τελέστηκε με πλήρη επισημότητα, παρουσία της οικογένειας και των οικείων.'
-  },
-
-  b2_name:           { sq: 'Pagëzimi i Maria Koçit',    en: 'Baptism of Maria Koçi',     el: 'Βαπτισμός Μαρίας Κότσι' },
-  b2_parents:        { sq: 'Fëmijë i: Petro & Arta Koçi', en: 'Child of: Petro & Arta Koçi', el: 'Τέκνο: Petro & Arta Koçi' },
-  b2_info_subtitle:  { sq: 'Sakramenti i Pagëzimit', en: 'Sacrament of Baptism', el: 'Μυστήριο Βαπτίσματος' },
-  b2_officiant:      { sq: 'At. Konstantinos', en: 'Fr. Konstantinos', el: 'π. Κωνσταντίνος' },
-  b2_parents_full:   { sq: 'Petro & Arta Koçi', en: 'Petro & Arta Koçi', el: 'Petro & Arta Koçi' },
-  b2_godparent:      { sq: 'Eleni Stefani', en: 'Eleni Stefani', el: 'Ελένη Στεφάνη' },
-  b2_desc:           {
-    sq: 'Maria u mirëprit në gjirin e Kishës Orthodhokse nëpërmjet Sakramentit të Shenjtë të Pagëzimit. Ceremonia u zhvillua me gëzim të madh familjar.',
-    en: 'Maria was welcomed into the Orthodox Church through the Holy Sacrament of Baptism. The ceremony was held with great family joy.',
-    el: 'Η Μαρία καλωσορίστηκε στην Ορθόδοξη Εκκλησία μέσω του Ιερού Μυστηρίου του Βαπτίσματος. Η τελετή πραγματοποιήθηκε με μεγάλη οικογενειακή χαρά.'
-  },
-
-  b3_name:           { sq: 'Pagëzimi i Ilias Muçaj',    en: 'Baptism of Ilias Muçaj',    el: 'Βαπτισμός Ηλία Μουτσάι' },
-  b3_parents:        { sq: 'Fëmijë i: Vasil & Zana Muçaj', en: 'Child of: Vasil & Zana Muçaj', el: 'Τέκνο: Vasil & Zana Muçaj' },
-  b3_info_subtitle:  { sq: 'Sakramenti i Pagëzimit', en: 'Sacrament of Baptism', el: 'Μυστήριο Βαπτίσματος' },
-  b3_officiant:      { sq: 'At. Konstantinos', en: 'Fr. Konstantinos', el: 'π. Κωνσταντίνος' },
-  b3_parents_full:   { sq: 'Vasil & Zana Muçaj', en: 'Vasil & Zana Muçaj', el: 'Vasil & Zana Muçaj' },
-  b3_godparent:      { sq: 'Kristaq Hodo', en: 'Kristaq Hodo', el: 'Κρίσταχ Χόντο' },
-  b3_desc:           {
-    sq: 'Iliasi mori emrin e Profetit Ilia, shenjtë të kishës sonë, duke filluar rrugëtimin e tij shpirtëror brenda Kishës Orthodhokse Autoqefale Shqiptare.',
-    en: 'Ilias received the name of Prophet Elijah, patron saint of our church, beginning his spiritual journey within the Albanian Autocephalous Orthodox Church.',
-    el: 'Ο Ηλίας έλαβε το όνομα του Προφήτη Ηλία, πολιούχου του ναού μας, ξεκινώντας την πνευματική του πορεία στην Αυτοκέφαλη Ορθόδοξη Εκκλησία Αλβανίας.'
-  },
-
-  // ════════════════════════════
-  //  MARRIAGES DATA
-  // ════════════════════════════
-
-  m1_names:          { sq: 'Dhimitri Kosta & Jolanda Gjoka', en: 'Dhimitri Kosta & Jolanda Gjoka', el: 'Δημήτρης Κώστα & Γιολάντα Γκιόκα' },
-  m1_subtitle:       { sq: 'Martesë Orthodhokse', en: 'Orthodox Marriage', el: 'Ορθόδοξος Γάμος' },
-  m1_officiant:      { sq: 'At. Konstantinos', en: 'Fr. Konstantinos', el: 'π. Κωνσταντίνος' },
-  m1_witness:        { sq: 'Aleko & Vera Sina', en: 'Aleko & Vera Sina', el: 'Αλέκος & Βέρα Σίνα' },
-  m1_desc:           {
-    sq: 'Dhimitri dhe Jolanda u bashkuan në Sakramentin e Shenjtë të Martesës para Zotit, duke nisur një jetë të re bashkë në besim dhe dashuri orthodhokse.',
-    en: 'Dhimitri and Jolanda were united in the Holy Sacrament of Marriage before God, beginning a new life together in Orthodox faith and love.',
-    el: 'Ο Δημήτρης και η Γιολάντα ενώθηκαν στο Ιερό Μυστήριο του Γάμου ενώπιον του Θεού, ξεκινώντας μια νέα ζωή μαζί με ορθόδοξη πίστη και αγάπη.'
-  },
-
-  m2_names:          { sq: 'Nikos Papas & Elena Doci', en: 'Nikos Papas & Elena Doci', el: 'Νίκος Παπάς & Ελένη Ντότσι' },
-  m2_subtitle:       { sq: 'Martesë Orthodhokse', en: 'Orthodox Marriage', el: 'Ορθόδοξος Γάμος' },
-  m2_officiant:      { sq: 'At. Konstantinos', en: 'Fr. Konstantinos', el: 'π. Κωνσταντίνος' },
-  m2_witness:        { sq: 'Thoma & Katerina Goro', en: 'Thoma & Katerina Goro', el: 'Θωμάς & Κατερίνα Γκόρο' },
-  m2_desc:           {
-    sq: 'Nikosi dhe Elena u kurorëzuan në kishë me bekimin e Zotit. Ceremonia u zhvillua në festën e Shën Konstantinit dhe Helenës, datë e dashur për çiftin.',
-    en: 'Nikos and Elena were crowned in church with God\'s blessing. The ceremony took place on the feast of Saints Constantine and Helen, a cherished date for the couple.',
-    el: 'Ο Νίκος και η Ελένη στεφανώθηκαν στον ναό με την ευλογία του Θεού. Η τελετή έλαβε χώρα την εορτή των Αγίων Κωνσταντίνου και Ελένης.'
-  },
-
-  m3_names:          { sq: 'Andi Marku & Sofia Tela', en: 'Andi Marku & Sofia Tela', el: 'Άντι Μάρκου & Σοφία Τέλα' },
-  m3_subtitle:       { sq: 'Martesë Orthodhokse', en: 'Orthodox Marriage', el: 'Ορθόδοξος Γάμος' },
-  m3_officiant:      { sq: 'At. Konstantinos', en: 'Fr. Konstantinos', el: 'π. Κωνσταντίνος' },
-  m3_witness:        { sq: 'Grigor & Ana Çapo', en: 'Grigor & Ana Çapo', el: 'Γρηγόρης & Άννα Τσάπο' },
-  m3_desc:           {
-    sq: 'Andi dhe Sofia u bashkuan në martesë në ditën e Ngritjes së Kryqit të Shenjtë, duke e shenjtëruar këtë festë të madhe orthodhokse me dashurinë e tyre.',
-    en: 'Andi and Sofia joined in marriage on the Feast of the Holy Cross, sanctifying this great Orthodox feast with their love.',
-    el: 'Ο Άντι και η Σοφία παντρεύτηκαν την ημέρα της Υψώσεως του Τιμίου Σταυρού, ευλογώντας αυτή τη μεγάλη ορθόδοξη εορτή με την αγάπη τους.'
-  },
-
+ 
   // ── Footer ──
   footer_church_name:  { sq: 'Kisha "Profeti Ilia"', en: 'Church "Prophet Elijah"', el: 'Ναός «Προφήτης Ηλίας»' },
-  footer_church_desc:  {
-    sq: 'Kisha Orthodhokse Autoqefale e Shqipërisë\nMitropolia e Shenjtë Korçë',
-    en: 'Autocephalous Orthodox Church of Albania\nHoly Metropolis of Korçë',
-    el: 'Αυτοκέφαλη Ορθόδοξη Εκκλησία Αλβανίας\nΙερά Μητρόπολη Κορυτσάς'
-  },
   footer_quick_links:  { sq: 'Lidhje të Shpejta', en: 'Quick Links', el: 'Γρήγοροι Σύνδεσμοι' },
-  footer_hours_title:  { sq: 'Orari', en: 'Hours', el: 'Ώρες' },
-  footer_hours1:       { sq: 'E Diel: Liturgji 08:00', en: 'Sunday: Liturgy 08:00', el: 'Κυριακή: Λειτουργία 08:00' },
-  footer_hours2:       { sq: 'E Shtunë: Esperino 18:00', en: 'Saturday: Vespers 18:00', el: 'Σάββατο: Εσπερινός 18:00' },
-  footer_hours3:       { sq: 'Festa: sipas kalendarit', en: 'Feasts: per calendar', el: 'Εορτές: κατά ημερολόγιο' },
-  contact_title:       { sq: 'Kontakt', en: 'Contact', el: 'Επικοινωνία' },
-  contact_address:     { sq: 'Rruga Shen Gjini, Korçë', en: 'Shen Gjini Street, Korçë', el: 'Οδός Shen Gjini, Κορυτσά' },
-
+ 
 }; // end T
-
-
+ 
+ 
 // ════════════════════════════════════════════════════════════════
-//  LANGUAGE ENGINE — synced with index.html via localStorage
+//  LANGUAGE ENGINE
 // ════════════════════════════════════════════════════════════════
-
+ 
 let currentLang = 'sq';
-
+ 
 function setLang(lang) {
   currentLang = lang;
-
-  // Save to localStorage so index.html picks it up too
   try { localStorage.setItem('churchLang', lang); } catch(e) {}
-
-  // Buttons
+ 
   document.querySelectorAll('.lang-btn').forEach(btn => btn.classList.remove('active'));
   const activeBtn = document.querySelector(`.lang-btn[onclick="setLang('${lang}')"]`);
   if (activeBtn) activeBtn.classList.add('active');
-
-  // Label
+ 
   document.getElementById('lang-label-text').textContent = T.lang_label[lang];
-
-  // html lang attr
   document.documentElement.lang = lang;
-
-  // Render all [data-t] elements
+ 
   document.querySelectorAll('[data-t]').forEach(el => {
     const key = el.getAttribute('data-t');
     const entry = T[key];
@@ -667,48 +545,42 @@ function setLang(lang) {
     el.innerHTML = text.replace(/\n/g, '<br>');
   });
 }
-
-// On load: read language saved by index.html (or default sq)
+ 
 (function() {
   let saved = 'sq';
   try { saved = localStorage.getItem('churchLang') || 'sq'; } catch(e) {}
   setLang(saved);
 })();
-
-
+ 
+ 
 // ════════════════════════════════════════════════════════════════
 //  TAB SWITCHING
 // ════════════════════════════════════════════════════════════════
-
+ 
 function switchTab(tab) {
   document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
   document.querySelectorAll('.events-tab-btn').forEach(b => b.classList.remove('active'));
   document.getElementById('panel-' + tab).classList.add('active');
   document.getElementById('tab-' + tab).classList.add('active');
 }
-
-
+ 
+ 
 // ════════════════════════════════════════════════════════════════
 //  EVENT TOGGLE (expand / collapse)
 // ════════════════════════════════════════════════════════════════
-
+ 
 function toggleEvent(id) {
   const item = document.getElementById(id);
   const isOpen = item.classList.contains('open');
-
-  // Close all first
   document.querySelectorAll('.event-list-item.open').forEach(el => el.classList.remove('open'));
-
-  // Open clicked one (unless it was already open)
   if (!isOpen) {
     item.classList.add('open');
-    // Smooth scroll so header doesn't hide it
     setTimeout(() => {
       item.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
     }, 100);
   }
 }
 </script>
-
+ 
 </body>
 </html>
