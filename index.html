@@ -121,6 +121,23 @@
   .footer-bottom p { font-family: 'Noto Sans', sans-serif; font-size: 11px; color: rgba(255,255,255,0.25); letter-spacing: 0.5px; }
   .footer-bottom .orthodoxy-motto { font-family: 'EB Garamond', serif; font-style: italic; font-size: 13px; color: rgba(201,168,76,0.5); }
 
+/* ─── FOOTER INSTAGRAM LINK ─── */
+.footer-bottom {
+  border-top: 1px solid rgba(255,255,255,0.06);
+  padding: 20px 40px;
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+  .footer-bottom p { font-family: 'Noto Sans', sans-serif; font-size: 11px; color: rgba(255,255,255,0.25); letter-spacing: 0.5px; margin: 0; display: flex; align-items: center; gap: 8px; }
+  .footer-instagram { display: inline-flex; align-items: center; text-decoration: none; transition: opacity 0.25s; margin-left: 5px; }
+  .footer-instagram svg { width: 16px; height: 16px; }
+  .footer-instagram:hover { opacity: 0.7; }
+ 
   /* ─── RESPONSIVE ─── */
 @media (max-width: 900px) {
   .history-inner { grid-template-columns: 1fr; gap: 30px; }
@@ -148,14 +165,8 @@
   .history-inner { direction: ltr !important; }
   .history-text h3 { font-size: 22px; }
   .history-text p { font-size: 15px; }
-  @media (max-width: 600px) {
-  .history-stats { grid-template-columns: repeat(3, 1fr); gap: 12px;}
+  .history-stats { grid-template-columns: repeat(3, 1fr); gap: 12px; }
   .stat-box .num { font-size: 26px; }
-  .categories-grid { grid-template-columns: 1fr 1fr; gap: 12px; }
-  .cat-card { padding: 18px 12px; }
-  .cat-icon { font-size: 28px; }
-  .cat-card h4 { font-size: 11px; }
-  .cat-card p { font-size: 12px; }
   .footer-inner { grid-template-columns: 1fr; gap: 30px; padding: 0 20px 40px; }
   .footer-bottom { padding: 16px 20px; }
   .footer-bottom p { font-size: 10px; }
