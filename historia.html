@@ -126,7 +126,7 @@
   @media (max-width: 900px) {
     .footer-inner { grid-template-columns: 1fr 1fr; }
     .header-inner { flex-direction: column; gap: 16px; text-align: center; }
-    .nav-inner { justify-content: center; padding: 0 20px; }
+    .nav-inner { overflow-x: auto; justify-content: flex-start; padding: 0 20px; }
   }
  
   @media (max-width: 600px) {
@@ -136,7 +136,6 @@
     .header-inner { padding: 20px; flex-direction: column; gap: 16px; text-align: center; }
     .church-name-block h1 { font-size: 16px; }
     .church-name-block p { font-size: 12px; }
-    .nav-inner { overflow-x: auto; justify-content: flex-start; padding: 0 16px; }
     .nav-link { font-size: 10px; padding: 14px 12px; letter-spacing: 1px; }
     .page-title-section { padding: 40px 20px 36px; }
     .page-title-section h2 { font-size: 28px; letter-spacing: 2px; }
@@ -153,8 +152,6 @@
   }
  
   @media (max-width: 380px) {
-    .nav-inner { justify-content: center; padding: 0 16px; }
-    .nav-link { font-size: 9px; padding: 14px 6px; letter-spacing: 0.5px; }
     .church-name-block h1 { font-size: 14px; }
     .page-title-section h2 { font-size: 22px; }
   }
