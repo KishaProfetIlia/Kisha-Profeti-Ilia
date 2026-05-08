@@ -169,7 +169,7 @@
   footer { background: var(--warm-dark); padding: 60px 0 0; }
   .footer-inner { max-width: 1200px; margin: 0 auto; padding: 0 40px 50px; display: grid; grid-template-columns: 1.5fr 1fr 1fr 1fr; gap: 50px; }
   .footer-brand .church-name-block h1 { font-size: 18px; }
-  ..footer-brand p { font-family: 'EB Garamond', serif; font-style: italic; font-size: 13.5px; color: rgba(255,255,255,0.5); margin-top: 3px; line-height: 1.7; }
+  .footer-brand p { font-family: 'EB Garamond', serif; font-style: italic; font-size: 13.5px; color: rgba(255,255,255,0.5); margin-top: 3px; line-height: 1.7; }
   .footer-col h5 { font-family: 'Cinzel', serif; font-size: 11px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--gold); margin-bottom: 18px; padding-bottom: 10px; border-bottom: 1px solid rgba(201,168,76,0.2); }
   .footer-links { list-style: none; }
   .footer-links li { padding: 6px 0; font-family: 'EB Garamond', serif; font-size: 15px; color: rgba(255,255,255,0.45); }
@@ -461,11 +461,6 @@ const T = {
     en: 'History',
     el: 'Ιστορία'
   },
-  nav_news: {
-    sq: 'Lajme',
-    en: 'News',
-    el: 'Νέα'
-  },
   nav_gallery: { 
     sq: "Galeria",
     en: "Gallery", 
@@ -503,147 +498,12 @@ const T = {
     el: 'Γνωρίστε την Εκκλησία μας'
   },
 
-  // ── Ticker ──
-  ticker_label: {
-    sq: 'Njoftime',
-    en: 'Announcements',
-    el: 'Ανακοινώσεις'
-  },
   ticker_text: {
     sq: '✦ E Diel: Shërbesa Hyjnore në orën 08:00 &nbsp;&nbsp;&nbsp; ✦ Profeti Ilia – 20 Korrik: Festa e Kishës sonë &nbsp;&nbsp;&nbsp; ✦ Rënie nëpërmjet kujdesit dhe lutjes &nbsp;&nbsp;&nbsp; ✦ Krishti u Ngjall! – Vërtet u Ngjall!',
     en: '✦ Sunday: Divine Liturgy at 08:00 &nbsp;&nbsp;&nbsp; ✦ Prophet Elijah – July 20: Feast Day of Our Church &nbsp;&nbsp;&nbsp; ✦ Christ is Risen! Truly He is Risen!',
     el: '✦ Κυριακή: Θεία Λειτουργία στις 08:00 &nbsp;&nbsp;&nbsp; ✦ Προφήτης Ηλίας – 20 Ιουλίου: Πανήγυρη της Εκκλησίας μας &nbsp;&nbsp;&nbsp; ✦ Χριστός Ανέστη! Αληθώς Ανέστη!'
   },
-
-  // ── News section ──
-  news_heading: {
-    sq: 'Lajmet e Fundit',
-    en: 'Latest News',
-    el: 'Τελευταία Νέα'
-  },
-  read_more: {
-    sq: 'Lexo më shumë',
-    en: 'Read more',
-    el: 'Περισσότερα'
-  },
-  read_short: {
-    sq: 'Lexo',
-    en: 'Read',
-    el: 'Διαβάστε'
-  },
-
-  // ── Post 1 (Featured) ──
-  post1_tag: {
-    sq: 'Festa',
-    en: 'Feast',
-    el: 'Πανήγυρη'
-  },
-  post1_title: {
-    sq: 'Festa e Madhe e Profetit Ilia – Kryefesta e Kishës sonë',
-    en: 'The Great Feast of Prophet Elijah – Patronal Feast of Our Church',
-    el: 'Η Μεγάλη Πανήγυρη του Προφήτη Ηλία – Εορτή του Ναού μας'
-  },
-  post1_excerpt: {
-    sq: 'Kisha jonë kremtoi me shumë nderim dhe gëzim shpirtëror festën e Profetit të madh Ilia Thesvitit. Gjatë shërbimit të Agrypnisë mbrëmë dhe Liturgjisë Hyjnore ditën e festës u tubuan besimtarë të shumtë nga e gjithë Korça.',
-    en: 'Our church celebrated with great reverence and spiritual joy the feast of the great Prophet Elijah the Tishbite. During the All-Night Vigil and the Divine Liturgy on the feast day, many faithful gathered from throughout Korçë.',
-    el: 'Η εκκλησία μας γιόρτασε με μεγάλη κατάνυξη και πνευματική χαρά την εορτή του μεγάλου Προφήτη Ηλία του Θεσβίτη. Κατά την Αγρυπνία και τη Θεία Λειτουργία συγκεντρώθηκαν πολλοί πιστοί από όλη την Κορυτσά.'
-  },
-
-  // ── Post 2 ──
-  post2_tag: {
-    sq: 'Liturgji',
-    en: 'Liturgy',
-    el: 'Λειτουργία'
-  },
-  post2_title: {
-    sq: 'Pashkë 2026 – Krishti u Ngjall!',
-    en: 'Easter 2026 – Christ is Risen!',
-    el: 'Πάσχα 2026 – Χριστός Ανέστη!'
-  },
-  post2_excerpt: {
-    sq: 'Kremtimi i Pashkës në kishën tonë me Shërbimin e Agrypnisë Pashkore dhe Liturgjinë Hyjnore të mëngjesit.',
-    en: 'Easter celebrations at our church with the Paschal All-Night Vigil and the Divine Liturgy in the morning.',
-    el: 'Ο εορτασμός του Πάσχα στην εκκλησία μας με την Αγρυπνία και τη Θεία Λειτουργία.'
-  },
-
-  // ── Post 3 ──
-  post3_tag: {
-    sq: 'Predikim',
-    en: 'Sermon',
-    el: 'Κήρυγμα'
-  },
-  post3_title: {
-    sq: 'Predikimi i së Dielës – "Besimi dhe Jeta"',
-    en: 'Sunday Sermon – "Faith and Life"',
-    el: 'Κήρυγμα Κυριακής – «Πίστη και Ζωή»'
-  },
-  post3_excerpt: {
-    sq: 'Predikimi i kryepriftit tonë gjatë Shërbimit Hyjnor të kësaj të diele mbi besimin e vërtetë ortodoks dhe jetën shpirtërore.',
-    en: 'Sermon delivered by our head priest during this Sunday\'s Divine Service on true Orthodox faith and spiritual life.',
-    el: 'Κήρυγμα που εκφωνήθηκε κατά τη Θεία Λειτουργία για την ορθόδοξη πίστη και την πνευματική ζωή.'
-  },
-
-  // ── Sidebar: Saint of the day ──
-  saint_label: {
-    sq: 'Shenjti i Ditës',
-    en: 'Saint of the Day',
-    el: 'Άγιος της Ημέρας'
-  },
-  saint_name: {
-    sq: 'Shën Marku Evangelisti',
-    en: 'St. Mark the Evangelist',
-    el: 'Άγιος Μάρκος ο Ευαγγελιστής'
-  },
-
-  // ── Sidebar: Schedule ──
-  schedule_title: {
-    sq: 'Orari i Shërbimeve',
-    en: 'Service Schedule',
-    el: 'Πρόγραμμα Ακολουθιών'
-  },
-  schedule1_name: {
-    sq: 'Liturgjia Hyjnore',
-    en: 'Divine Liturgy',
-    el: 'Θεία Λειτουργία'
-  },
-  schedule1_days: {
-    sq: 'Të dielave dhe ditëve të festave',
-    en: 'Sundays and feast days',
-    el: 'Κυριακές και εορτές'
-  },
-  schedule2_name: {
-    sq: 'Lutja e Mbrëmjes (Esperino)',
-    en: 'Evening Prayer (Vespers)',
-    el: 'Εσπερινός'
-  },
-  schedule2_days: {
-    sq: 'Çdo të shtunë dhe para festave',
-    en: 'Every Saturday and before feasts',
-    el: 'Κάθε Σάββατο και παραμονή εορτών'
-  },
-  schedule3_name: {
-    sq: 'Orthros (Mëngjesore)',
-    en: 'Orthros (Matins)',
-    el: 'Όρθρος'
-  },
-  schedule3_days: {
-    sq: 'Para Liturgjisë Hyjnore',
-    en: 'Before Divine Liturgy',
-    el: 'Πριν τη Θεία Λειτουργία'
-  },
-
-  // ── Sidebar: Contact ──
-  contact_title: {
-    sq: 'Kontakt & Adresa',
-    en: 'Contact & Address',
-    el: 'Επικοινωνία & Διεύθυνση'
-  },
-  contact_address: {
-    sq: 'Rruga "Profeti Ilia", Korçë, Shqipëri',
-    en: 'Profeti Ilia Street, Korçë, Albania',
-    el: 'Οδός «Προφήτης Ηλίας», Κορυτσά, Αλβανία'
-  },
-
+  
   // ── Prophet section ──
   prophet_section_title: { sq: 'Profeti Ilia',       en: 'Prophet Elijah',     el: 'Προφήτης Ηλίας' },
   prophet_eyebrow:       { sq: 'Profeti i Madh',      en: 'The Great Prophet',  el: 'Ο Μέγας Προφήτης' },
