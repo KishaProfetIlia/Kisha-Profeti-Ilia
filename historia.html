@@ -45,7 +45,7 @@
   .church-identity { display:flex; align-items:center; gap:20px; }
   .cross-icon { width:52px; height:52px; flex-shrink:0; border-radius:50%; object-fit:cover; }
   .church-name-block h1 { font-family:'Cinzel',serif; font-size:22px; font-weight:700; color:var(--gold-light); letter-spacing:1px; line-height:1.2; }
-  .church-name-block p { font-family:'EB Garamond',serif; font-style:italic; font-size:13.5px; color:rgba(255,255,255,.5); margin-top:3px; }
+  .church-name-block p { font-family:'EB Garamond',serif; font-style:italic; font-size:13.5px; color:rgba(255,255,255,.5); margin-top:3px; letter-spacing:0.5px; }
  
   /* NAV */
   nav { background:var(--mid-blue); border-top:1px solid rgba(201,168,76,.2); border-bottom:1px solid rgba(201,168,76,.2); position:sticky; top:0; z-index:100; }
@@ -295,11 +295,13 @@
     <div class="footer-brand">
       <div class="church-identity">
         <img class="cross-icon" src="Assets/logo.png" alt="Kisha Profeti Ilia">
-        <div class="church-name-block">
-          <h1 data-t="footer_church_name"></h1>
-          <p data-t="header_subtitle"></p>
-        </div>
-      </div>
+        <a href="index.html" class="church-identity" style="text-decoration:none;">
+          <img class="cross-icon" src="Assets/logo.png" alt="Kisha Profeti Ilia">
+          <div class="church-name-block">
+            <h1 style="font-family:'Cinzel',serif;font-size:18px;color:var(--gold-light);font-weight:700;letter-spacing:1px;">Kisha "Profeti Ilia"</h1>
+            <p>Mitropolia e Shenjtë Korçë</p>
+          </div>
+        </a>
     </div>
     <div class="footer-col">
       <h5 data-t="footer_quick_links"></h5>
