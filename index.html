@@ -145,10 +145,16 @@
   .stat-box:hover { background: rgba(201,168,76,0.07); }
   .stat-box .num { font-family: 'Cinzel', serif; font-size: 36px; font-weight: 900; color: var(--gold-light); display: block; margin-bottom: 4px; }
   .stat-box .lbl { font-family: 'Noto Sans', sans-serif; font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: rgba(255,255,255,0.4); }
-  .history-img-frame { width: 100%; aspect-ratio: 10/16; background: linear-gradient(135deg, var(--mid-blue), #0A0D1E); border: 1px solid rgba(201,168,76,0.2); display: flex; align-items: center; justify-content: center; font-size: 80px; color: rgba(201,168,76,0.1); position: relative; }
+  .history-img-frame { width: 100%; aspect-ratio: 16/10; background: linear-gradient(135deg, var(--mid-blue), #0A0D1E); border: 1px solid rgba(201,168,76,0.2); display: flex; align-items: center; justify-content: center; font-size: 80px; color: rgba(201,168,76,0.1); position: relative; }
   .history-img-frame::before { content: ''; position: absolute; top: -12px; right: -12px; width: 100%; height: 100%; border: 1px solid rgba(201,168,76,0.12); pointer-events: none; }
   .history-img-frame img { width: 100%; height: 100%; object-fit: cover; object-position: center center; }
 
+
+
+  .history-main-image { aspect-ratio: 16/9; }
+  .history-main-image img { object-fit: cover; object-position: center; }
+
+  
   /* ─── CATEGORIES ─── */
   .categories-strip { background: var(--cream); padding: 60px 0; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
   .categories-strip-inner { max-width: 1200px; margin: 0 auto; padding: 0 40px; }
@@ -211,6 +217,9 @@
   .history-stats { grid-template-columns: 1fr 1fr; gap: 12px; }
   .stat-box .num { font-size: 26px; }
   .history-img-frame img { object-position: center 25%; }
+
+  .history-main-image { aspect-ratio: 16/10; }
+  
   .categories-grid { grid-template-columns: 1fr 1fr; gap: 12px; }
   .cat-card { padding: 18px 12px; }
   .cat-icon { font-size: 28px; }
@@ -373,7 +382,7 @@
       </div>
     </div>
     <div class="history-image-area">
-      <div class="history-img-frame">
+      <div class="history-img-frame history-main-image">
         <img src="Assets/kisha_main2.jpg" alt="Profeti Ilia">
       </div>
     </div>
