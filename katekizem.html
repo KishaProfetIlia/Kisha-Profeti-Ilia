@@ -121,66 +121,39 @@
   .footer-bottom { border-top:1px solid rgba(255,255,255,.06); padding:20px 40px; max-width:1200px; margin:0 auto; }
   .footer-bottom p { font-family:'Noto Sans',sans-serif; font-size:11px; color:rgba(255,255,255,.25); letter-spacing:.5px; }
 
-/* ─── RESPONSIVE ─── */
+/* RESPONSIVE */
 
-@media (max-width: 900px) {
-  .header-inner { flex-direction: column; gap: 16px; text-align: center;}
-  .nav-inner { overflow-x: auto; justify-content: flex-start; padding: 0 20px; flex-wrap: nowrap; }
-  .footer-inner { grid-template-columns: 1fr; gap: 30px; }
-  .photos-grid { grid-template-columns: 1fr 1fr; }
-  .history-body,
-  .photos-section { padding-left: 24px; padding-right: 24px; }
+@media (max-width:900px) {
+.header-inner { flex-direction: column; gap: 16px; text-align: center; }
+.nav-inner { justify-content: flex-start; padding: 0 20px; }
+.footer-inner { grid-template-columns: 1fr; }
+.photos-grid { grid-template-columns: 1fr 1fr; }
 }
 
-@media (max-width: 600px) {
-  /* LANG BAR */
-  .lang-bar .container { padding: 0 16px; }
-  .lang-bar-left { gap: 6px; }
-  .icon-link svg { width: 18px; height: 18px;}
-
-  /* HEADER */
-  .header-inner { padding: 20px; }
-  .church-name-block h1 { font-size: 16px; }
-  .church-name-block p { font-size: 12px; }
-
-  /* NAV */
-  .nav-link { font-size: 10px; padding: 14px 12px; letter-spacing: 1px; }
-
-  /* PAGE TITLE */
-  .page-title-section { padding: 50px 20px 40px; }
-  .page-title-section h2 { font-size: 28px; letter-spacing: 2px; }
-  .eyebrow { font-size: 9px; letter-spacing: 3px; gap: 8px; }
-  .eyebrow::before,
-  .eyebrow::after { width: 24px; }
-
-  /* BODY */
-  .history-body { padding: 50px 20px; }
-  .chapter { margin-bottom: 42px; }
-  .chapter-title { font-size: 15px; gap: 10px; }
-  .history-body p { font-size: 16px; line-height: 1.8; }
-  blockquote { padding: 16px 18px; margin: 28px 0; }
-  blockquote p { font-size: 17px; }
-
-  /* PHOTOS */
-  .photos-section { padding: 0 20px 60px; }
-  .photos-grid { grid-template-columns: 1fr; gap: 12px; }
-
-  /* LIGHTBOX */
-  .lightbox-arrow { display: none; }
-  .lightbox-close { top: 14px; right: 14px; width: 40px; height: 40px; }
-
-  /* FOOTER */
-  .footer-inner { padding: 0 20px 40px; }
-  .footer-bottom { padding: 16px 20px; }
-  .footer-bottom p { font-size: 10px; }
+@media (max-width:600px) {
+.lang-bar .container { padding: 0 16px; }
+.lang-bar-left { gap: 6px; }
+.icon-link svg { width: 18px; height: 18px; }
+.header-inner { padding: 20px; }
+.church-name-block h1 { font-size: 16px; }
+.church-name-block p { font-size: 12px; }
+.page-title-section { padding: 50px 20px 40px; }
+.page-title-section h2 { font-size: 28px; letter-spacing: 2px; }
+.history-body,.photos-section { padding-left: 20px; padding-right: 20px; }
+.history-body p { font-size: 16px; line-height: 1.8; }
+blockquote p { font-size: 17px; }
+.photos-grid{ grid-template-columns: 1fr; }
+.footer-inner { grid-template-columns: 1fr; gap: 30px; padding: 0 20px 40px; }
+.footer-bottom { padding: 16px 20px; }
+.footer-bottom p { font-size:10px; }
+.nav-link { font-size: 10px; padding: 14px 12px; letter-spacing: 1px; }
+.lightbox-arrow { display: none; }
 }
 
-@media (max-width: 380px) {
-  .church-name-block h1 { font-size: 14px; }
-  .page-title-section h2 { font-size: 22px; }
-  .history-body p { font-size: 15px; }
-  .chapter-title { font-size: 14px; }
-  .photos-grid { grid-template-columns: 1fr; }
+@media (max-width:380px) {
+.page-title-section h2 { font-size: 22px; }
+.church-name-block h1 { font-size: 14px; }
+.photos-grid { grid-template-columns: 1fr; }
 }
 
 
