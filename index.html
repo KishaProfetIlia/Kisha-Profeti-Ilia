@@ -458,7 +458,25 @@
 </footer>
 
 
-
+<!-- LIGHTBOX -->
+<div class="lightbox" id="lightbox">
+  <div class="lightbox-backdrop" onclick="closeLightbox()"></div>
+  <button class="lightbox-close" onclick="closeLightbox()">✕</button>
+  <button class="lightbox-arrow prev" onclick="changePhoto(-1)">
+    <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
+      <path d="M11 4L6 9L11 14" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+  </button>
+  <button class="lightbox-arrow next" onclick="changePhoto(1)">
+    <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
+      <path d="M7 4L12 9L7 14" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+  </button>
+  <div class="lightbox-content">
+    <div class="lightbox-img-wrap" id="lightboxImgWrap"></div>
+    <div class="lightbox-counter" id="lightboxCounter"></div>
+  </div>
+</div>
 
 
 
@@ -696,28 +714,48 @@ document.querySelectorAll('.stat-box').forEach(el => {
 
 // ── Initial render ──
 setLang('sq');
-</script>
 
+// ─── LIGHTBOX FUNCTIONALITY ───
+const lightboxImages = [
+  { src: "Assets/profeti.jpg" },
+  { src: "Assets/kisha_main2.jpg" }
+];
+let currentImageIndex = 0;
+
+function openLightbox(index) {
+  currentImageIndex = index;
+  renderLightbox();
+  document.getElementById('lightbox').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeLightbox() {
+  document.getElementById('lightbox').classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+function changePhoto(direction) {
+  currentImageIndex = (currentImageIndex + direction + lightboxImages.length) % lightboxImages.length;
+  renderLightbox();
+}
+
+function renderLightbox() {
+  const wrap = document.getElementById('lightboxImgWrap');
+  const img = lightboxImages[currentImageIndex];
+  wrap.innerHTML = `<img src="${img.src}" alt="Foto e kishës">`;
+  document.getElementById('lightboxCounter').textContent = `${currentImageIndex + 1} / ${lightboxImages.length}`;
+}
+
+// Keyboard navigation
+document.addEventListener('keydown', function(e) {
+  const lightbox = document.getElementById('lightbox');
+  if (!lightbox.classList.contains('open')) return;
+  if (e.key === 'ArrowRight') changePhoto(1);
+  if (e.key === 'ArrowLeft') changePhoto(-1);
+  if (e.key === 'Escape') closeLightbox();
+});
   
-<!-- LIGHTBOX -->
-<div class="lightbox" id="lightbox">
-  <div class="lightbox-backdrop" onclick="closeLightbox()"></div>
-  <button class="lightbox-close" onclick="closeLightbox()">✕</button>
-  <button class="lightbox-arrow prev" onclick="changePhoto(-1)">
-    <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
-      <path d="M11 4L6 9L11 14" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-    </svg>
-  </button>
-  <button class="lightbox-arrow next" onclick="changePhoto(1)">
-    <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
-      <path d="M7 4L12 9L7 14" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-    </svg>
-  </button>
-  <div class="lightbox-content">
-    <div class="lightbox-img-wrap" id="lightboxImgWrap"></div>
-    <div class="lightbox-counter" id="lightboxCounter"></div>
-  </div>
-</div>
+</script>
 
 
 </body>
