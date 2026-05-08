@@ -246,19 +246,32 @@
   @media (max-width: 900px) {
     .footer-inner { grid-template-columns: 1fr 1fr; }
     .header-inner { flex-direction: column; gap: 16px; text-align: center; }
+    .nav-inner { overflow-x: auto; justify-content: flex-start; padding: 0 20px; }
     .event-list-item.open .event-detail { flex-direction: column; }
     .event-photo { width: 100%; aspect-ratio: 16/9; }
     .event-info-grid { grid-template-columns: 1fr; }
   }
+
   @media (max-width: 600px) {
-    .events-main { padding: 40px 20px; }
-    .footer-inner { grid-template-columns: 1fr; }
-    .nav-inner { overflow-x: auto; justify-content: flex-start; }
-    .lang-bar .container { padding: 0 20px; }
+    .lang-bar .container { padding: 0 16px; }
+    .lang-bar-left { gap: 6px; }
+    .instagram-link svg { width: 18px; height: 18px; }
     .header-inner { padding: 20px; }
+    .church-name-block h1 { font-size: 16px; }
+    .church-name-block p { font-size: 12px; }
+    .footer-inner { grid-template-columns: 1fr; gap: 30px; padding: 0 20px 40px; }
+    .footer-bottom { padding: 16px 20px; }
+    .footer-bottom p { font-size: 10px; }
+    .nav-link { font-size: 10px; padding: 14px 12px; letter-spacing: 1px; }
+    .nav-inner { overflow-x: auto; justify-content: flex-start; }
+    .events-main { padding: 40px 20px; }
     .page-title-section { padding: 40px 20px 36px; }
     .events-tabs-bar { gap: 0; }
     .events-tab-btn { padding: 14px 18px; font-size: 10px; }
+  }
+
+  @media (max-width: 380px) {
+    .church-name-block h1 { font-size: 14px; }
   }
  
   /* ─── ANIMATIONS ─── */
@@ -315,11 +328,11 @@
 <!-- NAVIGATION -->
 <nav>
   <div class="nav-inner">
-    <a href="index.html" class="nav-link">Kryefaqja</a>
-    <a href="historia.html" class="nav-link">Historia</a>
-    <a href="galeria.html" class="nav-link">Galeria</a>
-    <a href="katekizem.html" class="nav-link">Katekizëm</a>
-    <a href="evente.html" class="nav-link active">Evente</a>
+    <a href="index.html" class="nav-link" data-t="nav_home"></a>
+    <a href="historia.html" class="nav-link" data-t="nav_history"></a>
+    <a href="galeria.html" class="nav-link" data-t="nav_sermons"></a>
+    <a href="katekizem.html" class="nav-link" data-t="nav_catechism"></a>
+    <a href="evente.html" class="nav-link active" data-t="nav_events"></a>
   </div>
 </nav>
  
@@ -489,16 +502,16 @@ const T = {
  
   // ── Page title ──
   events_eyebrow:    { sq: 'Kisha Profeti Ilia', en: '"Prophet Elijah" Church Korçë', el: 'Ναός Προφήτης Ηλίας' },
-  events_title:      { sq: 'Eventet', en: 'Events', el: 'Εκδηλώσεις' },
+  events_title:      { sq: 'Evente', en: 'Events', el: 'Εκδηλώσεις' },
   header_subtitle:   { sq: 'Mitropolia e Shenjtë Korçë', en: 'Holy Metropolis of Korçë', el: 'Ιερά Μητρόπολη Κορυτσάς' },
  
   // ── Tabs ──
-  tab_baptisms:      { sq: 'Pagezimet',   en: 'Baptisms',     el: 'Βαπτίσεις' },
-  tab_marriages:     { sq: 'Kurorëzim',    en: 'Marriages',    el: 'Γάμοι' },
+  tab_baptisms:      { sq: 'Pagëzim',      en: 'Baptism',      el: 'Βαπτισμός' },
+  tab_marriages:     { sq: 'Kurorëzim',    en: 'Marriage',     el: 'Γάμος' },
  
   // ── Section headings ──
-  baptisms_heading:  { sq: 'Pagezimet',   en: 'Baptisms',     el: 'Βαπτίσεις' },
-  marriages_heading: { sq: 'Kurorëzim',    en: 'Marriages',    el: 'Γάμοι' },
+  baptisms_heading:  { sq: 'Pagëzim',      en: 'Baptism',      el: 'Βαπτισμός' },
+  marriages_heading: { sq: 'Kurorëzim',    en: 'Marriage',     el: 'Γάμος' },
  
   // ── Tags ──
   tag_baptism:       { sq: 'Pagëzim',     en: 'Baptism',      el: 'Βαπτισμός' },
