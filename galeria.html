@@ -6,7 +6,7 @@
 <title>Galeria – Kisha "Profeti Ilia"</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Noto+Sans:wght@300;400;500&display=swap" rel="stylesheet">
-
+ 
 <style>
   :root {
     --gold: #C9A84C;
@@ -25,7 +25,7 @@
     --border: rgba(201,168,76,0.25);
     --shadow: 0 4px 30px rgba(15,14,11,0.15);
   }
-
+ 
   * { margin: 0; padding: 0; box-sizing: border-box; }
   html { scroll-behavior: smooth; }
   body {
@@ -35,7 +35,7 @@
     overflow-x: hidden;
   }
   * { user-select: none; -webkit-user-select: none; }
-
+ 
   /* ─── LANGUAGE BAR ─── */
   .lang-bar { background: var(--deep-blue); padding: 8px 0; }
   .lang-bar .container { display: flex; justify-content: space-between; align-items: center; padding: 0 40px; }
@@ -46,7 +46,7 @@
   .lang-label { font-family: 'Noto Sans', sans-serif; font-size: 11px; font-weight: 500; letter-spacing: 1.5px; text-transform: uppercase; color: #fff; margin-right: 4px; }
   .lang-btn { background: transparent; border: 1px solid rgba(201,168,76,0.4); color: rgba(255,255,255,0.65); padding: 4px 12px; font-family: 'Noto Sans', sans-serif; font-size: 11px; font-weight: 500; letter-spacing: 1.5px; text-transform: uppercase; cursor: pointer; transition: all 0.25s; border-radius: 2px; }
   .lang-btn:hover, .lang-btn.active { background: var(--gold); border-color: var(--gold); color: var(--deep-blue); }
-
+ 
   /* ─── HEADER ─── */
   header { background: var(--deep-blue); position: relative; overflow: hidden; }
   header::before {
@@ -62,7 +62,7 @@
   .cross-icon { width: 52px; height: 52px; flex-shrink: 0; }
   .church-name-block h1 { font-family: 'Cinzel', serif; font-size: 22px; font-weight: 700; color: var(--gold-light); letter-spacing: 1px; line-height: 1.2; }
   .church-name-block p { font-family: 'EB Garamond', serif; font-style: italic; font-size: 13.5px; color: rgba(255,255,255,0.5); margin-top: 3px; letter-spacing: 0.5px; }
-
+ 
   /* ─── NAVIGATION ─── */
   nav { background: var(--mid-blue); border-top: 1px solid rgba(201,168,76,0.2); border-bottom: 1px solid rgba(201,168,76,0.2); position: sticky; top: 0; z-index: 100; }
   .nav-inner { display: flex; align-items: center; justify-content: center; padding: 0 40px; gap: 0; flex-wrap: wrap; }
@@ -71,7 +71,7 @@
   .nav-link:hover { color: var(--gold-light); }
   .nav-link:hover::after, .nav-link.active::after { left: 15%; right: 15%; }
   .nav-link.active { color: var(--gold-light); }
-
+ 
   /* ─── PAGE TITLE ─── */
   .page-title-section {
     background: var(--deep-blue);
@@ -124,20 +124,20 @@
     background: linear-gradient(90deg, transparent, var(--gold), transparent);
     margin: 18px auto 0;
   }
-
+ 
   /* ─── GALLERY GRID ─── */
   .gallery-section {
     max-width: 1400px;
     margin: 0 auto;
     padding: 60px 40px 80px;
   }
-
+ 
   .gallery-grid {
     display: grid;
     grid-template-columns: repeat(5, 1fr);
     gap: 14px;
   }
-
+ 
   .gallery-item {
     position: relative;
     aspect-ratio: 3/4;
@@ -146,7 +146,7 @@
     border: 1px solid var(--border);
     background: linear-gradient(135deg, var(--deep-blue), var(--mid-blue));
   }
-
+ 
   .gallery-item::after {
     content: '';
     position: absolute;
@@ -155,9 +155,9 @@
     opacity: 0;
     transition: opacity 0.3s;
   }
-
+ 
   .gallery-item:hover::after { opacity: 1; }
-
+ 
   .gallery-item img {
     width: 100%;
     height: 100%;
@@ -165,9 +165,9 @@
     transition: transform 0.5s ease;
     display: block;
   }
-
+ 
   .gallery-item:hover img { transform: scale(1.07); }
-
+ 
   .gallery-item .zoom-icon {
     position: absolute;
     bottom: 14px;
@@ -184,12 +184,12 @@
     transform: scale(0.7);
     transition: opacity 0.3s, transform 0.3s;
   }
-
+ 
   .gallery-item:hover .zoom-icon {
     opacity: 1;
     transform: scale(1);
   }
-
+ 
   .gallery-item .caption {
     position: absolute;
     bottom: 0;
@@ -201,12 +201,12 @@
     transform: translateY(6px);
     transition: opacity 0.3s, transform 0.3s;
   }
-
+ 
   .gallery-item:hover .caption {
     opacity: 1;
     transform: translateY(0);
   }
-
+ 
   .gallery-item .caption span {
     font-family: 'EB Garamond', serif;
     font-style: italic;
@@ -214,7 +214,7 @@
     color: rgba(255,255,255,0.85);
     line-height: 1.4;
   }
-
+ 
   /* placeholder when no image */
   .gallery-item .placeholder-icon {
     position: absolute;
@@ -235,7 +235,7 @@
     text-transform: uppercase;
     color: rgba(201,168,76,0.25);
   }
-
+ 
   /* ─── LIGHTBOX ─── */
   .lightbox {
     position: fixed;
@@ -249,18 +249,18 @@
     pointer-events: none;
     transition: opacity 0.3s;
   }
-
+ 
   .lightbox.open {
     opacity: 1;
     pointer-events: all;
   }
-
+ 
   .lightbox-backdrop {
     position: absolute;
     inset: 0;
     cursor: pointer;
   }
-
+ 
   .lightbox-content {
     position: relative;
     z-index: 1;
@@ -270,7 +270,7 @@
     flex-direction: column;
     align-items: center;
   }
-
+ 
   .lightbox-img-wrap {
     position: relative;
     max-width: 90vw;
@@ -279,7 +279,7 @@
     align-items: center;
     justify-content: center;
   }
-
+ 
   .lightbox-img-wrap img {
     max-width: 85vw;
     max-height: 80vh;
@@ -289,7 +289,7 @@
     display: block;
     transition: opacity 0.2s;
   }
-
+ 
   /* placeholder in lightbox */
   .lightbox-placeholder {
     width: min(600px, 85vw);
@@ -311,7 +311,7 @@
     text-transform: uppercase;
     color: rgba(201,168,76,0.3);
   }
-
+ 
   .lightbox-close {
     position: fixed;
     top: 24px;
@@ -336,7 +336,7 @@
     color: var(--deep-blue);
     transform: rotate(90deg);
   }
-
+ 
   .lightbox-arrow {
     position: fixed;
     top: 50%;
@@ -358,7 +358,7 @@
   .lightbox-arrow:hover { background: var(--gold); color: var(--deep-blue); }
   .lightbox-arrow.prev { left: 20px; }
   .lightbox-arrow.next { right: 20px; }
-
+ 
   .lightbox-caption {
     margin-top: 16px;
     font-family: 'EB Garamond', serif;
@@ -368,7 +368,7 @@
     text-align: center;
     letter-spacing: 0.3px;
   }
-
+ 
   .lightbox-counter {
     margin-top: 8px;
     font-family: 'Noto Sans', sans-serif;
@@ -377,7 +377,7 @@
     text-transform: uppercase;
     color: rgba(201,168,76,0.5);
   }
-
+ 
   /* ─── FOOTER ─── */
   footer { background: var(--warm-dark); padding: 60px 0 0; }
   .footer-inner { max-width: 1200px; margin: 0 auto; padding: 0 40px 50px; display: flex; justify-content: space-between; align-items: flex-start; }
@@ -392,21 +392,43 @@
   .footer-links a:hover::before { opacity: 1; }
   .footer-bottom { border-top: 1px solid rgba(255,255,255,0.06); padding: 20px 40px; max-width: 1200px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; }
   .footer-bottom p { font-family: 'Noto Sans', sans-serif; font-size: 11px; color: rgba(255,255,255,0.25); letter-spacing: 0.5px; }
-
+ 
   /* ─── RESPONSIVE ─── */
   @media (max-width: 1100px) { .gallery-grid { grid-template-columns: repeat(4, 1fr); } }
+ 
+  @media (max-width: 900px) {
+    .footer-inner { flex-wrap: wrap; gap: 30px; }
+    .header-inner { flex-direction: column; gap: 16px; text-align: center; }
+    .nav-inner { overflow-x: auto; justify-content: flex-start; padding: 0 20px; }
+  }
+ 
   @media (max-width: 800px) {
     .gallery-grid { grid-template-columns: repeat(3, 1fr); }
-    .footer-inner { grid-template-columns: 1fr 1fr; }
     .lightbox-arrow { display: none; }
   }
-  @media (max-width: 540px) {
-    .gallery-grid { grid-template-columns: repeat(2, 1fr); }
-    .gallery-section { padding: 40px 16px 60px; }
-    .footer-inner { grid-template-columns: 1fr; }
+ 
+  @media (max-width: 600px) {
+    .lang-bar .container { padding: 0 16px; }
+    .lang-bar-left { gap: 6px; }
+    .instagram-link svg { width: 18px; height: 18px; }
+    .header-inner { padding: 20px; }
+    .church-name-block h1 { font-size: 16px; }
+    .church-name-block p { font-size: 12px; }
+    .nav-link { font-size: 10px; padding: 14px 12px; letter-spacing: 1px; }
     .page-title-section { padding: 40px 20px 36px; }
+    .page-title-section h2 { font-size: 28px; letter-spacing: 2px; }
+    .gallery-section { padding: 40px 16px 60px; }
+    .gallery-grid { grid-template-columns: repeat(2, 1fr); }
+    .footer-inner { flex-direction: column; gap: 24px; padding: 0 20px 40px; }
+    .footer-bottom { padding: 16px 20px; }
+    .footer-bottom p { font-size: 10px; }
   }
-
+ 
+  @media (max-width: 380px) {
+    .gallery-grid { grid-template-columns: 1fr 1fr; }
+    .church-name-block h1 { font-size: 14px; }
+  }
+ 
   /* ─── ANIMATIONS ─── */
   @keyframes fadeInUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
   .gallery-item { opacity: 0; transform: translateY(20px); transition: opacity 0.5s ease, transform 0.5s ease, box-shadow 0.3s; }
@@ -415,7 +437,7 @@
 </style>
 </head>
 <body>
-
+ 
 <!-- LANGUAGE BAR -->
 <div class="lang-bar">
   <div class="container">
@@ -454,7 +476,7 @@
     </div>
   </div>
 </div>
-
+ 
 <!-- HEADER -->
 <header>
   <div class="header-inner">
@@ -467,7 +489,7 @@
     </div>
   </div>
 </header>
-
+ 
 <!-- NAVIGATION -->
 <nav>
   <div class="nav-inner">
@@ -478,126 +500,126 @@
     <a href="evente.html" class="nav-link">Evente</a>
   </div>
 </nav>
-
+ 
 <!-- PAGE TITLE -->
 <div class="page-title-section">
   <div class="eyebrow">Kisha Profeti Ilia</div>
   <h2>Galeria</h2>
   <div class="title-line"></div>
 </div>
-
+ 
 <!-- GALLERY -->
 <section class="gallery-section">
   <div class="gallery-grid" id="galleryGrid">
-
+ 
     <!-- Row 1 -->
     <div class="gallery-item" onclick="openLightbox(0)">
-
+ 
       <div class="zoom-icon">
         <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="6.5" cy="6.5" r="4.5" stroke="#1A1F3C" stroke-width="1.6"/><path d="M10 10L14 14" stroke="#1A1F3C" stroke-width="1.6" stroke-linecap="round"/><path d="M6.5 4.5v4M4.5 6.5h4" stroke="#1A1F3C" stroke-width="1.4" stroke-linecap="round"/></svg>
       </div>
-
+ 
     </div>
-
+ 
     <div class="gallery-item" onclick="openLightbox(1)">
-
+ 
       <div class="zoom-icon">
         <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="6.5" cy="6.5" r="4.5" stroke="#1A1F3C" stroke-width="1.6"/><path d="M10 10L14 14" stroke="#1A1F3C" stroke-width="1.6" stroke-linecap="round"/><path d="M6.5 4.5v4M4.5 6.5h4" stroke="#1A1F3C" stroke-width="1.4" stroke-linecap="round"/></svg>
       </div>
-
+ 
     </div>
-
+ 
     <div class="gallery-item" onclick="openLightbox(2)">
-
+ 
       <div class="zoom-icon">
         <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="6.5" cy="6.5" r="4.5" stroke="#1A1F3C" stroke-width="1.6"/><path d="M10 10L14 14" stroke="#1A1F3C" stroke-width="1.6" stroke-linecap="round"/><path d="M6.5 4.5v4M4.5 6.5h4" stroke="#1A1F3C" stroke-width="1.4" stroke-linecap="round"/></svg>
       </div>
-
+ 
     </div>
-
+ 
     <div class="gallery-item" onclick="openLightbox(3)">
-
+ 
       <div class="zoom-icon">
         <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="6.5" cy="6.5" r="4.5" stroke="#1A1F3C" stroke-width="1.6"/><path d="M10 10L14 14" stroke="#1A1F3C" stroke-width="1.6" stroke-linecap="round"/><path d="M6.5 4.5v4M4.5 6.5h4" stroke="#1A1F3C" stroke-width="1.4" stroke-linecap="round"/></svg>
       </div>
-
+ 
     </div>
-
+ 
     <div class="gallery-item" onclick="openLightbox(4)">
-
+ 
       <div class="zoom-icon">
         <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="6.5" cy="6.5" r="4.5" stroke="#1A1F3C" stroke-width="1.6"/><path d="M10 10L14 14" stroke="#1A1F3C" stroke-width="1.6" stroke-linecap="round"/><path d="M6.5 4.5v4M4.5 6.5h4" stroke="#1A1F3C" stroke-width="1.4" stroke-linecap="round"/></svg>
       </div>
-
+ 
     </div>
-
+ 
     <!-- Row 2 -->
     <div class="gallery-item" onclick="openLightbox(5)">
-
+ 
       <div class="zoom-icon">
         <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="6.5" cy="6.5" r="4.5" stroke="#1A1F3C" stroke-width="1.6"/><path d="M10 10L14 14" stroke="#1A1F3C" stroke-width="1.6" stroke-linecap="round"/><path d="M6.5 4.5v4M4.5 6.5h4" stroke="#1A1F3C" stroke-width="1.4" stroke-linecap="round"/></svg>
       </div>
-
+ 
     </div>
-
+ 
     <div class="gallery-item" onclick="openLightbox(6)">
-
+ 
       <div class="zoom-icon">
         <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="6.5" cy="6.5" r="4.5" stroke="#1A1F3C" stroke-width="1.6"/><path d="M10 10L14 14" stroke="#1A1F3C" stroke-width="1.6" stroke-linecap="round"/><path d="M6.5 4.5v4M4.5 6.5h4" stroke="#1A1F3C" stroke-width="1.4" stroke-linecap="round"/></svg>
       </div>
-
+ 
     </div>
-
+ 
     <div class="gallery-item" onclick="openLightbox(7)">
-
+ 
       <div class="zoom-icon">
         <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="6.5" cy="6.5" r="4.5" stroke="#1A1F3C" stroke-width="1.6"/><path d="M10 10L14 14" stroke="#1A1F3C" stroke-width="1.6" stroke-linecap="round"/><path d="M6.5 4.5v4M4.5 6.5h4" stroke="#1A1F3C" stroke-width="1.4" stroke-linecap="round"/></svg>
       </div>
-
+ 
     </div>
-
+ 
     <div class="gallery-item" onclick="openLightbox(8)">
-
+ 
       <div class="zoom-icon">
         <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="6.5" cy="6.5" r="4.5" stroke="#1A1F3C" stroke-width="1.6"/><path d="M10 10L14 14" stroke="#1A1F3C" stroke-width="1.6" stroke-linecap="round"/><path d="M6.5 4.5v4M4.5 6.5h4" stroke="#1A1F3C" stroke-width="1.4" stroke-linecap="round"/></svg>
       </div>
-
+ 
     </div>
-
+ 
     <div class="gallery-item" onclick="openLightbox(9)">
-
+ 
       <div class="zoom-icon">
         <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="6.5" cy="6.5" r="4.5" stroke="#1A1F3C" stroke-width="1.6"/><path d="M10 10L14 14" stroke="#1A1F3C" stroke-width="1.6" stroke-linecap="round"/><path d="M6.5 4.5v4M4.5 6.5h4" stroke="#1A1F3C" stroke-width="1.4" stroke-linecap="round"/></svg>
       </div>
-
+ 
     </div>
-
+ 
   </div>
 </section>
-
+ 
 <!-- LIGHTBOX -->
 <div class="lightbox" id="lightbox">
   <div class="lightbox-backdrop" onclick="closeLightbox()"></div>
-
+ 
   <button class="lightbox-close" onclick="closeLightbox()" aria-label="Mbyll">✕</button>
-
+ 
   <button class="lightbox-arrow prev" onclick="changePhoto(-1)" aria-label="E mëparshme">
     <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M11 4L6 9L11 14" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
   </button>
-
+ 
   <button class="lightbox-arrow next" onclick="changePhoto(1)" aria-label="E tjetra">
     <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M7 4L12 9L7 14" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
   </button>
-
+ 
   <div class="lightbox-content">
     <div class="lightbox-img-wrap" id="lightboxImgWrap">
       <!-- filled by JS -->
     </div>
-
+ 
     <div class="lightbox-counter" id="lightboxCounter"></div>
   </div>
 </div>
-
+ 
 <!-- FOOTER -->
 <footer>
   <div class="footer-inner">
@@ -624,7 +646,7 @@
     <p>© 2026 Kisha Orthodhokse "Profeti Ilia" – Korçë.</p>
   </div>
 </footer>
-
+ 
 <script>
 // ── Gallery data ──
 // Replace src with real image paths when you have photos.
@@ -641,30 +663,30 @@ const photos = [
   { src: null, caption: 'Pamja e brendshme' },
   { src: null, caption: 'Kori Bizantine' },
 ];
-
+ 
 let current = 0;
-
+ 
 function openLightbox(index) {
   current = index;
   renderLightbox();
   document.getElementById('lightbox').classList.add('open');
   document.body.style.overflow = 'hidden';
 }
-
+ 
 function closeLightbox() {
   document.getElementById('lightbox').classList.remove('open');
   document.body.style.overflow = '';
 }
-
+ 
 function changePhoto(dir) {
   current = (current + dir + photos.length) % photos.length;
   renderLightbox();
 }
-
+ 
 function renderLightbox() {
   const wrap = document.getElementById('lightboxImgWrap');
   const p = photos[current];
-
+ 
   if (p.src) {
     wrap.innerHTML = `<img src="${p.src}" alt="${p.caption}">`;
   } else {
@@ -676,11 +698,11 @@ function renderLightbox() {
         <p>Foto ${current + 1}</p>
       </div>`;
   }
-
-
+ 
+ 
   document.getElementById('lightboxCounter').textContent = `${current + 1} / ${photos.length}`;
 }
-
+ 
 // keyboard nav
 document.addEventListener('keydown', e => {
   if (!document.getElementById('lightbox').classList.contains('open')) return;
@@ -688,7 +710,7 @@ document.addEventListener('keydown', e => {
   if (e.key === 'ArrowLeft') changePhoto(-1);
   if (e.key === 'Escape') closeLightbox();
 });
-
+ 
 // scroll fade-in
 const observer = new IntersectionObserver((entries) => {
   entries.forEach((entry, i) => {
@@ -697,19 +719,162 @@ const observer = new IntersectionObserver((entries) => {
     }
   });
 }, { threshold: 0.08 });
-
+ 
 document.querySelectorAll('.gallery-item').forEach((el, i) => {
   el.dataset.delay = (i % 5) * 80;
   observer.observe(el);
 });
-
-// lang switcher (minimal — just swaps button state for now)
+ 
+// ════════════════════════════════════════════════════════════════
+//  TRANSLATIONS
+// ════════════════════════════════════════════════════════════════
+const T = {
+  lang_label: { sq: 'Gjuha', en: 'Language', el: 'Γλώσσα' },
+ 
+  // ── Header ──
+  header_title: {
+    sq: 'Kisha "Profeti Ilia" Korçë',
+    en: 'Church "Prophet Elijah" Korçë',
+    el: 'Ναός «Προφήτης Ηλίας» Κορυτσά'
+  },
+  header_subtitle: {
+    sq: 'Mitropolia e Shenjtë Korçë',
+    en: 'Holy Metropolis of Korçë',
+    el: 'Ιερά Μητρόπολη Κορυτσάς'
+  },
+ 
+  // ── Nav ──
+  nav_home:      { sq: 'Kryefaqja', en: 'Home',      el: 'Αρχική'    },
+  nav_history:   { sq: 'Historia',  en: 'History',   el: 'Ιστορία'   },
+  nav_gallery:   { sq: 'Galeria',   en: 'Gallery',   el: 'Γκαλερί'   },
+  nav_catechism: { sq: 'Katekizëm', en: 'Catechism', el: 'Κατήχηση'  },
+  nav_events:    { sq: 'Evente',    en: 'Events',    el: 'Εκδηλώσεις' },
+ 
+  // ── Page title ──
+  page_eyebrow: {
+    sq: 'Kisha Profeti Ilia',
+    en: 'Church Prophet Elijah',
+    el: 'Ναός Προφήτης Ηλίας'
+  },
+  page_title: {
+    sq: 'Galeria',
+    en: 'Gallery',
+    el: 'Γκαλερί'
+  },
+ 
+  // ── Footer ──
+  footer_church_name: {
+    sq: 'Kisha "Profeti Ilia"',
+    en: 'Church "Prophet Elijah"',
+    el: 'Ναός «Προφήτης Ηλίας»'
+  },
+  footer_church_desc: {
+    sq: 'Mitropolia e Shenjtë Korçë',
+    en: 'Holy Metropolis of Korçë',
+    el: 'Ιερά Μητρόπολη Κορυτσάς'
+  },
+  footer_quick_links: {
+    sq: 'Lidhje të Shpejta',
+    en: 'Quick Links',
+    el: 'Γρήγοροι Σύνδεσμοι'
+  },
+  footer_nav_home:      { sq: 'Kryefaqja', en: 'Home',      el: 'Αρχική'    },
+  footer_nav_history:   { sq: 'Historia',  en: 'History',   el: 'Ιστορία'   },
+  footer_nav_catechism: { sq: 'Katekizëm', en: 'Catechism', el: 'Κατήχηση'  },
+  footer_nav_events:    { sq: 'Evente',    en: 'Events',    el: 'Εκδηλώσεις' },
+  footer_copyright: {
+    sq: '© 2026 Kisha Orthodhokse "Profeti Ilia" – Korçë.',
+    en: '© 2026 Orthodox Church "Prophet Elijah" – Korçë.',
+    el: '© 2026 Ορθόδοξος Ναός «Προφήτης Ηλίας» – Κορυτσά.'
+  },
+ 
+  // ── Gallery captions ──
+  photo0:  { sq: 'Kisha nga jashtë',             en: 'Church exterior',              el: 'Εξωτερικό εκκλησίας'       },
+  photo1:  { sq: 'Ikonostasi',                   en: 'Iconostasis',                  el: 'Τέμπλο'                    },
+  photo2:  { sq: 'Kryqi i Madh',                 en: 'The Great Cross',              el: 'Ο Μεγάλος Σταυρός'         },
+  photo3:  { sq: 'Shërbesa Hyjnore',             en: 'Divine Liturgy',               el: 'Θεία Λειτουργία'           },
+  photo4:  { sq: 'Festa e Profetit Ilia – 20 Korrik', en: 'Feast of Prophet Elijah – July 20', el: 'Εορτή Προφήτη Ηλία – 20 Ιουλίου' },
+  photo5:  { sq: 'Pashkë 2025',                  en: 'Easter 2025',                  el: 'Πάσχα 2025'                },
+  photo6:  { sq: 'Krishtlindjet',                en: 'Christmas',                    el: 'Χριστούγεννα'              },
+  photo7:  { sq: 'Vajtimi i Krishtit',           en: 'Lamentations of Christ',       el: 'Επιτάφιος'                 },
+  photo8:  { sq: 'Pamja e brendshme',            en: 'Interior view',                el: 'Εσωτερικό'                 },
+  photo9:  { sq: 'Kori Bizantine',               en: 'Byzantine Choir',              el: 'Βυζαντινή Χορωδία'         },
+};
+ 
+// ════════════════════════════════════════════════════════════════
+//  ENGINE
+// ════════════════════════════════════════════════════════════════
+let currentLang = 'sq';
+ 
 function setLang(lang) {
+  currentLang = lang;
+ 
+  // Buttons
   document.querySelectorAll('.lang-btn').forEach(b => b.classList.remove('active'));
   document.querySelector(`.lang-btn[onclick="setLang('${lang}')"]`).classList.add('active');
+ 
+  // html lang attr
   document.documentElement.lang = lang;
+ 
+  // ── lang label ──
+  const langLabel = document.querySelector('.lang-label');
+  if (langLabel) langLabel.textContent = T.lang_label[lang];
+ 
+  // ── header ──
+  const h1 = document.querySelector('.church-name-block h1');
+  const hsub = document.querySelector('.church-name-block p');
+  if (h1) h1.textContent = T.header_title[lang];
+  if (hsub) hsub.textContent = T.header_subtitle[lang];
+ 
+  // ── nav links ──
+  const navLinks = document.querySelectorAll('.nav-inner .nav-link');
+  const navKeys = ['nav_home','nav_history','nav_gallery','nav_catechism','nav_events'];
+  navLinks.forEach((el, i) => { if (navKeys[i]) el.textContent = T[navKeys[i]][lang]; });
+ 
+  // ── page title eyebrow & heading ──
+  const eyebrow = document.querySelector('.page-title-section .eyebrow');
+  const pageH2  = document.querySelector('.page-title-section h2');
+  if (eyebrow) eyebrow.textContent = T.page_eyebrow[lang];
+  if (pageH2)  pageH2.textContent  = T.page_title[lang];
+ 
+  // ── footer ──
+  const footerH1   = document.querySelector('.church-name-block-footer h1');
+  const footerDesc = document.querySelector('.church-name-block-footer + div, .church-name-block-footer ~ div');
+  if (footerH1) footerH1.textContent = T.footer_church_name[lang];
+ 
+  // footer italic subtitle (the div right after the name h1 inside church-name-block-footer)
+  const footerSubtitleDiv = document.querySelector('.church-name-block-footer div');
+  if (footerSubtitleDiv) footerSubtitleDiv.textContent = T.footer_church_desc[lang];
+ 
+  // remove old broken selector block
+ 
+  const footerColH5 = document.querySelector('.footer-col h5');
+  if (footerColH5) footerColH5.textContent = T.footer_quick_links[lang];
+ 
+  const footerNavLinks = document.querySelectorAll('.footer-links a');
+  const footerNavKeys = ['footer_nav_home','footer_nav_history','footer_nav_catechism','footer_nav_events'];
+  footerNavLinks.forEach((el, i) => { if (footerNavKeys[i]) el.textContent = T[footerNavKeys[i]][lang]; });
+ 
+  const copyright = document.querySelector('.footer-bottom p');
+  if (copyright) copyright.textContent = T.footer_copyright[lang];
+ 
+  // ── update photos captions for current lang ──
+  photos.forEach((p, i) => { p.caption = (T['photo'+i] || {})[lang] || p.caption; });
+ 
+  // ── update gallery item captions if visible ──
+  document.querySelectorAll('.gallery-item .caption span').forEach((el, i) => {
+    if (T['photo'+i]) el.textContent = T['photo'+i][lang];
+  });
+ 
+  // ── if lightbox is open, re-render with new caption ──
+  if (document.getElementById('lightbox').classList.contains('open')) {
+    renderLightbox();
+  }
 }
+ 
+// ── Initial render ──
+setLang('sq');
 </script>
-
+ 
 </body>
 </html>
