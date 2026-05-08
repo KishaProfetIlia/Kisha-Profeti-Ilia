@@ -56,14 +56,7 @@
 
   /* ─── HEADER ─── */
   header { background: var(--deep-blue); position: relative; overflow: hidden; }
-  header::before {
-    content: '';
-    position: absolute; inset: 0;
-    background:
-      radial-gradient(ellipse 60% 80% at 50% -20%, rgba(201,168,76,0.12) 0%, transparent 70%),
-      url("data:image/svg+xml,%3Csvg width='60' height='60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M30 5 L35 20 L50 20 L38 29 L43 44 L30 35 L17 44 L22 29 L10 20 L25 20Z' fill='none' stroke='rgba(201,168,76,0.06)' stroke-width='1'/%3E%3C/svg%3E") repeat;
-    pointer-events: none;
-  }
+  header::before { content: ''; position: absolute; inset: 0; background:radial-gradient(ellipse 60% 80% at 50% -20%, rgba(201,168,76,0.12) 0%, transparent 70%), url("data:image/svg+xml,%3Csvg width='60' height='60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M30 5 L35 20 L50 20 L38 29 L43 44 L30 35 L17 44 L22 29 L10 20 L25 20Z' fill='none' stroke='rgba(201,168,76,0.06)' stroke-width='1'/%3E%3C/svg%3E") repeat; pointer-events: none;}
   .header-inner { position: relative; z-index: 1; display: flex; align-items: center; justify-content: space-between; padding: 28px 40px; }
   .church-identity { display: flex; align-items: center; gap: 20px; }
   .cross-icon { width: 52px; height: 52px; flex-shrink: 0; }
@@ -80,7 +73,7 @@
   .nav-link.active { color: var(--gold-light); }
 
   /* ─── HERO ─── */
-  .hero { background: linear-gradient(170deg, rgba(26,31,60,0.85) 0%, rgba(19,24,58,0.80) 50%, rgba(10,13,30,0.85) 100%), url("Assets/kisha_main.jpg") center/cover no-repeat; min-height: 100vh; display: flex; align-items: center; justify-content: center; text-align: center; padding: 80px 40px; position: relative; overflow: hidden; }
+  .hero { background: linear-gradient(170deg, rgba(26,31,60,0.85) 0%, rgba(19,24,58,0.80) 50%, rgba(10,13,30,0.85) 100%), url("Assets/kisha_main2.jpg") center/cover no-repeat; min-height: 100vh; display: flex; align-items: center; justify-content: center; text-align: center; padding: 80px 40px; position: relative; overflow: hidden; }
   .hero::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse 70% 60% at 50% 50%, rgba(201,168,76,0.08) 0%, transparent 70%); }
   .hero-arch { position: absolute; top: 0; left: 50%; transform: translateX(-50%); width: 500px; height: 300px; border: 1px solid rgba(201,168,76,0.08); border-radius: 50% 50% 0 0 / 100% 100% 0 0; pointer-events: none; }
   .hero-content { position: relative; z-index: 1; max-width: 720px; margin: 0 auto; width: 100%; }
@@ -322,7 +315,7 @@
     </div>
     <div class="history-image-area">
       <div class="history-img-frame">
-        <img src="Assets/kisha_main2.jpg" alt="Profeti Ilia">
+        <img src="Assets/kisha_main.jpg" alt="Profeti Ilia">
       </div>
     </div>
   </div>
