@@ -101,10 +101,80 @@
   .stat-box:hover { background: rgba(201,168,76,0.07); }
   .stat-box .num { font-family: 'Cinzel', serif; font-size: 36px; font-weight: 900; color: var(--gold-light); display: block; margin-bottom: 4px; }
   .stat-box .lbl { font-family: 'Noto Sans', sans-serif; font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: rgba(255,255,255,0.4); }
-  .history-img-frame { width: 100%; length: 100%; background: linear-gradient(135deg, var(--mid-blue), #0A0D1E); border: 1px solid rgba(201,168,76,0.2); display: flex; align-items: center; justify-content: center; font-size: 80px; color: rgba(201,168,76,0.1); position: relative; }
+  .history-img-frame { width: 100%; length: 100%; background: linear-gradient(135deg, var(--mid-blue), #0A0D1E); border: 1px solid rgba(201,168,76,0.2); display: flex; align-items: center; justify-content: center; font-size: 80px; color: rgba(201,168,76,0.1); position: relative; cursor: pointer;}
   .history-img-frame::before { content: ''; position: absolute; top: -12px; right: -12px; width: 100%; height: 100%; border: 1px solid rgba(201,168,76,0.12); pointer-events: none; }
   .history-img-frame img { width: 100%; height: 100%; object-fit: cover; object-position: center center; }
 
+/* ─── LIGHTBOX ─── */
+  .lightbox { position: fixed; inset: 0; background: rgba(10,12,25,.96); z-index: 1000; display: flex; align-items: center; justify-content: center; opacity: 0; pointer-events: none; transition: opacity .3s; }
+  .lightbox.open { opacity: 1; pointer-events: all; }
+  .lightbox-backdrop { position: absolute; inset: 0; cursor: pointer; }
+  .lightbox-content { position: relative; z-index: 1; max-width: 90vw; max-height: 90vh; display: flex; flex-direction: column; align-items: center; }
+  .lightbox-img-wrap { max-width: 90vw; max-height: 82vh; display: flex; align-items: center; justify-content: center;}
+  .lightbox-img-wrap img { max-width: 85vw; max-height: 80vh; object-fit: contain; border: 1px solid rgba(201,168,76,.2); box-shadow: 0 20px 80px rgba(0,0,0,.7); display: block; }
+  .lightbox-close {
+  position: fixed;
+  top: 24px;
+  right: 28px;
+  width: 44px;
+  height: 44px;
+  background: rgba(201,168,76,.15);
+  border: 1px solid rgba(201,168,76,.3);
+  border-radius: 50%;
+  color: var(--gold-light);
+  font-size: 20px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all .2s;
+  z-index: 2;
+  line-height: 1;
+}
+.lightbox-close:hover {
+  background: var(--gold);
+  color: var(--deep-blue);
+  transform: rotate(90deg);
+}
+.lightbox-arrow {
+  position: fixed;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 48px;
+  height: 48px;
+  background: rgba(201,168,76,.12);
+  border: 1px solid rgba(201,168,76,.25);
+  border-radius: 50%;
+  color: var(--gold-light);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all .2s;
+  z-index: 2;
+}
+.lightbox-arrow:hover {
+  background: var(--gold);
+  color: var(--deep-blue);
+}
+.lightbox-arrow.prev { left: 20px; }
+.lightbox-arrow.next { right: 20px; }
+.lightbox-counter {
+  margin-top: 14px;
+  font-family: 'Noto Sans', sans-serif;
+  font-size: 10px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: rgba(201,168,76,.5);
+}
+
+@media (max-width: 600px) {
+  .lightbox-arrow { display: none; }
+}
+
+
+
+  
   /* ─── FOOTER ─── */
   footer { background: var(--warm-dark); padding: 60px 0 0; }
   .footer-inner { max-width: 1200px; margin: 0 auto; padding: 0 40px 50px; display: grid; grid-template-columns: 1.5fr 1fr 1fr 1fr; gap: 50px; }
@@ -539,11 +609,7 @@ const T = {
     en: 'Quick Links',
     el: 'Γρήγοροι Σύνδεσμοι'
   },
-  footer_hours_title: {
-    sq: 'Orari',
-    en: 'Hours',
-    el: 'Ώρες'
-  },
+
 // ── Footer Hours ──
 footer_hours_title: {
   sq: 'Orari i Kishës',
@@ -631,6 +697,28 @@ document.querySelectorAll('.stat-box').forEach(el => {
 // ── Initial render ──
 setLang('sq');
 </script>
+
+  
+<!-- LIGHTBOX -->
+<div class="lightbox" id="lightbox">
+  <div class="lightbox-backdrop" onclick="closeLightbox()"></div>
+  <button class="lightbox-close" onclick="closeLightbox()">✕</button>
+  <button class="lightbox-arrow prev" onclick="changePhoto(-1)">
+    <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
+      <path d="M11 4L6 9L11 14" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+  </button>
+  <button class="lightbox-arrow next" onclick="changePhoto(1)">
+    <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
+      <path d="M7 4L12 9L7 14" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+  </button>
+  <div class="lightbox-content">
+    <div class="lightbox-img-wrap" id="lightboxImgWrap"></div>
+    <div class="lightbox-counter" id="lightboxCounter"></div>
+  </div>
+</div>
+
 
 </body>
 </html>
