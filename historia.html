@@ -126,7 +126,7 @@
   @media (max-width: 900px) {
     .footer-inner { grid-template-columns: 1fr 1fr; }
     .header-inner { flex-direction: column; gap: 16px; text-align: center; }
-    .nav-inner { overflow-x: auto; justify-content: flex-start; padding: 0 20px; }
+    .nav-inner { justify-content: center; padding: 0 20px; }
   }
  
   @media (max-width: 600px) {
@@ -153,6 +153,8 @@
   }
  
   @media (max-width: 380px) {
+    .nav-inner { justify-content: center; padding: 0 16px; }
+    .nav-link { font-size: 9px; padding: 14px 6px; letter-spacing: 0.5px; }
     .church-name-block h1 { font-size: 14px; }
     .page-title-section h2 { font-size: 22px; }
   }
