@@ -96,7 +96,7 @@
   .history-text .eyebrow { font-family: 'Noto Sans', sans-serif; font-size: 10px; font-weight: 500; letter-spacing: 3.5px; text-transform: uppercase; color: var(--gold); margin-bottom: 16px; }
   .history-text h3 { font-family: 'Cinzel', serif; font-size: 34px; font-weight: 700; color: #fff; line-height: 1.2; margin-bottom: 22px; }
   .history-text p { font-family: 'EB Garamond', serif; font-size: 17.5px; line-height: 1.85; color: rgba(255,255,255,0.65); margin-bottom: 16px; }
-  .history-stats { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 36px; }
+  .history-stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-top: 36px;}
   .stat-box { border: 1px solid rgba(201,168,76,0.2); padding: 20px; text-align: center; background: rgba(255,255,255,0.03); transition: background 0.3s; }
   .stat-box:hover { background: rgba(201,168,76,0.07); }
   .stat-box .num { font-family: 'Cinzel', serif; font-size: 36px; font-weight: 900; color: var(--gold-light); display: block; margin-bottom: 4px; }
@@ -148,7 +148,8 @@
   .history-inner { direction: ltr !important; }
   .history-text h3 { font-size: 22px; }
   .history-text p { font-size: 15px; }
-  .history-stats { grid-template-columns: 1fr 1fr; gap: 12px; }
+  @media (max-width: 600px) {
+  .history-stats { grid-template-columns: repeat(3, 1fr); gap: 12px;}
   .stat-box .num { font-size: 26px; }
   .categories-grid { grid-template-columns: 1fr 1fr; gap: 12px; }
   .cat-card { padding: 18px 12px; }
@@ -306,12 +307,11 @@
       <h3 data-t="history_heading"></h3>
       <p data-t="history_p1"></p>
       <p data-t="history_p2"></p>
-      <div class="history-stats">
-        <div class="stat-box"><span class="num">XIX</span><span class="lbl" data-t="stat1_label"></span></div>
-        <div class="stat-box"><span class="num">20</span> <span class="lbl" data-t="stat2_label"></span></div>
-        <div class="stat-box"><span class="num">∞</span>  <span class="lbl" data-t="stat3_label"></span></div>
-        <div class="stat-box"><span class="num">KO</span> <span class="lbl" data-t="stat4_label"></span></div>
-      </div>
+   <div class="history-stats">
+      <div class="stat-box"><span class="num">XIX</span><span class="lbl" data-t="stat1_label"></span></div>
+      <div class="stat-box"><span class="num">20</span> <span class="lbl" data-t="stat2_label"></span></div>
+      <div class="stat-box"><span class="num">Korçë</span> <span class="lbl" data-t="stat4_label"></span></div>
+    </div>
     </div>
     <div class="history-image-area">
       <div class="history-img-frame">
@@ -500,9 +500,9 @@ const T = {
     el: 'Ιουλίου – Εορτή'
   },
   stat4_label: {
-    sq: 'Korçë, Shqipëri',
-    en: 'Korçë, Albania',
-    el: 'Κορυτσά, Αλβανία'
+  sq: 'Shqipëri',
+  en: 'Albania',
+  el: 'Αλβανία'
   },
 
   // ── Footer ──
@@ -527,7 +527,7 @@ const T = {
     el: 'Ώρες'
   },
   footer_hours1: {
-    sq: 'E Diel: Liturgji 08:00',
+    sq: '',
     en: 'Sunday: Liturgy 08:00',
     el: 'Κυριακή: Λειτουργία 08:00'
   },
