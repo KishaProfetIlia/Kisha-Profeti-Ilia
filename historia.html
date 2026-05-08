@@ -110,7 +110,7 @@
  
   /* FOOTER */
   footer { background:var(--warm-dark); padding:60px 0 0; }
-  .footer-inner { max-width:1200px; margin:0 auto; padding:0 40px 50px; display:grid; grid-template-columns:1.5fr 1fr 1fr; gap:50px; }
+  .footer-inner { max-width:1200px; margin:0 auto; padding:0 40px 50px; display:grid; grid-template-columns:1.5fr 1fr; gap:50px; }
   .footer-brand p { font-family:'EB Garamond',serif; font-style:italic; font-size:14.5px; color:rgba(255,255,255,.35); margin-top:16px; line-height:1.7; }
   .footer-col h5 { font-family:'Cinzel',serif; font-size:11px; font-weight:700; letter-spacing:2px; text-transform:uppercase; color:var(--gold); margin-bottom:18px; padding-bottom:10px; border-bottom:1px solid rgba(201,168,76,.2); }
   .footer-links { list-style:none; }
@@ -119,7 +119,7 @@
   .footer-links a::before { content:'›'; color:var(--gold); opacity:0; transition:opacity .2s; }
   .footer-links a:hover { color:rgba(255,255,255,.8); }
   .footer-links a:hover::before { opacity:1; }
-  .footer-bottom { border-top:1px solid rgba(255,255,255,.06); padding:20px 40px; max-width:1200px; margin:0 auto; display:flex; align-items:center; justify-content:space-between; }
+  .footer-bottom { border-top:1px solid rgba(255,255,255,.06); padding:20px 40px; max-width:1200px; margin:0 auto; display:flex; align-items:center; justify-content:flex-start; }
   .footer-bottom p { font-family:'Noto Sans',sans-serif; font-size:11px; color:rgba(255,255,255,.25); letter-spacing:.5px; }
  
   /* RESPONSIVE */
@@ -300,6 +300,7 @@
             <p>Mitropolia e Shenjtë Korçë</p>
           </div>
         </a>
+      </div>
     </div>
     <div class="footer-col">
       <h5 data-t="footer_quick_links"></h5>
@@ -308,13 +309,6 @@
         <li><a href="galeria.html" data-t="nav_gallery"></a></li>
         <li><a href="katekizem.html" data-t="nav_catechism"></a></li>
         <li><a href="evente.html" data-t="nav_events"></a></li>
-      </ul>
-    </div>
-    <div class="footer-col">
-      <h5 data-t="footer_hours_title"></h5>
-      <ul class="footer-links">
-        <li><span data-t="footer_hours1"></span></li>
-        <li><span data-t="footer_hours2"></span></li>
       </ul>
     </div>
   </div>
