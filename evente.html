@@ -401,12 +401,21 @@
   </div><!-- end baptisms panel -->
  
   <!-- ── MARRIAGES PANEL ── -->
-  <div class="tab-panel" id="panel-marriages">
-    <div class="section-heading">
-      <span class="ornament">♥</span>
-      <h3 data-t="marriages_heading"></h3>
-      <div class="rule"></div>
-    </div>
+  <button class="events-tab-btn" onclick="switchTab('marriages')" id="tab-marriages">
+    <span class="tab-icon">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M12 2L15 7H9L12 2Z" fill="var(--gold)" stroke="var(--gold)" stroke-width="1.5"/>
+        <path d="M12 2L15 7H9L12 2Z" fill="none" stroke="currentColor" stroke-width="1.5"/>
+        <path d="M8 7L16 7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+        <path d="M10 7V11" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+        <path d="M14 7V11" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+        <path d="M7 14L17 14" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+        <path d="M12 11V17" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+        <circle cx="12" cy="18" r="2" stroke="currentColor" stroke-width="1.5"/>
+      </svg>
+    </span>
+    <span data-t="tab_marriages"></span>
+  </button>
  
     <div class="baptism-rules">
       <div class="rule-intro">
