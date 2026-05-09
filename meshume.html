@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="sq">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+<title>Më shumë – Kisha "Profeti Ilia"</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Noto+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root { --gold: #C9A84C; --gold-light: #E8C97A; --gold-pale: #F5EDD8; --deep-blue: #1A1F3C; --mid-blue: #2D3561; --warm-dark: #0F0E0B; --parchment: #FAF6EE; --stone: #8B7D6B; --red-byzantine: #8B1A1A; --cream: #F2EDE4; --text-dark: #1A1715; --text-mid: #4A4035; --text-light: #9A8E7E; --border: rgba(201,168,76,0.25); --shadow: 0 4px 30px rgba(15,14,11,0.15); }
+* { margin: 0; padding: 0; box-sizing: border-box; user-select: none; -webkit-user-select: none; }
+html { scroll-behavior: smooth; }
+body { font-family: 'EB Garamond', Georgia, serif; background: var(--parchment); color: var(--text-dark); overflow-x: hidden; }
+
+/* LANGUAGE BAR */
+.lang-bar { background: var(--deep-blue); padding: 8px 0; }
+.lang-bar .container { display: flex; justify-content: space-between; align-items: center; padding: 0 40px; }
+.lang-bar-left { display: flex; align-items: center; gap: 10px; }
+.icon-link { display: flex; align-items: center; color: rgba(255,255,255,0.7); text-decoration: none; transition: color .25s; }
+.icon-link:hover { color: #fff; }
+.lang-bar-right { display: flex; align-items: center; gap: 8px; }
+.lang-label { font-family: 'Noto Sans', sans-serif; font-size: 11px; font-weight: 500; letter-spacing: 1.5px; text-transform: uppercase; color: #fff; margin-right: 4px; }
+.lang-btn { background: transparent; border: 1px solid rgba(201,168,76,0.4); color: rgba(255,255,255,0.65); padding: 4px 12px; font-family: 'Noto Sans', sans-serif; font-size: 11px; font-weight: 500; letter-spacing: 1.5px; text-transform: uppercase; cursor: pointer; transition: all .25s; border-radius: 2px; }
+.lang-btn:hover, .lang-btn.active { background: var(--gold); border-color: var(--gold); color: var(--deep-blue); }
+
+/* HEADER */
+header { background: var(--deep-blue); position: relative; overflow: hidden; }
+header::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse 60% 80% at 50% -20%, rgba(201,168,76,.12) 0%, transparent 70%), url("data:image/svg+xml,%3Csvg width='60' height='60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M30 5 L35 20 L50 20 L38 29 L43 44 L30 35 L17 44 L22 29 L10 20 L25 20Z' fill='none' stroke='rgba(201,168,76,0.06)' stroke-width='1'/%3E%3C/svg%3E") repeat; pointer-events: none; }
+.header-inner { position: relative; z-index: 1; display: flex; align-items: center; justify-content: space-between; padding: 28px 40px; }
+.church-identity { display: flex; align-items: center; gap: 20px; text-decoration: none; }
+.cross-icon { width: 52px; height: 52px; flex-shrink: 0; border-radius: 50%; object-fit: cover; }
+.church-name-block h1 { font-family: 'Cinzel', serif; font-size: 22px; font-weight: 700; color: var(--gold-light); letter-spacing: 1px; line-height: 1.2; }
+.church-name-block p { font-family: 'EB Garamond', serif; font-style: italic; font-size: 13.5px; color: rgba(255,255,255,.5); margin-top: 3px; letter-spacing: .5px; }
+
+/* NAVIGATION */
+nav { background: linear-gradient(135deg, var(--mid-blue), var(--deep-blue)); border-top: 1px solid rgba(201,168,76,0.3); border-bottom: 1px solid rgba(201,168,76,0.3); position: sticky; top: 0; z-index: 100; box-shadow: 0 4px 20px rgba(0,0,0,0.15); }
+.nav-inner { display: flex; align-items: center; justify-content: center; padding: 0 20px; gap: 4px; }
+.nav-link { font-family: 'Cinzel', serif; font-size: 11px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; color: rgba(255,255,255,0.7); text-decoration: none; padding: 16px 24px; position: relative; transition: all 0.3s ease; white-space: nowrap; border-radius: 40px; }
+.nav-link::before { content: ''; position: absolute; top: 0; left: 50%; width: 0; height: 2px; background: linear-gradient(90deg, transparent, var(--gold), var(--gold-light), var(--gold), transparent); transition: width 0.3s ease, left 0.3s ease; transform: translateX(-50%); border-radius: 2px; }
+.nav-link::after { content: ''; position: absolute; bottom: 0; left: 50%; width: 0; height: 2px; background: linear-gradient(90deg, transparent, var(--gold), var(--gold-light), var(--gold), transparent); transition: width 0.3s ease, left 0.3s ease; transform: translateX(-50%); border-radius: 2px; }
+.nav-link:hover::before, .nav-link:hover::after, .nav-link.active::before, .nav-link.active::after { width: 70%; left: 50%; }
+.nav-link:hover { color: var(--gold-light); background: rgba(201,168,76,0.08); transform: translateY(-1px); }
+.nav-link.active { color: var(--gold-light); background: rgba(201,168,76,0.12); box-shadow: 0 2px 8px rgba(0,0,0,0.15); }
+
+/* PAGE TITLE */
+.page-title-section { background: var(--deep-blue); padding: 60px 40px 50px; text-align: center; position: relative; overflow: hidden; }
+.page-title-section::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse 70% 100% at 50% 0%, rgba(201,168,76,0.1) 0%, transparent 70%); pointer-events: none; }
+.eyebrow { font-family: 'Noto Sans', sans-serif; font-size: 10px; font-weight: 500; letter-spacing: 4px; text-transform: uppercase; color: var(--gold); margin-bottom: 14px; display: flex; align-items: center; justify-content: center; gap: 12px; }
+.eyebrow::before, .eyebrow::after { content: ''; display: block; width: 40px; height: 1px; background: var(--gold); opacity: .5; }
+.page-title-section h2 { font-family: 'Cinzel', serif; font-size: clamp(32px, 5vw, 52px); font-weight: 900; color: #fff; letter-spacing: 4px; text-transform: uppercase; position: relative; z-index: 1; }
+.title-line { width: 80px; height: 2px; background: linear-gradient(90deg, transparent, var(--gold), transparent); margin: 18px auto 0; }
+
+/* BOOKS SECTION */
+.books-section { max-width: 1200px; margin: 0 auto; padding: 60px 40px 80px; }
+.section-heading { display: flex; align-items: center; gap: 16px; margin-bottom: 40px; }
+.section-heading h3 { font-family: 'Cinzel', serif; font-size: 18px; font-weight: 700; color: var(--deep-blue); letter-spacing: 1px; white-space: nowrap; }
+.section-heading .rule { flex: 1; height: 1px; background: linear-gradient(90deg, var(--gold) 0%, transparent 100%); }
+.section-heading .ornament { color: var(--gold); font-size: 18px; flex-shrink: 0; }
+.books-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 24px; }
+.book-card { background: #fff; border: 1px solid var(--border); padding: 24px; transition: all 0.3s ease; position: relative; border-radius: 4px; }
+.book-card:hover { transform: translateY(-5px); box-shadow: 0 15px 35px rgba(0,0,0,0.1); border-color: var(--gold); }
+.book-icon { font-size: 48px; margin-bottom: 16px; color: var(--gold); }
+.book-title { font-family: 'Cinzel', serif; font-size: 16px; font-weight: 700; color: var(--deep-blue); margin-bottom: 8px; }
+.book-author { font-family: 'EB Garamond', serif; font-style: italic; font-size: 13px; color: var(--text-light); margin-bottom: 12px; }
+.book-description { font-family: 'EB Garamond', serif; font-size: 14px; line-height: 1.6; color: var(--text-mid); margin-bottom: 20px; }
+.book-actions { display: flex; gap: 12px; justify-content: flex-start; }
+.book-btn { display: inline-flex; align-items: center; gap: 8px; background: var(--gold); color: var(--deep-blue); font-family: 'Cinzel', serif; font-size: 11px; font-weight: 600; letter-spacing: 1px; text-transform: uppercase; padding: 8px 16px; text-decoration: none; transition: all 0.3s; border-radius: 2px; border: none; cursor: pointer; }
+.book-btn:hover { background: var(--gold-light); transform: translateY(-2px); }
+.book-btn.pdf { background: var(--deep-blue); color: rgba(255,255,255,0.9); }
+.book-btn.pdf:hover { background: var(--mid-blue); }
+.book-btn.download { background: var(--red-byzantine); color: #fff; }
+.book-btn.download:hover { background: #a02525; }
+.book-btn svg { width: 14px; height: 14px; }
+
+/* PLACEHOLDER SECTION */
+.placeholder-section { max-width: 1200px; margin: 0 auto; padding: 60px 40px; }
+.placeholder-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 30px; }
+.placeholder-card { background: var(--cream); border: 1px solid var(--border); padding: 30px; text-align: center; transition: all 0.3s ease; border-radius: 4px; }
+.placeholder-card:hover { transform: translateY(-5px); box-shadow: 0 15px 35px rgba(0,0,0,0.1); }
+.placeholder-icon { font-size: 48px; margin-bottom: 16px; }
+.placeholder-title { font-family: 'Cinzel', serif; font-size: 16px; font-weight: 700; color: var(--deep-blue); margin-bottom: 12px; }
+.placeholder-text { font-family: 'EB Garamond', serif; font-size: 14px; line-height: 1.6; color: var(--text-mid); }
+
+/* FOOTER */
+footer { background: var(--warm-dark); padding: 60px 0 0; }
+.footer-inner { max-width: 1200px; margin: 0 auto; padding: 0 40px 50px; display: grid; grid-template-columns: 1.5fr 1fr; gap: 50px; }
+.footer-col h5 { font-family: 'Cinzel', serif; font-size: 11px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--gold); margin-bottom: 18px; padding-bottom: 10px; border-bottom: 1px solid rgba(201,168,76,0.2); }
+.footer-links { list-style: none; }
+.footer-links li { padding: 6px 0; }
+.footer-links a { font-family: 'EB Garamond', serif; font-size: 15px; color: rgba(255,255,255,0.45); text-decoration: none; transition: color 0.2s; display: flex; align-items: center; gap: 8px; }
+.footer-links a::before { content: '›'; color: var(--gold); opacity: 0; transition: opacity 0.2s; }
+.footer-links a:hover { color: rgba(255,255,255,0.8); }
+.footer-links a:hover::before { opacity: 1; }
+.footer-bottom { border-top: 1px solid rgba(255,255,255,0.06); padding: 20px 40px; max-width: 1200px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 15px; }
+.footer-bottom p { font-family: 'Noto Sans', sans-serif; font-size: 11px; color: rgba(255,255,255,0.25); letter-spacing: 0.5px; margin: 0; display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+.footer-instagram { display: inline-flex; align-items: center; text-decoration: none; transition: opacity 0.25s; margin-left: 5px; }
+.footer-instagram svg { width: 16px; height: 16px; }
+.footer-instagram:hover { opacity: 0.7; }
+
+/* RESPONSIVE */
+@media (max-width: 900px) { .footer-inner { grid-template-columns: 1fr; gap: 30px; } .header-inner { flex-direction: column; gap: 16px; text-align: center; } }
+@media (max-width: 600px) { .lang-bar .container { padding: 0 16px; } .lang-bar-left { gap: 6px; } .icon-link svg { width: 18px; height: 18px; } .header-inner { padding: 20px; flex-direction: column; gap: 16px; text-align: center; } .church-name-block h1 { font-size: 16px; } .church-name-block p { font-size: 12px; } .page-title-section { padding: 40px 20px 36px; } .page-title-section h2 { font-size: 28px; letter-spacing: 2px; } .books-section { padding: 40px 20px 60px; } .books-grid { grid-template-columns: 1fr; } .placeholder-section { padding: 40px 20px; } .placeholder-grid { grid-template-columns: 1fr; } .footer-bottom { padding: 16px 20px; flex-direction: column; text-align: center; } .footer-bottom p { justify-content: center; } nav { overflow-x: auto; -webkit-overflow-scrolling: touch; scrollbar-width: thin; } nav::-webkit-scrollbar { height: 3px; } nav::-webkit-scrollbar-track { background: var(--mid-blue); } nav::-webkit-scrollbar-thumb { background: var(--gold); border-radius: 3px; } .nav-inner { min-width: max-content; padding: 0 16px; gap: 2px; } .nav-link { padding: 14px 14px; font-size: 9px; } }
+@media (max-width: 380px) { .church-name-block h1 { font-size: 14px; } }
+</style>
+</head>
+<body>
+
+<!-- LANGUAGE BAR -->
+<div class="lang-bar">
+  <div class="container">
+    <div class="lang-bar-left">
+      <a href="https://www.instagram.com/kisha.profet.ilia_korce" target="_blank" class="icon-link" aria-label="Instagram"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><rect x="2" y="2" width="20" height="20" rx="5.5" stroke="white" stroke-width="1.8"/><circle cx="12" cy="12" r="4.2" stroke="white" stroke-width="1.8"/><circle cx="17.5" cy="6.5" r="1.1" fill="white"/></svg></a>
+      <a href="https://www.facebook.com/KishaProfetiIliaKorce" class="icon-link" aria-label="Facebook"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><rect x="2" y="2" width="20" height="20" rx="5.5" stroke="white" stroke-width="1.8"/><path d="M13 21V13h2.5l.5-3H13V8.5c0-.8.4-1.5 1.5-1.5H16V4.5S15 4 13.5 4C11 4 10 5.5 10 7.5V10H7.5v3H10v8" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+      <a href="https://youtube.com/@kishaprofetiliakorce" class="icon-link" aria-label="YouTube"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><rect x="2" y="2" width="20" height="20" rx="5.5" stroke="white" stroke-width="1.8"/><path d="M17.5 11.2L9.5 6.5C9.2 6.3 8.8 6.4 8.6 6.7C8.5 6.8 8.5 7 8.5 7.2V16.8C8.5 17.2 8.8 17.5 9.2 17.5C9.3 17.5 9.5 17.5 9.6 17.4L17.6 12.7C17.8 12.6 17.9 12.4 17.9 12.2C17.9 12 17.9 11.9 17.8 11.8C17.7 11.5 17.6 11.3 17.5 11.2Z" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg></a>
+      <a href="mailto:kishaprofetilia@gmail.com" class="icon-link" aria-label="Email"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><rect x="2" y="4" width="20" height="16" rx="3" stroke="white" stroke-width="1.8"/><path d="M2 7L12 13L22 7" stroke="white" stroke-width="1.8" stroke-linecap="round"/></svg></a>
+      <a href="https://maps.app.goo.gl/imSxKzHyRxWEduUb6" class="icon-link" aria-label="Location"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M12 2C8.7 2 6 4.7 6 8c0 5 6 14 6 14s6-9 6-14c0-3.3-2.7-6-6-6z" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><circle cx="12" cy="8" r="2.5" stroke="white" stroke-width="1.8"/></svg></a>
+    </div>
+    <div class="lang-bar-right">
+      <span class="lang-label" id="lang-label-text">Gjuha</span>
+      <button class="lang-btn active" onclick="setLang('sq')">AL</button>
+      <button class="lang-btn" onclick="setLang('en')">EN</button>
+      <button class="lang-btn" onclick="setLang('el')">ΕL</button>
+    </div>
+  </div>
+</div>
+
+<!-- HEADER -->
+<header>
+  <div class="header-inner">
+    <a href="index.html" class="church-identity">
+      <img class="cross-icon" src="Assets/logo.png" alt="Kisha Profeti Ilia">
+      <div class="church-name-block">
+        <h1 data-t="header_title">Kisha "Profeti Ilia" Korçë</h1>
+        <p data-t="header_subtitle">Mitropolia e Shenjtë Korçë</p>
+      </div>
+    </a>
+  </div>
+</header>
+
+<!-- NAVIGATION -->
+<nav>
+  <div class="nav-inner">
+    <a href="index.html" class="nav-link" data-t="nav_home">KRYEFAQJA</a>
+    <a href="historia.html" class="nav-link" data-t="nav_history">HISTORIA</a>
+    <a href="galeria.html" class="nav-link" data-t="nav_gallery">GALERIA</a>
+    <a href="katekizem.html" class="nav-link" data-t="nav_catechism">KATEKIZËM</a>
+    <a href="evente.html" class="nav-link" data-t="nav_events">EVENTE</a>
+    <a href="meshume.html" class="nav-link active" data-t="nav_more">MË SHUMË</a>
+  </div>
+</nav>
+
+<!-- PAGE TITLE -->
+<div class="page-title-section">
+  <div class="eyebrow" data-t="page_eyebrow">Kisha Profeti Ilia</div>
+  <h2 data-t="page_title">Më shumë</h2>
+  <div class="title-line"></div>
+</div>
+
+<!-- BOOKS SECTION -->
+<section class="books-section" id="books">
+  <div class="section-heading">
+    <span class="ornament">✦</span>
+    <h3 data-t="books_heading">Librat Shpirtërorë</h3>
+    <div class="rule"></div>
+  </div>
+  <div class="books-grid" id="booksGrid">
+    <!-- Books will be populated by JavaScript -->
+  </div>
+</section>
+
+<!-- PLACEHOLDER SECTION 1 - OTHER RESOURCES -->
+<section class="placeholder-section">
+  <div class="section-heading">
+    <span class="ornament">✦</span>
+    <h3 data-t="resources_heading">Burime të Tjera</h3>
+    <div class="rule"></div>
+  </div>
+  <div class="placeholder-grid" id="resourcesGrid">
+    <!-- Resources will be populated by JavaScript -->
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <a href="index.html" class="church-identity" style="text-decoration:none;">
+        <img class="cross-icon" src="Assets/logo.png" alt="Kisha Profeti Ilia">
+        <div>
+          <div style="font-family:'Cinzel',serif;font-size:18px;font-weight:700;color:var(--gold-light);letter-spacing:1px;" data-t="footer_church_name">Kisha "Profeti Ilia"</div>
+          <div style="font-family:'EB Garamond',serif;font-style:italic;font-size:14px;color:rgba(255,255,255,0.45);margin-top:4px;" data-t="footer_church_desc">Mitropolia e Shenjtë Korçë</div>
+        </div>
+      </a>
+    </div>
+    <div class="footer-col">
+      <h5 data-t="footer_quick_links">Lidhje të Shpejta</h5>
+      <ul class="footer-links">
+        <li><a href="index.html" data-t="nav_home">Kryefaqja</a></li>
+        <li><a href="historia.html" data-t="nav_history">Historia</a></li>
+        <li><a href="galeria.html" data-t="nav_gallery">Galeria</a></li>
+        <li><a href="katekizem.html" data-t="nav_catechism">Katekizëm</a></li>
+        <li><a href="evente.html" data-t="nav_events">Evente</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>Me bekimin e At Sotir Dinka.<br><span data-t="copyright">© 2026 Kisha Orthodhokse "Profeti Ilia" – Korçë.</span></p>
+    <p>Realizoi: Vasil Çeku
+      <a href="https://www.instagram.com/ceku.joel" target="_blank" class="footer-instagram" aria-label="Instagram">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><rect x="2" y="2" width="20" height="20" rx="5.5" stroke="white" stroke-width="1.8"/><circle cx="12" cy="12" r="4.2" stroke="white" stroke-width="1.8"/><circle cx="17.5" cy="6.5" r="1.1" fill="white"/></svg>
+      </a>
+    </p>
+  </div>
+</footer>
+
+<script>
+// ==================================================
+// BOOKS DATA - Add your PDF links here
+// ==================================================
+const booksData = [
+  {
+    id: 1,
+    title_sq: "Bibla e Shenjtë",
+    title_en: "Holy Bible",
+    title_el: "Αγία Γραφή",
+    author_sq: "Kisha Orthodhokse",
+    author_en: "Orthodox Church",
+    author_el: "Ορθόδοξη Εκκλησία",
+    desc_sq: "Libri më i shenjtë i krishterimit, përkthimi në shqip i miratuar nga Kisha Orthodhokse.",
+    desc_en: "The holiest book of Christianity, the Albanian translation approved by the Orthodox Church.",
+    desc_el: "Το ιερότερο βιβλίο του Χριστιανισμού, η αλβανική μετάφραση εγκεκριμένη από την Ορθόδοξη Εκκλησία.",
+    pdfUrl: "https://drive.google.com/file/d/example1/view",
+    icon: "📖"
+  },
+  {
+    id: 2,
+    title_sq: "Lutjet e Përditshme",
+    title_en: "Daily Prayers",
+    title_el: "Καθημερινές Προσευχές",
+    author_sq: "Kisha Orthodhokse",
+    author_en: "Orthodox Church",
+    author_el: "Ορθόδοξη Εκκλησία",
+    desc_sq: "Përmbledhje lutjesh për mëngjes, mbrëmje dhe raste të veçanta.",
+    desc_en: "Collection of prayers for morning, evening and special occasions.",
+    desc_el: "Συλλογή προσευχών για το πρωί, το βράδυ και ειδικές περιστάσεις.",
+    pdfUrl: "https://drive.google.com/file/d/example2/view",
+    icon: "🙏"
+  },
+  {
+    id: 3,
+    title_sq: "Katekizmi Orthodhoks",
+    title_en: "Orthodox Catechism",
+    title_el: "Ορθόδοξος Κατήχηση",
+    author_sq: "Shenjtorët e Kishës",
+    author_en: "Church Fathers",
+    author_el: "Πατέρες της Εκκλησίας",
+    desc_sq: "Mësimi themelor i besimit orthodhoks për të rinjtë dhe të rriturit.",
+    desc_en: "Basic teaching of the Orthodox faith for youth and adults.",
+    desc_el: "Βασική διδασκαλία της ορθόδοξης πίστης για νέους και ενήλικες.",
+    pdfUrl: "https://drive.google.com/file/d/example3/view",
+    icon: "✝️"
+  },
+  {
+    id: 4,
+    title_sq: "Jeta e Shenjtorëve",
+    title_en: "Lives of the Saints",
+    title_el: "Βίοι Αγίων",
+    author_sq: "Shën Dimitri i Rostovit",
+    author_en: "St. Dimitri of Rostov",
+    author_el: "Άγιος Δημήτριος Ροστώβ",
+    desc_sq: "Tregime nga jeta e shenjtorëve të Kishës Orthodhokse.",
+    desc_en: "Stories from the lives of the saints of the Orthodox Church.",
+    desc_el: "Ιστορίες από τη ζωή των αγίων της Ορθόδοξης Εκκλησίας.",
+    pdfUrl: "https://drive.google.com/file/d/example4/view",
+    icon: "⭐"
+  }
+];
+
+// ==================================================
+// RESOURCES DATA - Add more items here
+// ==================================================
+const resourcesData = [
+  {
+    id: 1,
+    title_sq: "Himnet e Kishës",
+    title_en: "Church Hymns",
+    title_el: "Εκκλησιαστικοί Ύμνοι",
+    desc_sq: "Himne liturgjike për festat e ndryshme të vitit kishtar.",
+    desc_en: "Liturgical hymns for the various feasts of the church year.",
+    desc_el: "Λειτουργικοί ύμνοι για τις διάφορες εορτές του εκκλησιαστικού έτους.",
+    icon: "🎵"
+  },
+  {
+    id: 2,
+    title_sq: "Ikonografia Orthodhokse",
+    title_en: "Orthodox Iconography",
+    title_el: "Ορθόδοξη Εικονογραφία",
+    desc_sq: "Udhëzues për kuptimin dhe simbolikën e ikonave orthodhokse.",
+    desc_en: "Guide to the meaning and symbolism of Orthodox icons.",
+    desc_el: "Οδηγός για το νόημα και το συμβολισμό των ορθόδοξων εικόνων.",
+    icon: "🎨"
+  },
+  {
+    id: 3,
+    title_sq: "Liturgjia Hyjnore",
+    title_en: "Divine Liturgy",
+    title_el: "Θεία Λειτουργία",
+    desc_sq: "Shpjegimi i pjesëve të Liturgjisë Hyjnore të Shën Gjon Gojartit.",
+    desc_en: "Explanation of the parts of the Divine Liturgy of St. John Chrysostom.",
+    desc_el: "Εξήγηση των μερών της Θείας Λειτουργίας του Αγίου Ιωάννη του Χρυσοστόμου.",
+    icon: "🕯️"
+  }
+];
+
+// ==================================================
+// TRANSLATIONS
+// ==================================================
+const T = {
+  lang_label: { sq: 'Gjuha', en: 'Language', el: 'Γλώσσα' },
+  header_title: { sq: 'Kisha "Profeti Ilia" Korçë', en: '"Prophet Elijah" Church Korçë', el: 'Εκκλησία του Προφήτη Ηλία, Κορυτσά' },
+  header_subtitle: { sq: 'Mitropolia e Shenjtë Korçë', en: 'Holy Metropolis of Korçë', el: 'Ιερά Μητρόπολη Κορυτσάς' },
+  nav_home: { sq: 'Kryefaqja', en: 'Home', el: 'Αρχική' },
+  nav_history: { sq: 'Historia', en: 'History', el: 'Ιστορία' },
+  nav_gallery: { sq: 'Galeria', en: 'Gallery', el: 'Γκαλερί' },
+  nav_catechism: { sq: 'Katekizëm', en: 'Catechism', el: 'Κατήχηση' },
+  nav_events: { sq: 'Evente', en: 'Events', el: 'Εκδηλώσεις' },
+  nav_more: { sq: 'Më shumë', en: 'More', el: 'Περισσότερα' },
+  page_eyebrow: { sq: 'Kisha Profeti Ilia', en: 'Prophet Elijah Church', el: 'Ναός Προφήτης Ηλίας' },
+  page_title: { sq: 'Më shumë', en: 'More', el: 'Περισσότερα' },
+  books_heading: { sq: 'Librat Shpirtërorë', en: 'Spiritual Books', el: 'Πνευματικά Βιβλία' },
+  resources_heading: { sq: 'Burime të Tjera', en: 'Other Resources', el: 'Άλλες Πηγές' },
+  btn_view: { sq: 'Shiko PDF', en: 'View PDF', el: 'Δείτε PDF' },
+  btn_download: { sq: 'Shkarko', en: 'Download', el: 'Λήψη' },
+  footer_church_name: { sq: 'Kisha "Profeti Ilia"', en: 'Church "Prophet Elijah"', el: 'Ναός «Προφήτης Ηλίας»' },
+  footer_church_desc: { sq: 'Mitropolia e Shenjtë Korçë', en: 'Holy Metropolis of Korçë', el: 'Ιερά Μητρόπολη Κορυτσάς' },
+  footer_quick_links: { sq: 'Lidhje të Shpejta', en: 'Quick Links', el: 'Γρήγοροι Σύνδεσμοι' },
+  copyright: { sq: '© 2026 Kisha Orthodhokse "Profeti Ilia" – Korçë.', en: '© 2026 Orthodox Church "Prophet Elijah" – Korçë.', el: '© 2026 Ορθόδοξος Ναός «Προφήτης Ηλίας» – Κορυτσά.' }
+};
+
+let currentLang = 'sq';
+
+function setLang(lang) {
+  currentLang = lang;
+  document.querySelectorAll('.lang-btn').forEach(b => b.classList.remove('active'));
+  document.querySelector(`.lang-btn[onclick="setLang('${lang}')"]`).classList.add('active');
+  document.getElementById('lang-label-text').textContent = T.lang_label[lang];
+  document.documentElement.lang = lang;
+  
+  document.querySelectorAll('[data-t]').forEach(el => {
+    const key = el.getAttribute('data-t');
+    const entry = T[key];
+    if (!entry) return;
+    el.textContent = entry[lang] || entry['sq'] || '';
+  });
+  
+  renderBooks();
+  renderResources();
+}
+
+function renderBooks() {
+  const container = document.getElementById('booksGrid');
+  container.innerHTML = booksData.map(book => `
+    <div class="book-card">
+      <div class="book-icon">${book.icon}</div>
+      <div class="book-title">${book[`title_${currentLang}`] || book.title_sq}</div>
+      <div class="book-author">${book[`author_${currentLang}`] || book.author_sq}</div>
+      <div class="book-description">${book[`desc_${currentLang}`] || book.desc_sq}</div>
+      <div class="book-actions">
+        <a href="${book.pdfUrl}" target="_blank" class="book-btn pdf"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="10" y1="12" x2="16" y2="12"/><line x1="10" y1="16" x2="16" y2="16"/></svg>${T.btn_view[currentLang]}</a>
+        <a href="${book.pdfUrl}" download class="book-btn download"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>${T.btn_download[currentLang]}</a>
+      </div>
+    </div>
+  `).join('');
+}
+
+function renderResources() {
+  const container = document.getElementById('resourcesGrid');
+  container.innerHTML = resourcesData.map(resource => `
+    <div class="placeholder-card">
+      <div class="placeholder-icon">${resource.icon}</div>
+      <div class="placeholder-title">${resource[`title_${currentLang}`] || resource.title_sq}</div>
+      <div class="placeholder-text">${resource[`desc_${currentLang}`] || resource.desc_sq}</div>
+    </div>
+  `).join('');
+}
+
+setLang('sq');
+</script>
+</body>
+</html>
