@@ -221,7 +221,9 @@
   .history-inner { direction: ltr !important; }
   .history-text h3 { font-size: 22px; }
   .history-text p { font-size: 15px; }
-  .history-stats { grid-template-columns: repeat(3, 1fr); gap: 12px; }
+
+  .history-stats { display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; }
+  .stat-box { flex: 0 1 auto; min-width: 140px; max-width: 180px; }
   .stat-box .num { font-size: 26px; }
   .footer-inner { grid-template-columns: 1fr; gap: 30px; padding: 0 20px 40px; }
   .footer-bottom { padding: 16px 20px; }
