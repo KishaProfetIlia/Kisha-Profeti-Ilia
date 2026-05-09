@@ -181,7 +181,7 @@
   
   /* ─── FOOTER ─── */
   footer { background: var(--warm-dark); padding: 60px 0 0; }
-  .footer-inner { max-width: 1200px; margin: 0 auto; padding: 0 40px 50px; display: grid; grid-template-columns: 1.5fr 1fr 1fr; gap: 50px; }
+  .nav-inner { display: flex; align-items: center; justify-content: center; padding: 0 40px; gap: 0; flex-wrap: wrap; }
   .footer-brand .church-name-block h1 { font-size: 18px; }
   .footer-brand p { font-family: 'EB Garamond', serif; font-style: italic; font-size: 13.5px; color: rgba(255,255,255,0.5); margin-top: 3px; line-height: 1.7; }
   .footer-col h5 { font-family: 'Cinzel', serif; font-size: 11px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--gold); margin-bottom: 18px; padding-bottom: 10px; border-bottom: 1px solid rgba(201,168,76,0.2); }
@@ -236,8 +236,13 @@
   .footer-inner { grid-template-columns: 1fr; gap: 30px; padding: 0 20px 40px; }
   .footer-bottom { padding: 16px 20px; }
   .footer-bottom p { font-size: 10px; }
-  .nav-inner { overflow-x: auto; justify-content: flex-start; padding: 0 16px; gap: 2px; -webkit-overflow-scrolling: touch; scrollbar-width: thin; }
-  .nav-link { font-size: 9px; padding: 12px 12px; letter-spacing: 1px; white-space: nowrap; }
+  .nav-inner { overflow-x: auto; justify-content: flex-start; padding: 0 16px; gap: 4px; -webkit-overflow-scrolling: touch; scrollbar-width: thin; scrollbar-color: var(--gold) var(--mid-blue); }
+  .nav-inner::-webkit-scrollbar { height: 3px; }
+  .nav-inner::-webkit-scrollbar-track { background: var(--mid-blue); }
+  .nav-inner::-webkit-scrollbar-thumb { background: var(--gold); border-radius: 3px; }
+  .nav-inner::-webkit-scrollbar-track { background: var(--mid-blue); }
+  .nav-inner::-webkit-scrollbar-thumb { background: var(--gold); border-radius: 3px; }
+  .nav-link { font-size: 10px; padding: 14px 16px; letter-spacing: 1px; white-space: nowrap; }
   .history-img-frame { length: 100%; }
   .lightbox-arrow { display: none; }
 }
