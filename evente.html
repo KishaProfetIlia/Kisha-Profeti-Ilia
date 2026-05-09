@@ -2,593 +2,278 @@
 <html lang="sq">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 <title>Evente – Kisha "Profeti Ilia"</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Noto+Sans:wght@300;400;500&display=swap" rel="stylesheet">
- 
 <style>
-  :root {
-    --gold: #C9A84C;
-    --gold-light: #E8C97A;
-    --gold-pale: #F5EDD8;
-    --deep-blue: #1A1F3C;
-    --mid-blue: #2D3561;
-    --warm-dark: #0F0E0B;
-    --parchment: #FAF6EE;
-    --stone: #8B7D6B;
-    --red-byzantine: #8B1A1A;
-    --cream: #F2EDE4;
-    --text-dark: #1A1715;
-    --text-mid: #4A4035;
-    --text-light: #9A8E7E;
-    --border: rgba(201,168,76,0.25);
-    --shadow: 0 4px 30px rgba(15,14,11,0.15);
-  }
- 
-  * { margin: 0; padding: 0; box-sizing: border-box; }
-  html { scroll-behavior: smooth; }
-  body {
-    font-family: 'EB Garamond', Georgia, serif;
-    background: var(--parchment);
-    color: var(--text-dark);
-    overflow-x: hidden;
-  }
- 
-  * { user-select: none; -webkit-user-select: none; }
- 
-  /* ─── LANGUAGE BAR ─── */
-  .lang-bar { background: var(--deep-blue); padding: 8px 0; }
-  .lang-bar .container { display: flex; justify-content: space-between; align-items: center; padding: 0 40px; }
-  .lang-bar-left { display: flex; align-items: center; gap: 10px; }
-  .instagram-link { display: flex; align-items: center; justify-content: center; color: rgba(255,255,255,0.7); transition: color 0.25s; text-decoration: none; }
-  .instagram-link:hover { color: #fff; }
-  .lang-bar-right { display: flex; align-items: center; gap: 8px; }
-  .lang-label { font-family: 'Noto Sans', sans-serif; font-size: 11px; font-weight: 500; letter-spacing: 1.5px; text-transform: uppercase; color: #fff; margin-right: 4px; }
-  .lang-btn { background: transparent; border: 1px solid rgba(201,168,76,0.4); color: rgba(255,255,255,0.65); padding: 4px 12px; font-family: 'Noto Sans', sans-serif; font-size: 11px; font-weight: 500; letter-spacing: 1.5px; text-transform: uppercase; cursor: pointer; transition: all 0.25s; border-radius: 2px; }
-  .lang-btn:hover, .lang-btn.active { background: var(--gold); border-color: var(--gold); color: var(--deep-blue); }
- 
-  /* ─── HEADER ─── */
-  header { background: var(--deep-blue); position: relative; overflow: hidden; }
-  header::before {
-    content: '';
-    position: absolute; inset: 0;
-    background:
-      radial-gradient(ellipse 60% 80% at 50% -20%, rgba(201,168,76,0.12) 0%, transparent 70%),
-      url("data:image/svg+xml,%3Csvg width='60' height='60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M30 5 L35 20 L50 20 L38 29 L43 44 L30 35 L17 44 L22 29 L10 20 L25 20Z' fill='none' stroke='rgba(201,168,76,0.06)' stroke-width='1'/%3E%3C/svg%3E") repeat;
-    pointer-events: none;
-  }
-  .header-inner { position: relative; z-index: 1; display: flex; align-items: center; justify-content: space-between; padding: 28px 40px; }
-  .church-identity { display: flex; align-items: center; gap: 20px; text-decoration: none; }
-  .cross-icon { width: 52px; height: 52px; flex-shrink: 0; border-radius: 50%; object-fit: cover; }
-  .church-name-block h1 { font-family: 'Cinzel', serif; font-size: 22px; font-weight: 700; color: var(--gold-light); letter-spacing: 1px; line-height: 1.2; }
-  .church-name-block p { font-family: 'EB Garamond', serif; font-style: italic; font-size: 13.5px; color: rgba(255,255,255,0.5); margin-top: 3px; letter-spacing: 0.5px; }
- 
-  /* ─── NAVIGATION COMPLETE REDESIGN ─── */
-  nav { background: linear-gradient(135deg, var(--mid-blue), var(--deep-blue)); border-top: 1px solid rgba(201,168,76,0.3); border-bottom: 1px solid rgba(201,168,76,0.3); position: sticky; top: 0; z-index: 100; box-shadow: 0 4px 20px rgba(0,0,0,0.15); }
-  .nav-inner { display: flex; align-items: center; justify-content: center; padding: 0 20px; gap: 4px; flex-wrap: wrap; }
-  .nav-link { font-family: 'Cinzel', serif; font-size: 11px; font-weight: 600; letter-spacing: 1.5px; text-transform: uppercase; color: rgba(255,255,255,0.7); text-decoration: none; padding: 14px 16px; position: relative; transition: all 0.25s; white-space: nowrap; }
-  .nav-inner::before { content: '☦'; position: absolute; left: 20px; top: 50%; transform: translateY(-50%); font-size: 11px; color: rgba(201,168,76,0.25); font-family: serif; }
-  .nav-inner::after { content: '☦'; position: absolute; right: 20px; top: 50%; transform: translateY(-50%); font-size: 11px; color: rgba(201,168,76,0.25); font-family: serif; }
-  .nav-link { font-family: 'Cinzel', serif; font-size: 11px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; color: rgba(255,255,255,0.7); text-decoration: none; padding: 16px 24px; position: relative; transition: all 0.3s ease; white-space: nowrap; border-radius: 40px; }
-  .nav-link::before { content: ''; position: absolute; top: 0; left: 50%; width: 0; height: 2px; background: linear-gradient(90deg, transparent, var(--gold), var(--gold-light), var(--gold), transparent); transition: width 0.3s ease, left 0.3s ease; transform: translateX(-50%); border-radius: 2px; }
-  .nav-link::after { content: ''; position: absolute; bottom: 0; left: 50%; width: 0; height: 2px; background: linear-gradient(90deg, transparent, var(--gold), var(--gold-light), var(--gold), transparent); transition: width 0.3s ease, left 0.3s ease; transform: translateX(-50%); border-radius: 2px; }
-  .nav-link:hover::before, .nav-link:hover::after, .nav-link.active::before, .nav-link.active::after { width: 70%; left: 50%; }
-  .nav-link:hover { color: var(--gold-light); background: rgba(201,168,76,0.08); transform: translateY(-1px); }
-  .nav-link.active { color: var(--gold-light); background: rgba(201,168,76,0.12); box-shadow: 0 2px 8px rgba(0,0,0,0.15); }
+:root { --gold: #C9A84C; --gold-light: #E8C97A; --gold-pale: #F5EDD8; --deep-blue: #1A1F3C; --mid-blue: #2D3561; --warm-dark: #0F0E0B; --parchment: #FAF6EE; --stone: #8B7D6B; --red-byzantine: #8B1A1A; --cream: #F2EDE4; --text-dark: #1A1715; --text-mid: #4A4035; --text-light: #9A8E7E; --border: rgba(201,168,76,0.25); --shadow: 0 4px 30px rgba(15,14,11,0.15); }
+* { margin: 0; padding: 0; box-sizing: border-box; user-select: none; -webkit-user-select: none; }
+html { scroll-behavior: smooth; }
+body { font-family: 'EB Garamond', Georgia, serif; background: var(--parchment); color: var(--text-dark); overflow-x: hidden; }
 
-  /* Optional: Add a subtle diamond indicator for active link */
-  .nav-link.active span { position: relative; }
-  .nav-link.active span::before { content: '◆'; position: absolute; top: -18px; left: 50%; transform: translateX(-50%); font-size: 6px; color: var(--gold); letter-spacing: 0; }
+/* LANGUAGE BAR */
+.lang-bar { background: var(--deep-blue); padding: 8px 0; }
+.lang-bar .container { display: flex; justify-content: space-between; align-items: center; padding: 0 40px; }
+.lang-bar-left { display: flex; align-items: center; gap: 10px; }
+.instagram-link { display: flex; align-items: center; justify-content: center; color: rgba(255,255,255,0.7); transition: color 0.25s; text-decoration: none; }
+.instagram-link:hover { color: #fff; }
+.lang-bar-right { display: flex; align-items: center; gap: 8px; }
+.lang-label { font-family: 'Noto Sans', sans-serif; font-size: 11px; font-weight: 500; letter-spacing: 1.5px; text-transform: uppercase; color: #fff; margin-right: 4px; }
+.lang-btn { background: transparent; border: 1px solid rgba(201,168,76,0.4); color: rgba(255,255,255,0.65); padding: 4px 12px; font-family: 'Noto Sans', sans-serif; font-size: 11px; font-weight: 500; letter-spacing: 1.5px; text-transform: uppercase; cursor: pointer; transition: all 0.25s; border-radius: 2px; }
+.lang-btn:hover, .lang-btn.active { background: var(--gold); border-color: var(--gold); color: var(--deep-blue); }
 
- 
-  /* ─── PAGE TITLE (matching katekizem.html exactly) ─── */
-  .page-title-section { background: var(--deep-blue); padding: 60px 40px 50px; text-align: center; position: relative; overflow: hidden; }
-  .page-title-section::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse 70% 100% at 50% 0%, rgba(201,168,76,0.1) 0%, transparent 70%); pointer-events: none; }
-  .eyebrow { font-family: 'Noto Sans', sans-serif; font-size: 10px; font-weight: 500; letter-spacing: 4px; text-transform: uppercase; color: var(--gold); margin-bottom: 14px; display: flex; align-items: center; justify-content: center; gap: 12px; position: relative; z-index: 1; }
-  .eyebrow::before, .eyebrow::after { content: ''; display: block; width: 40px; height: 1px; background: var(--gold); opacity: 0.5; }
-  .page-title-section h2 { font-family: 'Cinzel', serif; font-size: clamp(32px, 5vw, 52px); font-weight: 900; color: #fff; letter-spacing: 4px; text-transform: uppercase; position: relative; z-index: 1; }
-  .title-line { width: 80px; height: 2px; background: linear-gradient(90deg, transparent, var(--gold), transparent); margin: 18px auto 0; }
- 
-  /* ─── EVENTS TABS ─── */
-  .events-tabs-bar {
-    background: var(--cream);
-    border-bottom: 1px solid var(--border);
-    display: flex; justify-content: center; gap: 0;
-  }
-  .events-tab-btn {
-    background: transparent; border: none;
-    font-family: 'Cinzel', serif; font-size: 12px; font-weight: 600;
-    letter-spacing: 1.8px; text-transform: uppercase;
-    color: var(--text-light); padding: 18px 36px;
-    cursor: pointer; transition: all 0.25s;
-    position: relative; border-bottom: 3px solid transparent;
-    display: flex; align-items: center; gap: 10px;
-  }
-  .events-tab-btn:hover { color: var(--deep-blue); }
-  .events-tab-btn.active {
-    color: var(--deep-blue);
-    border-bottom-color: var(--gold);
-  }
-  .tab-icon { font-size: 18px; }
- 
-  /* ─── MAIN EVENTS AREA ─── */
-  .events-main { max-width: 1100px; margin: 0 auto; padding: 60px 40px; }
- 
-  .tab-panel { display: none; }
-  .tab-panel.active { display: block; }
- 
-  .section-heading { display: flex; align-items: center; gap: 16px; margin-bottom: 36px; }
-  .section-heading h3 { font-family: 'Cinzel', serif; font-size: 18px; font-weight: 700; color: var(--deep-blue); letter-spacing: 1px; white-space: nowrap; }
-  .section-heading .rule { flex: 1; height: 1px; background: linear-gradient(90deg, var(--gold) 0%, transparent 100%); }
-  .section-heading .ornament { color: var(--gold); font-size: 18px; flex-shrink: 0; }
- 
-  /* ─── EVENT LIST LINKS ─── */
-  .event-list { list-style: none; margin-bottom: 16px; }
-  .event-list-item {
-    border: 1px solid var(--border);
-    background: #fff;
-    margin-bottom: 2px;
-    transition: border-color 0.2s;
-    position: relative;
-  }
-  .event-list-item::before {
-    content: ''; position: absolute; left: 0; top: 0; bottom: 0;
-    width: 3px; background: var(--gold);
-    transform: scaleY(0); transition: transform 0.3s; transform-origin: bottom;
-  }
-  .event-list-item:hover::before,
-  .event-list-item.open::before { transform: scaleY(1); }
- 
-  .event-trigger {
-    width: 100%; background: none; border: none; cursor: pointer;
-    display: flex; align-items: center; gap: 20px;
-    padding: 18px 22px; text-align: left;
-    transition: background 0.2s;
-  }
-  .event-trigger:hover { background: var(--gold-pale); }
-  .event-list-item.open .event-trigger { background: var(--gold-pale); }
- 
-  .event-trigger-date {
-    font-family: 'Cinzel', serif; font-size: 12px; font-weight: 700;
-    color: var(--gold); min-width: 110px; flex-shrink: 0;
-    letter-spacing: 0.5px;
-  }
-  .event-trigger-name {
-    font-family: 'EB Garamond', serif; font-size: 16px; font-weight: 500;
-    color: var(--deep-blue); flex: 1;
-  }
-  .event-trigger-names {
-    font-family: 'Noto Sans', sans-serif; font-size: 11px;
-    color: var(--text-light); letter-spacing: 0.5px; margin-top: 2px;
-  }
-  .event-trigger-arrow {
-    width: 20px; height: 20px; flex-shrink: 0; color: var(--gold);
-    transition: transform 0.3s;
-  }
-  .event-list-item.open .event-trigger-arrow { transform: rotate(180deg); }
- 
-  /* ─── EVENT DETAIL PANEL ─── */
-  .event-detail {
-    display: none;
-    border-top: 1px solid var(--border);
-    padding: 32px 28px;
-    background: #fff;
-  }
-  .event-list-item.open .event-detail { display: flex; gap: 36px; }
- 
-  .event-photo {
-    width: 320px; flex-shrink: 0;
-    background: linear-gradient(135deg, var(--deep-blue), var(--mid-blue));
-    display: flex; align-items: center; justify-content: center;
-    font-size: 60px; color: rgba(255,255,255,0.15);
-    overflow: hidden; aspect-ratio: 4/3;
-    border: 1px solid var(--border);
-    position: relative;
-  }
-  .event-photo img { width: 100%; height: 100%; object-fit: cover; position: absolute; inset: 0; }
- 
-  .event-info { flex: 1; }
-  .event-info-title {
-    font-family: 'Cinzel', serif; font-size: 20px; font-weight: 700;
-    color: var(--deep-blue); margin-bottom: 6px;
-  }
-  .event-info-subtitle {
-    font-family: 'EB Garamond', serif; font-style: italic; font-size: 15px;
-    color: var(--stone); margin-bottom: 20px;
-  }
-  .event-info-grid {
-    display: grid; grid-template-columns: 1fr 1fr; gap: 16px 28px;
-    margin-bottom: 22px;
-  }
-  .event-field label {
-    font-family: 'Noto Sans', sans-serif; font-size: 9px; font-weight: 500;
-    letter-spacing: 2px; text-transform: uppercase; color: var(--gold);
-    display: block; margin-bottom: 4px;
-  }
-  .event-field span {
-    font-family: 'EB Garamond', serif; font-size: 16px; color: var(--text-dark);
-  }
-  .event-divider { width: 60px; height: 1px; background: var(--gold); opacity: 0.4; margin-bottom: 16px; }
-  .event-description {
-    font-family: 'EB Garamond', serif; font-size: 16px; line-height: 1.8;
-    color: var(--text-mid);
-  }
-  .event-tag {
-    display: inline-block;
-    background: var(--red-byzantine); color: #fff;
-    font-family: 'Noto Sans', sans-serif; font-size: 9px; font-weight: 500;
-    letter-spacing: 1.5px; text-transform: uppercase;
-    padding: 4px 10px; border-radius: 1px; margin-bottom: 16px;
-  }
- 
-  /* ─── FOOTER ─── */
-  footer { background: var(--warm-dark); padding: 60px 0 0; }
-  .footer-inner { max-width: 1200px; margin: 0 auto; padding: 0 40px 50px; display: grid; grid-template-columns: 1.5fr 1fr; gap: 50px; }
-  .footer-brand p { font-family: 'EB Garamond', serif; font-style: italic; font-size: 14.5px; color: rgba(255,255,255,0.35); margin-top: 16px; line-height: 1.7; }
-  .footer-col h5 { font-family: 'Cinzel', serif; font-size: 11px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--gold); margin-bottom: 18px; padding-bottom: 10px; border-bottom: 1px solid rgba(201,168,76,0.2); }
-  .footer-links { list-style: none; }
-  .footer-links li { padding: 6px 0; }
-  .footer-links a { font-family: 'EB Garamond', serif; font-size: 15px; color: rgba(255,255,255,0.45); text-decoration: none; transition: color 0.2s; display: flex; align-items: center; gap: 8px; }
-  .footer-links a::before { content: '›'; color: var(--gold); opacity: 0; transition: opacity 0.2s; }
-  .footer-links a:hover { color: rgba(255,255,255,0.8); }
-  .footer-links a:hover::before { opacity: 1; }
-  .footer-bottom { border-top: 1px solid rgba(255,255,255,0.06); padding: 20px 40px; max-width: 1200px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; }
-  .footer-bottom p { font-family: 'Noto Sans', sans-serif; font-size: 11px; color: rgba(255,255,255,0.25); letter-spacing: 0.5px; }
-  .footer-bottom .orthodoxy-motto { font-family: 'EB Garamond', serif; font-style: italic; font-size: 13px; color: rgba(201,168,76,0.5); }
- 
-  /* ─── BAPTISM RULES ─── */
-  .baptism-rules { max-width: 680px; }
-  .rule-intro p { font-family: 'EB Garamond', serif; font-size: 17px; line-height: 1.85; color: var(--text-mid); margin-bottom: 36px; font-style: italic; }
-  .rule-block { background: #fff; border: 1px solid var(--border); padding: 28px 32px; margin-bottom: 16px; position: relative; }
-  .rule-block::before { content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 3px; background: var(--gold); }
-  .rule-block-title { font-family: 'Cinzel', serif; font-size: 13px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: var(--deep-blue); margin-bottom: 16px; display: flex; align-items: center; gap: 10px; }
-  .rule-icon { color: var(--gold); }
-  .rule-text { font-family: 'EB Garamond', serif; font-size: 17px; line-height: 1.8; color: var(--text-mid); }
-  .rule-list { list-style: none; }
-  .rule-list li { font-family: 'EB Garamond', serif; font-size: 17px; line-height: 1.8; color: var(--text-mid); padding: 7px 0; border-bottom: 1px dashed var(--border); display: flex; align-items: baseline; gap: 12px; }
-  .rule-list li:last-child { border-bottom: none; }
-  .rule-list li::before { content: '›'; color: var(--gold); font-size: 18px; flex-shrink: 0; }
-  .rule-note { background: var(--cream); border-left: 3px solid var(--gold); padding: 16px 22px; font-family: 'EB Garamond', serif; font-style: italic; font-size: 15.5px; color: var(--text-light); margin-top: 8px; line-height: 1.7; }
- 
-  /* ─── RESPONSIVE ─── */
-  @media (max-width: 900px) {
-    .footer-inner { grid-template-columns: 1fr 1fr; }
-    .header-inner { flex-direction: column; gap: 16px; text-align: center; }
-    .nav-inner { overflow-x: auto; justify-content: flex-start; padding: 0 20px; }
-    .event-list-item.open .event-detail { flex-direction: column; }
-    .event-photo { width: 100%; aspect-ratio: 16/9; }
-    .event-info-grid { grid-template-columns: 1fr; }
-  }
+/* HEADER */
+header { background: var(--deep-blue); position: relative; overflow: hidden; }
+header::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse 60% 80% at 50% -20%, rgba(201,168,76,0.12) 0%, transparent 70%), url("data:image/svg+xml,%3Csvg width='60' height='60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M30 5 L35 20 L50 20 L38 29 L43 44 L30 35 L17 44 L22 29 L10 20 L25 20Z' fill='none' stroke='rgba(201,168,76,0.06)' stroke-width='1'/%3E%3C/svg%3E") repeat; pointer-events: none; }
+.header-inner { position: relative; z-index: 1; display: flex; align-items: center; justify-content: space-between; padding: 28px 40px; }
+.church-identity { display: flex; align-items: center; gap: 20px; text-decoration: none; }
+.cross-icon { width: 52px; height: 52px; flex-shrink: 0; border-radius: 50%; object-fit: cover; }
+.church-name-block h1 { font-family: 'Cinzel', serif; font-size: 22px; font-weight: 700; color: var(--gold-light); letter-spacing: 1px; line-height: 1.2; }
+.church-name-block p { font-family: 'EB Garamond', serif; font-style: italic; font-size: 13.5px; color: rgba(255,255,255,0.5); margin-top: 3px; letter-spacing: 0.5px; }
 
-  @media (max-width: 600px) {
-    .lang-bar .container { padding: 0 16px; }
-    .lang-bar-left { gap: 6px; }
-    .instagram-link svg { width: 18px; height: 18px; }
-    .header-inner { padding: 20px; }
-    .church-name-block h1 { font-size: 16px; }
-    .church-name-block p { font-size: 12px; }
-    .footer-inner { grid-template-columns: 1fr; gap: 30px; padding: 0 20px 40px; }
-    .footer-bottom { padding: 16px 20px; }
-    .footer-bottom p { font-size: 10px; }
-    .nav-link { font-size: 10px; padding: 14px 12px; letter-spacing: 1px; }
-    .nav-inner { overflow-x: auto; justify-content: flex-start; }
-    .events-main { padding: 40px 20px; }
-    .page-title-section { padding: 40px 20px 36px; }
-    .events-tabs-bar { gap: 0; }
-    .events-tab-btn { padding: 14px 18px; font-size: 10px; }
-  }
+/* NAVIGATION */
+nav { background: linear-gradient(135deg, var(--mid-blue), var(--deep-blue)); border-top: 1px solid rgba(201,168,76,0.3); border-bottom: 1px solid rgba(201,168,76,0.3); position: sticky; top: 0; z-index: 100; box-shadow: 0 4px 20px rgba(0,0,0,0.15); }
+.nav-inner { display: flex; align-items: center; justify-content: center; padding: 0 20px; gap: 4px; }
+.nav-link { font-family: 'Cinzel', serif; font-size: 11px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; color: rgba(255,255,255,0.7); text-decoration: none; padding: 16px 24px; position: relative; transition: all 0.3s ease; white-space: nowrap; border-radius: 40px; }
+.nav-link::before { content: ''; position: absolute; top: 0; left: 50%; width: 0; height: 2px; background: linear-gradient(90deg, transparent, var(--gold), var(--gold-light), var(--gold), transparent); transition: width 0.3s ease, left 0.3s ease; transform: translateX(-50%); border-radius: 2px; }
+.nav-link::after { content: ''; position: absolute; bottom: 0; left: 50%; width: 0; height: 2px; background: linear-gradient(90deg, transparent, var(--gold), var(--gold-light), var(--gold), transparent); transition: width 0.3s ease, left 0.3s ease; transform: translateX(-50%); border-radius: 2px; }
+.nav-link:hover::before, .nav-link:hover::after, .nav-link.active::before, .nav-link.active::after { width: 70%; left: 50%; }
+.nav-link:hover { color: var(--gold-light); background: rgba(201,168,76,0.08); transform: translateY(-1px); }
+.nav-link.active { color: var(--gold-light); background: rgba(201,168,76,0.12); box-shadow: 0 2px 8px rgba(0,0,0,0.15); }
 
-  @media (max-width: 380px) {
-    .church-name-block h1 { font-size: 14px; }
-  }
- 
-  /* ─── ANIMATIONS ─── */
-  @keyframes fadeInUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
-  .event-list-item { animation: fadeInUp 0.5s ease both; }
-  .event-list-item:nth-child(1) { animation-delay: 0.05s; }
-  .event-list-item:nth-child(2) { animation-delay: 0.12s; }
-  .event-list-item:nth-child(3) { animation-delay: 0.19s; }
-  .event-list-item:nth-child(4) { animation-delay: 0.26s; }
-  .event-list-item:nth-child(5) { animation-delay: 0.33s; }
+/* PAGE TITLE */
+.page-title-section { background: var(--deep-blue); padding: 60px 40px 50px; text-align: center; position: relative; overflow: hidden; }
+.page-title-section::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse 70% 100% at 50% 0%, rgba(201,168,76,0.1) 0%, transparent 70%); pointer-events: none; }
+.eyebrow { font-family: 'Noto Sans', sans-serif; font-size: 10px; font-weight: 500; letter-spacing: 4px; text-transform: uppercase; color: var(--gold); margin-bottom: 14px; display: flex; align-items: center; justify-content: center; gap: 12px; position: relative; z-index: 1; }
+.eyebrow::before, .eyebrow::after { content: ''; display: block; width: 40px; height: 1px; background: var(--gold); opacity: 0.5; }
+.page-title-section h2 { font-family: 'Cinzel', serif; font-size: clamp(32px, 5vw, 52px); font-weight: 900; color: #fff; letter-spacing: 4px; text-transform: uppercase; position: relative; z-index: 1; }
+.title-line { width: 80px; height: 2px; background: linear-gradient(90deg, transparent, var(--gold), transparent); margin: 18px auto 0; }
+
+/* EVENTS TABS */
+.events-tabs-bar { background: var(--cream); border-bottom: 1px solid var(--border); display: flex; justify-content: center; gap: 0; }
+.events-tab-btn { background: transparent; border: none; font-family: 'Cinzel', serif; font-size: 12px; font-weight: 600; letter-spacing: 1.8px; text-transform: uppercase; color: var(--text-light); padding: 18px 36px; cursor: pointer; transition: all 0.25s; position: relative; border-bottom: 3px solid transparent; display: flex; align-items: center; gap: 10px; }
+.events-tab-btn:hover { color: var(--deep-blue); }
+.events-tab-btn.active { color: var(--deep-blue); border-bottom-color: var(--gold); }
+.tab-icon { display: flex; align-items: center; justify-content: center; }
+.tab-icon svg { width: 18px; height: 18px; }
+
+/* MAIN EVENTS AREA */
+.events-main { max-width: 1100px; margin: 0 auto; padding: 60px 40px; }
+.tab-panel { display: none; }
+.tab-panel.active { display: block; }
+.section-heading { display: flex; align-items: center; gap: 16px; margin-bottom: 36px; }
+.section-heading h3 { font-family: 'Cinzel', serif; font-size: 18px; font-weight: 700; color: var(--deep-blue); letter-spacing: 1px; white-space: nowrap; }
+.section-heading .rule { flex: 1; height: 1px; background: linear-gradient(90deg, var(--gold) 0%, transparent 100%); }
+.section-heading .ornament { color: var(--gold); font-size: 18px; flex-shrink: 0; }
+
+/* BAPTISM RULES */
+.baptism-rules { max-width: 680px; }
+.rule-intro p { font-family: 'EB Garamond', serif; font-size: 17px; line-height: 1.85; color: var(--text-mid); margin-bottom: 36px; font-style: italic; }
+.rule-block { background: #fff; border: 1px solid var(--border); padding: 28px 32px; margin-bottom: 16px; position: relative; }
+.rule-block::before { content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 3px; background: var(--gold); }
+.rule-block-title { font-family: 'Cinzel', serif; font-size: 13px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: var(--deep-blue); margin-bottom: 16px; display: flex; align-items: center; gap: 10px; }
+.rule-icon { color: var(--gold); }
+.rule-text { font-family: 'EB Garamond', serif; font-size: 17px; line-height: 1.8; color: var(--text-mid); }
+.rule-list { list-style: none; }
+.rule-list li { font-family: 'EB Garamond', serif; font-size: 17px; line-height: 1.8; color: var(--text-mid); padding: 7px 0; border-bottom: 1px dashed var(--border); display: flex; align-items: baseline; gap: 12px; }
+.rule-list li:last-child { border-bottom: none; }
+.rule-list li::before { content: '›'; color: var(--gold); font-size: 18px; flex-shrink: 0; }
+.rule-note { background: var(--cream); border-left: 3px solid var(--gold); padding: 16px 22px; font-family: 'EB Garamond', serif; font-style: italic; font-size: 15.5px; color: var(--text-light); margin-top: 8px; line-height: 1.7; }
+
+/* FOOTER */
+footer { background: var(--warm-dark); padding: 60px 0 0; }
+.footer-inner { max-width: 1200px; margin: 0 auto; padding: 0 40px 50px; display: grid; grid-template-columns: 1.5fr 1fr; gap: 50px; }
+.footer-col h5 { font-family: 'Cinzel', serif; font-size: 11px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--gold); margin-bottom: 18px; padding-bottom: 10px; border-bottom: 1px solid rgba(201,168,76,0.2); }
+.footer-links { list-style: none; }
+.footer-links li { padding: 6px 0; }
+.footer-links a { font-family: 'EB Garamond', serif; font-size: 15px; color: rgba(255,255,255,0.45); text-decoration: none; transition: color 0.2s; display: flex; align-items: center; gap: 8px; }
+.footer-links a::before { content: '›'; color: var(--gold); opacity: 0; transition: opacity 0.2s; }
+.footer-links a:hover { color: rgba(255,255,255,0.8); }
+.footer-links a:hover::before { opacity: 1; }
+.footer-bottom { border-top: 1px solid rgba(255,255,255,0.06); padding: 20px 40px; max-width: 1200px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 15px; }
+.footer-bottom p { font-family: 'Noto Sans', sans-serif; font-size: 11px; color: rgba(255,255,255,0.25); letter-spacing: 0.5px; margin: 0; display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+.footer-instagram { display: inline-flex; align-items: center; text-decoration: none; transition: opacity 0.25s; margin-left: 5px; }
+.footer-instagram svg { width: 16px; height: 16px; }
+.footer-instagram:hover { opacity: 0.7; }
+
+/* RESPONSIVE */
+@media (max-width: 900px) { .footer-inner { grid-template-columns: 1fr 1fr; } .header-inner { flex-direction: column; gap: 16px; text-align: center; } }
+@media (max-width: 600px) { .lang-bar .container { padding: 0 16px; } .lang-bar-left { gap: 6px; } .instagram-link svg { width: 18px; height: 18px; } .header-inner { padding: 20px; flex-direction: column; gap: 16px; text-align: center; } .church-name-block h1 { font-size: 16px; } .church-name-block p { font-size: 12px; } .page-title-section { padding: 40px 20px 36px; } .page-title-section h2 { font-size: 28px; letter-spacing: 2px; } .events-main { padding: 40px 20px; } .events-tab-btn { padding: 14px 18px; font-size: 10px; } .events-tab-btn .tab-icon svg { width: 14px; height: 14px; } .footer-inner { grid-template-columns: 1fr; gap: 30px; padding: 0 20px 40px; } .footer-bottom { padding: 16px 20px; flex-direction: column; text-align: center; } .footer-bottom p { justify-content: center; } nav { overflow-x: auto; -webkit-overflow-scrolling: touch; scrollbar-width: thin; } nav::-webkit-scrollbar { height: 3px; } nav::-webkit-scrollbar-track { background: var(--mid-blue); } nav::-webkit-scrollbar-thumb { background: var(--gold); border-radius: 3px; } .nav-inner { min-width: max-content; padding: 0 16px; gap: 2px; } .nav-link { padding: 14px 14px; font-size: 9px; } }
+@media (max-width: 380px) { .church-name-block h1 { font-size: 14px; } }
+
+/* ANIMATIONS */
+@keyframes fadeInUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+.event-list-item { animation: fadeInUp 0.5s ease both; }
+.event-list-item:nth-child(1) { animation-delay: 0.05s; }
+.event-list-item:nth-child(2) { animation-delay: 0.12s; }
+.event-list-item:nth-child(3) { animation-delay: 0.19s; }
+.event-list-item:nth-child(4) { animation-delay: 0.26s; }
+.event-list-item:nth-child(5) { animation-delay: 0.33s; }
 </style>
 </head>
 <body>
- 
+
 <!-- LANGUAGE BAR -->
 <div class="lang-bar">
   <div class="container">
     <div class="lang-bar-left">
-      <a href="https://www.instagram.com/kisha.profet.ilia_korce" target="_blank" class="instagram-link" aria-label="Instagram">
-        <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><rect x="2" y="2" width="20" height="20" rx="5.5" stroke="white" stroke-width="1.8"/><circle cx="12" cy="12" r="4.2" stroke="white" stroke-width="1.8"/><circle cx="17.5" cy="6.5" r="1.1" fill="white"/></svg>
-      </a>
-      <a href="https://www.facebook.com/KishaProfetiIliaKorce" class="instagram-link" aria-label="Facebook">
-        <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><rect x="2" y="2" width="20" height="20" rx="5.5" stroke="white" stroke-width="1.8"/><path d="M13 21V13h2.5l.5-3H13V8.5c0-.8.4-1.5 1.5-1.5H16V4.5S15 4 13.5 4C11 4 10 5.5 10 7.5V10H7.5v3H10v8" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
-      </a>
-
-      <a href="https://youtube.com/@kishaprofetiliakorce?si=Z3rmZtXxQARnT9Hd" class="instagram-link" aria-label="YouTube">
-        <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
-          <rect x="2" y="2" width="20" height="20" rx="5.5" stroke="white" stroke-width="1.8"/>
-          <path d="M17.5 11.2L9.5 6.5C9.2 6.3 8.8 6.4 8.6 6.7C8.5 6.8 8.5 7 8.5 7.2V16.8C8.5 17.2 8.8 17.5 9.2 17.5C9.3 17.5 9.5 17.5 9.6 17.4L17.6 12.7C17.8 12.6 17.9 12.4 17.9 12.2C17.9 12 17.9 11.9 17.8 11.8C17.7 11.5 17.6 11.3 17.5 11.2Z" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
-        </svg>
-      </a>
-     
-      <a href="mailto:kishaprofetilia@gmail.com" class="instagram-link" aria-label="Email">
-        <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><rect x="2" y="4" width="20" height="16" rx="3" stroke="white" stroke-width="1.8"/><path d="M2 7L12 13L22 7" stroke="white" stroke-width="1.8" stroke-linecap="round"/></svg>
-      </a>
-      <a href="https://maps.app.goo.gl/imSxKzHyRxWEduUb6" class="instagram-link" aria-label="Location">
-        <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M12 2C8.7 2 6 4.7 6 8c0 5 6 14 6 14s6-9 6-14c0-3.3-2.7-6-6-6z" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><circle cx="12" cy="8" r="2.5" stroke="white" stroke-width="1.8"/></svg>
-      </a>
+      <a href="https://www.instagram.com/kisha.profet.ilia_korce" target="_blank" class="instagram-link" aria-label="Instagram"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><rect x="2" y="2" width="20" height="20" rx="5.5" stroke="white" stroke-width="1.8"/><circle cx="12" cy="12" r="4.2" stroke="white" stroke-width="1.8"/><circle cx="17.5" cy="6.5" r="1.1" fill="white"/></svg></a>
+      <a href="https://www.facebook.com/KishaProfetiIliaKorce" class="instagram-link" aria-label="Facebook"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><rect x="2" y="2" width="20" height="20" rx="5.5" stroke="white" stroke-width="1.8"/><path d="M13 21V13h2.5l.5-3H13V8.5c0-.8.4-1.5 1.5-1.5H16V4.5S15 4 13.5 4C11 4 10 5.5 10 7.5V10H7.5v3H10v8" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+      <a href="https://youtube.com/@kishaprofetiliakorce" class="instagram-link" aria-label="YouTube"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><rect x="2" y="2" width="20" height="20" rx="5.5" stroke="white" stroke-width="1.8"/><path d="M17.5 11.2L9.5 6.5C9.2 6.3 8.8 6.4 8.6 6.7C8.5 6.8 8.5 7 8.5 7.2V16.8C8.5 17.2 8.8 17.5 9.2 17.5C9.3 17.5 9.5 17.5 9.6 17.4L17.6 12.7C17.8 12.6 17.9 12.4 17.9 12.2C17.9 12 17.9 11.9 17.8 11.8C17.7 11.5 17.6 11.3 17.5 11.2Z" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg></a>
+      <a href="mailto:kishaprofetilia@gmail.com" class="instagram-link" aria-label="Email"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><rect x="2" y="4" width="20" height="16" rx="3" stroke="white" stroke-width="1.8"/><path d="M2 7L12 13L22 7" stroke="white" stroke-width="1.8" stroke-linecap="round"/></svg></a>
+      <a href="https://maps.app.goo.gl/imSxKzHyRxWEduUb6" class="instagram-link" aria-label="Location"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M12 2C8.7 2 6 4.7 6 8c0 5 6 14 6 14s6-9 6-14c0-3.3-2.7-6-6-6z" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><circle cx="12" cy="8" r="2.5" stroke="white" stroke-width="1.8"/></svg></a>
     </div>
     <div class="lang-bar-right">
       <span class="lang-label" id="lang-label-text">Gjuha</span>
-      <button class="lang-btn" onclick="setLang('sq')">AL</button>
+      <button class="lang-btn active" onclick="setLang('sq')">AL</button>
       <button class="lang-btn" onclick="setLang('en')">EN</button>
       <button class="lang-btn" onclick="setLang('el')">ΕL</button>
     </div>
   </div>
 </div>
- 
+
 <!-- HEADER -->
 <header>
   <div class="header-inner">
     <a href="index.html" class="church-identity">
       <img class="cross-icon" src="Assets/logo.png" alt="Kisha Profeti Ilia">
       <div class="church-name-block">
-        <h1 data-t="header_title"></h1>
-        <p data-t="header_subtitle"></p>
+        <h1 data-t="header_title">Kisha "Profeti Ilia" Korçë</h1>
+        <p data-t="header_subtitle">Mitropolia e Shenjtë Korçë</p>
       </div>
     </a>
   </div>
 </header>
- 
+
 <!-- NAVIGATION -->
 <nav>
   <div class="nav-inner">
-    <a href="index.html" class="nav-link" data-t="nav_home"></a>
-    <a href="historia.html" class="nav-link" data-t="nav_history"></a>
-    <a href="galeria.html" class="nav-link" data-t="nav_sermons"></a>
-    <a href="katekizem.html" class="nav-link" data-t="nav_catechism"></a>
-    <a href="evente.html" class="nav-link active" data-t="nav_events"></a>
+    <a href="index.html" class="nav-link" data-t="nav_home">KRYEFAQJA</a>
+    <a href="historia.html" class="nav-link" data-t="nav_history">HISTORIA</a>
+    <a href="galeria.html" class="nav-link" data-t="nav_gallery">GALERIA</a>
+    <a href="katekizem.html" class="nav-link" data-t="nav_catechism">KATEKIZËM</a>
+    <a href="evente.html" class="nav-link active" data-t="nav_events">EVENTE</a>
   </div>
 </nav>
- 
-<!-- PAGE TITLE (now matching katekizem.html exactly) -->
+
+<!-- PAGE TITLE -->
 <div class="page-title-section">
-  <div class="eyebrow" data-t="events_eyebrow"></div>
-  <h2 data-t="events_title"></h2>
+  <div class="eyebrow" data-t="events_eyebrow">Kisha Profeti Ilia</div>
+  <h2 data-t="events_title">Evente</h2>
   <div class="title-line"></div>
 </div>
- 
+
 <!-- TABS BAR -->
 <div class="events-tabs-bar">
   <button class="events-tab-btn active" onclick="switchTab('baptisms')" id="tab-baptisms">
-    <span class="tab-icon">✦</span>
-    <span data-t="tab_baptisms"></span>
+    <span class="tab-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M12 4L12 20" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><path d="M5 9L19 9" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><path d="M7 14L17 14" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><circle cx="12" cy="12" r="2" fill="none" stroke="currentColor" stroke-width="1"/></svg></span>
+    <span data-t="tab_baptisms">Pagëzim</span>
   </button>
   <button class="events-tab-btn" onclick="switchTab('marriages')" id="tab-marriages">
-    <span class="tab-icon">♥</span>
-    <span data-t="tab_marriages"></span>
+    <span class="tab-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M12 2L15 7H9L12 2Z" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M8 7L16 7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><path d="M10 7V11" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><path d="M14 7V11" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><path d="M7 14L17 14" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><path d="M12 11V17" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><circle cx="12" cy="18" r="2" stroke="currentColor" stroke-width="1.5"/></svg></span>
+    <span data-t="tab_marriages">Kurorëzim</span>
   </button>
 </div>
- 
+
 <!-- EVENTS MAIN -->
 <div class="events-main">
- 
-  <!-- ── BAPTISMS PANEL ── -->
+
+  <!-- BAPTISMS PANEL -->
   <div class="tab-panel active" id="panel-baptisms">
     <div class="section-heading">
       <span class="ornament">✦</span>
-      <h3 data-t="baptisms_heading"></h3>
+      <h3 data-t="baptisms_heading">Pagëzim</h3>
       <div class="rule"></div>
     </div>
- 
     <div class="baptism-rules">
-      <div class="rule-intro">
-        <p>Pagëzimi është Sakramenti i parë dhe themelor i jetës krishterë. Më poshtë gjeni kërkesat dhe sendet e nevojshme për kryerjen e tij.</p>
-      </div>
- 
-      <div class="rule-block">
-        <div class="rule-block-title">
-          <span class="rule-icon">✦</span>
-          Kushti kryesor
-        </div>
-        <p class="rule-text">Kumbari duhet të jetë i pagëzuar në Kishën Orthodhokse.</p>
-      </div>
- 
-      <div class="rule-block">
-        <div class="rule-block-title">
-          <span class="rule-icon">✦</span>
-          Sende të nevojshme
-        </div>
-        <ul class="rule-list">
-          <li>Peshqir i vogël dhe i madh</li>
-          <li>Sapun</li>
-          <li>Një shishe me vaj ulliri</li>
-          <li>Kryqi (varëse)</li>
-          <li>Lambadhe (Qiri)</li>
-          <li>Shapka, rroba banje, niktiko — për personin që do të pagëzohet</li>
-        </ul>
-      </div>
- 
-      <div class="rule-note">
-        Për çdo pyetje shtesë rreth ceremonisë, kontaktoni priftin e kishës pas shërbimit ose nëpërmjet emailit.
-      </div>
+      <div class="rule-intro"><p>Pagëzimi është Sakramenti i parë dhe themelor i jetës krishterë. Më poshtë gjeni kërkesat dhe sendet e nevojshme për kryerjen e tij.</p></div>
+      <div class="rule-block"><div class="rule-block-title"><span class="rule-icon">✦</span>Kushti kryesor</div><p class="rule-text">Kumbari duhet të jetë i pagëzuar në Kishën Orthodhokse.</p></div>
+      <div class="rule-block"><div class="rule-block-title"><span class="rule-icon">✦</span>Sende të nevojshme</div><ul class="rule-list"><li>Peshqir i vogël dhe i madh</li><li>Sapun</li><li>Një shishe me vaj ulliri</li><li>Kryqi (varëse)</li><li>Lambadhe (Qiri)</li><li>Shapka, rroba banje, niktiko — për personin që do të pagëzohet</li></ul></div>
+      <div class="rule-note">Për çdo pyetje shtesë rreth ceremonisë, kontaktoni priftin e kishës pas shërbimit ose nëpërmjet emailit.</div>
     </div>
-  </div><!-- end baptisms panel -->
- 
-  <!-- ── MARRIAGES PANEL ── -->
-  <button class="events-tab-btn" onclick="switchTab('marriages')" id="tab-marriages">
-    <span class="tab-icon">
-      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M12 2L15 7H9L12 2Z" fill="var(--gold)" stroke="var(--gold)" stroke-width="1.5"/>
-        <path d="M12 2L15 7H9L12 2Z" fill="none" stroke="currentColor" stroke-width="1.5"/>
-        <path d="M8 7L16 7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
-        <path d="M10 7V11" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
-        <path d="M14 7V11" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
-        <path d="M7 14L17 14" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
-        <path d="M12 11V17" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
-        <circle cx="12" cy="18" r="2" stroke="currentColor" stroke-width="1.5"/>
-      </svg>
-    </span>
-    <span data-t="tab_marriages"></span>
-  </button>
- 
+  </div>
+
+  <!-- MARRIAGES PANEL -->
+  <div class="tab-panel" id="panel-marriages">
+    <div class="section-heading">
+      <span class="ornament">✦</span>
+      <h3 data-t="marriages_heading">Kurorëzim</h3>
+      <div class="rule"></div>
+    </div>
     <div class="baptism-rules">
-      <div class="rule-intro">
-        <p>Kurorëzimi është Sakramenti i Shenjtë i Martesës Orthodhokse. Më poshtë gjeni dokumentet e kërkuara dhe sendet e nevojshme për kryerjen e tij.</p>
-      </div>
- 
-      <div class="rule-block">
-        <div class="rule-block-title">
-          <span class="rule-icon">✦</span>
-          Dokumentet e kërkuara
-        </div>
-        <ul class="rule-list">
-          <li>Certifikatat e Pagëzimit</li>
-          <li>Certifikata e Celebrimit</li>
-        </ul>
-      </div>
- 
-      <div class="rule-block">
-        <div class="rule-block-title">
-          <span class="rule-icon">✦</span>
-          Kushti për kumbarën
-        </div>
-        <p class="rule-text">Kumbara duhet të jetë e kurorëzuar në Kishën Orthodhokse (nëse është e martuar).</p>
-      </div>
- 
-      <div class="rule-block">
-        <div class="rule-block-title">
-          <span class="rule-icon">✦</span>
-          Sende të nevojshme
-        </div>
-        <ul class="rule-list">
-          <li>Kurorat</li>
-          <li>Unazat</li>
-          <li>Buka me qiqër</li>
-          <li>Një shishe me verë</li>
-          <li>Dy lambadha (2 qirinj)</li>
-        </ul>
-      </div>
- 
-      <div class="rule-note">
-        Për çdo pyetje shtesë rreth ceremonisë së kurorëzimit, kontaktoni priftin e kishës pas shërbimit ose nëpërmjet emailit.
-      </div>
+      <div class="rule-intro"><p>Kurorëzimi është Sakramenti i Shenjtë i Martesës Orthodhokse. Më poshtë gjeni dokumentet e kërkuara dhe sendet e nevojshme për kryerjen e tij.</p></div>
+      <div class="rule-block"><div class="rule-block-title"><span class="rule-icon">✦</span>Dokumentet e kërkuara</div><ul class="rule-list"><li>Certifikatat e Pagëzimit</li><li>Certifikata e Celebrimit</li></ul></div>
+      <div class="rule-block"><div class="rule-block-title"><span class="rule-icon">✦</span>Kushti për kumbarën</div><p class="rule-text">Kumbara duhet të jetë e kurorëzuar në Kishën Orthodhokse (nëse është e martuar).</p></div>
+      <div class="rule-block"><div class="rule-block-title"><span class="rule-icon">✦</span>Sende të nevojshme</div><ul class="rule-list"><li>Kurorat</li><li>Unazat</li><li>Buka me qiqër</li><li>Një shishe me verë</li><li>Dy lambadha (2 qirinj)</li></ul></div>
+      <div class="rule-note">Për çdo pyetje shtesë rreth ceremonisë së kurorëzimit, kontaktoni priftin e kishës pas shërbimit ose nëpërmjet emailit.</div>
     </div>
-  </div><!-- end marriages panel -->
- 
-</div><!-- end events-main -->
- 
+  </div>
+
+</div>
+
 <!-- FOOTER -->
 <footer>
   <div class="footer-inner">
     <div class="footer-brand">
       <a href="index.html" class="church-identity" style="text-decoration:none;">
-      <img class="cross-icon" src="Assets/logo.png" alt="Kisha Profeti Ilia">
-      <div class="church-name-block">
-        <h1 data-t="footer_church_name" style="font-family:'Cinzel',serif;font-size:18px;color:var(--gold-light);font-weight:700;letter-spacing:1px;"></h1>
-        <div style="font-family:'EB Garamond',serif;font-style:italic;font-size:14px;color:rgba(255,255,255,0.45);margin-top:4px;" data-t="header_subtitle"></div>
-      </div>
-    </a>
-  </div>
+        <img class="cross-icon" src="Assets/logo.png" alt="Kisha Profeti Ilia">
+        <div class="church-name-block">
+          <h1 style="font-family:'Cinzel',serif;font-size:18px;color:var(--gold-light);font-weight:700;">Kisha "Profeti Ilia"</h1>
+          <div style="font-family:'EB Garamond',serif;font-style:italic;font-size:14px;color:rgba(255,255,255,0.45);margin-top:4px;" data-t="header_subtitle">Mitropolia e Shenjtë Korçë</div>
+        </div>
+      </a>
+    </div>
     <div class="footer-col">
-      <h5 data-t="footer_quick_links"></h5>
+      <h5 data-t="footer_quick_links">Lidhje të Shpejta</h5>
       <ul class="footer-links">
-        <li><a href="index.html" data-t="nav_home"></a></li>
-        <li><a href="historia.html" data-t="nav_history"></a></li>
-        <li><a href="galeria.html" data-t="nav_sermons"></a></li>
-        <li><a href="katekizem.html" data-t="nav_catechism"></a></li>
+        <li><a href="index.html" data-t="nav_home">Kryefaqja</a></li>
+        <li><a href="historia.html" data-t="nav_history">Historia</a></li>
+        <li><a href="galeria.html" data-t="nav_gallery">Galeria</a></li>
+        <li><a href="katekizem.html" data-t="nav_catechism">Katekizëm</a></li>
       </ul>
     </div>
   </div>
   <div class="footer-bottom">
-    <p>
-     Me bekimin e At Sotir Dinka.
-     <br>
-     © 2026 Kisha Orthodhokse "Profeti Ilia" — Korçë
-    </p>
+    <p>Me bekimin e At Sotir Dinka.<br>© 2026 Kisha Orthodhokse "Profeti Ilia" – Korçë.</p>
     <p>Realizoi: Vasil Çeku
-     <a href="https://www.instagram.com/ceku.joel?igsh=MWRkNWR3bzc3MjllZw==" target="_blank" class="footer-instagram" aria-label="Instagram">
-         <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
-           <rect x="2" y="2" width="20" height="20" rx="5.5" stroke="white" stroke-width="1.8"/>
-           <circle cx="12" cy="12" r="4.2" stroke="white" stroke-width="1.8"/>
-           <circle cx="17.5" cy="6.5" r="1.1" fill="white"/>
-         </svg>
-     </a>
+      <a href="https://www.instagram.com/ceku.joel" target="_blank" class="footer-instagram" aria-label="Instagram">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><rect x="2" y="2" width="20" height="20" rx="5.5" stroke="white" stroke-width="1.8"/><circle cx="12" cy="12" r="4.2" stroke="white" stroke-width="1.8"/><circle cx="17.5" cy="6.5" r="1.1" fill="white"/></svg>
+      </a>
     </p>
   </div>
 </footer>
- 
- 
+
 <script>
-// ════════════════════════════════════════════════════════════════
-//  TRANSLATIONS — all three languages
-// ════════════════════════════════════════════════════════════════
 const T = {
- 
-  nav_home:        { sq: 'Kryefaqja',  en: 'Home',      el: 'Αρχική' },
-  nav_history:     { sq: 'Historia',   en: 'History',   el: 'Ιστορία' },
-  nav_sermons:     { sq: 'Galeria',    en: 'Gallery',   el: 'Γκαλερί' },
-  nav_catechism:   { sq: 'Katekizëm', en: 'Catechism', el: 'Κατήχηση' },
-  nav_events:      { sq: 'Evente',     en: 'Events',    el: 'Εκδηλώσεις' },
- 
-  // ── Shared UI ──
-  lang_label:        { sq: 'Gjuha',       en: 'Language',   el: 'Γλώσσα' },
- 
-  // ── Header  ──
-  header_title:      { sq: 'Kisha "Profeti Ilia" Korçë', en: 'Church "Prophet Elijah"', el: 'Ναός «Προφήτης Ηλίας»' },
- 
-  // ── Page title ──
-  events_eyebrow:    { sq: 'Kisha Profeti Ilia', en: '"Prophet Elijah" Church Korçë', el: 'Ναός Προφήτης Ηλίας' },
-  events_title:      { sq: 'Evente', en: 'Events', el: 'Εκδηλώσεις' },
-  header_subtitle:   { sq: 'Mitropolia e Shenjtë Korçë', en: 'Holy Metropolis of Korçë', el: 'Ιερά Μητρόπολη Κορυτσάς' },
- 
-  // ── Tabs ──
-  tab_baptisms:      { sq: 'Pagëzim',      en: 'Baptism',      el: 'Βαπτισμός' },
-  tab_marriages:     { sq: 'Kurorëzim',    en: 'Marriage',     el: 'Γάμος' },
- 
-  // ── Section headings ──
-  baptisms_heading:  { sq: 'Pagëzim',      en: 'Baptism',      el: 'Βαπτισμός' },
-  marriages_heading: { sq: 'Kurorëzim',    en: 'Marriage',     el: 'Γάμος' },
- 
-  // ── Tags ──
-  tag_baptism:       { sq: 'Pagëzim',     en: 'Baptism',      el: 'Βαπτισμός' },
-  tag_marriage:      { sq: 'Martesë',     en: 'Marriage',     el: 'Γάμος' },
- 
-  // ── Field labels ──
-  field_date:        { sq: 'Data',        en: 'Date',         el: 'Ημερομηνία' },
-  field_officiant:   { sq: 'Celebranti',  en: 'Officiant',    el: 'Ιερουργός' },
-  field_parents:     { sq: 'Prindërit',   en: 'Parents',      el: 'Γονείς' },
-  field_godparent:   { sq: 'Kumbarë/e',   en: 'Godparent',    el: 'Νονός/Νονά' },
-  field_witness:     { sq: 'Dëshmitarët', en: 'Witnesses',    el: 'Μάρτυρες' },
-  field_location:    { sq: 'Vendi',       en: 'Location',     el: 'Τόπος' },
-  field_location_val:{ sq: 'Kisha "Profeti Ilia", Korçë', en: 'Church "Prophet Elijah", Korçë', el: 'Ναός «Προφήτης Ηλίας», Κορυτσά' },
- 
-  // ── Footer ──
-  footer_church_name:  { sq: 'Kisha "Profeti Ilia"', en: 'Church "Prophet Elijah"', el: 'Ναός «Προφήτης Ηλίας»' },
-  footer_quick_links:  { sq: 'Lidhje të Shpejta', en: 'Quick Links', el: 'Γρήγοροι Σύνδεσμοι' },
- 
-}; // end T
- 
- 
-// ════════════════════════════════════════════════════════════════
-//  LANGUAGE ENGINE
-// ════════════════════════════════════════════════════════════════
- 
+  nav_home: { sq: 'Kryefaqja', en: 'Home', el: 'Αρχική' },
+  nav_history: { sq: 'Historia', en: 'History', el: 'Ιστορία' },
+  nav_gallery: { sq: 'Galeria', en: 'Gallery', el: 'Γκαλερί' },
+  nav_catechism: { sq: 'Katekizëm', en: 'Catechism', el: 'Κατήχηση' },
+  nav_events: { sq: 'Evente', en: 'Events', el: 'Εκδηλώσεις' },
+  lang_label: { sq: 'Gjuha', en: 'Language', el: 'Γλώσσα' },
+  header_title: { sq: 'Kisha "Profeti Ilia" Korçë', en: 'Church "Prophet Elijah" Korçë', el: 'Ναός «Προφήτης Ηλίας» Κορυτσά' },
+  header_subtitle: { sq: 'Mitropolia e Shenjtë Korçë', en: 'Holy Metropolis of Korçë', el: 'Ιερά Μητρόπολη Κορυτσάς' },
+  events_eyebrow: { sq: 'Kisha Profeti Ilia', en: 'Prophet Elijah Church', el: 'Ναός Προφήτης Ηλίας' },
+  events_title: { sq: 'Evente', en: 'Events', el: 'Εκδηλώσεις' },
+  tab_baptisms: { sq: 'Pagëzim', en: 'Baptism', el: 'Βαπτισμός' },
+  tab_marriages: { sq: 'Kurorëzim', en: 'Marriage', el: 'Γάμος' },
+  baptisms_heading: { sq: 'Pagëzim', en: 'Baptism', el: 'Βαπτισμός' },
+  marriages_heading: { sq: 'Kurorëzim', en: 'Marriage', el: 'Γάμος' },
+  footer_church_name: { sq: 'Kisha "Profeti Ilia"', en: 'Church "Prophet Elijah"', el: 'Ναός «Προφήτης Ηλίας»' },
+  footer_quick_links: { sq: 'Lidhje të Shpejta', en: 'Quick Links', el: 'Γρήγοροι Σύνδεσμοι' }
+};
+
 let currentLang = 'sq';
- 
+
 function setLang(lang) {
   currentLang = lang;
   try { localStorage.setItem('churchLang', lang); } catch(e) {}
- 
   document.querySelectorAll('.lang-btn').forEach(btn => btn.classList.remove('active'));
   const activeBtn = document.querySelector(`.lang-btn[onclick="setLang('${lang}')"]`);
   if (activeBtn) activeBtn.classList.add('active');
- 
   document.getElementById('lang-label-text').textContent = T.lang_label[lang];
   document.documentElement.lang = lang;
- 
   document.querySelectorAll('[data-t]').forEach(el => {
     const key = el.getAttribute('data-t');
     const entry = T[key];
@@ -597,42 +282,15 @@ function setLang(lang) {
     el.innerHTML = text.replace(/\n/g, '<br>');
   });
 }
- 
-(function() {
-  let saved = 'sq';
-  try { saved = localStorage.getItem('churchLang') || 'sq'; } catch(e) {}
-  setLang(saved);
-})();
- 
- 
-// ════════════════════════════════════════════════════════════════
-//  TAB SWITCHING
-// ════════════════════════════════════════════════════════════════
- 
+
+(function() { let saved = 'sq'; try { saved = localStorage.getItem('churchLang') || 'sq'; } catch(e) {} setLang(saved); })();
+
 function switchTab(tab) {
   document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
   document.querySelectorAll('.events-tab-btn').forEach(b => b.classList.remove('active'));
   document.getElementById('panel-' + tab).classList.add('active');
   document.getElementById('tab-' + tab).classList.add('active');
 }
- 
- 
-// ════════════════════════════════════════════════════════════════
-//  EVENT TOGGLE (expand / collapse)
-// ════════════════════════════════════════════════════════════════
- 
-function toggleEvent(id) {
-  const item = document.getElementById(id);
-  const isOpen = item.classList.contains('open');
-  document.querySelectorAll('.event-list-item.open').forEach(el => el.classList.remove('open'));
-  if (!isOpen) {
-    item.classList.add('open');
-    setTimeout(() => {
-      item.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-    }, 100);
-  }
-}
 </script>
- 
 </body>
 </html>
