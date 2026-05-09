@@ -168,18 +168,6 @@ footer { background: var(--warm-dark); padding: 60px 0 0; }
   </div>
 </section>
 
-<!-- PLACEHOLDER SECTION 1 - OTHER RESOURCES -->
-<section class="placeholder-section">
-  <div class="section-heading">
-    <span class="ornament">✦</span>
-    <h3 data-t="resources_heading">Burime të Tjera</h3>
-    <div class="rule"></div>
-  </div>
-  <div class="placeholder-grid" id="resourcesGrid">
-    <!-- Resources will be populated by JavaScript -->
-  </div>
-</section>
-
 <!-- FOOTER -->
 <footer>
   <div class="footer-inner">
@@ -204,7 +192,11 @@ footer { background: var(--warm-dark); padding: 60px 0 0; }
     </div>
   </div>
   <div class="footer-bottom">
-    <p>Me bekimin e At Sotir Dinka.<br><span data-t="copyright">© 2026 Kisha Orthodhokse "Profeti Ilia" – Korçë.</span></p>
+    <p>
+      Me bekimin e At Sotir Dinka.
+      <br>
+      © 2026 Kisha Orthodhokse "Profeti Ilia" – Korçë.
+    </p>
     <p>Realizoi: Vasil Çeku
       <a href="https://www.instagram.com/ceku.joel" target="_blank" class="footer-instagram" aria-label="Instagram">
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><rect x="2" y="2" width="20" height="20" rx="5.5" stroke="white" stroke-width="1.8"/><circle cx="12" cy="12" r="4.2" stroke="white" stroke-width="1.8"/><circle cx="17.5" cy="6.5" r="1.1" fill="white"/></svg>
@@ -230,7 +222,6 @@ const booksData = [
     desc_en: "The holiest book of Christianity, the Albanian translation approved by the Orthodox Church.",
     desc_el: "Το ιερότερο βιβλίο του Χριστιανισμού, η αλβανική μετάφραση εγκεκριμένη από την Ορθόδοξη Εκκλησία.",
     pdfUrl: "https://drive.google.com/file/d/example1/view",
-    icon: "📖"
   },
   {
     id: 2,
@@ -244,7 +235,6 @@ const booksData = [
     desc_en: "Collection of prayers for morning, evening and special occasions.",
     desc_el: "Συλλογή προσευχών για το πρωί, το βράδυ και ειδικές περιστάσεις.",
     pdfUrl: "https://drive.google.com/file/d/example2/view",
-    icon: "🙏"
   },
   {
     id: 3,
@@ -258,7 +248,6 @@ const booksData = [
     desc_en: "Basic teaching of the Orthodox faith for youth and adults.",
     desc_el: "Βασική διδασκαλία της ορθόδοξης πίστης για νέους και ενήλικες.",
     pdfUrl: "https://drive.google.com/file/d/example3/view",
-    icon: "✝️"
   },
   {
     id: 4,
@@ -272,46 +261,8 @@ const booksData = [
     desc_en: "Stories from the lives of the saints of the Orthodox Church.",
     desc_el: "Ιστορίες από τη ζωή των αγίων της Ορθόδοξης Εκκλησίας.",
     pdfUrl: "https://drive.google.com/file/d/example4/view",
-    icon: "⭐"
   }
 ];
-
-// ==================================================
-// RESOURCES DATA - Add more items here
-// ==================================================
-const resourcesData = [
-  {
-    id: 1,
-    title_sq: "Himnet e Kishës",
-    title_en: "Church Hymns",
-    title_el: "Εκκλησιαστικοί Ύμνοι",
-    desc_sq: "Himne liturgjike për festat e ndryshme të vitit kishtar.",
-    desc_en: "Liturgical hymns for the various feasts of the church year.",
-    desc_el: "Λειτουργικοί ύμνοι για τις διάφορες εορτές του εκκλησιαστικού έτους.",
-    icon: "🎵"
-  },
-  {
-    id: 2,
-    title_sq: "Ikonografia Orthodhokse",
-    title_en: "Orthodox Iconography",
-    title_el: "Ορθόδοξη Εικονογραφία",
-    desc_sq: "Udhëzues për kuptimin dhe simbolikën e ikonave orthodhokse.",
-    desc_en: "Guide to the meaning and symbolism of Orthodox icons.",
-    desc_el: "Οδηγός για το νόημα και το συμβολισμό των ορθόδοξων εικόνων.",
-    icon: "🎨"
-  },
-  {
-    id: 3,
-    title_sq: "Liturgjia Hyjnore",
-    title_en: "Divine Liturgy",
-    title_el: "Θεία Λειτουργία",
-    desc_sq: "Shpjegimi i pjesëve të Liturgjisë Hyjnore të Shën Gjon Gojartit.",
-    desc_en: "Explanation of the parts of the Divine Liturgy of St. John Chrysostom.",
-    desc_el: "Εξήγηση των μερών της Θείας Λειτουργίας του Αγίου Ιωάννη του Χρυσοστόμου.",
-    icon: "🕯️"
-  }
-];
-
 // ==================================================
 // TRANSLATIONS
 // ==================================================
@@ -328,7 +279,6 @@ const T = {
   page_eyebrow: { sq: 'Kisha Profeti Ilia', en: 'Prophet Elijah Church', el: 'Ναός Προφήτης Ηλίας' },
   page_title: { sq: 'Më shumë', en: 'More', el: 'Περισσότερα' },
   books_heading: { sq: 'Librat Shpirtërorë', en: 'Spiritual Books', el: 'Πνευματικά Βιβλία' },
-  resources_heading: { sq: 'Burime të Tjera', en: 'Other Resources', el: 'Άλλες Πηγές' },
   btn_view: { sq: 'Shiko PDF', en: 'View PDF', el: 'Δείτε PDF' },
   btn_download: { sq: 'Shkarko', en: 'Download', el: 'Λήψη' },
   footer_church_name: { sq: 'Kisha "Profeti Ilia"', en: 'Church "Prophet Elijah"', el: 'Ναός «Προφήτης Ηλίας»' },
@@ -354,7 +304,6 @@ function setLang(lang) {
   });
   
   renderBooks();
-  renderResources();
 }
 
 function renderBooks() {
@@ -369,17 +318,6 @@ function renderBooks() {
         <a href="${book.pdfUrl}" target="_blank" class="book-btn pdf"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="10" y1="12" x2="16" y2="12"/><line x1="10" y1="16" x2="16" y2="16"/></svg>${T.btn_view[currentLang]}</a>
         <a href="${book.pdfUrl}" download class="book-btn download"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>${T.btn_download[currentLang]}</a>
       </div>
-    </div>
-  `).join('');
-}
-
-function renderResources() {
-  const container = document.getElementById('resourcesGrid');
-  container.innerHTML = resourcesData.map(resource => `
-    <div class="placeholder-card">
-      <div class="placeholder-icon">${resource.icon}</div>
-      <div class="placeholder-title">${resource[`title_${currentLang}`] || resource.title_sq}</div>
-      <div class="placeholder-text">${resource[`desc_${currentLang}`] || resource.desc_sq}</div>
     </div>
   `).join('');
 }
