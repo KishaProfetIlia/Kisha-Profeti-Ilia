@@ -2,173 +2,118 @@
 <html lang="sq">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 <title>Katekizëm – Kisha "Profeti Ilia"</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Noto+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
-  :root {
-    --gold: #C9A84C;
-    --gold-light: #E8C97A;
-    --gold-pale: #F5EDD8;
-    --deep-blue: #1A1F3C;
-    --mid-blue: #2D3561;
-    --warm-dark: #0F0E0B;
-    --parchment: #FAF6EE;
-    --red-byzantine: #8B1A1A;
-    --cream: #F2EDE4;
-    --text-dark: #1A1715;
-    --text-mid: #4A4035;
-    --text-light: #9A8E7E;
-    --border: rgba(201,168,76,0.25);
-    --shadow: 0 4px 30px rgba(15,14,11,0.15);
-  }
-  * { margin:0; padding:0; box-sizing:border-box; user-select:none; -webkit-user-select:none; }
-  html { scroll-behavior:smooth; }
-  body { font-family:'EB Garamond',Georgia,serif; background:var(--parchment); color:var(--text-dark); overflow-x:hidden; }
+:root { --gold: #C9A84C; --gold-light: #E8C97A; --gold-pale: #F5EDD8; --deep-blue: #1A1F3C; --mid-blue: #2D3561; --warm-dark: #0F0E0B; --parchment: #FAF6EE; --red-byzantine: #8B1A1A; --cream: #F2EDE4; --text-dark: #1A1715; --text-mid: #4A4035; --text-light: #9A8E7E; --border: rgba(201,168,76,0.25); --shadow: 0 4px 30px rgba(15,14,11,0.15); }
+* { margin: 0; padding: 0; box-sizing: border-box; user-select: none; -webkit-user-select: none; }
+html { scroll-behavior: smooth; }
+body { font-family: 'EB Garamond', Georgia, serif; background: var(--parchment); color: var(--text-dark); overflow-x: hidden; }
 
-  /* LANG BAR */
-  .lang-bar { background:var(--deep-blue); padding:8px 0; }
-  .lang-bar .container { display:flex; justify-content:space-between; align-items:center; padding:0 40px; }
-  .lang-bar-left { display:flex; align-items:center; gap:10px; }
-  .icon-link { display:flex; align-items:center; color:rgba(255,255,255,0.7); text-decoration:none; transition:color .25s; }
-  .icon-link:hover { color:#fff; }
-  .lang-bar-right { display:flex; align-items:center; gap:8px; }
-  .lang-label { font-family:'Noto Sans',sans-serif; font-size:11px; font-weight:500; letter-spacing:1.5px; text-transform:uppercase; color:#fff; margin-right:4px; }
-  .lang-btn { background:transparent; border:1px solid rgba(201,168,76,0.4); color:rgba(255,255,255,0.65); padding:4px 12px; font-family:'Noto Sans',sans-serif; font-size:11px; font-weight:500; letter-spacing:1.5px; text-transform:uppercase; cursor:pointer; transition:all .25s; border-radius:2px; }
-  .lang-btn:hover,.lang-btn.active { background:var(--gold); border-color:var(--gold); color:var(--deep-blue); }
+/* LANG BAR */
+.lang-bar { background: var(--deep-blue); padding: 8px 0; }
+.lang-bar .container { display: flex; justify-content: space-between; align-items: center; padding: 0 40px; }
+.lang-bar-left { display: flex; align-items: center; gap: 10px; }
+.icon-link { display: flex; align-items: center; color: rgba(255,255,255,0.7); text-decoration: none; transition: color .25s; }
+.icon-link:hover { color: #fff; }
+.lang-bar-right { display: flex; align-items: center; gap: 8px; }
+.lang-label { font-family: 'Noto Sans', sans-serif; font-size: 11px; font-weight: 500; letter-spacing: 1.5px; text-transform: uppercase; color: #fff; margin-right: 4px; }
+.lang-btn { background: transparent; border: 1px solid rgba(201,168,76,0.4); color: rgba(255,255,255,0.65); padding: 4px 12px; font-family: 'Noto Sans', sans-serif; font-size: 11px; font-weight: 500; letter-spacing: 1.5px; text-transform: uppercase; cursor: pointer; transition: all .25s; border-radius: 2px; }
+.lang-btn:hover, .lang-btn.active { background: var(--gold); border-color: var(--gold); color: var(--deep-blue); }
 
-  /* HEADER */
-  header { background:var(--deep-blue); position:relative; overflow:hidden; }
-  header::before { content:''; position:absolute; inset:0; background: radial-gradient(ellipse 60% 80% at 50% -20%,rgba(201,168,76,.12) 0%,transparent 70%), url("data:image/svg+xml,%3Csvg width='60' height='60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M30 5 L35 20 L50 20 L38 29 L43 44 L30 35 L17 44 L22 29 L10 20 L25 20Z' fill='none' stroke='rgba(201,168,76,0.06)' stroke-width='1'/%3E%3C/svg%3E") repeat; pointer-events:none; }
-  .header-inner{position:relative;z-index:1;display:flex;align-items:center;justify-content:space-between;padding:28px 40px; }
-  .church-identity { display:flex; align-items:center; gap:20px; }
-  .cross-icon { width:52px; height:52px; flex-shrink:0; border-radius:50%; object-fit:cover; }
-  .church-name-block h1 { font-family:'Cinzel',serif; font-size:22px; font-weight:700; color:var(--gold-light); letter-spacing:1px; line-height:1.2; }
-  .church-name-block p { font-family:'EB Garamond', serif; font-style:italic; font-size:13.5px; color:rgba(255,255,255,.5); margin-top:3px; letter-spacing:.5px; }
-  
-  /* ─── NAVIGATION COMPLETE REDESIGN ─── */
-  nav { background: linear-gradient(135deg, var(--mid-blue), var(--deep-blue)); border-top: 1px solid rgba(201,168,76,0.3); border-bottom: 1px solid rgba(201,168,76,0.3); position: sticky; top: 0; z-index: 100; box-shadow: 0 4px 20px rgba(0,0,0,0.15); }
-  .nav-inner { display: flex; align-items: center; justify-content: center; padding: 0 20px; gap: 4px; flex-wrap: wrap; }
-  .nav-link { font-family: 'Cinzel', serif; font-size: 11px; font-weight: 600; letter-spacing: 1.5px; text-transform: uppercase; color: rgba(255,255,255,0.7); text-decoration: none; padding: 14px 16px; position: relative; transition: all 0.25s; white-space: nowrap; }
-  .nav-inner::before { content: '☦'; position: absolute; left: 20px; top: 50%; transform: translateY(-50%); font-size: 11px; color: rgba(201,168,76,0.25); font-family: serif; }
-  .nav-inner::after { content: '☦'; position: absolute; right: 20px; top: 50%; transform: translateY(-50%); font-size: 11px; color: rgba(201,168,76,0.25); font-family: serif; }
-  .nav-link { font-family: 'Cinzel', serif; font-size: 11px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; color: rgba(255,255,255,0.7); text-decoration: none; padding: 16px 24px; position: relative; transition: all 0.3s ease; white-space: nowrap; border-radius: 40px; }
-  .nav-link::before { content: ''; position: absolute; top: 0; left: 50%; width: 0; height: 2px; background: linear-gradient(90deg, transparent, var(--gold), var(--gold-light), var(--gold), transparent); transition: width 0.3s ease, left 0.3s ease; transform: translateX(-50%); border-radius: 2px; }
-  .nav-link::after { content: ''; position: absolute; bottom: 0; left: 50%; width: 0; height: 2px; background: linear-gradient(90deg, transparent, var(--gold), var(--gold-light), var(--gold), transparent); transition: width 0.3s ease, left 0.3s ease; transform: translateX(-50%); border-radius: 2px; }
-  .nav-link:hover::before, .nav-link:hover::after, .nav-link.active::before, .nav-link.active::after { width: 70%; left: 50%; }
-  .nav-link:hover { color: var(--gold-light); background: rgba(201,168,76,0.08); transform: translateY(-1px); }
-  .nav-link.active { color: var(--gold-light); background: rgba(201,168,76,0.12); box-shadow: 0 2px 8px rgba(0,0,0,0.15); }
+/* HEADER */
+header { background: var(--deep-blue); position: relative; overflow: hidden; }
+header::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse 60% 80% at 50% -20%, rgba(201,168,76,.12) 0%, transparent 70%), url("data:image/svg+xml,%3Csvg width='60' height='60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M30 5 L35 20 L50 20 L38 29 L43 44 L30 35 L17 44 L22 29 L10 20 L25 20Z' fill='none' stroke='rgba(201,168,76,0.06)' stroke-width='1'/%3E%3C/svg%3E") repeat; pointer-events: none; }
+.header-inner { position: relative; z-index: 1; display: flex; align-items: center; justify-content: space-between; padding: 28px 40px; }
+.church-identity { display: flex; align-items: center; gap: 20px; text-decoration: none; }
+.cross-icon { width: 52px; height: 52px; flex-shrink: 0; border-radius: 50%; object-fit: cover; }
+.church-name-block h1 { font-family: 'Cinzel', serif; font-size: 22px; font-weight: 700; color: var(--gold-light); letter-spacing: 1px; line-height: 1.2; }
+.church-name-block p { font-family: 'EB Garamond', serif; font-style: italic; font-size: 13.5px; color: rgba(255,255,255,.5); margin-top: 3px; letter-spacing: .5px; }
 
-  /* Optional: Add a subtle diamond indicator for active link */
-  .nav-link.active span { position: relative; }
-  .nav-link.active span::before { content: '◆'; position: absolute; top: -18px; left: 50%; transform: translateX(-50%); font-size: 6px; color: var(--gold); letter-spacing: 0; }
+/* NAVIGATION */
+nav { background: linear-gradient(135deg, var(--mid-blue), var(--deep-blue)); border-top: 1px solid rgba(201,168,76,0.3); border-bottom: 1px solid rgba(201,168,76,0.3); position: sticky; top: 0; z-index: 100; box-shadow: 0 4px 20px rgba(0,0,0,0.15); }
+.nav-inner { display: flex; align-items: center; justify-content: center; padding: 0 20px; gap: 4px; }
+.nav-link { font-family: 'Cinzel', serif; font-size: 11px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; color: rgba(255,255,255,0.7); text-decoration: none; padding: 16px 24px; position: relative; transition: all 0.3s ease; white-space: nowrap; border-radius: 40px; }
+.nav-link::before { content: ''; position: absolute; top: 0; left: 50%; width: 0; height: 2px; background: linear-gradient(90deg, transparent, var(--gold), var(--gold-light), var(--gold), transparent); transition: width 0.3s ease, left 0.3s ease; transform: translateX(-50%); border-radius: 2px; }
+.nav-link::after { content: ''; position: absolute; bottom: 0; left: 50%; width: 0; height: 2px; background: linear-gradient(90deg, transparent, var(--gold), var(--gold-light), var(--gold), transparent); transition: width 0.3s ease, left 0.3s ease; transform: translateX(-50%); border-radius: 2px; }
+.nav-link:hover::before, .nav-link:hover::after, .nav-link.active::before, .nav-link.active::after { width: 70%; left: 50%; }
+.nav-link:hover { color: var(--gold-light); background: rgba(201,168,76,0.08); transform: translateY(-1px); }
+.nav-link.active { color: var(--gold-light); background: rgba(201,168,76,0.12); box-shadow: 0 2px 8px rgba(0,0,0,0.15); }
 
+/* PAGE TITLE */
+.page-title-section { background: var(--deep-blue); padding: 60px 40px 50px; text-align: center; position: relative; overflow: hidden; }
+.page-title-section::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse 70% 100% at 50% 0%, rgba(201,168,76,.1) 0%, transparent 70%); pointer-events: none; }
+.eyebrow { font-family: 'Noto Sans', sans-serif; font-size: 10px; font-weight: 500; letter-spacing: 4px; text-transform: uppercase; color: var(--gold); margin-bottom: 14px; display: flex; align-items: center; justify-content: center; gap: 12px; position: relative; z-index: 1; }
+.eyebrow::before, .eyebrow::after { content: ''; display: block; width: 40px; height: 1px; background: var(--gold); opacity: .5; }
+.page-title-section h2 { font-family: 'Cinzel', serif; font-size: clamp(32px, 5vw, 52px); font-weight: 900; color: #fff; letter-spacing: 4px; text-transform: uppercase; position: relative; z-index: 1; }
+.title-line { width: 80px; height: 2px; background: linear-gradient(90deg, transparent, var(--gold), transparent); margin: 18px auto 0; }
 
-  /* PAGE TITLE */
-  .page-title-section { background:var(--deep-blue); padding:60px 40px 50px; text-align:center; position:relative; overflow:hidden; }
-  .page-title-section::before { content:''; position:absolute; inset:0; background:radial-gradient(ellipse 70% 100% at 50% 0%,rgba(201,168,76,.1) 0%,transparent 70%); pointer-events:none; }
-  .eyebrow { font-family:'Noto Sans',sans-serif; font-size:10px; font-weight:500; letter-spacing:4px; text-transform:uppercase; color:var(--gold); margin-bottom:14px; display:flex; align-items:center; justify-content:center; gap:12px; position:relative; z-index:1; }
-  .eyebrow::before,.eyebrow::after { content:''; display:block; width:40px; height:1px; background:var(--gold); opacity:.5; }
-  .page-title-section h2 { font-family:'Cinzel',serif; font-size:clamp(32px,5vw,52px); font-weight:900; color:#fff; letter-spacing:4px; text-transform:uppercase; position:relative; z-index:1; }
-  .title-line { width:80px; height:2px; background:linear-gradient(90deg,transparent,var(--gold),transparent); margin:18px auto 0; }
+/* BODY TEXT */
+.history-body { max-width: 820px; margin: 0 auto; padding: 70px 40px 60px; }
+.chapter { margin-bottom: 52px; }
+.chapter-date { font-family: 'Noto Sans', sans-serif; font-size: 10px; font-weight: 500; letter-spacing: 3px; text-transform: uppercase; color: var(--gold); margin-bottom: 10px; }
+.chapter-title { font-family: 'Cinzel', serif; font-size: 17px; font-weight: 700; color: var(--deep-blue); letter-spacing: .8px; margin-bottom: 20px; display: flex; align-items: center; gap: 14px; }
+.chapter-title::after { content: ''; flex: 1; height: 1px; background: linear-gradient(90deg, var(--gold) 0%, transparent 100%); opacity: .5; }
+.history-body p { font-family: 'EB Garamond', serif; font-size: 18.5px; line-height: 1.95; color: var(--text-mid); margin-bottom: 18px; }
+.history-body p:last-child { margin-bottom: 0; }
+blockquote { border-left: 3px solid var(--gold); margin: 36px 0; padding: 18px 28px; background: var(--cream); }
+blockquote p { font-style: italic; font-size: 19px; color: var(--deep-blue); margin-bottom: 0; }
+.section-divider { display: flex; align-items: center; justify-content: center; gap: 14px; margin: 50px 0; color: var(--gold); font-size: 14px; letter-spacing: 8px; }
+.section-divider::before, .section-divider::after { content: ''; flex: 1; height: 1px; background: var(--gold); opacity: .3; }
 
-  /* BODY TEXT */
-  .history-body { max-width:820px; margin:0 auto; padding:70px 40px 60px; }
-  .chapter { margin-bottom:52px; }
-  .chapter-date { font-family:'Noto Sans',sans-serif; font-size:10px; font-weight:500; letter-spacing:3px; text-transform:uppercase; color:var(--gold); margin-bottom:10px; }
-  .chapter-title { font-family:'Cinzel',serif; font-size:17px; font-weight:700; color:var(--deep-blue); letter-spacing:.8px; margin-bottom:20px; display:flex; align-items:center; gap:14px; }
-  .chapter-title::after { content:''; flex:1; height:1px; background:linear-gradient(90deg,var(--gold) 0%,transparent 100%); opacity:.5; }
-  .history-body p { font-family:'EB Garamond',serif; font-size:18.5px; line-height:1.95; color:var(--text-mid); margin-bottom:18px; }
-  .history-body p:last-child { margin-bottom:0; }
-  blockquote { border-left:3px solid var(--gold); margin:36px 0; padding:18px 28px; background:var(--cream); }
-  blockquote p { font-style:italic; font-size:19px; color:var(--deep-blue); margin-bottom:0; }
-  .section-divider { display:flex; align-items:center; justify-content:center; gap:14px; margin:50px 0; color:var(--gold); font-size:14px; letter-spacing:8px; }
-  .section-divider::before,.section-divider::after { content:''; flex:1; height:1px; background:var(--gold); opacity:.3; }
+/* PHOTOS */
+.photos-section { max-width: 820px; margin: 0 auto; padding: 0 40px 80px; }
+.photos-heading { font-family: 'Cinzel', serif; font-size: 13px; font-weight: 700; letter-spacing: 2.5px; text-transform: uppercase; color: var(--deep-blue); margin-bottom: 24px; display: flex; align-items: center; gap: 14px; }
+.photos-heading::after { content: ''; flex: 1; height: 1px; background: linear-gradient(90deg, var(--gold) 0%, transparent 100%); opacity: .5; }
+.photos-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; }
+.photo-item { position: relative; aspect-ratio: 4/3; overflow: hidden; cursor: pointer; border: 1px solid var(--border); background: linear-gradient(135deg, var(--deep-blue), var(--mid-blue)); opacity: 0; transform: translateY(20px); transition: opacity .5s ease, transform .5s ease, box-shadow .3s; }
+.photo-item.visible { opacity: 1; transform: translateY(0); }
+.photo-item img { width: 100%; height: 100%; object-fit: cover; transition: transform .5s ease; display: block; }
+.photo-item:hover img { transform: scale(1.06); }
+.photo-item:hover { box-shadow: 0 10px 40px rgba(201,168,76,.15); }
+.photo-item::after { content: ''; position: absolute; inset: 0; background: rgba(26,31,60,.35); opacity: 0; transition: opacity .3s; }
+.photo-item:hover::after { opacity: 1; }
+.zoom-icon { position: absolute; bottom: 12px; right: 12px; width: 34px; height: 34px; background: var(--gold); border-radius: 50%; display: flex; align-items: center; justify-content: center; z-index: 2; opacity: 0; transform: scale(.7); transition: opacity .3s, transform .3s; }
+.photo-item:hover .zoom-icon { opacity: 1; transform: scale(1); }
 
-  /* PHOTOS — 2 items only, same grid */
-  .photos-section { max-width:820px; margin:0 auto; padding:0 40px 80px; }
-  .photos-heading { font-family:'Cinzel',serif; font-size:13px; font-weight:700; letter-spacing:2.5px; text-transform:uppercase; color:var(--deep-blue); margin-bottom:24px; display:flex; align-items:center; gap:14px; }
-  .photos-heading::after { content:''; flex:1; height:1px; background:linear-gradient(90deg,var(--gold) 0%,transparent 100%); opacity:.5; }
-  .photos-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:14px; }
-  .photo-item { position:relative; aspect-ratio:4/3; overflow:hidden; cursor:pointer; border:1px solid var(--border); background:linear-gradient(135deg,var(--deep-blue),var(--mid-blue)); opacity:0; transform:translateY(20px); transition:opacity .5s ease,transform .5s ease,box-shadow .3s; }
-  .photo-item.visible { opacity:1; transform:translateY(0); }
-  .photo-item img { width:100%; height:100%; object-fit:cover; transition:transform .5s ease; display:block; }
-  .photo-item:hover img { transform:scale(1.06); }
-  .photo-item:hover { box-shadow:0 10px 40px rgba(201,168,76,.15); }
-  .photo-item::after { content:''; position:absolute; inset:0; background:rgba(26,31,60,.35); opacity:0; transition:opacity .3s; }
-  .photo-item:hover::after { opacity:1; }
-  .zoom-icon { position:absolute; bottom:12px; right:12px; width:34px; height:34px; background:var(--gold); border-radius:50%; display:flex; align-items:center; justify-content:center; z-index:2; opacity:0; transform:scale(.7); transition:opacity .3s,transform .3s; }
-  .photo-item:hover .zoom-icon { opacity:1; transform:scale(1); }
+/* LIGHTBOX */
+.lightbox { position: fixed; inset: 0; background: rgba(10,12,25,.96); z-index: 1000; display: flex; align-items: center; justify-content: center; opacity: 0; pointer-events: none; transition: opacity .3s; }
+.lightbox.open { opacity: 1; pointer-events: all; }
+.lightbox-backdrop { position: absolute; inset: 0; cursor: pointer; }
+.lightbox-content { position: relative; z-index: 1; max-width: 90vw; max-height: 90vh; display: flex; flex-direction: column; align-items: center; }
+.lightbox-img-wrap { max-width: 90vw; max-height: 82vh; display: flex; align-items: center; justify-content: center; }
+.lightbox-img-wrap img { max-width: 85vw; max-height: 80vh; object-fit: contain; border: 1px solid rgba(201,168,76,.2); box-shadow: 0 20px 80px rgba(0,0,0,.7); display: block; }
+.lightbox-placeholder { width: min(600px, 85vw); height: min(420px, 70vh); background: linear-gradient(135deg, var(--deep-blue), var(--mid-blue)); border: 1px solid rgba(201,168,76,.2); }
+.lightbox-close { position: fixed; top: 24px; right: 28px; width: 44px; height: 44px; background: rgba(201,168,76,.15); border: 1px solid rgba(201,168,76,.3); border-radius: 50%; color: var(--gold-light); font-size: 20px; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: all .2s; z-index: 2; line-height: 1; }
+.lightbox-close:hover { background: var(--gold); color: var(--deep-blue); transform: rotate(90deg); }
+.lightbox-arrow { position: fixed; top: 50%; transform: translateY(-50%); width: 48px; height: 48px; background: rgba(201,168,76,.12); border: 1px solid rgba(201,168,76,.25); border-radius: 50%; color: var(--gold-light); cursor: pointer; display: flex; align-items: center; justify-content: center; transition: all .2s; z-index: 2; }
+.lightbox-arrow:hover { background: var(--gold); color: var(--deep-blue); }
+.lightbox-arrow.prev { left: 20px; }
+.lightbox-arrow.next { right: 20px; }
+.lightbox-counter { margin-top: 14px; font-family: 'Noto Sans', sans-serif; font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: rgba(201,168,76,.5); }
 
-  /* LIGHTBOX */
-  .lightbox { position:fixed; inset:0; background:rgba(10,12,25,.96); z-index:1000; display:flex; align-items:center; justify-content:center; opacity:0; pointer-events:none; transition:opacity .3s; }
-  .lightbox.open { opacity:1; pointer-events:all; }
-  .lightbox-backdrop { position:absolute; inset:0; cursor:pointer; }
-  .lightbox-content { position:relative; z-index:1; max-width:90vw; max-height:90vh; display:flex; flex-direction:column; align-items:center; }
-  .lightbox-img-wrap { max-width:90vw; max-height:82vh; display:flex; align-items:center; justify-content:center; }
-  .lightbox-img-wrap img { max-width:85vw; max-height:80vh; object-fit:contain; border:1px solid rgba(201,168,76,.2); box-shadow:0 20px 80px rgba(0,0,0,.7); display:block; }
-  .lightbox-placeholder { width:min(600px,85vw); height:min(420px,70vh); background:linear-gradient(135deg,var(--deep-blue),var(--mid-blue)); border:1px solid rgba(201,168,76,.2); }
-  .lightbox-close { position:fixed; top:24px; right:28px; width:44px; height:44px; background:rgba(201,168,76,.15); border:1px solid rgba(201,168,76,.3); border-radius:50%; color:var(--gold-light); font-size:20px; cursor:pointer; display:flex; align-items:center; justify-content:center; transition:all .2s; z-index:2; line-height:1; }
-  .lightbox-close:hover { background:var(--gold); color:var(--deep-blue); transform:rotate(90deg); }
-  .lightbox-arrow { position:fixed; top:50%; transform:translateY(-50%); width:48px; height:48px; background:rgba(201,168,76,.12); border:1px solid rgba(201,168,76,.25); border-radius:50%; color:var(--gold-light); cursor:pointer; display:flex; align-items:center; justify-content:center; transition:all .2s; z-index:2; }
-  .lightbox-arrow:hover { background:var(--gold); color:var(--deep-blue); }
-  .lightbox-arrow.prev { left:20px; }
-  .lightbox-arrow.next { right:20px; }
-  .lightbox-counter { margin-top:14px; font-family:'Noto Sans',sans-serif; font-size:10px; letter-spacing:2px; text-transform:uppercase; color:rgba(201,168,76,.5); }
-
-  /* FOOTER */
-  footer { background:var(--warm-dark); padding:60px 0 0; }
-  .footer-inner { max-width:1200px; margin:0 auto; padding:0 40px 50px; display:grid; grid-template-columns:1.5fr 1fr; gap:50px; }
-  .footer-col h5 { font-family:'Cinzel',serif; font-size:11px; font-weight:700; letter-spacing:2px; text-transform:uppercase; color:var(--gold); margin-bottom:18px; padding-bottom:10px; border-bottom:1px solid rgba(201,168,76,.2); }
-  .footer-links { list-style:none; }
-  .footer-links li { padding:6px 0; }
-  .footer-links a { font-family:'EB Garamond',serif; font-size:15px; color:rgba(255,255,255,.45); text-decoration:none; transition:color .2s; display:flex; align-items:center; gap:8px; }
-  .footer-links a::before { content:'›'; color:var(--gold); opacity:0; transition:opacity .2s; }
-  .footer-links a:hover { color:rgba(255,255,255,.8); }
-  .footer-links a:hover::before { opacity:1; }
-  .footer-bottom { border-top:1px solid rgba(255,255,255,.06); padding:20px 40px; max-width:1200px; margin:0 auto; }
-  .footer-bottom p { font-family:'Noto Sans',sans-serif; font-size:11px; color:rgba(255,255,255,.25); letter-spacing:.5px; }
+/* FOOTER */
+footer { background: var(--warm-dark); padding: 60px 0 0; }
+.footer-inner { max-width: 1200px; margin: 0 auto; padding: 0 40px 50px; display: grid; grid-template-columns: 1.5fr 1fr; gap: 50px; }
+.footer-col h5 { font-family: 'Cinzel', serif; font-size: 11px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--gold); margin-bottom: 18px; padding-bottom: 10px; border-bottom: 1px solid rgba(201,168,76,.2); }
+.footer-links { list-style: none; }
+.footer-links li { padding: 6px 0; }
+.footer-links a { font-family: 'EB Garamond', serif; font-size: 15px; color: rgba(255,255,255,.45); text-decoration: none; transition: color .2s; display: flex; align-items: center; gap: 8px; }
+.footer-links a::before { content: '›'; color: var(--gold); opacity: 0; transition: opacity .2s; }
+.footer-links a:hover { color: rgba(255,255,255,.8); }
+.footer-links a:hover::before { opacity: 1; }
+.footer-bottom { border-top: 1px solid rgba(255,255,255,.06); padding: 20px 40px; max-width: 1200px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 15px; }
+.footer-bottom p { font-family: 'Noto Sans', sans-serif; font-size: 11px; color: rgba(255,255,255,.25); letter-spacing: .5px; margin: 0; display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+.footer-instagram { display: inline-flex; align-items: center; text-decoration: none; transition: opacity 0.25s; margin-left: 5px; }
+.footer-instagram svg { width: 16px; height: 16px; }
+.footer-instagram:hover { opacity: 0.7; }
 
 /* RESPONSIVE */
-
-@media (max-width:900px) {
-.header-inner { flex-direction: column; gap: 16px; text-align: center; }
-.nav-inner { justify-content: flex-start; padding: 0 20px; }
-.footer-inner { grid-template-columns: 1fr; }
-.photos-grid { grid-template-columns: 1fr 1fr; }
-}
-
-@media (max-width:600px) {
-.lang-bar .container { padding: 0 16px; }
-.lang-bar-left { gap: 6px; }
-.icon-link svg { width: 18px; height: 18px; }
-.header-inner { padding: 20px; }
-.church-name-block h1 { font-size: 16px; }
-.church-name-block p { font-size: 12px; }
-.page-title-section { padding: 50px 20px 40px; }
-.page-title-section h2 { font-size: 28px; letter-spacing: 2px; }
-.history-body,.photos-section { padding-left: 20px; padding-right: 20px; }
-.history-body p { font-size: 16px; line-height: 1.8; }
-blockquote p { font-size: 17px; }
-.photos-grid{ grid-template-columns: 1fr; }
-.footer-inner { grid-template-columns: 1fr; gap: 30px; padding: 0 20px 40px; }
-.footer-bottom { padding: 16px 20px; }
-.footer-bottom p { font-size:10px; }
-.nav-link { font-size: 10px; padding: 14px 12px; letter-spacing: 1px; }
-.lightbox-arrow { display: none; }
-}
-
-@media (max-width:380px) {
-.page-title-section h2 { font-size: 22px; }
-.church-name-block h1 { font-size: 14px; }
-.photos-grid { grid-template-columns: 1fr; }
-}
-
-
-
-
-  
+@media (max-width: 900px) { .footer-inner { grid-template-columns: 1fr; } .header-inner { flex-direction: column; gap: 16px; text-align: center; } .photos-grid { grid-template-columns: 1fr 1fr; } }
+@media (max-width: 600px) { .lang-bar .container { padding: 0 16px; } .lang-bar-left { gap: 6px; } .icon-link svg { width: 18px; height: 18px; } .header-inner { padding: 20px; flex-direction: column; gap: 16px; text-align: center; } .church-name-block h1 { font-size: 16px; } .church-name-block p { font-size: 12px; } .page-title-section { padding: 50px 20px 40px; } .page-title-section h2 { font-size: 28px; letter-spacing: 2px; } .history-body, .photos-section { padding-left: 20px; padding-right: 20px; } .history-body p { font-size: 16px; line-height: 1.8; } blockquote p { font-size: 17px; } .photos-grid { grid-template-columns: 1fr; } .footer-inner { grid-template-columns: 1fr; gap: 30px; padding: 0 20px 40px; } .footer-bottom { padding: 16px 20px; flex-direction: column; text-align: center; } .footer-bottom p { justify-content: center; } .lightbox-arrow { display: none; } nav { overflow-x: auto; -webkit-overflow-scrolling: touch; scrollbar-width: thin; } nav::-webkit-scrollbar { height: 3px; } nav::-webkit-scrollbar-track { background: var(--mid-blue); } nav::-webkit-scrollbar-thumb { background: var(--gold); border-radius: 3px; } .nav-inner { min-width: max-content; padding: 0 16px; gap: 2px; } .nav-link { padding: 14px 14px; font-size: 9px; } }
+@media (max-width: 380px) { .page-title-section h2 { font-size: 22px; } .church-name-block h1 { font-size: 14px; } .photos-grid { grid-template-columns: 1fr; } }
 </style>
 </head>
 <body>
@@ -177,29 +122,14 @@ blockquote p { font-size: 17px; }
 <div class="lang-bar">
   <div class="container">
     <div class="lang-bar-left">
-      <a href="https://www.instagram.com/kisha.profet.ilia_korce" target="_blank" class="icon-link" aria-label="Instagram">
-        <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><rect x="2" y="2" width="20" height="20" rx="5.5" stroke="white" stroke-width="1.8"/><circle cx="12" cy="12" r="4.2" stroke="white" stroke-width="1.8"/><circle cx="17.5" cy="6.5" r="1.1" fill="white"/></svg>
-      </a>
-      <a href="https://www.facebook.com/KishaProfetiIliaKorce" class="icon-link" aria-label="Facebook">
-        <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><rect x="2" y="2" width="20" height="20" rx="5.5" stroke="white" stroke-width="1.8"/><path d="M13 21V13h2.5l.5-3H13V8.5c0-.8.4-1.5 1.5-1.5H16V4.5S15 4 13.5 4C11 4 10 5.5 10 7.5V10H7.5v3H10v8" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
-      </a>
-
-      <a href="https://youtube.com/@kishaprofetiliakorce?si=Z3rmZtXxQARnT9Hd" class="instagram-link" aria-label="YouTube">
-        <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
-          <rect x="2" y="2" width="20" height="20" rx="5.5" stroke="white" stroke-width="1.8"/>
-          <path d="M17.5 11.2L9.5 6.5C9.2 6.3 8.8 6.4 8.6 6.7C8.5 6.8 8.5 7 8.5 7.2V16.8C8.5 17.2 8.8 17.5 9.2 17.5C9.3 17.5 9.5 17.5 9.6 17.4L17.6 12.7C17.8 12.6 17.9 12.4 17.9 12.2C17.9 12 17.9 11.9 17.8 11.8C17.7 11.5 17.6 11.3 17.5 11.2Z" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
-        </svg>
-      </a>
-      
-      <a href="mailto:kishaprofetilia@gmail.com" class="icon-link" aria-label="Email">
-        <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><rect x="2" y="4" width="20" height="16" rx="3" stroke="white" stroke-width="1.8"/><path d="M2 7L12 13L22 7" stroke="white" stroke-width="1.8" stroke-linecap="round"/></svg>
-      </a>
-      <a href="https://maps.app.goo.gl/imSxKzHyRxWEduUb6" class="icon-link" aria-label="Location">
-        <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M12 2C8.7 2 6 4.7 6 8c0 5 6 14 6 14s6-9 6-14c0-3.3-2.7-6-6-6z" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><circle cx="12" cy="8" r="2.5" stroke="white" stroke-width="1.8"/></svg>
-      </a>
+      <a href="https://www.instagram.com/kisha.profet.ilia_korce" target="_blank" class="icon-link" aria-label="Instagram"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><rect x="2" y="2" width="20" height="20" rx="5.5" stroke="white" stroke-width="1.8"/><circle cx="12" cy="12" r="4.2" stroke="white" stroke-width="1.8"/><circle cx="17.5" cy="6.5" r="1.1" fill="white"/></svg></a>
+      <a href="https://www.facebook.com/KishaProfetiIliaKorce" class="icon-link" aria-label="Facebook"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><rect x="2" y="2" width="20" height="20" rx="5.5" stroke="white" stroke-width="1.8"/><path d="M13 21V13h2.5l.5-3H13V8.5c0-.8.4-1.5 1.5-1.5H16V4.5S15 4 13.5 4C11 4 10 5.5 10 7.5V10H7.5v3H10v8" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+      <a href="https://youtube.com/@kishaprofetiliakorce" class="icon-link" aria-label="YouTube"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><rect x="2" y="2" width="20" height="20" rx="5.5" stroke="white" stroke-width="1.8"/><path d="M17.5 11.2L9.5 6.5C9.2 6.3 8.8 6.4 8.6 6.7C8.5 6.8 8.5 7 8.5 7.2V16.8C8.5 17.2 8.8 17.5 9.2 17.5C9.3 17.5 9.5 17.5 9.6 17.4L17.6 12.7C17.8 12.6 17.9 12.4 17.9 12.2C17.9 12 17.9 11.9 17.8 11.8C17.7 11.5 17.6 11.3 17.5 11.2Z" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg></a>
+      <a href="mailto:kishaprofetilia@gmail.com" class="icon-link" aria-label="Email"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><rect x="2" y="4" width="20" height="16" rx="3" stroke="white" stroke-width="1.8"/><path d="M2 7L12 13L22 7" stroke="white" stroke-width="1.8" stroke-linecap="round"/></svg></a>
+      <a href="https://maps.app.goo.gl/imSxKzHyRxWEduUb6" class="icon-link" aria-label="Location"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M12 2C8.7 2 6 4.7 6 8c0 5 6 14 6 14s6-9 6-14c0-3.3-2.7-6-6-6z" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><circle cx="12" cy="8" r="2.5" stroke="white" stroke-width="1.8"/></svg></a>
     </div>
     <div class="lang-bar-right">
-      <span class="lang-label">Gjuha</span>
+      <span class="lang-label" id="lang-label-text">Gjuha</span>
       <button class="lang-btn active" onclick="setLang('sq')">AL</button>
       <button class="lang-btn" onclick="setLang('en')">EN</button>
       <button class="lang-btn" onclick="setLang('el')">ΕL</button>
@@ -210,24 +140,24 @@ blockquote p { font-size: 17px; }
 <!-- HEADER -->
 <header>
   <div class="header-inner">
-    <div class="church-identity">
+    <a href="index.html" class="church-identity">
       <img class="cross-icon" src="Assets/logo.png" alt="Kisha Profeti Ilia">
       <div class="church-name-block">
         <h1>Kisha "Profeti Ilia" Korçë</h1>
         <p>Mitropolia e Shenjtë Korçë</p>
       </div>
-    </div>
+    </a>
   </div>
 </header>
 
 <!-- NAV -->
 <nav>
   <div class="nav-inner">
-    <a href="index.html" class="nav-link">Kryefaqja</a>
-    <a href="historia.html" class="nav-link">Historia</a>
-    <a href="galeria.html" class="nav-link">Galeria</a>
-    <a href="katekizem.html" class="nav-link active">Katekizëm</a>
-    <a href="evente.html" class="nav-link">Evente</a>
+    <a href="index.html" class="nav-link">KRYEFAQJA</a>
+    <a href="historia.html" class="nav-link">HISTORIA</a>
+    <a href="galeria.html" class="nav-link">GALERIA</a>
+    <a href="katekizem.html" class="nav-link active">KATEKIZËM</a>
+    <a href="evente.html" class="nav-link">EVENTE</a>
   </div>
 </nav>
 
@@ -240,67 +170,21 @@ blockquote p { font-size: 17px; }
 
 <!-- CONTENT -->
 <article class="history-body">
-
-  <div class="chapter">
-    <div class="chapter-date">Çfarë është Katekizmi</div>
-    <h3 class="chapter-title">Mësimi i Besimit Orthodhoks</h3>
-    <p>Katekizmi është mësimi themelor i besimit të krishterë orthodhoks, i destinuar për ata që dëshirojnë të njohin, të kuptojnë dhe të jetojnë besimin. Fjala "katekizëm" vjen nga greqishtja "κατηχεῖν" — që do të thotë të mësosh me zë, të shpjegosh, të transmetosh. Që në ditët e para të Kishës, katekizmi ka qenë ura midis besimit të trashëguar dhe zemrës së njeriut.</p>
-    <p>Kisha Orthodhokse e ka ruajtur gjithmonë traditën e mësimit sistematik të besimit. Nëpërmjet katekizmit, të rinjtë dhe të rriturit mësojnë kuptimin e thellë të sakramenteve, të lutjes, të Shkrimit të Shenjtë dhe të jetës shpirtërore orthodhokse. Ky mësim nuk është thjesht teorik — është ftesë për një jetë të ndryshuar në Krishtin.</p>
-  </div>
-
-  <blockquote>
-    <p>"Rruga e krishterë fillon me njohjen e Perëndisë — dhe katekizmi është hapi i parë i kësaj rruge të bekuar."</p>
-  </blockquote>
-
-  <div class="chapter">
-    <div class="chapter-date">Çfarë Mësohet</div>
-    <h3 class="chapter-title">Përmbajtja e Katekizmit</h3>
-    <p>Katekizmi orthodhoks mbulon katër shtylla kryesore të besimit dhe jetës së krishterë. E para është Credo — Simboli i Besimit të Nikesë, që shpreh thelbin e doktrinës trinitare dhe kristologjike. E dyta është lutja — me Lutjen e Zotit (Ati Ynë) si model, si dhe psalmet, himnografia bizantine dhe lutja personale si bisedë me Perëndinë.</p>
-    <p>E treta është jeta sakramentale — kuptimi i thellë i Pagëzimit, Mirosjes, Eukaristisë, Pendesës, Martesës dhe Shugurimit. Sakramentet nuk janë vetëm rite — janë takime të vërteta me Krishtin që shërojnë dhe shenjtërojnë. E katërta është etika dhe jeta shpirtërore — si ta jetojmë besimin çdo ditë, si t'u bëjmë mirë të tjerëve, si të rritem si krishterë brenda Kishës dhe familjes.</p>
-    <p>Në kishën tonë, katekizmi zhvillohet si bisedë e hapur midis priftit dhe besimtarëve, duke u mbështetur në traditat e Etërve të Kishës, në Shkrimin e Shenjtë dhe në trashëgiminë e pasur liturgjike orthodhokse.</p>
-  </div>
-
+  <div class="chapter"><div class="chapter-date">Çfarë është Katekizmi</div><h3 class="chapter-title">Mësimi i Besimit Orthodhoks</h3><p>Katekizmi është mësimi themelor i besimit të krishterë orthodhoks, i destinuar për ata që dëshirojnë të njohin, të kuptojnë dhe të jetojnë besimin. Fjala "katekizëm" vjen nga greqishtja "κατηχεῖν" — që do të thotë të mësosh me zë, të shpjegosh, të transmetosh. Që në ditët e para të Kishës, katekizmi ka qenë ura midis besimit të trashëguar dhe zemrës së njeriut.</p><p>Kisha Orthodhokse e ka ruajtur gjithmonë traditën e mësimit sistematik të besimit. Nëpërmjet katekizmit, të rinjtë dhe të rriturit mësojnë kuptimin e thellë të sakramenteve, të lutjes, të Shkrimit të Shenjtë dhe të jetës shpirtërore orthodhokse. Ky mësim nuk është thjesht teorik — është ftesë për një jetë të ndryshuar në Krishtin.</p></div>
+  <blockquote><p>"Rruga e krishterë fillon me njohjen e Perëndisë — dhe katekizmi është hapi i parë i kësaj rruge të bekuar."</p></blockquote>
+  <div class="chapter"><div class="chapter-date">Çfarë Mësohet</div><h3 class="chapter-title">Përmbajtja e Katekizmit</h3><p>Katekizmi orthodhoks mbulon katër shtylla kryesore të besimit dhe jetës së krishterë. E para është Credo — Simboli i Besimit të Nikesë, që shpreh thelbin e doktrinës trinitare dhe kristologjike. E dyta është lutja — me Lutjen e Zotit (Ati Ynë) si model, si dhe psalmet, himnografia bizantine dhe lutja personale si bisedë me Perëndinë.</p><p>E treta është jeta sakramentale — kuptimi i thellë i Pagëzimit, Mirosjes, Eukaristisë, Pendesës, Martesës dhe Shugurimit. Sakramentet nuk janë vetëm rite — janë takime të vërteta me Krishtin që shërojnë dhe shenjtërojnë. E katërta është etika dhe jeta shpirtërore — si ta jetojmë besimin çdo ditë, si t'u bëjmë mirë të tjerëve, si të rritem si krishterë brenda Kishës dhe familjes.</p><p>Në kishën tonë, katekizmi zhvillohet si bisedë e hapur midis priftit dhe besimtarëve, duke u mbështetur në traditat e Etërve të Kishës, në Shkrimin e Shenjtë dhe në trashëgiminë e pasur liturgjike orthodhokse.</p></div>
   <div class="section-divider">✦ ✦ ✦</div>
-
-  <div class="chapter">
-    <div class="chapter-date">Për Kë është</div>
-    <h3 class="chapter-title">Fëmijët dhe të Rriturit</h3>
-    <p>Katekizmi në kishën tonë është i hapur për të gjithë — fëmijë, të rinj dhe të rritur. Për fëmijët, mësimet fillojnë me historitë e Biblës, me lutjet e para dhe me kuptimin e festave të mëdha kishtare. Çdo festë është rast mësimi — Krishtlindjet, Pashka, Festa e Profetit Ilia — të gjitha kanë kuptim të thellë teologjik që ia mësojmë fëmijëve me dashuri dhe durim.</p>
-    <p>Për të rriturit — qoftë ata që janë pagëzuar por duan të thellojnë besimin e tyre, qoftë ata që vijnë nga jashtë besimit dhe dëshirojnë të pranojnë Krishterimin Orthodhoks — kisha ofron seanca katekizmi të strukturuara. Askush nuk është shumë vonë për të mësuar, dhe askush nuk është shumë i mençur për të mos pasur nevojë për mësim të mëtejshëm shpirtëror.</p>
-  </div>
-
-  <div class="chapter">
-    <div class="chapter-date">Si të Merrni Pjesë</div>
-    <h3 class="chapter-title">Orari dhe Kontakti</h3>
-    <p>Mësimet e katekizmit zhvillohen çdo të shtunë pasdite, pas Esperinos, në ambientet e kishës. Për informacion të mëtejshëm rreth orarit, grupmoshave dhe programit specifik, mund të kontaktoni priftin e kishës drejtpërdrejt pas çdo shërbimi ose nëpërmjet emailit të kishës.</p>
-    <p>Ju ftojmë me gjithë zemër — sillni fëmijët, sillni veten, sillni pyetjet tuaja. Kisha është vendi ku pyetjet nuk janë pengesë, por fillimi i udhëtimit shpirtëror.</p>
-  </div>
-
-  <blockquote>
-    <p>"Mësoni fëmijët tuaj që të njohin Perëndinë — kjo është dhurata më e çmuar që mund t'u lini trashëgim."</p>
-  </blockquote>
-
+  <div class="chapter"><div class="chapter-date">Për Kë është</div><h3 class="chapter-title">Fëmijët dhe të Rriturit</h3><p>Katekizmi në kishën tonë është i hapur për të gjithë — fëmijë, të rinj dhe të rritur. Për fëmijët, mësimet fillojnë me historitë e Biblës, me lutjet e para dhe me kuptimin e festave të mëdha kishtare. Çdo festë është rast mësimi — Krishtlindjet, Pashka, Festa e Profetit Ilia — të gjitha kanë kuptim të thellë teologjik që ia mësojmë fëmijëve me dashuri dhe durim.</p><p>Për të rriturit — qoftë ata që janë pagëzuar por duan të thellojnë besimin e tyre, qoftë ata që vijnë nga jashtë besimit dhe dëshirojnë të pranojnë Krishterimin Orthodhoks — kisha ofron seanca katekizmi të strukturuara. Askush nuk është shumë vonë për të mësuar, dhe askush nuk është shumë i mençur për të mos pasur nevojë për mësim të mëtejshëm shpirtëror.</p></div>
+  <div class="chapter"><div class="chapter-date">Si të Merrni Pjesë</div><h3 class="chapter-title">Orari dhe Kontakti</h3><p>Mësimet e katekizmit zhvillohen çdo të shtunë pasdite, pas Esperinos, në ambientet e kishës. Për informacion të mëtejshëm rreth orarit, grupmoshave dhe programit specifik, mund të kontaktoni priftin e kishës drejtpërdrejt pas çdo shërbimi ose nëpërmjet emailit të kishës.</p><p>Ju ftojmë me gjithë zemër — sillni fëmijët, sillni veten, sillni pyetjet tuaja. Kisha është vendi ku pyetjet nuk janë pengesë, por fillimi i udhëtimit shpirtëror.</p></div>
+  <blockquote><p>"Mësoni fëmijët tuaj që të njohin Perëndinë — kjo është dhurata më e çmuar që mund t'u lini trashëgim."</p></blockquote>
 </article>
 
-<!-- PHOTOS — 2 only -->
+<!-- PHOTOS -->
 <section class="photos-section">
   <div class="photos-heading">Momente nga Katekizmi</div>
   <div class="photos-grid">
-
-    <div class="photo-item" onclick="openLightbox(0)">
-      <img src="Assets/katekizem1.jpg" alt="Katekizëm foto 1">
-      <div class="zoom-icon">
-        <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="6.5" cy="6.5" r="4.5" stroke="#1A1F3C" stroke-width="1.6"/><path d="M10 10L14 14" stroke="#1A1F3C" stroke-width="1.6" stroke-linecap="round"/><path d="M6.5 4.5v4M4.5 6.5h4" stroke="#1A1F3C" stroke-width="1.4" stroke-linecap="round"/></svg>
-      </div>
-    </div>
-
-    <div class="photo-item" onclick="openLightbox(1)">
-      <img src="Assets/katekizem2.jpg" alt="Katekizëm foto 2">
-      <div class="zoom-icon">
-        <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="6.5" cy="6.5" r="4.5" stroke="#1A1F3C" stroke-width="1.6"/><path d="M10 10L14 14" stroke="#1A1F3C" stroke-width="1.6" stroke-linecap="round"/><path d="M6.5 4.5v4M4.5 6.5h4" stroke="#1A1F3C" stroke-width="1.4" stroke-linecap="round"/></svg>
-      </div>
-    </div>
-
+    <div class="photo-item" onclick="openLightbox(0)"><img src="Assets/katekizem1.jpg" alt="Katekizëm foto 1"><div class="zoom-icon"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="6.5" cy="6.5" r="4.5" stroke="#1A1F3C" stroke-width="1.6"/><path d="M10 10L14 14" stroke="#1A1F3C" stroke-width="1.6" stroke-linecap="round"/><path d="M6.5 4.5v4M4.5 6.5h4" stroke="#1A1F3C" stroke-width="1.4" stroke-linecap="round"/></svg></div></div>
+    <div class="photo-item" onclick="openLightbox(1)"><img src="Assets/katekizem2.jpg" alt="Katekizëm foto 2"><div class="zoom-icon"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="6.5" cy="6.5" r="4.5" stroke="#1A1F3C" stroke-width="1.6"/><path d="M10 10L14 14" stroke="#1A1F3C" stroke-width="1.6" stroke-linecap="round"/><path d="M6.5 4.5v4M4.5 6.5h4" stroke="#1A1F3C" stroke-width="1.4" stroke-linecap="round"/></svg></div></div>
   </div>
 </section>
 
@@ -308,29 +192,22 @@ blockquote p { font-size: 17px; }
 <div class="lightbox" id="lightbox">
   <div class="lightbox-backdrop" onclick="closeLightbox()"></div>
   <button class="lightbox-close" onclick="closeLightbox()">✕</button>
-  <button class="lightbox-arrow prev" onclick="changePhoto(-1)">
-    <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M11 4L6 9L11 14" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-  </button>
-  <button class="lightbox-arrow next" onclick="changePhoto(1)">
-    <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M7 4L12 9L7 14" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-  </button>
-  <div class="lightbox-content">
-    <div class="lightbox-img-wrap" id="lightboxImgWrap"></div>
-    <div class="lightbox-counter" id="lightboxCounter"></div>
-  </div>
+  <button class="lightbox-arrow prev" onclick="changePhoto(-1)"><svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M11 4L6 9L11 14" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+  <button class="lightbox-arrow next" onclick="changePhoto(1)"><svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M7 4L12 9L7 14" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+  <div class="lightbox-content"><div class="lightbox-img-wrap" id="lightboxImgWrap"></div><div class="lightbox-counter" id="lightboxCounter"></div></div>
 </div>
 
 <!-- FOOTER -->
 <footer>
   <div class="footer-inner">
     <div class="footer-brand">
-      <div class="church-identity">
+      <a href="index.html" class="church-identity" style="text-decoration:none;">
         <img class="cross-icon" src="Assets/logo.png" alt="Kisha Profeti Ilia">
         <div style="margin-left:4px">
           <div style="font-family:'Cinzel',serif;font-size:18px;font-weight:700;color:var(--gold-light);letter-spacing:1px;">Kisha "Profeti Ilia"</div>
           <div style="font-family:'EB Garamond',serif;font-style:italic;font-size:14px;color:rgba(255,255,255,0.45);margin-top:4px;">Mitropolia e Shenjtë Korçë</div>
         </div>
-      </div>
+      </a>
     </div>
     <div class="footer-col">
       <h5>Lidhje të Shpejta</h5>
@@ -343,69 +220,36 @@ blockquote p { font-size: 17px; }
     </div>
   </div>
   <div class="footer-bottom">
-    <p>
-      Me bekimin e At Sotir Dinka
-      <br>
-      © 2026 Kisha Orthodhokse "Profeti Ilia" – Korçë.
+    <p>Me bekimin e At Sotir Dinka<br>© 2026 Kisha Orthodhokse "Profeti Ilia" – Korçë.</p>
+    <p>Realizoi: Vasil Çeku
+      <a href="https://www.instagram.com/ceku.joel" target="_blank" class="footer-instagram" aria-label="Instagram">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><rect x="2" y="2" width="20" height="20" rx="5.5" stroke="white" stroke-width="1.8"/><circle cx="12" cy="12" r="4.2" stroke="white" stroke-width="1.8"/><circle cx="17.5" cy="6.5" r="1.1" fill="white"/></svg>
+      </a>
     </p>
   </div>
 </footer>
 
 <script>
-const photos = [
-  { src: "Assets/katekizem1.jpg" },
-  { src: "Assets/katekizem2.jpg" }
-];
-  
+const photos = [{ src: "Assets/katekizem1.jpg" }, { src: "Assets/katekizem2.jpg" }];
 let current = 0;
 
-function openLightbox(i) {
-  current = i;
-  renderLightbox();
-  document.getElementById('lightbox').classList.add('open');
-  document.body.style.overflow = 'hidden';
-}
-function closeLightbox() {
-  document.getElementById('lightbox').classList.remove('open');
-  document.body.style.overflow = '';
-}
-function changePhoto(dir) {
-  current = (current + dir + photos.length) % photos.length;
-  renderLightbox();
-}
-function renderLightbox() {
-  const wrap = document.getElementById('lightboxImgWrap');
-  const p = photos[current];
-  wrap.innerHTML = p.src
-    ? `<img src="${p.src}" alt="Foto katekizmi">`
-    : `<div class="lightbox-placeholder"></div>`;
-  document.getElementById('lightboxCounter').textContent = `${current + 1} / ${photos.length}`;
-}
+function openLightbox(i) { current = i; renderLightbox(); document.getElementById('lightbox').classList.add('open'); document.body.style.overflow = 'hidden'; }
+function closeLightbox() { document.getElementById('lightbox').classList.remove('open'); document.body.style.overflow = ''; }
+function changePhoto(dir) { current = (current + dir + photos.length) % photos.length; renderLightbox(); }
+function renderLightbox() { const wrap = document.getElementById('lightboxImgWrap'); const p = photos[current]; wrap.innerHTML = p.src ? `<img src="${p.src}" alt="Foto katekizmi">` : `<div class="lightbox-placeholder"></div>`; document.getElementById('lightboxCounter').textContent = `${current + 1} / ${photos.length}`; }
 
-document.addEventListener('keydown', e => {
-  if (!document.getElementById('lightbox').classList.contains('open')) return;
-  if (e.key === 'ArrowRight') changePhoto(1);
-  if (e.key === 'ArrowLeft') changePhoto(-1);
-  if (e.key === 'Escape') closeLightbox();
-});
+document.addEventListener('keydown', e => { if (!document.getElementById('lightbox').classList.contains('open')) return; if (e.key === 'ArrowRight') changePhoto(1); if (e.key === 'ArrowLeft') changePhoto(-1); if (e.key === 'Escape') closeLightbox(); });
 
-const obs = new IntersectionObserver(entries => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting)
-      setTimeout(() => entry.target.classList.add('visible'), entry.target.dataset.delay || 0);
-  });
-}, { threshold: 0.08 });
-
-document.querySelectorAll('.photo-item').forEach((el, i) => {
-  el.dataset.delay = i * 120;
-  obs.observe(el);
-});
+const obs = new IntersectionObserver(entries => { entries.forEach(entry => { if (entry.isIntersecting) setTimeout(() => entry.target.classList.add('visible'), entry.target.dataset.delay || 0); }); }, { threshold: 0.08 });
+document.querySelectorAll('.photo-item').forEach((el, i) => { el.dataset.delay = i * 120; obs.observe(el); });
 
 function setLang(lang) {
   document.querySelectorAll('.lang-btn').forEach(b => b.classList.remove('active'));
   document.querySelector(`.lang-btn[onclick="setLang('${lang}')"]`).classList.add('active');
+  document.getElementById('lang-label-text').textContent = { sq: 'Gjuha', en: 'Language', el: 'Γλώσσα' }[lang];
   document.documentElement.lang = lang;
 }
+setLang('sq');
 </script>
 </body>
 </html>
