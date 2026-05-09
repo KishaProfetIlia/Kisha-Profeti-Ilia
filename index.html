@@ -65,7 +65,8 @@
 
 /* ─── NAVIGATION COMPLETE REDESIGN ─── */
 nav { background: linear-gradient(135deg, var(--mid-blue), var(--deep-blue)); border-top: 1px solid rgba(201,168,76,0.3); border-bottom: 1px solid rgba(201,168,76,0.3); position: sticky; top: 0; z-index: 100; box-shadow: 0 4px 20px rgba(0,0,0,0.15); }
-.nav-inner { display: flex; align-items: center; justify-content: center; padding: 0 40px; gap: 8px; flex-wrap: wrap; position: relative; }
+.nav-inner { display: flex; align-items: center; justify-content: center; padding: 0 20px; gap: 4px; flex-wrap: wrap; }
+.nav-link { font-family: 'Cinzel', serif; font-size: 11px; font-weight: 600; letter-spacing: 1.5px; text-transform: uppercase; color: rgba(255,255,255,0.7); text-decoration: none; padding: 14px 16px; position: relative; transition: all 0.25s; white-space: nowrap; }
 .nav-inner::before { content: '☦'; position: absolute; left: 20px; top: 50%; transform: translateY(-50%); font-size: 11px; color: rgba(201,168,76,0.25); font-family: serif; }
 .nav-inner::after { content: '☦'; position: absolute; right: 20px; top: 50%; transform: translateY(-50%); font-size: 11px; color: rgba(201,168,76,0.25); font-family: serif; }
 .nav-link { font-family: 'Cinzel', serif; font-size: 11px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; color: rgba(255,255,255,0.7); text-decoration: none; padding: 16px 24px; position: relative; transition: all 0.3s ease; white-space: nowrap; border-radius: 40px; }
@@ -336,13 +337,15 @@ nav { background: linear-gradient(135deg, var(--mid-blue), var(--deep-blue)); bo
 </header>
 
 <!-- NAVIGATION -->
-<div class="nav-inner">
-  <a href="index.html" class="nav-link active" data-t="nav_home"><span></span></a>
-  <a href="historia.html" class="nav-link" data-t="nav_history"><span></span></a>
-  <a href="galeria.html" class="nav-link" data-t="nav_gallery"><span></span></a>
-  <a href="katekizem.html" class="nav-link" data-t="nav_catechism"><span></span></a>
-  <a href="evente.html" class="nav-link" data-t="nav_events"><span></span></a>
-</div>
+<nav>
+  <div class="nav-inner">
+    <a href="index.html" class="nav-link active" data-t="nav_home">KRYEFAQJA</a>
+    <a href="historia.html" class="nav-link" data-t="nav_history">HISTORIA</a>
+    <a href="galeria.html" class="nav-link" data-t="nav_gallery">GALERIA</a>
+    <a href="katekizem.html" class="nav-link" data-t="nav_catechism">KATEKIZËM</a>
+    <a href="evente.html" class="nav-link" data-t="nav_events">EVENTE</a>
+  </div>
+</nav>
 
 <!-- HERO -->
 <section class="hero">
