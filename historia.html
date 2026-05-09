@@ -47,14 +47,23 @@
   .church-name-block h1 { font-family:'Cinzel',serif; font-size:22px; font-weight:700; color:var(--gold-light); letter-spacing:1px; line-height:1.2; }
   .church-name-block p { font-family:'EB Garamond',serif; font-style:italic; font-size:13.5px; color:rgba(255,255,255,.5); margin-top:3px; letter-spacing:0.5px; }
  
-  /* ─── NAVIGATION ─── */
-  nav { background: var(--mid-blue); border-top: 1px solid rgba(201,168,76,0.2); border-bottom: 1px solid rgba(201,168,76,0.2); position: sticky; top: 0; z-index: 100; }
-  .nav-inner { display: flex; align-items: center; justify-content: center; padding: 0 40px; gap: 0; flex-wrap: wrap; }
-  .nav-link { font-family: 'Cinzel', serif; font-size: 11px; font-weight: 600; letter-spacing: 1.8px; text-transform: uppercase; color: rgba(255,255,255,0.65); text-decoration: none; padding: 16px 20px; position: relative; transition: color 0.25s; white-space: nowrap; }
-  .nav-link::after { content: ''; position: absolute; bottom: 0; left: 50%; right: 50%; height: 2px; background: var(--gold); transition: left 0.3s, right 0.3s; }
-  .nav-link:hover { color: var(--gold-light); }
-  .nav-link:hover::after, .nav-link.active::after { left: 15%; right: 15%; }
-  .nav-link.active { color: var(--gold-light); }
+  /* ─── NAVIGATION COMPLETE REDESIGN ─── */
+  nav { background: linear-gradient(135deg, var(--mid-blue), var(--deep-blue)); border-top: 1px solid rgba(201,168,76,0.3); border-bottom: 1px solid rgba(201,168,76,0.3); position: sticky; top: 0; z-index: 100; box-shadow: 0 4px 20px rgba(0,0,0,0.15); }
+  .nav-inner { display: flex; align-items: center; justify-content: center; padding: 0 20px; gap: 4px; flex-wrap: wrap; }
+  .nav-link { font-family: 'Cinzel', serif; font-size: 11px; font-weight: 600; letter-spacing: 1.5px; text-transform: uppercase; color: rgba(255,255,255,0.7); text-decoration: none; padding: 14px 16px; position: relative; transition: all 0.25s; white-space: nowrap; }
+  .nav-inner::before { content: '☦'; position: absolute; left: 20px; top: 50%; transform: translateY(-50%); font-size: 11px; color: rgba(201,168,76,0.25); font-family: serif; }
+  .nav-inner::after { content: '☦'; position: absolute; right: 20px; top: 50%; transform: translateY(-50%); font-size: 11px; color: rgba(201,168,76,0.25); font-family: serif; }
+  .nav-link { font-family: 'Cinzel', serif; font-size: 11px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; color: rgba(255,255,255,0.7); text-decoration: none; padding: 16px 24px; position: relative; transition: all 0.3s ease; white-space: nowrap; border-radius: 40px; }
+  .nav-link::before { content: ''; position: absolute; top: 0; left: 50%; width: 0; height: 2px; background: linear-gradient(90deg, transparent, var(--gold), var(--gold-light), var(--gold), transparent); transition: width 0.3s ease, left 0.3s ease; transform: translateX(-50%); border-radius: 2px; }
+  .nav-link::after { content: ''; position: absolute; bottom: 0; left: 50%; width: 0; height: 2px; background: linear-gradient(90deg, transparent, var(--gold), var(--gold-light), var(--gold), transparent); transition: width 0.3s ease, left 0.3s ease; transform: translateX(-50%); border-radius: 2px; }
+  .nav-link:hover::before, .nav-link:hover::after, .nav-link.active::before, .nav-link.active::after { width: 70%; left: 50%; }
+  .nav-link:hover { color: var(--gold-light); background: rgba(201,168,76,0.08); transform: translateY(-1px); }
+  .nav-link.active { color: var(--gold-light); background: rgba(201,168,76,0.12); box-shadow: 0 2px 8px rgba(0,0,0,0.15); }
+
+  /* Optional: Add a subtle diamond indicator for active link */
+  .nav-link.active span { position: relative; }
+  .nav-link.active span::before { content: '◆'; position: absolute; top: -18px; left: 50%; transform: translateX(-50%); font-size: 6px; color: var(--gold); letter-spacing: 0; }
+
  
   /* PAGE TITLE */
   .page-title-section { background:var(--deep-blue); padding:60px 40px 50px; text-align:center; position:relative; overflow:hidden; }
