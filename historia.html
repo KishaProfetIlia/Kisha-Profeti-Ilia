@@ -1,219 +1,1144 @@
 <!DOCTYPE html>
 <html lang="sq">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-<title>Historia – Kisha "Profeti Ilia"</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Noto+Sans:wght@300;400;500&display=swap" rel="stylesheet">
-<style>
-:root { --gold: #C9A84C; --gold-light: #E8C97A; --gold-pale: #F5EDD8; --deep-blue: #1A1F3C; --mid-blue: #2D3561; --warm-dark: #0F0E0B; --parchment: #FAF6EE; --red-byzantine: #8B1A1A; --cream: #F2EDE4; --text-dark: #1A1715; --text-mid: #4A4035; --text-light: #9A8E7E; --border: rgba(201,168,76,0.25); --shadow: 0 4px 30px rgba(15,14,11,0.15); }
-* { margin: 0; padding: 0; box-sizing: border-box; user-select: none; -webkit-user-select: none; }
-html { scroll-behavior: smooth; }
-body { font-family: 'EB Garamond', Georgia, serif; background: var(--parchment); color: var(--text-dark); overflow-x: hidden; }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+  <title>Historia – Kisha "Profeti Ilia"</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Noto+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 
-/* LANG BAR */
-.lang-bar { background: var(--deep-blue); padding: 8px 0; }
-.lang-bar .container { display: flex; justify-content: space-between; align-items: center; padding: 0 40px; }
-.lang-bar-left { display: flex; align-items: center; gap: 10px; }
-.icon-link { display: flex; align-items: center; color: rgba(255,255,255,0.7); text-decoration: none; transition: color .25s; }
-.icon-link:hover { color: #fff; }
-.lang-bar-right { display: flex; align-items: center; gap: 8px; }
-.lang-label { font-family: 'Noto Sans', sans-serif; font-size: 11px; font-weight: 500; letter-spacing: 1.5px; text-transform: uppercase; color: #fff; margin-right: 4px; }
-.lang-btn { background: transparent; border: 1px solid rgba(201,168,76,0.4); color: rgba(255,255,255,0.65); padding: 4px 12px; font-family: 'Noto Sans', sans-serif; font-size: 11px; font-weight: 500; letter-spacing: 1.5px; text-transform: uppercase; cursor: pointer; transition: all .25s; border-radius: 2px; }
-.lang-btn:hover, .lang-btn.active { background: var(--gold); border-color: var(--gold); color: var(--deep-blue); }
+  <style>
+    /* ─── CSS Variables ─────────────────────────────────────────────────────── */
+    :root {
+      --gold:           #C9A84C;
+      --gold-light:     #E8C97A;
+      --gold-pale:      #F5EDD8;
+      --deep-blue:      #1A1F3C;
+      --mid-blue:       #2D3561;
+      --warm-dark:      #0F0E0B;
+      --parchment:      #FAF6EE;
+      --red-byzantine:  #8B1A1A;
+      --cream:          #F2EDE4;
+      --text-dark:      #1A1715;
+      --text-mid:       #4A4035;
+      --text-light:     #9A8E7E;
+      --border:         rgba(201, 168, 76, 0.25);
+      --shadow:         0 4px 30px rgba(15, 14, 11, 0.15);
+    }
 
-/* HEADER */
-header { background: var(--deep-blue); position: relative; overflow: hidden; }
-header::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse 60% 80% at 50% -20%, rgba(201,168,76,.12) 0%, transparent 70%), url("data:image/svg+xml,%3Csvg width='60' height='60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M30 5 L35 20 L50 20 L38 29 L43 44 L30 35 L17 44 L22 29 L10 20 L25 20Z' fill='none' stroke='rgba(201,168,76,0.06)' stroke-width='1'/%3E%3C/svg%3E") repeat; pointer-events: none; }
-.header-inner { position: relative; z-index: 1; display: flex; align-items: center; justify-content: space-between; padding: 28px 40px; }
-.church-identity { display: flex; align-items: center; gap: 20px; text-decoration: none; }
-.cross-icon { width: 52px; height: 52px; flex-shrink: 0; border-radius: 50%; object-fit: cover; }
-.church-name-block h1 { font-family: 'Cinzel', serif; font-size: 22px; font-weight: 700; color: var(--gold-light); letter-spacing: 1px; line-height: 1.2; }
-.church-name-block p { font-family: 'EB Garamond', serif; font-style: italic; font-size: 13.5px; color: rgba(255,255,255,.5); margin-top: 3px; letter-spacing: 0.5px; }
+    /* ─── Reset ─────────────────────────────────────────────────────────────── */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      user-select: none;
+      -webkit-user-select: none;
+    }
 
-/* NAVIGATION */
-nav { background: linear-gradient(135deg, var(--mid-blue), var(--deep-blue)); border-top: 1px solid rgba(201,168,76,0.3); border-bottom: 1px solid rgba(201,168,76,0.3); position: sticky; top: 0; z-index: 100; box-shadow: 0 4px 20px rgba(0,0,0,0.15); }
-.nav-inner { display: flex; align-items: center; justify-content: center; padding: 0 20px; gap: 4px; }
-.nav-link { font-family: 'Cinzel', serif; font-size: 11px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; color: rgba(255,255,255,0.7); text-decoration: none; padding: 16px 24px; position: relative; transition: all 0.3s ease; white-space: nowrap; border-radius: 40px; }
-.nav-link::before { content: ''; position: absolute; top: 0; left: 50%; width: 0; height: 2px; background: linear-gradient(90deg, transparent, var(--gold), var(--gold-light), var(--gold), transparent); transition: width 0.3s ease, left 0.3s ease; transform: translateX(-50%); border-radius: 2px; }
-.nav-link::after { content: ''; position: absolute; bottom: 0; left: 50%; width: 0; height: 2px; background: linear-gradient(90deg, transparent, var(--gold), var(--gold-light), var(--gold), transparent); transition: width 0.3s ease, left 0.3s ease; transform: translateX(-50%); border-radius: 2px; }
-.nav-link:hover::before, .nav-link:hover::after, .nav-link.active::before, .nav-link.active::after { width: 70%; left: 50%; }
-.nav-link:hover { color: var(--gold-light); background: rgba(201,168,76,0.08); transform: translateY(-1px); }
-.nav-link.active { color: var(--gold-light); background: rgba(201,168,76,0.12); box-shadow: 0 2px 8px rgba(0,0,0,0.15); }
+    html { scroll-behavior: smooth; }
 
-/* PAGE TITLE */
-.page-title-section { background: var(--deep-blue); padding: 60px 40px 50px; text-align: center; position: relative; overflow: hidden; }
-.page-title-section::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse 70% 100% at 50% 0%, rgba(201,168,76,.1) 0%, transparent 70%); pointer-events: none; }
-.eyebrow { font-family: 'Noto Sans', sans-serif; font-size: 10px; font-weight: 500; letter-spacing: 4px; text-transform: uppercase; color: var(--gold); margin-bottom: 14px; display: flex; align-items: center; justify-content: center; gap: 12px; position: relative; z-index: 1; }
-.eyebrow::before, .eyebrow::after { content: ''; display: block; width: 40px; height: 1px; background: var(--gold); opacity: .5; }
-.page-title-section h2 { font-family: 'Cinzel', serif; font-size: clamp(32px, 5vw, 52px); font-weight: 900; color: #fff; letter-spacing: 4px; text-transform: uppercase; position: relative; z-index: 1; }
-.title-line { width: 80px; height: 2px; background: linear-gradient(90deg, transparent, var(--gold), transparent); margin: 18px auto 0; }
+    body {
+      font-family: 'EB Garamond', Georgia, serif;
+      background: var(--parchment);
+      color: var(--text-dark);
+      overflow-x: hidden;
+    }
 
-/* HISTORY BODY */
-.history-body { max-width: 980px; margin: 0 auto; padding: 70px 40px 60px; }
-.chapter { margin-bottom: 42px; }
-.chapter-date { font-family: 'Noto Sans', sans-serif; font-size: 10px; font-weight: 500; letter-spacing: 3px; text-transform: uppercase; color: var(--gold); margin-bottom: 10px; }
-.chapter-title { font-family: 'Cinzel', serif; font-size: 17px; font-weight: 700; color: var(--deep-blue); letter-spacing: .8px; margin-bottom: 20px; display: flex; align-items: center; gap: 14px; }
-.chapter-title::after { content: ''; flex: 1; height: 1px; background: linear-gradient(90deg, var(--gold) 0%, transparent 100%); opacity: .5; }
-.history-body p { font-family: 'EB Garamond', serif; font-size: 18.5px; line-height: 1.9; color: var(--text-mid); margin-bottom: 20px; text-align: justify; }
-.history-body p:last-child { margin-bottom: 0; }
-blockquote { border-left: 3px solid var(--gold); margin: 36px 0; padding: 18px 28px; background: var(--cream); }
-blockquote p { font-style: italic; font-size: 19px; color: var(--deep-blue); margin-bottom: 0; }
-.section-divider { display: flex; align-items: center; justify-content: center; gap: 14px; margin: 50px 0; color: var(--gold); font-size: 14px; letter-spacing: 8px; }
-.section-divider::before, .section-divider::after { content: ''; flex: 1; height: 1px; background: var(--gold); opacity: .3; }
+    /* ─── Language Bar ───────────────────────────────────────────────────────── */
+    .lang-bar { background: var(--deep-blue); padding: 8px 0; }
 
-/* PHOTOS */
-.photos-section { max-width: 980px; margin: 0 auto; padding: 0 40px 80px; }
-.photos-heading { font-family: 'Cinzel', serif; font-size: 13px; font-weight: 700; letter-spacing: 2.5px; text-transform: uppercase; color: var(--deep-blue); margin-bottom: 24px; display: flex; align-items: center; gap: 14px; }
-.photos-heading::after { content: ''; flex: 1; height: 1px; background: linear-gradient(90deg, var(--gold) 0%, transparent 100%); opacity: .5; }
-.photos-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; }
-.photo-item { position: relative; aspect-ratio: 4/3; overflow: hidden; cursor: pointer; border: 1px solid var(--border); background: linear-gradient(135deg, var(--deep-blue), var(--mid-blue)); opacity: 0; transform: translateY(20px); transition: opacity .5s ease, transform .5s ease, box-shadow .3s; }
-.photo-item.visible { opacity: 1; transform: translateY(0); }
-.photo-item img { width: 100%; height: 100%; object-fit: cover; transition: transform .5s ease; display: block; }
-.photo-item:hover img { transform: scale(1.06); }
-.photo-item:hover { box-shadow: 0 10px 40px rgba(201,168,76,.15); }
-.photo-item::after { content: ''; position: absolute; inset: 0; background: rgba(26,31,60,.35); opacity: 0; transition: opacity .3s; }
-.photo-item:hover::after { opacity: 1; }
-.zoom-icon { position: absolute; bottom: 12px; right: 12px; width: 34px; height: 34px; background: var(--gold); border-radius: 50%; display: flex; align-items: center; justify-content: center; z-index: 2; opacity: 0; transform: scale(.7); transition: opacity .3s, transform .3s; }
-.photo-item:hover .zoom-icon { opacity: 1; transform: scale(1); }
+    .lang-bar .container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0 40px;
+    }
 
-/* LIGHTBOX */
-.lightbox { position: fixed; inset: 0; background: rgba(10,12,25,.96); z-index: 1000; display: flex; align-items: center; justify-content: center; opacity: 0; pointer-events: none; transition: opacity .3s; }
-.lightbox.open { opacity: 1; pointer-events: all; }
-.lightbox-backdrop { position: absolute; inset: 0; cursor: pointer; }
-.lightbox-content { position: relative; z-index: 1; max-width: 90vw; max-height: 90vh; display: flex; flex-direction: column; align-items: center; }
-.lightbox-img-wrap { max-width: 90vw; max-height: 82vh; display: flex; align-items: center; justify-content: center; }
-.lightbox-img-wrap img { max-width: 85vw; max-height: 80vh; object-fit: contain; border: 1px solid rgba(201,168,76,.2); box-shadow: 0 20px 80px rgba(0,0,0,.7); display: block; }
-.lightbox-placeholder { width: min(600px, 85vw); height: min(420px, 70vh); background: linear-gradient(135deg, var(--deep-blue), var(--mid-blue)); border: 1px solid rgba(201,168,76,.2); }
-.lightbox-close { position: fixed; top: 24px; right: 28px; width: 44px; height: 44px; background: rgba(201,168,76,.15); border: 1px solid rgba(201,168,76,.3); border-radius: 50%; color: var(--gold-light); font-size: 20px; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: all .2s; z-index: 2; line-height: 1; }
-.lightbox-close:hover { background: var(--gold); color: var(--deep-blue); transform: rotate(90deg); }
-.lightbox-arrow { position: fixed; top: 50%; transform: translateY(-50%); width: 48px; height: 48px; background: rgba(201,168,76,.12); border: 1px solid rgba(201,168,76,.25); border-radius: 50%; color: var(--gold-light); cursor: pointer; display: flex; align-items: center; justify-content: center; transition: all .2s; z-index: 2; }
-.lightbox-arrow:hover { background: var(--gold); color: var(--deep-blue); }
-.lightbox-arrow.prev { left: 20px; }
-.lightbox-arrow.next { right: 20px; }
-.lightbox-counter { margin-top: 14px; font-family: 'Noto Sans', sans-serif; font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: rgba(201,168,76,.5); }
+    .lang-bar-left {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
 
-/* FOOTER */
-footer { background: var(--warm-dark); padding: 60px 0 0; }
-.footer-inner { max-width: 1200px; margin: 0 auto; padding: 0 40px 50px; display: grid; grid-template-columns: 1.5fr 1fr; gap: 50px; }
-.footer-col h5 { font-family: 'Cinzel', serif; font-size: 11px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--gold); margin-bottom: 18px; padding-bottom: 10px; border-bottom: 1px solid rgba(201,168,76,.2); }
-.footer-links { list-style: none; }
-.footer-links li { padding: 6px 0; }
-.footer-links a, .footer-links span { font-family: 'EB Garamond', serif; font-size: 15px; color: rgba(255,255,255,.45); text-decoration: none; transition: color .2s; display: flex; align-items: center; gap: 8px; }
-.footer-links a::before { content: '›'; color: var(--gold); opacity: 0; transition: opacity .2s; }
-.footer-links a:hover { color: rgba(255,255,255,.8); }
-.footer-links a:hover::before { opacity: 1; }
-.footer-bottom { border-top: 1px solid rgba(255,255,255,.06); padding: 20px 40px; max-width: 1200px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 15px; }
-.footer-bottom p { font-family: 'Noto Sans', sans-serif; font-size: 11px; color: rgba(255,255,255,.25); letter-spacing: .5px; margin: 0; display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
-.footer-instagram { display: inline-flex; align-items: center; text-decoration: none; transition: opacity 0.25s; margin-left: 5px; }
-.footer-instagram svg { width: 16px; height: 16px; }
-.footer-instagram:hover { opacity: 0.7; }
+    .icon-link {
+      display: flex;
+      align-items: center;
+      color: rgba(255, 255, 255, 0.7);
+      text-decoration: none;
+      transition: color 0.25s;
+    }
 
-@media (max-width: 900px) { .footer-inner { grid-template-columns: 1fr 1fr; } .header-inner { flex-direction: column; gap: 16px; text-align: center; } .photos-grid { grid-template-columns: repeat(2, 1fr); } }
-@media (max-width: 600px) { .lang-bar .container { padding: 0 16px; } .header-inner { padding: 20px; } .church-name-block h1 { font-size: 16px; } .page-title-section { padding: 40px 20px 36px; } .page-title-section h2 { font-size: 28px; } .history-body { padding: 40px 20px 40px; } .history-body p { font-size: 16px; line-height: 1.8; } .photos-section { padding-left: 20px; padding-right: 20px; } .photos-grid { grid-template-columns: 1fr; } .lightbox-arrow { display: none; } .footer-inner { grid-template-columns: 1fr; padding: 0 20px 40px; } .footer-bottom { padding: 16px 20px; flex-direction: column; text-align: center; } nav { overflow-x: auto; -webkit-overflow-scrolling: touch; } .nav-inner { min-width: max-content; padding: 0 16px; } .nav-link { padding: 14px 14px; font-size: 9px; } }
-</style>
+    .icon-link:hover { color: #fff; }
+
+    .lang-bar-right {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .lang-label {
+      font-family: 'Noto Sans', sans-serif;
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: #fff;
+      margin-right: 4px;
+    }
+
+    .lang-btn {
+      background: transparent;
+      border: 1px solid rgba(201, 168, 76, 0.4);
+      color: rgba(255, 255, 255, 0.65);
+      padding: 4px 12px;
+      font-family: 'Noto Sans', sans-serif;
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: all 0.25s;
+      border-radius: 2px;
+    }
+
+    .lang-btn:hover,
+    .lang-btn.active {
+      background: var(--gold);
+      border-color: var(--gold);
+      color: var(--deep-blue);
+    }
+
+    /* ─── Header ─────────────────────────────────────────────────────────────── */
+    header {
+      background: var(--deep-blue);
+      position: relative;
+      overflow: hidden;
+    }
+
+    header::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 60% 80% at 50% -20%, rgba(201, 168, 76, 0.12) 0%, transparent 70%),
+        url("data:image/svg+xml,%3Csvg width='60' height='60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M30 5 L35 20 L50 20 L38 29 L43 44 L30 35 L17 44 L22 29 L10 20 L25 20Z' fill='none' stroke='rgba(201,168,76,0.06)' stroke-width='1'/%3E%3C/svg%3E") repeat;
+      pointer-events: none;
+    }
+
+    .header-inner {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 28px 40px;
+    }
+
+    .church-identity {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      text-decoration: none;
+    }
+
+    .cross-icon {
+      width: 52px;
+      height: 52px;
+      flex-shrink: 0;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+
+    .church-name-block h1 {
+      font-family: 'Cinzel', serif;
+      font-size: 22px;
+      font-weight: 700;
+      color: var(--gold-light);
+      letter-spacing: 1px;
+      line-height: 1.2;
+    }
+
+    .church-name-block p {
+      font-family: 'EB Garamond', serif;
+      font-style: italic;
+      font-size: 13.5px;
+      color: rgba(255, 255, 255, 0.5);
+      margin-top: 3px;
+      letter-spacing: 0.5px;
+    }
+
+    /* ─── Navigation ─────────────────────────────────────────────────────────── */
+    nav {
+      background: linear-gradient(135deg, var(--mid-blue), var(--deep-blue));
+      border-top: 1px solid rgba(201, 168, 76, 0.3);
+      border-bottom: 1px solid rgba(201, 168, 76, 0.3);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+    }
+
+    .nav-inner {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0 20px;
+      gap: 4px;
+    }
+
+    .nav-link {
+      font-family: 'Cinzel', serif;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: rgba(255, 255, 255, 0.7);
+      text-decoration: none;
+      padding: 16px 24px;
+      position: relative;
+      transition: all 0.3s ease;
+      white-space: nowrap;
+      border-radius: 40px;
+    }
+
+    .nav-link::before,
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      left: 50%;
+      width: 0;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, var(--gold), var(--gold-light), var(--gold), transparent);
+      transition: width 0.3s ease, left 0.3s ease;
+      transform: translateX(-50%);
+      border-radius: 2px;
+    }
+
+    .nav-link::before { top: 0; }
+    .nav-link::after  { bottom: 0; }
+
+    .nav-link:hover::before,
+    .nav-link:hover::after,
+    .nav-link.active::before,
+    .nav-link.active::after {
+      width: 70%;
+      left: 50%;
+    }
+
+    .nav-link:hover {
+      color: var(--gold-light);
+      background: rgba(201, 168, 76, 0.08);
+      transform: translateY(-1px);
+    }
+
+    .nav-link.active {
+      color: var(--gold-light);
+      background: rgba(201, 168, 76, 0.12);
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+    }
+
+    /* ─── Page Title ─────────────────────────────────────────────────────────── */
+    .page-title-section {
+      background: var(--deep-blue);
+      padding: 60px 40px 50px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .page-title-section::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse 70% 100% at 50% 0%, rgba(201, 168, 76, 0.1) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .eyebrow {
+      font-family: 'Noto Sans', sans-serif;
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .eyebrow::before,
+    .eyebrow::after {
+      content: '';
+      display: block;
+      width: 40px;
+      height: 1px;
+      background: var(--gold);
+      opacity: 0.5;
+    }
+
+    .page-title-section h2 {
+      font-family: 'Cinzel', serif;
+      font-size: clamp(32px, 5vw, 52px);
+      font-weight: 900;
+      color: #fff;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      position: relative;
+      z-index: 1;
+    }
+
+    .title-line {
+      width: 80px;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, var(--gold), transparent);
+      margin: 18px auto 0;
+    }
+
+    /* ─── History Body ────────────────────────────────────────────────────────── */
+    .history-body {
+      max-width: 980px;
+      margin: 0 auto;
+      padding: 70px 40px 60px;
+    }
+
+    .chapter { margin-bottom: 42px; }
+
+    .chapter-date {
+      font-family: 'Noto Sans', sans-serif;
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 10px;
+    }
+
+    .chapter-title {
+      font-family: 'Cinzel', serif;
+      font-size: 17px;
+      font-weight: 700;
+      color: var(--deep-blue);
+      letter-spacing: 0.8px;
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .chapter-title::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: linear-gradient(90deg, var(--gold) 0%, transparent 100%);
+      opacity: 0.5;
+    }
+
+    .history-body p {
+      font-family: 'EB Garamond', serif;
+      font-size: 18.5px;
+      line-height: 1.9;
+      color: var(--text-mid);
+      margin-bottom: 20px;
+      text-align: justify;
+    }
+
+    .history-body p:last-child { margin-bottom: 0; }
+
+    blockquote {
+      border-left: 3px solid var(--gold);
+      margin: 36px 0;
+      padding: 18px 28px;
+      background: var(--cream);
+    }
+
+    blockquote p {
+      font-style: italic;
+      font-size: 19px;
+      color: var(--deep-blue);
+      margin-bottom: 0;
+    }
+
+    .section-divider {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 14px;
+      margin: 50px 0;
+      color: var(--gold);
+      font-size: 14px;
+      letter-spacing: 8px;
+    }
+
+    .section-divider::before,
+    .section-divider::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: var(--gold);
+      opacity: 0.3;
+    }
+
+    /* ─── Photos ─────────────────────────────────────────────────────────────── */
+    .photos-section {
+      max-width: 980px;
+      margin: 0 auto;
+      padding: 0 40px 80px;
+    }
+
+    .photos-heading {
+      font-family: 'Cinzel', serif;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      color: var(--deep-blue);
+      margin-bottom: 24px;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .photos-heading::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: linear-gradient(90deg, var(--gold) 0%, transparent 100%);
+      opacity: 0.5;
+    }
+
+    .photos-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 14px;
+    }
+
+    .photo-item {
+      position: relative;
+      aspect-ratio: 4 / 3;
+      overflow: hidden;
+      cursor: pointer;
+      border: 1px solid var(--border);
+      background: linear-gradient(135deg, var(--deep-blue), var(--mid-blue));
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.5s ease, transform 0.5s ease, box-shadow 0.3s;
+    }
+
+    .photo-item.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .photo-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+      display: block;
+    }
+
+    .photo-item:hover img   { transform: scale(1.06); }
+    .photo-item:hover       { box-shadow: 0 10px 40px rgba(201, 168, 76, 0.15); }
+
+    .photo-item::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: rgba(26, 31, 60, 0.35);
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+
+    .photo-item:hover::after { opacity: 1; }
+
+    .zoom-icon {
+      position: absolute;
+      bottom: 12px;
+      right: 12px;
+      width: 34px;
+      height: 34px;
+      background: var(--gold);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 2;
+      opacity: 0;
+      transform: scale(0.7);
+      transition: opacity 0.3s, transform 0.3s;
+    }
+
+    .photo-item:hover .zoom-icon {
+      opacity: 1;
+      transform: scale(1);
+    }
+
+    /* ─── Lightbox ───────────────────────────────────────────────────────────── */
+    .lightbox {
+      position: fixed;
+      inset: 0;
+      background: rgba(10, 12, 25, 0.96);
+      z-index: 1000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s;
+    }
+
+    .lightbox.open {
+      opacity: 1;
+      pointer-events: all;
+    }
+
+    .lightbox-backdrop {
+      position: absolute;
+      inset: 0;
+      cursor: pointer;
+    }
+
+    .lightbox-content {
+      position: relative;
+      z-index: 1;
+      max-width: 90vw;
+      max-height: 90vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .lightbox-img-wrap {
+      max-width: 90vw;
+      max-height: 82vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .lightbox-img-wrap img {
+      max-width: 85vw;
+      max-height: 80vh;
+      object-fit: contain;
+      border: 1px solid rgba(201, 168, 76, 0.2);
+      box-shadow: 0 20px 80px rgba(0, 0, 0, 0.7);
+      display: block;
+    }
+
+    .lightbox-placeholder {
+      width: min(600px, 85vw);
+      height: min(420px, 70vh);
+      background: linear-gradient(135deg, var(--deep-blue), var(--mid-blue));
+      border: 1px solid rgba(201, 168, 76, 0.2);
+    }
+
+    .lightbox-close {
+      position: fixed;
+      top: 24px;
+      right: 28px;
+      width: 44px;
+      height: 44px;
+      background: rgba(201, 168, 76, 0.15);
+      border: 1px solid rgba(201, 168, 76, 0.3);
+      border-radius: 50%;
+      color: var(--gold-light);
+      font-size: 20px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.2s;
+      z-index: 2;
+      line-height: 1;
+    }
+
+    .lightbox-close:hover {
+      background: var(--gold);
+      color: var(--deep-blue);
+      transform: rotate(90deg);
+    }
+
+    .lightbox-arrow {
+      position: fixed;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 48px;
+      height: 48px;
+      background: rgba(201, 168, 76, 0.12);
+      border: 1px solid rgba(201, 168, 76, 0.25);
+      border-radius: 50%;
+      color: var(--gold-light);
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.2s;
+      z-index: 2;
+    }
+
+    .lightbox-arrow:hover {
+      background: var(--gold);
+      color: var(--deep-blue);
+    }
+
+    .lightbox-arrow.prev { left: 20px; }
+    .lightbox-arrow.next { right: 20px; }
+
+    .lightbox-counter {
+      margin-top: 14px;
+      font-family: 'Noto Sans', sans-serif;
+      font-size: 10px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: rgba(201, 168, 76, 0.5);
+    }
+
+    /* ─── Footer ─────────────────────────────────────────────────────────────── */
+    footer {
+      background: var(--warm-dark);
+      padding: 60px 0 0;
+    }
+
+    .footer-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 40px 50px;
+      display: grid;
+      grid-template-columns: 1.5fr 1fr;
+      gap: 50px;
+    }
+
+    .footer-col h5 {
+      font-family: 'Cinzel', serif;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 18px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid rgba(201, 168, 76, 0.2);
+    }
+
+    .footer-links { list-style: none; }
+
+    .footer-links li { padding: 6px 0; }
+
+    .footer-links a,
+    .footer-links span {
+      font-family: 'EB Garamond', serif;
+      font-size: 15px;
+      color: rgba(255, 255, 255, 0.45);
+      text-decoration: none;
+      transition: color 0.2s;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .footer-links a::before {
+      content: '›';
+      color: var(--gold);
+      opacity: 0;
+      transition: opacity 0.2s;
+    }
+
+    .footer-links a:hover                { color: rgba(255, 255, 255, 0.8); }
+    .footer-links a:hover::before        { opacity: 1; }
+
+    .footer-bottom {
+      border-top: 1px solid rgba(255, 255, 255, 0.06);
+      padding: 20px 40px;
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 15px;
+    }
+
+    .footer-bottom p {
+      font-family: 'Noto Sans', sans-serif;
+      font-size: 11px;
+      color: rgba(255, 255, 255, 0.25);
+      letter-spacing: 0.5px;
+      margin: 0;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .footer-instagram {
+      display: inline-flex;
+      align-items: center;
+      text-decoration: none;
+      transition: opacity 0.25s;
+      margin-left: 5px;
+    }
+
+    .footer-instagram svg      { width: 16px; height: 16px; }
+    .footer-instagram:hover    { opacity: 0.7; }
+
+    /* ─── Responsive ─────────────────────────────────────────────────────────── */
+    @media (max-width: 900px) {
+      .footer-inner           { grid-template-columns: 1fr 1fr; }
+      .header-inner           { flex-direction: column; gap: 16px; text-align: center; }
+      .photos-grid            { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    @media (max-width: 600px) {
+      .lang-bar .container    { padding: 0 16px; }
+      .header-inner           { padding: 20px; }
+      .church-name-block h1   { font-size: 16px; }
+      .page-title-section     { padding: 40px 20px 36px; }
+      .page-title-section h2  { font-size: 28px; }
+      .history-body           { padding: 40px 20px 40px; }
+      .history-body p         { font-size: 16px; line-height: 1.8; }
+      .photos-section         { padding-left: 20px; padding-right: 20px; }
+      .photos-grid            { grid-template-columns: 1fr; }
+      .lightbox-arrow         { display: none; }
+      .footer-inner           { grid-template-columns: 1fr; padding: 0 20px 40px; }
+      .footer-bottom          { padding: 16px 20px; flex-direction: column; text-align: center; }
+      nav                     { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+      .nav-inner              { min-width: max-content; padding: 0 16px; }
+      .nav-link               { padding: 14px 14px; font-size: 9px; }
+    }
+  </style>
 </head>
 <body>
 
-<div class="lang-bar"><div class="container"><div class="lang-bar-left">
-<a href="https://www.instagram.com/kisha.profet.ilia_korce" target="_blank" class="icon-link"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><rect x="2" y="2" width="20" height="20" rx="5.5" stroke="white" stroke-width="1.8"/><circle cx="12" cy="12" r="4.2" stroke="white" stroke-width="1.8"/><circle cx="17.5" cy="6.5" r="1.1" fill="white"/></svg></a>
-<a href="https://www.facebook.com/KishaProfetiIliaKorce" class="icon-link"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><rect x="2" y="2" width="20" height="20" rx="5.5" stroke="white" stroke-width="1.8"/><path d="M13 21V13h2.5l.5-3H13V8.5c0-.8.4-1.5 1.5-1.5H16V4.5S15 4 13.5 4C11 4 10 5.5 10 7.5V10H7.5v3H10v8" stroke="white" stroke-width="1.8"/></svg></a>
-<a href="https://youtube.com/@kishaprofetiliakorce" class="icon-link"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><rect x="2" y="2" width="20" height="20" rx="5.5" stroke="white" stroke-width="1.8"/><path d="M17.5 11.2L9.5 6.5C9.2 6.3 8.8 6.4 8.6 6.7C8.5 6.8 8.5 7 8.5 7.2V16.8C8.5 17.2 8.8 17.5 9.2 17.5C9.3 17.5 9.5 17.5 9.6 17.4L17.6 12.7C17.8 12.6 17.9 12.4 17.9 12.2C17.9 12 17.9 11.9 17.8 11.8C17.7 11.5 17.6 11.3 17.5 11.2Z" stroke="white" stroke-width="1.8"/></svg></a>
-<a href="mailto:kishaprofetilia@gmail.com" class="icon-link"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><rect x="2" y="4" width="20" height="16" rx="3" stroke="white" stroke-width="1.8"/><path d="M2 7L12 13L22 7" stroke="white" stroke-width="1.8"/></svg></a>
-<a href="https://maps.app.goo.gl/imSxKzHyRxWEduUb6" class="icon-link"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M12 2C8.7 2 6 4.7 6 8c0 5 6 14 6 14s6-9 6-14c0-3.3-2.7-6-6-6z" stroke="white" stroke-width="1.8"/><circle cx="12" cy="8" r="2.5" stroke="white" stroke-width="1.8"/></svg></a>
-</div><div class="lang-bar-right"><span class="lang-label" id="lang-label-text">Gjuha</span><button class="lang-btn active" onclick="setLang('sq')">AL</button><button class="lang-btn" onclick="setLang('en')">EN</button><button class="lang-btn" onclick="setLang('el')">ΕL</button></div></div></div>
+  <!-- ─── Language Bar ──────────────────────────────────────────────────────── -->
+  <div class="lang-bar">
+    <div class="container">
 
-<header><div class="header-inner"><a href="index.html" class="church-identity"><img class="cross-icon" src="Assets/logo.png" alt="Kisha Profeti Ilia"><div class="church-name-block"><h1 data-t="header_title">Kisha "Profeti Ilia" Korçë</h1><p data-t="header_subtitle">Mitropolia e Shenjtë Korçë</p></div></a></div></header>
+      <div class="lang-bar-left">
+        <a href="https://www.instagram.com/kisha.profet.ilia_korce" target="_blank" class="icon-link">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+            <rect x="2" y="2" width="20" height="20" rx="5.5" stroke="white" stroke-width="1.8"/>
+            <circle cx="12" cy="12" r="4.2" stroke="white" stroke-width="1.8"/>
+            <circle cx="17.5" cy="6.5" r="1.1" fill="white"/>
+          </svg>
+        </a>
+        <a href="https://www.facebook.com/KishaProfetiIliaKorce" class="icon-link">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+            <rect x="2" y="2" width="20" height="20" rx="5.5" stroke="white" stroke-width="1.8"/>
+            <path d="M13 21V13h2.5l.5-3H13V8.5c0-.8.4-1.5 1.5-1.5H16V4.5S15 4 13.5 4C11 4 10 5.5 10 7.5V10H7.5v3H10v8" stroke="white" stroke-width="1.8"/>
+          </svg>
+        </a>
+        <a href="https://youtube.com/@kishaprofetiliakorce" class="icon-link">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+            <rect x="2" y="2" width="20" height="20" rx="5.5" stroke="white" stroke-width="1.8"/>
+            <path d="M17.5 11.2L9.5 6.5C9.2 6.3 8.8 6.4 8.6 6.7C8.5 6.8 8.5 7 8.5 7.2V16.8C8.5 17.2 8.8 17.5 9.2 17.5C9.3 17.5 9.5 17.5 9.6 17.4L17.6 12.7C17.8 12.6 17.9 12.4 17.9 12.2C17.9 12 17.9 11.9 17.8 11.8C17.7 11.5 17.6 11.3 17.5 11.2Z" stroke="white" stroke-width="1.8"/>
+          </svg>
+        </a>
+        <a href="mailto:kishaprofetilia@gmail.com" class="icon-link">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+            <rect x="2" y="4" width="20" height="16" rx="3" stroke="white" stroke-width="1.8"/>
+            <path d="M2 7L12 13L22 7" stroke="white" stroke-width="1.8"/>
+          </svg>
+        </a>
+        <a href="https://maps.app.goo.gl/imSxKzHyRxWEduUb6" class="icon-link">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+            <path d="M12 2C8.7 2 6 4.7 6 8c0 5 6 14 6 14s6-9 6-14c0-3.3-2.7-6-6-6z" stroke="white" stroke-width="1.8"/>
+            <circle cx="12" cy="8" r="2.5" stroke="white" stroke-width="1.8"/>
+          </svg>
+        </a>
+      </div>
 
-<nav><div class="nav-inner"><a href="index.html" class="nav-link" data-t="nav_home">KRYEFAQJA</a><a href="historia.html" class="nav-link active" data-t="nav_history">HISTORIA</a><a href="galeria.html" class="nav-link" data-t="nav_gallery">GALERIA</a><a href="katekizem.html" class="nav-link" data-t="nav_catechism">KATEKIZËM</a><a href="evente.html" class="nav-link" data-t="nav_events">EVENTE</a><a href="meshume.html" class="nav-link" data-t="nav_more">MË SHUMË</a></div></nav>
+      <div class="lang-bar-right">
+        <span class="lang-label" id="lang-label-text">Gjuha</span>
+        <button class="lang-btn active" onclick="setLang('sq')">AL</button>
+        <button class="lang-btn" onclick="setLang('en')">EN</button>
+        <button class="lang-btn" onclick="setLang('el')">ΕL</button>
+      </div>
 
-<div class="page-title-section"><div class="eyebrow" data-t="page_eyebrow">Kisha Profeti Ilia</div><h2 data-t="page_title">Historia</h2><div class="title-line"></div></div>
+    </div>
+  </div>
 
-<article class="history-body">
-  <div class="chapter"><div class="chapter-date" data-t="ch1_date">Rrënjët Mesjetare</div><h3 class="chapter-title" data-t="ch1_title">Themelet e lashta</h3><p data-t="ch1_p1"></p><p data-t="ch1_p2"></p></div>
-  <div class="chapter"><div class="chapter-date" data-t="ch2_date">Rindërtimi 1847</div><h3 class="chapter-title" data-t="ch2_title">Ringritja e shekullit XIX</h3><p data-t="ch2_p1"></p><p data-t="ch2_p2"></p><p data-t="ch2_p3"></p></div>
-  <div class="section-divider">✦ ✦ ✦</div>
-  <div class="chapter"><div class="chapter-date" data-t="ch3_date">1937–1938</div><h3 class="chapter-title" data-t="ch3_title">Kisha e re & ndërtimi gurë-gurë</h3><p data-t="ch3_p1"></p><p data-t="ch3_p2"></p></div>
-  <div class="chapter"><div class="chapter-date" data-t="ch4_date">Periudha e ateizmit</div><h3 class="chapter-title" data-t="ch4_title">Mbijetesa nën dhunë</h3><p data-t="ch4_p1"></p><p data-t="ch4_p2"></p><p data-t="ch4_p3"></p></div>
-  <blockquote><p data-t="quote1"></p></blockquote>
-  <div class="chapter"><div class="chapter-date" data-t="ch5_date">1991 – Ringjallja</div><h3 class="chapter-title" data-t="ch5_title">Pashka e parë pas errësirës</h3><p data-t="ch5_p1"></p><p data-t="ch5_p2"></p></div>
-  <div class="chapter"><div class="chapter-date" data-t="ch6_date">2000 e tutje</div><h3 class="chapter-title" data-t="ch6_title">Rikonstruktimi dhe sot</h3><p data-t="ch6_p1"></p><p data-t="ch6_p2"></p></div>
-</article>
+  <!-- ─── Header ───────────────────────────────────────────────────────────── -->
+  <header>
+    <div class="header-inner">
+      <a href="index.html" class="church-identity">
+        <img class="cross-icon" src="Assets/logo.png" alt="Kisha Profeti Ilia">
+        <div class="church-name-block">
+          <h1 data-t="header_title">Kisha "Profeti Ilia" Korçë</h1>
+          <p data-t="header_subtitle">Mitropolia e Shenjtë Korçë</p>
+        </div>
+      </a>
+    </div>
+  </header>
 
-<section class="photos-section"><div class="photos-heading" data-t="photos_heading">Foto Historike</div><div class="photos-grid"><div class="photo-item" onclick="openLightbox(0)"><div class="zoom-icon"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="6.5" cy="6.5" r="4.5" stroke="#1A1F3C" stroke-width="1.6"/><path d="M10 10L14 14" stroke="#1A1F3C" stroke-width="1.6"/><path d="M6.5 4.5v4M4.5 6.5h4" stroke="#1A1F3C" stroke-width="1.4"/></svg></div></div><div class="photo-item" onclick="openLightbox(1)"><div class="zoom-icon"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="6.5" cy="6.5" r="4.5" stroke="#1A1F3C" stroke-width="1.6"/><path d="M10 10L14 14" stroke="#1A1F3C" stroke-width="1.6"/><path d="M6.5 4.5v4M4.5 6.5h4" stroke="#1A1F3C" stroke-width="1.4"/></svg></div></div><div class="photo-item" onclick="openLightbox(2)"><div class="zoom-icon"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="6.5" cy="6.5" r="4.5" stroke="#1A1F3C" stroke-width="1.6"/><path d="M10 10L14 14" stroke="#1A1F3C" stroke-width="1.6"/><path d="M6.5 4.5v4M4.5 6.5h4" stroke="#1A1F3C" stroke-width="1.4"/></svg></div></div><div class="photo-item" onclick="openLightbox(3)"><div class="zoom-icon"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="6.5" cy="6.5" r="4.5" stroke="#1A1F3C" stroke-width="1.6"/><path d="M10 10L14 14" stroke="#1A1F3C" stroke-width="1.6"/><path d="M6.5 4.5v4M4.5 6.5h4" stroke="#1A1F3C" stroke-width="1.4"/></svg></div></div></div></section>
+  <!-- ─── Navigation ───────────────────────────────────────────────────────── -->
+  <nav>
+    <div class="nav-inner">
+      <a href="index.html"     class="nav-link"        data-t="nav_home">KRYEFAQJA</a>
+      <a href="historia.html"  class="nav-link active"  data-t="nav_history">HISTORIA</a>
+      <a href="evente.html"    class="nav-link"        data-t="nav_events">SHËRBESAT</a>
+      <a href="galeria.html"   class="nav-link"        data-t="nav_gallery">GALERIA</a>
+      <a href="katekizem.html" class="nav-link"        data-t="nav_catechism">KATEKIZËM</a>
+      <a href="meshume.html"   class="nav-link"        data-t="nav_more">MË SHUMË</a>
+    </div>
+  </nav>
 
-<div class="lightbox" id="lightbox"><div class="lightbox-backdrop" onclick="closeLightbox()"></div><button class="lightbox-close" onclick="closeLightbox()">✕</button><button class="lightbox-arrow prev" onclick="changePhoto(-1)"><svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M11 4L6 9L11 14" stroke="currentColor" stroke-width="2"/></svg></button><button class="lightbox-arrow next" onclick="changePhoto(1)"><svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M7 4L12 9L7 14" stroke="currentColor" stroke-width="2"/></svg></button><div class="lightbox-content"><div class="lightbox-img-wrap" id="lightboxImgWrap"></div><div class="lightbox-counter" id="lightboxCounter"></div></div></div>
+  <!-- ─── Page Title ───────────────────────────────────────────────────────── -->
+  <div class="page-title-section">
+    <div class="eyebrow" data-t="page_eyebrow">Kisha Profeti Ilia</div>
+    <h2 data-t="page_title">Historia</h2>
+    <div class="title-line"></div>
+  </div>
 
-<footer><div class="footer-inner"><div class="footer-brand"><a href="index.html" class="church-identity" style="text-decoration:none;"><img class="cross-icon" src="Assets/logo.png" alt="Kisha Profeti Ilia"><div class="church-name-block"><h1 style="font-family:'Cinzel',serif;font-size:18px;color:var(--gold-light);">Kisha "Profeti Ilia"</h1><p style="font-family:'EB Garamond',serif;font-style:italic;font-size:14px;color:rgba(255,255,255,0.45);">Mitropolia e Shenjtë Korçë</p></div></a></div><div class="footer-col"><h5 data-t="footer_quick_links">Lidhje të Shpejta</h5><ul class="footer-links"><li><a href="index.html" data-t="nav_home">Kryefaqja</a></li><li><a href="galeria.html" data-t="nav_gallery">Galeria</a></li><li><a href="katekizem.html" data-t="nav_catechism">Katekizëm</a></li><li><a href="evente.html" data-t="nav_events">Evente</a></li><li><a href="meshume.html" data-t="nav_more">Më Shumë</a></li></ul></div></div><div class="footer-bottom"><p>Me bekimin e At Sotir Dinka.<br>© 2026 Kisha Orthodhokse "Profeti Ilia" – Korçë.</p><p>Realizoi: Vasil Çeku <a href="https://www.instagram.com/ceku.joel" target="_blank" class="footer-instagram"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><rect x="2" y="2" width="20" height="20" rx="5.5" stroke="white" stroke-width="1.8"/><circle cx="12" cy="12" r="4.2" stroke="white" stroke-width="1.8"/><circle cx="17.5" cy="6.5" r="1.1" fill="white"/></svg></a></p></div></footer>
+  <!-- ─── History Body ─────────────────────────────────────────────────────── -->
+  <article class="history-body">
 
-<script>
-const T = {
-  lang_label: { sq: 'Gjuha', en: 'Language', el: 'Γλώσσα' },
-  header_title: { sq: 'Kisha "Profeti Ilia" Korçë', en: '"Prophet Elijah" Church Korçë', el: 'Εκκλησία του Προφήτη Ηλία, Κορυτσά' },
-  header_subtitle: { sq: 'Mitropolia e Shenjtë Korçë', en: 'Holy Metropolis of Korçë', el: 'Ιερά Μητρόπολη Κορυτσάς' },
-  nav_home: { sq: 'Kryefaqja', en: 'Home', el: 'Αρχική' },
-  nav_history: { sq: 'Historia', en: 'History', el: 'Ιστορία' },
-  nav_gallery: { sq: 'Galeria', en: 'Gallery', el: 'Γκαλερί' },
-  nav_catechism: { sq: 'Katekizëm', en: 'Catechism', el: 'Κατήχηση' },
-  nav_events: { sq: 'Evente', en: 'Events', el: 'Εκδηλώσεις' },
-  nav_more: { sq: 'Më shumë', en: 'More', el: 'Περισσότερα' },
-  page_eyebrow: { sq: 'Kisha Profeti Ilia', en: 'Prophet Elijah Church', el: 'Εκκλησία Προφήτη Ηλία' },
-  page_title: { sq: 'Historia', en: 'History', el: 'Ιστορία' },
-  photos_heading: { sq: 'Foto Historike', en: 'Historical Photos', el: 'Ιστορικές Φωτογραφίες' },
-  footer_quick_links: { sq: 'Lidhje të Shpejta', en: 'Quick Links', el: 'Γρήγοροι Σύνδεσμοι' },
-  ch1_date: { sq: 'Rrënjët Mesjetare', en: 'Medieval Roots', el: 'Μεσαιωνικές Ρίζες' },
-  ch1_title: { sq: 'Themelet e lashta', en: 'Ancient Foundations', el: 'Αρχαία Θεμέλια' },
-  ch1_p1: { sq: 'Kisha e Profetit Ilia, ose e Shën Ilisë, e njohur në popull edhe si Kisha e Shën Dellisë, është ndërtuar mbi një bregore në verilindje të qytetit të Korçës. Kodrina mbi të cilën ngrihet kjo kishë mban të njëjtin emër me vetë kishën. Themelet e para të saj nuk dihen me saktësi se kur janë hedhur, por dihet se bëhet fjalë për një kishë shumë të vjetër, që daton që nga periudha mesjetare, së bashku me toponimin e kodrinës me të njëjtin emër.', en: 'The Church of Prophet Elijah, known in folk tradition also as the Church of Shën Dellia, is built on a hill northeast of Korçë. The hill bears the same name. The exact date of its first foundations is unknown, but it is a very old church dating back to the medieval period, together with the toponym of the hill.', el: 'Η εκκλησία του Προφήτη Ηλία, γνωστή και ως εκκλησία της Αγίας Δέλιας, είναι χτισμένη σε ένα λόφο βορειοανατολικά της Κορυτσάς. Ο λόφος φέρει το ίδιο όνομα. Τα πρώτα θεμέλια χρονολογούνται από τη μεσαιωνική περίοδο.' },
-  ch1_p2: { sq: 'Dokumentet më të hershme për këtë kishë gjenden në Kodikun e Mitropolisë së Korçës. Në testamentin e vitit 1725 përmendet një arë poshtë bregut të Kishës së Profetit Ilia. Nga këto dokumente kuptohet se kisha ka ekzistuar shumë kohë përpara viteve 1700.', en: 'The earliest documents about this church are found in the Codex of the Metropolis of Korçë. In a 1725 will, a field below the bank of the Prophet Elijah Church is mentioned. These documents show that the church existed long before the 1700s.', el: 'Τα παλαιότερα έγγραφα βρίσκονται στον Κώδικα της Μητρόπολης Κορυτσάς. Σε διαθήκη του 1725 αναφέρεται ένα χωράφι κάτω από την εκκλησία του Προφήτη Ηλία. Η εκκλησία υπήρχε πολύ πριν το 1700.' },
-  ch2_date: { sq: 'Rindërtimi 1847', en: 'Rebuilding 1847', el: 'Ανοικοδόμηση 1847' },
-  ch2_title: { sq: 'Ringritja e shekullit XIX', en: '19th Century Revival', el: 'Αναγέννηση του 19ου αιώνα' },
-  ch2_p1: { sq: 'Duke parë se kisha ishte vjetëruar shumë, komuniteti orthodhoks i Korçës vendosi ta rindërtonte rreth vitit 1847, menjëherë pas rikonstruksionit të Kishës së Shën Marisë. Kjo u bë gjatë kohës së Mitropolitit Neofit Argjirokastriti, me nismën e epitropit Kristo Goda dhe më pas të Kristo Karametës.', en: 'Seeing that the church had greatly aged, the Orthodox community of Korçë decided to rebuild it around 1847, right after the reconstruction of St. Mary’s Church. This was done during the time of Metropolitan Neophytos of Gjirokastër, initiated by epitropos Kristo Goda and later Kristo Karameta.', el: 'Βλέποντας ότι η εκκλησία είχε γεράσει, η κοινότητα της Κορυτσάς αποφάσισε να την ξαναχτίσει γύρω στο 1847, με πρωτοβουλία του επιτρόπου Κρίστο Γκόντα.' },
-  ch2_p2: { sq: 'Të dhënat për këtë rindërtim gjenden në Kodik. Në dokumentin e 22 mars 1847 përmenden shpenzimet e kryera nga Kristo Goda. Për rindërtimin kontribuan jo vetëm Mitropolia dhe qytetarët, por edhe bashkëqytetarë me banim në Egjipt, si familjet Thanas Marko, Jovan Çiço, Llambo Polit dhe Ilo Grameno.', en: 'Data on this reconstruction is found in the Codex. A document from March 22, 1847 mentions expenses by Kristo Goda. Not only the Metropolis and citizens contributed, but also fellow citizens living in Egypt, such as the families of Thanas Marko, Jovan Çiço, Llambo Polit and Ilo Grameno.', el: 'Τα στοιχεία βρίσκονται στον Κώδικα. Συνεισέφεραν οικογένειες από την Αίγυπτο, όπως οι Θανάσης Μάρκος, Ιωάννης Τσίτσος, Λάμπος Πολίτης και Ίλος Γραμμένος.' },
-  ch2_p3: { sq: 'Kisha e rindërtuar kishte stil të thjeshtë, ndërtim guri dhe përmasa disi më të vogla se ajo e sotmja. Para saj, në anën veriore, u ngrit edhe një kambanore në formë kulle prej guri shtufi.', en: 'The rebuilt church had a simple style, stone construction and somewhat smaller dimensions than today. To its north, a tuff stone bell tower was erected.', el: 'Η ξαναχτισμένη εκκλησία είχε απλό ρυθμό, λίθινη κατασκευή και μικρότερες διαστάσεις. Στα βόρεια ανεγέρθηκε καμπαναριό.' },
-  ch3_date: { sq: '1937–1938', en: '1937–1938', el: '1937–1938' },
-  ch3_title: { sq: 'Kisha e re & ndërtimi gurë-gurë', en: 'New church & stone by stone', el: 'Νέα εκκλησία & λίθο λίθο' },
-  ch3_p1: { sq: 'Me zgjerimin e lagjeve të qytetit, në vitet 1937–1938 u prish kisha e vjetër dhe filloi ndërtimi i kishës së re gjatë kohës së Mitropolitit Evllogji Kurilla, me nismën e priftit At Kanxheri. U përshtat një kishëz provizore ndërsa rreth saj nisi të ngrihej kisha e re, e ndërtuar tërësisht me gurë të punuar dhe të papunuar.', en: 'With the expansion of city neighborhoods, in 1937–1938 the old church was demolished and construction of the new church began during the time of Metropolitan Evlogji Kurilla, initiated by priest Fr. Kanxheri. A provisional chapel was adapted while the new church, built entirely of worked and unworked stones, rose around it.', el: 'Με την επέκταση των συνοικιών, το 1937–1938 κατεδαφίστηκε η παλιά εκκλησία και ξεκίνησε η νέα, με πρωτοβουλία του ιερέα Kanxheri.' },
-  ch3_p2: { sq: 'Kisha e re u projektua më e madhe, duke ruajtur tiparet e arkitekturës tradicionale orthodhokse. Në vitet në vijim ajo u bë qendra shpirtërore e lagjes dhe e besimtarëve korçarë.', en: 'The new church was designed larger, preserving the features of traditional Orthodox architecture. In the following years it became the spiritual center of the neighborhood and of the faithful of Korçë.', el: 'Η νέα εκκλησία σχεδιάστηκε μεγαλύτερη, διατηρώντας την παραδοσιακή ορθόδοξη αρχιτεκτονική.' },
-  ch4_date: { sq: 'Periudha e ateizmit', en: 'Atheist period', el: 'Περίοδος αθεΐας' },
-  ch4_title: { sq: 'Mbijetesa nën dhunë', en: 'Survival under violence', el: 'Επιβίωση υπό βία' },
-  ch4_p1: { sq: 'Gjatë periudhës së ateizmit komunist, kjo kishë arriti t’i shpëtonte rrafshimit të plotë falë ndërhyrjes së të moshuarve të lagjes, të cilët i kërkuan autoriteteve që godina të mos prishej, por të përdorej si klub për pensionistët. Megjithatë, iu bënë ndryshime të qëllimshme: u prishën harqet prej guri të dritareve, u ndërhy në çati dhe tavan.', en: 'During the communist atheist period, this church escaped complete demolition thanks to the intervention of elderly neighborhood residents, who asked the authorities not to demolish the building but to use it as a club for pensioners. However, deliberate changes were made: stone window arches were torn down, the roof and ceiling were altered.', el: 'Κατά την αθεϊστική κομμουνιστική περίοδο, η εκκλησία γλίτωσε την κατεδάφιση χάρη στους ηλικιωμένους της γειτονιάς, οι οποίοι ζήτησαν να γίνει λέσχη συνταξιούχων. Αφαιρέθηκαν τα λίθινα τόξα των παραθύρων.' },
-  ch4_p2: { sq: 'Në vitet 1970–1980, pjesë të saj u përdorën edhe si radio-rele dhe si vend stacionimi për pajisjet e telekomunikacionit. Kisha mbeti në këmbë, e gjymtuar por duke pritur ditën e ringjalljes së saj.', en: 'In the 1970s–1980s, parts of it were also used as a radio relay and as a station for telecommunication equipment. The church remained standing, crippled but awaiting the day of its resurrection.', el: 'Τις δεκαετίες 1970–1980 χρησιμοποιήθηκε ως ραδιοαναμεταδότης. Η εκκλησία παρέμεινε όρθια, ακρωτηριασμένη αλλά περιμένοντας.' },
-  ch4_p3: { sq: 'Megjithë gjymtimin, kjo kishë mban nderin të jetë ndër të parat faltore që u rihapën me rikthimin e lirisë fetare dhe ardhjen e sistemit pluralist.', en: 'Despite its mutilation, this church holds the honor of being among the first sanctuaries to reopen with the return of religious freedom and the arrival of the pluralist system.', el: 'Παρά τον ακρωτηριασμό της, είναι από τα πρώτα ιερά που ξανάνοιξαν με την επιστροφή της θρησκευτικής ελευθερίας.' },
-  quote1: { sq: '"Kjo kishë martire, e cila mbijetoi nën gurët e heshtjes, u bë fener i ringjalljes orthodhokse në Korçë — Pashka e parë pas 25 vitesh u kremtua këtu në 1991."', en: '"This martyred church, which survived under the stones of silence, became a beacon of Orthodox resurrection in Korçë — the first Pascha after 25 years was celebrated here in 1991."', el: '"Αυτή η μαρτυρική εκκλησία επέζησε κάτω από τις πέτρες της σιωπής και έγινε φάρος ορθόδοξης ανάστασης — το πρώτο Πάσχα μετά από 25 χρόνια εορτάστηκε εδώ το 1991."' },
-  ch5_date: { sq: '1991 – Ringjallja', en: '1991 – Resurrection', el: '1991 – Ανάσταση' },
-  ch5_title: { sq: 'Pashka e parë pas errësirës', en: 'First Pascha after darkness', el: 'Το πρώτο Πάσχα μετά το σκοτάδι' },
-  ch5_p1: { sq: 'Pikërisht në këtë kishë u kremtua Pashka e parë pas afro 25 vitesh ateizëm shtetëror, në vitin 1991, nga priftërinjtë e mbetur gjallë, At Kristo Raçi dhe At Kosta Kotnani. Po këtu kremtoi Meshën Hyjnore edhe Eksarku Patriarkal Anastasi Janullatos, i cili më vonë u bë Kryepeshkop i Shqipërisë.', en: 'It was precisely in this church that the first Pascha after nearly 25 years of state atheism was celebrated in 1991 by the surviving priests, Fr. Kristo Raçi and Fr. Kosta Kotnani. Patriarchal Exarch Anastasios Yannoulatos, who later became Archbishop of Albania, also celebrated the Divine Liturgy here.', el: 'Το 1991, το πρώτο Πάσχα μετά από 25 χρόνια κρατικού αθεϊσμού εορτάστηκε εδώ. Τη Θεία Λειτουργία τέλεσε και ο Πατριαρχικός Έξαρχος Αναστάσιος Γιαννουλάτος.' },
-  ch5_p2: { sq: 'Këtu shërbyen edhe priftërinjtë shqiptaro-amerikanë At Ilia Ketri dhe At Artur Liolin, të cilët u pritën si lajmëtarë të ringjalljes shpirtërore të kësaj kishe martire.', en: 'Also serving here were the Albanian-American priests Fr. Ilia Ketri and Fr. Artur Liolin, who were welcomed as heralds of the spiritual revival of this martyred church.', el: 'Εδώ λειτούργησαν και οι αλβανοαμερικανοί ιερείς Ilia Ketri και Artur Liolin.' },
-  ch6_date: { sq: '2000 e tutje', en: '2000 onwards', el: '2000 και μετά' },
-  ch6_title: { sq: 'Rikonstruktimi dhe sot', en: 'Reconstruction and today', el: 'Ανακατασκευή και σήμερα' },
-  ch6_p1: { sq: 'Në vitin 1998, Mitropolia e Shenjtë e Korçës caktoi klerikun Atë Sotir Dinkën për kryerjen e shërbesave. Me përkushtim dhe frymë baritore, At Sotiri ka shërbyer pandërprerë, duke dhënë kontribut në gjallërimin e jetës kishtare. Mitropoliti Johani Pelushi ndërmori rikonstruktimin e kishës në fillim të viteve 2000.', en: 'In 1998, the Holy Metropolis of Korçë appointed clergyman Fr. Sotir Dinka to perform the services. With dedication and pastoral spirit, Fr. Sotir has served continuously, contributing to the vitality of church life. Metropolitan Johani Pelushi undertook the reconstruction of the church in the early 2000s.', el: 'Το 1998 ορίστηκε ο ιερέας Σωτήρης Ντίγκας. Ο Μητροπολίτης Ιωάννης Πελούσης ανέλαβε την ανακατασκευή στις αρχές της δεκαετίας του 2000.' },
-  ch6_p2: { sq: 'Në vitin 2003 rifilloi ringritja shpirtërore dhe materiale. Po atë vit u kremtua përsëri Mesha Hyjnore në nder të Shën Profetit Ilia, duke rikthyer plotësisht jetën liturgjike dhe adhurimin orthodhoks në këtë faltore të bekuar.', en: 'In 2003 the spiritual and material revival began anew. That same year the Divine Liturgy in honor of Saint Prophet Elijah was celebrated once more, fully restoring the liturgical life and Orthodox worship in this blessed sanctuary.', el: 'Το 2003 άρχισε εκ νέου η πνευματική ανάσταση. Η Θεία Λειτουργία τελέστηκε ξανά, αποκαθιστώντας πλήρως τη λατρεία.' }
-};
+    <div class="chapter">
+      <div class="chapter-date" data-t="ch1_date">Rrënjët Mesjetare</div>
+      <h3 class="chapter-title" data-t="ch1_title">Themelet e lashta</h3>
+      <p data-t="ch1_p1"></p>
+      <p data-t="ch1_p2"></p>
+    </div>
 
-function setLang(lang) {
-  document.querySelectorAll('.lang-btn').forEach(b => b.classList.remove('active'));
-  document.querySelector(`.lang-btn[onclick="setLang('${lang}')"]`).classList.add('active');
-  document.getElementById('lang-label-text').textContent = T.lang_label[lang];
-  document.documentElement.lang = lang;
-  document.querySelectorAll('[data-t]').forEach(el => {
-    const key = el.getAttribute('data-t');
-    const entry = T[key];
-    if (!entry) return;
-    el.innerHTML = (entry[lang] || entry['sq'] || '').replace(/\n/g, '<br>');
-  });
-}
+    <div class="chapter">
+      <div class="chapter-date" data-t="ch2_date">Rindërtimi 1847</div>
+      <h3 class="chapter-title" data-t="ch2_title">Ringritja e shekullit XIX</h3>
+      <p data-t="ch2_p1"></p>
+      <p data-t="ch2_p2"></p>
+      <p data-t="ch2_p3"></p>
+    </div>
 
-const photos = [{ src: null }, { src: null }, { src: null }, { src: null }];
-let current = 0;
-function openLightbox(i) { current = i; renderLightbox(); document.getElementById('lightbox').classList.add('open'); document.body.style.overflow = 'hidden'; }
-function closeLightbox() { document.getElementById('lightbox').classList.remove('open'); document.body.style.overflow = ''; }
-function changePhoto(dir) { current = (current + dir + photos.length) % photos.length; renderLightbox(); }
-function renderLightbox() { const wrap = document.getElementById('lightboxImgWrap'); const p = photos[current]; wrap.innerHTML = p.src ? '<img src="' + p.src + '" alt="Foto historike">' : '<div class="lightbox-placeholder"></div>'; document.getElementById('lightboxCounter').textContent = (current + 1) + ' / ' + photos.length; }
-document.addEventListener('keydown', function(e) { if (!document.getElementById('lightbox').classList.contains('open')) return; if (e.key === 'ArrowRight') changePhoto(1); if (e.key === 'ArrowLeft') changePhoto(-1); if (e.key === 'Escape') closeLightbox(); });
-const obs = new IntersectionObserver(function(entries) { entries.forEach((entry) => { if (entry.isIntersecting) setTimeout(() => entry.target.classList.add('visible'), entry.target.dataset.delay || 0); }); }, { threshold: 0.08 });
-document.querySelectorAll('.photo-item').forEach((el, i) => { el.dataset.delay = i * 100; obs.observe(el); });
-setLang('sq');
-</script>
+    <div class="section-divider">✦ ✦ ✦</div>
+
+    <div class="chapter">
+      <div class="chapter-date" data-t="ch3_date">1937–1938</div>
+      <h3 class="chapter-title" data-t="ch3_title">Kisha e re & ndërtimi gurë-gurë</h3>
+      <p data-t="ch3_p1"></p>
+      <p data-t="ch3_p2"></p>
+    </div>
+
+    <div class="chapter">
+      <div class="chapter-date" data-t="ch4_date">Periudha e ateizmit</div>
+      <h3 class="chapter-title" data-t="ch4_title">Mbijetesa nën dhunë</h3>
+      <p data-t="ch4_p1"></p>
+      <p data-t="ch4_p2"></p>
+      <p data-t="ch4_p3"></p>
+    </div>
+
+    <blockquote>
+      <p data-t="quote1"></p>
+    </blockquote>
+
+    <div class="chapter">
+      <div class="chapter-date" data-t="ch5_date">1991 – Ringjallja</div>
+      <h3 class="chapter-title" data-t="ch5_title">Pashka e parë pas errësirës</h3>
+      <p data-t="ch5_p1"></p>
+      <p data-t="ch5_p2"></p>
+    </div>
+
+    <div class="chapter">
+      <div class="chapter-date" data-t="ch6_date">2000 e tutje</div>
+      <h3 class="chapter-title" data-t="ch6_title">Rikonstruktimi dhe sot</h3>
+      <p data-t="ch6_p1"></p>
+      <p data-t="ch6_p2"></p>
+    </div>
+
+  </article>
+
+  <!-- ─── Photos ───────────────────────────────────────────────────────────── -->
+  <section class="photos-section">
+    <div class="photos-heading" data-t="photos_heading">Foto Historike</div>
+    <div class="photos-grid">
+
+      <div class="photo-item" onclick="openLightbox(0)">
+        <div class="zoom-icon">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+            <circle cx="6.5" cy="6.5" r="4.5" stroke="#1A1F3C" stroke-width="1.6"/>
+            <path d="M10 10L14 14" stroke="#1A1F3C" stroke-width="1.6"/>
+            <path d="M6.5 4.5v4M4.5 6.5h4" stroke="#1A1F3C" stroke-width="1.4"/>
+          </svg>
+        </div>
+      </div>
+
+      <div class="photo-item" onclick="openLightbox(1)">
+        <div class="zoom-icon">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+            <circle cx="6.5" cy="6.5" r="4.5" stroke="#1A1F3C" stroke-width="1.6"/>
+            <path d="M10 10L14 14" stroke="#1A1F3C" stroke-width="1.6"/>
+            <path d="M6.5 4.5v4M4.5 6.5h4" stroke="#1A1F3C" stroke-width="1.4"/>
+          </svg>
+        </div>
+      </div>
+
+      <div class="photo-item" onclick="openLightbox(2)">
+        <div class="zoom-icon">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+            <circle cx="6.5" cy="6.5" r="4.5" stroke="#1A1F3C" stroke-width="1.6"/>
+            <path d="M10 10L14 14" stroke="#1A1F3C" stroke-width="1.6"/>
+            <path d="M6.5 4.5v4M4.5 6.5h4" stroke="#1A1F3C" stroke-width="1.4"/>
+          </svg>
+        </div>
+      </div>
+
+      <div class="photo-item" onclick="openLightbox(3)">
+        <div class="zoom-icon">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+            <circle cx="6.5" cy="6.5" r="4.5" stroke="#1A1F3C" stroke-width="1.6"/>
+            <path d="M10 10L14 14" stroke="#1A1F3C" stroke-width="1.6"/>
+            <path d="M6.5 4.5v4M4.5 6.5h4" stroke="#1A1F3C" stroke-width="1.4"/>
+          </svg>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ─── Lightbox ─────────────────────────────────────────────────────────── -->
+  <div class="lightbox" id="lightbox">
+    <div class="lightbox-backdrop" onclick="closeLightbox()"></div>
+    <button class="lightbox-close" onclick="closeLightbox()">✕</button>
+    <button class="lightbox-arrow prev" onclick="changePhoto(-1)">
+      <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
+        <path d="M11 4L6 9L11 14" stroke="currentColor" stroke-width="2"/>
+      </svg>
+    </button>
+    <button class="lightbox-arrow next" onclick="changePhoto(1)">
+      <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
+        <path d="M7 4L12 9L7 14" stroke="currentColor" stroke-width="2"/>
+      </svg>
+    </button>
+    <div class="lightbox-content">
+      <div class="lightbox-img-wrap" id="lightboxImgWrap"></div>
+      <div class="lightbox-counter" id="lightboxCounter"></div>
+    </div>
+  </div>
+
+  <!-- ─── Footer ───────────────────────────────────────────────────────────── -->
+  <footer>
+    <div class="footer-inner">
+
+      <div class="footer-brand">
+        <a href="index.html" class="church-identity" style="text-decoration: none;">
+          <img class="cross-icon" src="Assets/logo.png" alt="Kisha Profeti Ilia">
+          <div class="church-name-block">
+            <h1 style="font-family: 'Cinzel', serif; font-size: 18px; color: var(--gold-light);">Kisha "Profeti Ilia"</h1>
+            <p style="font-family: 'EB Garamond', serif; font-style: italic; font-size: 14px; color: rgba(255,255,255,0.45);">Mitropolia e Shenjtë Korçë</p>
+          </div>
+        </a>
+      </div>
+
+      <div class="footer-col">
+        <h5 data-t="footer_quick_links">Lidhje të Shpejta</h5>
+        <ul class="footer-links">
+          <li><a href="index.html"     data-t="nav_home">Kryefaqja</a></li>
+          <li><a href="evente.html"    data-t="nav_events">Shërbesat</a></li>
+          <li><a href="galeria.html"   data-t="nav_gallery">Galeria</a></li>
+          <li><a href="katekizem.html" data-t="nav_catechism">Katekizëm</a></li>
+          <li><a href="meshume.html"   data-t="nav_more">Më Shumë</a></li>
+        </ul>
+      </div>
+
+    </div>
+
+    <div class="footer-bottom">
+      <p>Me bekimin e At Sotir Dinka.<br>© 2026 Kisha Orthodhokse "Profeti Ilia" – Korçë.</p>
+      <p>
+        Realizoi: Vasil Çeku
+        <a href="https://www.instagram.com/ceku.joel" target="_blank" class="footer-instagram">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+            <rect x="2" y="2" width="20" height="20" rx="5.5" stroke="white" stroke-width="1.8"/>
+            <circle cx="12" cy="12" r="4.2" stroke="white" stroke-width="1.8"/>
+            <circle cx="17.5" cy="6.5" r="1.1" fill="white"/>
+          </svg>
+        </a>
+      </p>
+    </div>
+  </footer>
+
+  <!-- ─── Scripts ──────────────────────────────────────────────────────────── -->
+  <script>
+    /* ── Translations ──────────────────────────────────────────────────────── */
+    const T = {
+      lang_label:         { sq: 'Gjuha',                             en: 'Language',                        el: 'Γλώσσα' },
+      header_title:       { sq: 'Kisha "Profeti Ilia" Korçë',        en: '"Prophet Elijah" Church Korçë',   el: 'Εκκλησία του Προφήτη Ηλία, Κορυτσά' },
+      header_subtitle:    { sq: 'Mitropolia e Shenjtë Korçë',        en: 'Holy Metropolis of Korçë',        el: 'Ιερά Μητρόπολη Κορυτσάς' },
+      nav_home:           { sq: 'Kryefaqja',                         en: 'Home',                            el: 'Αρχική' },
+      nav_history:        { sq: 'Historia',                          en: 'History',                         el: 'Ιστορία' },
+      nav_gallery:        { sq: 'Galeria',                           en: 'Gallery',                         el: 'Γκαλερί' },
+      nav_catechism:      { sq: 'Katekizëm',                         en: 'Catechism',                       el: 'Κατήχηση' },
+      nav_events:         { sq: 'Evente',                            en: 'Events',                          el: 'Εκδηλώσεις' },
+      nav_more:           { sq: 'Më shumë',                          en: 'More',                            el: 'Περισσότερα' },
+      page_eyebrow:       { sq: 'Kisha Profeti Ilia',                en: 'Prophet Elijah Church',           el: 'Εκκλησία Προφήτη Ηλία' },
+      page_title:         { sq: 'Historia',                          en: 'History',                         el: 'Ιστορία' },
+      photos_heading:     { sq: 'Foto Historike',                    en: 'Historical Photos',               el: 'Ιστορικές Φωτογραφίες' },
+      footer_quick_links: { sq: 'Lidhje të Shpejta',                 en: 'Quick Links',                     el: 'Γρήγοροι Σύνδεσμοι' },
+
+      ch1_date:  { sq: 'Rrënjët Mesjetare',          en: 'Medieval Roots',          el: 'Μεσαιωνικές Ρίζες' },
+      ch1_title: { sq: 'Themelet e lashta',           en: 'Ancient Foundations',     el: 'Αρχαία Θεμέλια' },
+      ch1_p1: {
+        sq: 'Kisha e Profetit Ilia, ose e Shën Ilisë, e njohur në popull edhe si Kisha e Shën Dellisë, është ndërtuar mbi një bregore në verilindje të qytetit të Korçës. Kodrina mbi të cilën ngrihet kjo kishë mban të njëjtin emër me vetë kishën. Themelet e para të saj nuk dihen me saktësi se kur janë hedhur, por dihet se bëhet fjalë për një kishë shumë të vjetër, që daton që nga periudha mesjetare, së bashku me toponimin e kodrinës me të njëjtin emër.',
+        en: 'The Church of Prophet Elijah, known in folk tradition also as the Church of Shën Dellia, is built on a hill northeast of Korçë. The hill bears the same name. The exact date of its first foundations is unknown, but it is a very old church dating back to the medieval period, together with the toponym of the hill.',
+        el: 'Η εκκλησία του Προφήτη Ηλία, γνωστή και ως εκκλησία της Αγίας Δέλιας, είναι χτισμένη σε ένα λόφο βορειοανατολικά της Κορυτσάς. Ο λόφος φέρει το ίδιο όνομα. Τα πρώτα θεμέλια χρονολογούνται από τη μεσαιωνική περίοδο.'
+      },
+      ch1_p2: {
+        sq: 'Dokumentet më të hershme për këtë kishë gjenden në Kodikun e Mitropolisë së Korçës. Në testamentin e vitit 1725 përmendet një arë poshtë bregut të Kishës së Profetit Ilia. Nga këto dokumente kuptohet se kisha ka ekzistuar shumë kohë përpara viteve 1700.',
+        en: 'The earliest documents about this church are found in the Codex of the Metropolis of Korçë. In a 1725 will, a field below the bank of the Prophet Elijah Church is mentioned. These documents show that the church existed long before the 1700s.',
+        el: 'Τα παλαιότερα έγγραφα βρίσκονται στον Κώδικα της Μητρόπολης Κορυτσάς. Σε διαθήκη του 1725 αναφέρεται ένα χωράφι κάτω από την εκκλησία του Προφήτη Ηλία. Η εκκλησία υπήρχε πολύ πριν το 1700.'
+      },
+
+      ch2_date:  { sq: 'Rindërtimi 1847',              en: 'Rebuilding 1847',           el: 'Ανοικοδόμηση 1847' },
+      ch2_title: { sq: 'Ringritja e shekullit XIX',     en: '19th Century Revival',      el: 'Αναγέννηση του 19ου αιώνα' },
+      ch2_p1: {
+        sq: 'Duke parë se kisha ishte vjetëruar shumë, komuniteti orthodhoks i Korçës vendosi ta rindërtonte rreth vitit 1847, menjëherë pas rikonstruksionit të Kishës së Shën Marisë. Kjo u bë gjatë kohës së Mitropolitit Neofit Argjirokastriti, me nismën e epitropit Kristo Goda dhe më pas të Kristo Karametës.',
+        en: 'Seeing that the church had greatly aged, the Orthodox community of Korçë decided to rebuild it around 1847, right after the reconstruction of St. Mary\'s Church. This was done during the time of Metropolitan Neophytos of Gjirokastër, initiated by epitropos Kristo Goda and later Kristo Karameta.',
+        el: 'Βλέποντας ότι η εκκλησία είχε γεράσει, η κοινότητα της Κορυτσάς αποφάσισε να την ξαναχτίσει γύρω στο 1847, με πρωτοβουλία του επιτρόπου Κρίστο Γκόντα.'
+      },
+      ch2_p2: {
+        sq: 'Të dhënat për këtë rindërtim gjenden në Kodik. Në dokumentin e 22 mars 1847 përmenden shpenzimet e kryera nga Kristo Goda. Për rindërtimin kontribuan jo vetëm Mitropolia dhe qytetarët, por edhe bashkëqytetarë me banim në Egjipt, si familjet Thanas Marko, Jovan Çiço, Llambo Polit dhe Ilo Grameno.',
+        en: 'Data on this reconstruction is found in the Codex. A document from March 22, 1847 mentions expenses by Kristo Goda. Not only the Metropolis and citizens contributed, but also fellow citizens living in Egypt, such as the families of Thanas Marko, Jovan Çiço, Llambo Polit and Ilo Grameno.',
+        el: 'Τα στοιχεία βρίσκονται στον Κώδικα. Συνεισέφεραν οικογένειες από την Αίγυπτο, όπως οι Θανάσης Μάρκος, Ιωάννης Τσίτσος, Λάμπος Πολίτης και Ίλος Γραμμένος.'
+      },
+      ch2_p3: {
+        sq: 'Kisha e rindërtuar kishte stil të thjeshtë, ndërtim guri dhe përmasa disi më të vogla se ajo e sotmja. Para saj, në anën veriore, u ngrit edhe një kambanore në formë kulle prej guri shtufi.',
+        en: 'The rebuilt church had a simple style, stone construction and somewhat smaller dimensions than today. To its north, a tuff stone bell tower was erected.',
+        el: 'Η ξαναχτισμένη εκκλησία είχε απλό ρυθμό, λίθινη κατασκευή και μικρότερες διαστάσεις. Στα βόρεια ανεγέρθηκε καμπαναριό.'
+      },
+
+      ch3_date:  { sq: '1937–1938',                    en: '1937–1938',                 el: '1937–1938' },
+      ch3_title: { sq: 'Kisha e re & ndërtimi gurë-gurë', en: 'New church & stone by stone', el: 'Νέα εκκλησία & λίθο λίθο' },
+      ch3_p1: {
+        sq: 'Me zgjerimin e lagjeve të qytetit, në vitet 1937–1938 u prish kisha e vjetër dhe filloi ndërtimi i kishës së re gjatë kohës së Mitropolitit Evllogji Kurilla, me nismën e priftit At Kanxheri. U përshtat një kishëz provizore ndërsa rreth saj nisi të ngrihej kisha e re, e ndërtuar tërësisht me gurë të punuar dhe të papunuar.',
+        en: 'With the expansion of city neighborhoods, in 1937–1938 the old church was demolished and construction of the new church began during the time of Metropolitan Evlogji Kurilla, initiated by priest Fr. Kanxheri. A provisional chapel was adapted while the new church, built entirely of worked and unworked stones, rose around it.',
+        el: 'Με την επέκταση των συνοικιών, το 1937–1938 κατεδαφίστηκε η παλιά εκκλησία και ξεκίνησε η νέα, με πρωτοβουλία του ιερέα Kanxheri.'
+      },
+      ch3_p2: {
+        sq: 'Kisha e re u projektua më e madhe, duke ruajtur tiparet e arkitekturës tradicionale orthodhokse. Në vitet në vijim ajo u bë qendra shpirtërore e lagjes dhe e besimtarëve korçarë.',
+        en: 'The new church was designed larger, preserving the features of traditional Orthodox architecture. In the following years it became the spiritual center of the neighborhood and of the faithful of Korçë.',
+        el: 'Η νέα εκκλησία σχεδιάστηκε μεγαλύτερη, διατηρώντας την παραδοσιακή ορθόδοξη αρχιτεκτονική.'
+      },
+
+      ch4_date:  { sq: 'Periudha e ateizmit',           en: 'Atheist period',            el: 'Περίοδος αθεΐας' },
+      ch4_title: { sq: 'Mbijetesa nën dhunë',           en: 'Survival under violence',   el: 'Επιβίωση υπό βία' },
+      ch4_p1: {
+        sq: 'Gjatë periudhës së ateizmit komunist, kjo kishë arriti t\'i shpëtonte rrafshimit të plotë falë ndërhyrjes së të moshuarve të lagjes, të cilët i kërkuan autoriteteve që godina të mos prishej, por të përdorej si klub për pensionistët. Megjithatë, iu bënë ndryshime të qëllimshme: u prishën harqet prej guri të dritareve, u ndërhyrë në çati dhe tavan.',
+        en: 'During the communist atheist period, this church escaped complete demolition thanks to the intervention of elderly neighborhood residents, who asked the authorities not to demolish the building but to use it as a club for pensioners. However, deliberate changes were made: stone window arches were torn down, the roof and ceiling were altered.',
+        el: 'Κατά την αθεϊστική κομμουνιστική περίοδο, η εκκλησία γλίτωσε την κατεδάφιση χάρη στους ηλικιωμένους της γειτονιάς, οι οποίοι ζήτησαν να γίνει λέσχη συνταξιούχων. Αφαιρέθηκαν τα λίθινα τόξα των παραθύρων.'
+      },
+      ch4_p2: {
+        sq: 'Në vitet 1970–1980, pjesë të saj u përdorën edhe si radio-rele dhe si vend stacionimi për pajisjet e telekomunikacionit. Kisha mbeti në këmbë, e gjymtuar por duke pritur ditën e ringjalljes së saj.',
+        en: 'In the 1970s–1980s, parts of it were also used as a radio relay and as a station for telecommunication equipment. The church remained standing, crippled but awaiting the day of its resurrection.',
+        el: 'Τις δεκαετίες 1970–1980 χρησιμοποιήθηκε ως ραδιοαναμεταδότης. Η εκκλησία παρέμεινε όρθια, ακρωτηριασμένη αλλά περιμένοντας.'
+      },
+      ch4_p3: {
+        sq: 'Megjithë gjymtimin, kjo kishë mban nderin të jetë ndër të parat faltore që u rihapën me rikthimin e lirisë fetare dhe ardhjen e sistemit pluralist.',
+        en: 'Despite its mutilation, this church holds the honor of being among the first sanctuaries to reopen with the return of religious freedom and the arrival of the pluralist system.',
+        el: 'Παρά τον ακρωτηριασμό της, είναι από τα πρώτα ιερά που ξανάνοιξαν με την επιστροφή της θρησκευτικής ελευθερίας.'
+      },
+
+      quote1: {
+        sq: '"Kjo kishë martire, e cila mbijetoi nën gurët e heshtjes, u bë fener i ringjalljes orthodhokse në Korçë — Pashka e parë pas 25 vitesh u kremtua këtu në 1991."',
+        en: '"This martyred church, which survived under the stones of silence, became a beacon of Orthodox resurrection in Korçë — the first Pascha after 25 years was celebrated here in 1991."',
+        el: '"Αυτή η μαρτυρική εκκλησία επέζησε κάτω από τις πέτρες της σιωπής και έγινε φάρος ορθόδοξης ανάστασης — το πρώτο Πάσχα μετά από 25 χρόνια εορτάστηκε εδώ το 1991."'
+      },
+
+      ch5_date:  { sq: '1991 – Ringjallja',             en: '1991 – Resurrection',       el: '1991 – Ανάσταση' },
+      ch5_title: { sq: 'Pashka e parë pas errësirës',   en: 'First Pascha after darkness', el: 'Το πρώτο Πάσχα μετά το σκοτάδι' },
+      ch5_p1: {
+        sq: 'Pikërisht në këtë kishë u kremtua Pashka e parë pas afro 25 vitesh ateizëm shtetëror, në vitin 1991, nga priftërinjtë e mbetur gjallë, At Kristo Raçi dhe At Kosta Kotnani. Po këtu kremtoi Meshën Hyjnore edhe Eksarku Patriarkal Anastasi Janullatos, i cili më vonë u bë Kryepeshkop i Shqipërisë.',
+        en: 'It was precisely in this church that the first Pascha after nearly 25 years of state atheism was celebrated in 1991 by the surviving priests, Fr. Kristo Raçi and Fr. Kosta Kotnani. Patriarchal Exarch Anastasios Yannoulatos, who later became Archbishop of Albania, also celebrated the Divine Liturgy here.',
+        el: 'Το 1991, το πρώτο Πάσχα μετά από 25 χρόνια κρατικού αθεϊσμού εορτάστηκε εδώ. Τη Θεία Λειτουργία τέλεσε και ο Πατριαρχικός Έξαρχος Αναστάσιος Γιαννουλάτος.'
+      },
+      ch5_p2: {
+        sq: 'Këtu shërbyen edhe priftërinjtë shqiptaro-amerikanë At Ilia Ketri dhe At Artur Liolin, të cilët u pritën si lajmëtarë të ringjalljes shpirtërore të kësaj kishe martire.',
+        en: 'Also serving here were the Albanian-American priests Fr. Ilia Ketri and Fr. Artur Liolin, who were welcomed as heralds of the spiritual revival of this martyred church.',
+        el: 'Εδώ λειτούργησαν και οι αλβανοαμερικανοί ιερείς Ilia Ketri και Artur Liolin.'
+      },
+
+      ch6_date:  { sq: '2000 e tutje',                  en: '2000 onwards',              el: '2000 και μετά' },
+      ch6_title: { sq: 'Rikonstruktimi dhe sot',        en: 'Reconstruction and today',  el: 'Ανακατασκευή και σήμερα' },
+      ch6_p1: {
+        sq: 'Në vitin 1998, Mitropolia e Shenjtë e Korçës caktoi klerikun Atë Sotir Dinkën për kryerjen e shërbesave. Me përkushtim dhe frymë baritore, At Sotiri ka shërbyer pandërprerë, duke dhënë kontribut në gjallërimin e jetës kishtare. Mitropoliti Johani Pelushi ndërmori rikonstruktimin e kishës në fillim të viteve 2000.',
+        en: 'In 1998, the Holy Metropolis of Korçë appointed clergyman Fr. Sotir Dinka to perform the services. With dedication and pastoral spirit, Fr. Sotir has served continuously, contributing to the vitality of church life. Metropolitan Johani Pelushi undertook the reconstruction of the church in the early 2000s.',
+        el: 'Το 1998 ορίστηκε ο ιερέας Σωτήρης Ντίγκας. Ο Μητροπολίτης Ιωάννης Πελούσης ανέλαβε την ανακατασκευή στις αρχές της δεκαετίας του 2000.'
+      },
+      ch6_p2: {
+        sq: 'Në vitin 2003 rifilloi ringritja shpirtërore dhe materiale. Po atë vit u kremtua përsëri Mesha Hyjnore në nder të Shën Profetit Ilia, duke rikthyer plotësisht jetën liturgjike dhe adhurimin orthodhoks në këtë faltore të bekuar.',
+        en: 'In 2003 the spiritual and material revival began anew. That same year the Divine Liturgy in honor of Saint Prophet Elijah was celebrated once more, fully restoring the liturgical life and Orthodox worship in this blessed sanctuary.',
+        el: 'Το 2003 άρχισε εκ νέου η πνευματική ανάσταση. Η Θεία Λειτουργία τελέστηκε ξανά, αποκαθιστώντας πλήρως τη λατρεία.'
+      }
+    };
+
+    /* ── Language Switcher ─────────────────────────────────────────────────── */
+    function setLang(lang) {
+      document.querySelectorAll('.lang-btn').forEach(b => b.classList.remove('active'));
+      document.querySelector(`.lang-btn[onclick="setLang('${lang}')"]`).classList.add('active');
+      document.getElementById('lang-label-text').textContent = T.lang_label[lang];
+      document.documentElement.lang = lang;
+      document.querySelectorAll('[data-t]').forEach(el => {
+        const key   = el.getAttribute('data-t');
+        const entry = T[key];
+        if (!entry) return;
+        el.innerHTML = (entry[lang] || entry['sq'] || '').replace(/\n/g, '<br>');
+      });
+    }
+
+    /* ── Lightbox ──────────────────────────────────────────────────────────── */
+    const photos = [{ src: null }, { src: null }, { src: null }, { src: null }];
+    let current  = 0;
+
+    function openLightbox(i) {
+      current = i;
+      renderLightbox();
+      document.getElementById('lightbox').classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeLightbox() {
+      document.getElementById('lightbox').classList.remove('open');
+      document.body.style.overflow = '';
+    }
+
+    function changePhoto(dir) {
+      current = (current + dir + photos.length) % photos.length;
+      renderLightbox();
+    }
+
+    function renderLightbox() {
+      const wrap = document.getElementById('lightboxImgWrap');
+      const p    = photos[current];
+      wrap.innerHTML = p.src
+        ? `<img src="${p.src}" alt="Foto historike">`
+        : '<div class="lightbox-placeholder"></div>';
+      document.getElementById('lightboxCounter').textContent = `${current + 1} / ${photos.length}`;
+    }
+
+    document.addEventListener('keydown', function (e) {
+      if (!document.getElementById('lightbox').classList.contains('open')) return;
+      if (e.key === 'ArrowRight') changePhoto(1);
+      if (e.key === 'ArrowLeft')  changePhoto(-1);
+      if (e.key === 'Escape')     closeLightbox();
+    });
+
+    /* ── Scroll reveal ─────────────────────────────────────────────────────── */
+    const obs = new IntersectionObserver(function (entries) {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          setTimeout(() => entry.target.classList.add('visible'), entry.target.dataset.delay || 0);
+        }
+      });
+    }, { threshold: 0.08 });
+
+    document.querySelectorAll('.photo-item').forEach((el, i) => {
+      el.dataset.delay = i * 100;
+      obs.observe(el);
+    });
+
+    /* ── Init ──────────────────────────────────────────────────────────────── */
+    setLang('sq');
+  </script>
+
 </body>
 </html>
