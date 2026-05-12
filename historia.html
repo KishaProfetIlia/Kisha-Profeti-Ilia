@@ -1157,7 +1157,18 @@
     }
 
     /* ── Lightbox ──────────────────────────────────────────────────────────── */
-    const photos = [{ src: null }, { src: null }, { src: null }, { src: null }];
+    const photos = [
+  { src: 'History/1906.jpg', title: 'Kisha në vitin 1906', description: 'Fotografi e vjetër e kishës para rindërtimit' },
+  { src: 'History/1942_1.jpg', title: 'Kisha gjatë Luftës II Botërore - 1942', description: 'Besimtarët para kishës gjatë periudhës së luftës' },
+  { src: 'History/1942_2.jpg', title: 'Brendësia e kishës - 1942', description: 'Fotografi e brendshme që tregon ikonostasin e vjetër' },
+  { src: 'History/1968.jpg', title: 'Kisha në vitin 1968', description: 'Periudha e ateizmit, kisha e mbyllur por në këmbë' },
+  { src: 'History/1968.jpg', title: 'Kisha nga jashtë - 1968', description: 'Pamje e jashtme gjatë regjimit komunist' },
+  { src: 'History/katekizem.jpg', title: 'Katekizmi në kishë', description: 'Mësimi i fesë për fëmijët pas rihapjes' },
+  { src: 'History/2002.jpg', title: 'Rikonstruktimi - 2002', description: 'Fillimi i punimeve për restaurimin e kishës' },
+  { src: 'History/rikonstruksioni.jpg', title: 'Punimet e rikonstruksionit', description: 'Restaurimi i ikonostasit dhe mureve' },
+  { src: 'History/krahasim.jpg', title: 'Para dhe pas rikonstruksionit', description: 'Krahasimi i gjendjes para dhe pas restaurimit' },
+  { src: 'History/2003.jpg', title: 'Rikthimi i liturgjisë - 2003', description: 'Meshën e parë pas rikonstruktimit të plotë' }
+];
     let current  = 0;
 
     function openLightbox(i) {
@@ -1177,14 +1188,18 @@
       renderLightbox();
     }
 
-    function renderLightbox() {
-      const wrap = document.getElementById('lightboxImgWrap');
-      const p    = photos[current];
-      wrap.innerHTML = p.src
-        ? `<img src="${p.src}" alt="Foto historike">`
-        : '<div class="lightbox-placeholder"></div>';
-      document.getElementById('lightboxCounter').textContent = `${current + 1} / ${photos.length}`;
-    }
+function renderLightbox() {
+  const wrap = document.getElementById('lightboxImgWrap');
+  const p    = photos[current];
+  wrap.innerHTML = p.src
+    ? `<div style="text-align: center;">
+         <img src="${p.src}" alt="${p.title}" style="max-width:85vw; max-height:70vh; object-fit:contain; border:1px solid rgba(201,168,76,0.2); box-shadow:0 20px 80px rgba(0,0,0,0.7);">
+         <div style="margin-top: 16px; font-family: 'Cinzel', serif; color: var(--gold-light); font-size: 14px; letter-spacing: 1px;">${p.title}</div>
+         <div style="margin-top: 6px; font-family: 'EB Garamond', serif; color: rgba(255,255,255,0.6); font-size: 13px; font-style: italic;">${p.description || ''}</div>
+       </div>`
+    : '<div class="lightbox-placeholder"></div>';
+  document.getElementById('lightboxCounter').textContent = `${current + 1} / ${photos.length}`;
+}
 
     document.addEventListener('keydown', function (e) {
       if (!document.getElementById('lightbox').classList.contains('open')) return;
