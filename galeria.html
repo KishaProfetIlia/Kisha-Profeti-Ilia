@@ -144,14 +144,14 @@ footer { background: var(--warm-dark); padding: 60px 0 0; }
 
 <!-- NAVIGATION -->
 <nav>
-  <div class="nav-inner">
-    <a href="index.html" class="nav-link">KRYEFAQJA</a>
-    <a href="historia.html" class="nav-link">HISTORIA</a>
-    <a href="evente.html" class="nav-link">SHËRBESAT</a>
-    <a href="galeria.html" class="nav-link active">GALERIA</a>
-    <a href="katekizem.html" class="nav-link">KATEKIZËM</a>
-    <a href="meshume.html" class="nav-link">MË SHUMË</a>
-  </div>
+<div class="nav-inner">
+  <a href="index.html" class="nav-link" data-t="nav_home">KRYEFAQJA</a>
+  <a href="historia.html" class="nav-link" data-t="nav_history">HISTORIA</a>
+  <a href="evente.html" class="nav-link" data-t="nav_events">SHËRBESAT</a>
+  <a href="galeria.html" class="nav-link active" data-t="nav_gallery">GALERIA</a>
+  <a href="katekizem.html" class="nav-link" data-t="nav_catechism">KATEKIZËM</a>
+  <a href="meshume.html" class="nav-link" data-t="nav_more">MË SHUMË</a>
+</div>
 </nav>
 
 <!-- PAGE TITLE -->
@@ -279,7 +279,7 @@ function setLang(lang) {
   const h1 = document.querySelector('.church-name-block h1'); if (h1) h1.textContent = T.header_title[lang];
   const hsub = document.querySelector('.church-name-block p'); if (hsub) hsub.textContent = T.header_subtitle[lang];
   const navLinks = document.querySelectorAll('.nav-inner .nav-link');
-  const navKeys = ['nav_home','nav_history','nav_gallery','nav_catechism','nav_events'];
+  const navKeys = ['nav_home','nav_history','nav_events','nav_gallery','nav_catechism','nav_more'];
   navLinks.forEach((el, i) => { if (navKeys[i]) el.textContent = T[navKeys[i]][lang]; });
   const eyebrow = document.querySelector('.page-title-section .eyebrow'); if (eyebrow) eyebrow.textContent = T.page_eyebrow[lang];
   const pageH2 = document.querySelector('.page-title-section h2'); if (pageH2) pageH2.textContent = T.page_title[lang];
