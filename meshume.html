@@ -304,7 +304,6 @@ const T = {
   page_eyebrow: { sq: 'Kisha Profeti Ilia', en: 'Prophet Elijah Church', el: 'Ναός Προφήτης Ηλίας' },
   page_title: { sq: 'Më shumë', en: 'More', el: 'Περισσότερα' },
   books_heading: { sq: 'Librat Shpirtërorë', en: 'Spiritual Books', el: 'Πνευματικά Βιβλία' },
-  btn_view: { sq: 'Shiko PDF', en: 'View PDF', el: 'Δείτε PDF' },
   btn_download: { sq: 'Shkarko', en: 'Download', el: 'Λήψη' },
   footer_church_name: { sq: 'Kisha "Profeti Ilia"', en: 'Church "Prophet Elijah"', el: 'Ναός «Προφήτης Ηλίας»' },
   footer_church_desc: { sq: 'Mitropolia e Shenjtë Korçë', en: 'Holy Metropolis of Korçë', el: 'Ιερά Μητρόπολη Κορυτσάς' },
@@ -337,7 +336,6 @@ function renderBooks() {
     <div class="book-card">
       <div class="book-title">${book[`title_${currentLang}`] || book.title_sq}</div>
       <div class="book-actions">
-        <a href="${book.pdfUrl}" target="_blank" class="book-btn pdf"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="10" y1="12" x2="16" y2="12"/><line x1="10" y1="16" x2="16" y2="16"/></svg>${T.btn_view[currentLang]}</a>
         <a href="${book.pdfUrl}" download class="book-btn download"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>${T.btn_download[currentLang]}</a>
       </div>
     </div>
