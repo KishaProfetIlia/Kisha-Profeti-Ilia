@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-<title>Evente – Kisha "Profeti Ilia"</title>
+<title>Shërbesat – Kisha "Profeti Ilia"</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Noto+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
@@ -49,37 +49,31 @@ nav { background: linear-gradient(135deg, var(--mid-blue), var(--deep-blue)); bo
 .eyebrow::before, .eyebrow::after { content: ''; display: block; width: 40px; height: 1px; background: var(--gold); opacity: 0.5; }
 .page-title-section h2 { font-family: 'Cinzel', serif; font-size: clamp(32px, 5vw, 52px); font-weight: 900; color: #fff; letter-spacing: 4px; text-transform: uppercase; position: relative; z-index: 1; }
 .title-line { width: 80px; height: 2px; background: linear-gradient(90deg, transparent, var(--gold), transparent); margin: 18px auto 0; }
+.page-subtitle { font-family: 'EB Garamond', serif; font-size: 18px; color: rgba(255,255,255,0.55); margin-top: 20px; font-style: italic; }
 
-/* EVENTS TABS */
-.events-tabs-bar { background: var(--cream); border-bottom: 1px solid var(--border); display: flex; justify-content: center; gap: 0; }
-.events-tab-btn { background: transparent; border: none; font-family: 'Cinzel', serif; font-size: 12px; font-weight: 600; letter-spacing: 1.8px; text-transform: uppercase; color: var(--text-light); padding: 18px 36px; cursor: pointer; transition: all 0.25s; position: relative; border-bottom: 3px solid transparent; display: flex; align-items: center; gap: 10px; }
-.events-tab-btn:hover { color: var(--deep-blue); }
-.events-tab-btn.active { color: var(--deep-blue); border-bottom-color: var(--gold); }
-.tab-icon { display: flex; align-items: center; justify-content: center; }
-.tab-icon svg { width: 18px; height: 18px; }
-
-/* MAIN EVENTS AREA */
-.events-main { max-width: 1100px; margin: 0 auto; padding: 60px 40px; }
-.tab-panel { display: none; }
-.tab-panel.active { display: block; }
-.section-heading { display: flex; align-items: center; gap: 16px; margin-bottom: 36px; }
-.section-heading h3 { font-family: 'Cinzel', serif; font-size: 18px; font-weight: 700; color: var(--deep-blue); letter-spacing: 1px; white-space: nowrap; }
-.section-heading .rule { flex: 1; height: 1px; background: linear-gradient(90deg, var(--gold) 0%, transparent 100%); }
-.section-heading .ornament { color: var(--gold); font-size: 18px; flex-shrink: 0; }
-
-/* BAPTISM RULES */
-.baptism-rules { max-width: 680px; }
-.rule-intro p { font-family: 'EB Garamond', serif; font-size: 17px; line-height: 1.85; color: var(--text-mid); margin-bottom: 36px; font-style: italic; }
-.rule-block { background: #fff; border: 1px solid var(--border); padding: 28px 32px; margin-bottom: 16px; position: relative; }
-.rule-block::before { content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 3px; background: var(--gold); }
-.rule-block-title { font-family: 'Cinzel', serif; font-size: 13px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: var(--deep-blue); margin-bottom: 16px; display: flex; align-items: center; gap: 10px; }
-.rule-icon { color: var(--gold); }
-.rule-text { font-family: 'EB Garamond', serif; font-size: 17px; line-height: 1.8; color: var(--text-mid); }
-.rule-list { list-style: none; }
-.rule-list li { font-family: 'EB Garamond', serif; font-size: 17px; line-height: 1.8; color: var(--text-mid); padding: 7px 0; border-bottom: 1px dashed var(--border); display: flex; align-items: baseline; gap: 12px; }
+/* ACCORDION SECTION */
+.accordion-section { max-width: 900px; margin: 0 auto; padding: 60px 40px 80px; }
+.accordion-item { background: #fff; border: 1px solid var(--border); border-radius: 8px; margin-bottom: 16px; overflow: hidden; transition: all 0.3s ease; }
+.accordion-item:hover { border-color: var(--gold); box-shadow: 0 4px 20px rgba(0,0,0,0.05); }
+.accordion-header { display: flex; align-items: center; justify-content: space-between; padding: 20px 24px; cursor: pointer; transition: background 0.2s; }
+.accordion-header:hover { background: rgba(201,168,76,0.05); }
+.accordion-title { font-family: 'Cinzel', serif; font-size: 18px; font-weight: 700; color: var(--deep-blue); letter-spacing: 0.5px; }
+.accordion-icon { width: 32px; height: 32px; background: var(--gold); border-radius: 50%; display: flex; align-items: center; justify-content: center; transition: transform 0.3s ease; flex-shrink: 0; }
+.accordion-icon svg { width: 18px; height: 18px; stroke: var(--deep-blue); stroke-width: 2; fill: none; transition: transform 0.3s; }
+.accordion-item.open .accordion-icon { transform: rotate(180deg); }
+.accordion-content { max-height: 0; overflow: hidden; transition: max-height 0.4s ease; background: var(--cream); border-top: 1px solid transparent; }
+.accordion-item.open .accordion-content { max-height: 800px; border-top-color: var(--border); }
+.content-inner { padding: 28px 32px; }
+.content-inner p { font-family: 'EB Garamond', serif; font-size: 17px; line-height: 1.85; color: var(--text-mid); margin-bottom: 20px; }
+.content-inner p:last-child { margin-bottom: 0; }
+.rule-block { background: #fff; border: 1px solid var(--border); padding: 20px 24px; margin-bottom: 16px; position: relative; border-radius: 6px; }
+.rule-block::before { content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 3px; background: var(--gold); border-radius: 3px 0 0 3px; }
+.rule-block-title { font-family: 'Cinzel', serif; font-size: 13px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; color: var(--deep-blue); margin-bottom: 12px; display: flex; align-items: center; gap: 8px; }
+.rule-list { list-style: none; margin-top: 8px; }
+.rule-list li { font-family: 'EB Garamond', serif; font-size: 16px; line-height: 1.8; color: var(--text-mid); padding: 6px 0; display: flex; align-items: baseline; gap: 10px; border-bottom: 1px dashed var(--border); }
 .rule-list li:last-child { border-bottom: none; }
 .rule-list li::before { content: '›'; color: var(--gold); font-size: 18px; flex-shrink: 0; }
-.rule-note { background: var(--cream); border-left: 3px solid var(--gold); padding: 16px 22px; font-family: 'EB Garamond', serif; font-style: italic; font-size: 15.5px; color: var(--text-light); margin-top: 8px; line-height: 1.7; }
+.rule-note { background: var(--cream); border-left: 3px solid var(--gold); padding: 14px 20px; font-family: 'EB Garamond', serif; font-style: italic; font-size: 15px; color: var(--text-light); margin-top: 12px; line-height: 1.65; border-radius: 0 6px 6px 0; }
 
 /* FOOTER */
 footer { background: var(--warm-dark); padding: 60px 0 0; }
@@ -99,17 +93,33 @@ footer { background: var(--warm-dark); padding: 60px 0 0; }
 
 /* RESPONSIVE */
 @media (max-width: 900px) { .footer-inner { grid-template-columns: 1fr 1fr; } .header-inner { flex-direction: column; gap: 16px; text-align: center; } }
-@media (max-width: 600px) { .lang-bar .container { padding: 0 16px; } .lang-bar-left { gap: 6px; } .instagram-link svg { width: 18px; height: 18px; } .header-inner { padding: 20px; flex-direction: column; gap: 16px; text-align: center; } .church-name-block h1 { font-size: 16px; } .church-name-block p { font-size: 12px; } .page-title-section { padding: 40px 20px 36px; } .page-title-section h2 { font-size: 28px; letter-spacing: 2px; } .events-main { padding: 40px 20px; } .events-tab-btn { padding: 14px 18px; font-size: 10px; } .events-tab-btn .tab-icon svg { width: 14px; height: 14px; } .footer-inner { grid-template-columns: 1fr; gap: 30px; padding: 0 20px 40px; } .footer-bottom { padding: 16px 20px; flex-direction: column; text-align: center; } .footer-bottom p { justify-content: center; } nav { overflow-x: auto; -webkit-overflow-scrolling: touch; scrollbar-width: thin; } nav::-webkit-scrollbar { height: 3px; } nav::-webkit-scrollbar-track { background: var(--mid-blue); } nav::-webkit-scrollbar-thumb { background: var(--gold); border-radius: 3px; } .nav-inner { min-width: max-content; padding: 0 16px; gap: 2px; } .nav-link { padding: 14px 14px; font-size: 9px; } }
-@media (max-width: 380px) { .church-name-block h1 { font-size: 14px; } }
-
-/* ANIMATIONS */
-@keyframes fadeInUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
-.event-list-item { animation: fadeInUp 0.5s ease both; }
-.event-list-item:nth-child(1) { animation-delay: 0.05s; }
-.event-list-item:nth-child(2) { animation-delay: 0.12s; }
-.event-list-item:nth-child(3) { animation-delay: 0.19s; }
-.event-list-item:nth-child(4) { animation-delay: 0.26s; }
-.event-list-item:nth-child(5) { animation-delay: 0.33s; }
+@media (max-width: 600px) { 
+  .lang-bar .container { padding: 0 16px; } 
+  .lang-bar-left { gap: 6px; } 
+  .instagram-link svg { width: 18px; height: 18px; } 
+  .header-inner { padding: 20px; flex-direction: column; gap: 16px; text-align: center; } 
+  .church-name-block h1 { font-size: 16px; } 
+  .church-name-block p { font-size: 12px; } 
+  .page-title-section { padding: 40px 20px 36px; } 
+  .page-title-section h2 { font-size: 28px; letter-spacing: 2px; } 
+  .page-subtitle { font-size: 15px; }
+  .accordion-section { padding: 40px 20px 60px; } 
+  .accordion-header { padding: 16px 18px; } 
+  .accordion-title { font-size: 15px; } 
+  .content-inner { padding: 20px; } 
+  .rule-block { padding: 16px 18px; } 
+  .rule-list li { font-size: 14px; } 
+  .footer-inner { grid-template-columns: 1fr; gap: 30px; padding: 0 20px 40px; } 
+  .footer-bottom { padding: 16px 20px; flex-direction: column; text-align: center; } 
+  .footer-bottom p { justify-content: center; } 
+  nav { overflow-x: auto; -webkit-overflow-scrolling: touch; scrollbar-width: thin; } 
+  nav::-webkit-scrollbar { height: 3px; } 
+  nav::-webkit-scrollbar-track { background: var(--mid-blue); } 
+  nav::-webkit-scrollbar-thumb { background: var(--gold); border-radius: 3px; } 
+  .nav-inner { min-width: max-content; padding: 0 16px; gap: 2px; } 
+  .nav-link { padding: 14px 14px; font-size: 9px; } 
+}
+@media (max-width: 380px) { .church-name-block h1 { font-size: 14px; } .accordion-title { font-size: 13px; } }
 </style>
 </head>
 <body>
@@ -161,57 +171,17 @@ footer { background: var(--warm-dark); padding: 60px 0 0; }
 <!-- PAGE TITLE -->
 <div class="page-title-section">
   <div class="eyebrow" data-t="events_eyebrow">Kisha Profeti Ilia</div>
-  <h2 data-t="events_title">Shërbesat në Kishë</h2>
+  <h2 data-t="events_title">Shërbesat</h2>
   <div class="title-line"></div>
+  <div class="page-subtitle" data-t="page_subtitle">Sakramentet dhe shërbesat e Kishës Orthodhokse</div>
 </div>
 
-<!-- TABS BAR -->
-<div class="events-tabs-bar">
-  <button class="events-tab-btn active" onclick="switchTab('baptisms')" id="tab-baptisms">
-    <span class="tab-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M12 4L12 20" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><path d="M5 9L19 9" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><path d="M7 14L17 14" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><circle cx="12" cy="12" r="2" fill="none" stroke="currentColor" stroke-width="1"/></svg></span>
-    <span data-t="tab_baptisms">Pagëzim</span>
-  </button>
-  <button class="events-tab-btn" onclick="switchTab('marriages')" id="tab-marriages">
-    <span class="tab-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M12 2L15 7H9L12 2Z" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M8 7L16 7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><path d="M10 7V11" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><path d="M14 7V11" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><path d="M7 14L17 14" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><path d="M12 11V17" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><circle cx="12" cy="18" r="2" stroke="currentColor" stroke-width="1.5"/></svg></span>
-    <span data-t="tab_marriages">Kurorëzim</span>
-  </button>
-</div>
-
-<!-- EVENTS MAIN -->
-<div class="events-main">
-
-  <!-- BAPTISMS PANEL -->
-  <div class="tab-panel active" id="panel-baptisms">
-    <div class="section-heading">
-      <span class="ornament">✦</span>
-      <h3 data-t="baptisms_heading">Pagëzim</h3>
-      <div class="rule"></div>
-    </div>
-    <div class="baptism-rules">
-      <div class="rule-intro"><p>Pagëzimi është Sakramenti i parë dhe themelor i jetës krishterë. Më poshtë gjeni kërkesat dhe sendet e nevojshme për kryerjen e tij.</p></div>
-      <div class="rule-block"><div class="rule-block-title"><span class="rule-icon">✦</span>Kushti kryesor</div><p class="rule-text">Kumbari duhet të jetë i pagëzuar në Kishën Orthodhokse.</p></div>
-      <div class="rule-block"><div class="rule-block-title"><span class="rule-icon">✦</span>Sende të nevojshme</div><ul class="rule-list"><li>Peshqir i vogël dhe i madh</li><li>Sapun</li><li>Një shishe me vaj ulliri</li><li>Kryqi (varëse)</li><li>Lambadhe (Qiri)</li><li>Shapka, rroba banje, niktiko — për personin që do të pagëzohet</li></ul></div>
-      <div class="rule-note">Për çdo pyetje shtesë rreth ceremonisë, kontaktoni priftin e kishës pas shërbimit ose nëpërmjet emailit.</div>
-    </div>
+<!-- ACCORDION SECTION -->
+<section class="accordion-section">
+  <div id="accordionContainer">
+    <!-- Accordion items will be populated by JavaScript -->
   </div>
-
-  <!-- MARRIAGES PANEL -->
-  <div class="tab-panel" id="panel-marriages">
-    <div class="section-heading">
-      <span class="ornament">✦</span>
-      <h3 data-t="marriages_heading">Kurorëzim</h3>
-      <div class="rule"></div>
-    </div>
-    <div class="baptism-rules">
-      <div class="rule-intro"><p>Kurorëzimi është Sakramenti i Shenjtë i Martesës Orthodhokse. Më poshtë gjeni dokumentet e kërkuara dhe sendet e nevojshme për kryerjen e tij.</p></div>
-      <div class="rule-block"><div class="rule-block-title"><span class="rule-icon">✦</span>Dokumentet e kërkuara</div><ul class="rule-list"><li>Certifikatat e Pagëzimit</li><li>Certifikata e Celebrimit</li></ul></div>
-      <div class="rule-block"><div class="rule-block-title"><span class="rule-icon">✦</span>Kushti për kumbarën</div><p class="rule-text">Kumbara duhet të jetë e kurorëzuar në Kishën Orthodhokse (nëse është e martuar).</p></div>
-      <div class="rule-block"><div class="rule-block-title"><span class="rule-icon">✦</span>Sende të nevojshme</div><ul class="rule-list"><li>Kurorat</li><li>Unazat</li><li>Buka me qiqër</li><li>Një shishe me verë</li><li>Dy lambadha (2 qirinj)</li></ul></div>
-      <div class="rule-note">Për çdo pyetje shtesë rreth ceremonisë së kurorëzimit, kontaktoni priftin e kishës pas shërbimit ose nëpërmjet emailit.</div>
-    </div>
-  </div>
-
-</div>
+</section>
 
 <!-- FOOTER -->
 <footer>
@@ -247,52 +217,250 @@ footer { background: var(--warm-dark); padding: 60px 0 0; }
 </footer>
 
 <script>
+// ============================================
+// ACCORDION DATA - Edit these items
+// ============================================
+const servicesData = [
+  {
+    id: 1,
+    title_sq: "Pagëzimi",
+    title_en: "Baptism",
+    title_el: "Βάπτισμα",
+    content_sq: `
+      <p>Pagëzimi është Sakramenti i parë dhe themelor i jetës krishtere. Nëpërmjet tij, njeriu lind për një jetë të re në Krishtin dhe bëhet pjesëtar i Kishës.</p>
+      <div class="rule-block">
+        <div class="rule-block-title">✦ Kushti kryesor</div>
+        <p>Kumbari duhet të jetë i pagëzuar në Kishën Orthodhokse.</p>
+      </div>
+      <div class="rule-block">
+        <div class="rule-block-title">✦ Sende të nevojshme</div>
+        <ul class="rule-list">
+          <li>Peshqir i vogël dhe i madh</li>
+          <li>Sapun</li>
+          <li>Një shishe me vaj ulliri</li>
+          <li>Kryqi (varëse)</li>
+          <li>Lambadhe (Qiri)</li>
+          <li>Shapka, rroba banje, niktiko — për personin që do të pagëzohet</li>
+        </ul>
+      </div>
+      <div class="rule-note">Për çdo pyetje shtesë rreth ceremonisë, kontaktoni priftin e kishës pas shërbimit ose nëpërmjet emailit.</div>
+    `,
+    content_en: `
+      <p>Baptism is the first and fundamental Sacrament of Christian life. Through it, a person is born to a new life in Christ and becomes a member of the Church.</p>
+      <div class="rule-block">
+        <div class="rule-block-title">✦ Main condition</div>
+        <p>The godparent must be baptized in the Orthodox Church.</p>
+      </div>
+      <div class="rule-block">
+        <div class="rule-block-title">✦ Necessary items</div>
+        <ul class="rule-list">
+          <li>Small and large towel</li>
+          <li>Soap</li>
+          <li>A bottle of olive oil</li>
+          <li>Cross (pendant)</li>
+          <li>Candle (Lambadhe)</li>
+          <li>Hat, swimsuit, nikti — for the person being baptized</li>
+        </ul>
+      </div>
+      <div class="rule-note">For any questions regarding the ceremony, contact the church priest after the service or via email.</div>
+    `,
+    content_el: `
+      <p>Το Βάπτισμα είναι το πρώτο και θεμελιώδες Μυστήριο της χριστιανικής ζωής. Μέσω αυτού, ο άνθρωπος γεννιέται για μια νέα ζωή εν Χριστώ και γίνεται μέλος της Εκκλησίας.</p>
+      <div class="rule-block">
+        <div class="rule-block-title">✦ Βασική προϋπόθεση</div>
+        <p>Ο ανάδοχος πρέπει να είναι βαπτισμένος στην Ορθόδοξη Εκκλησία.</p>
+      </div>
+      <div class="rule-block">
+        <div class="rule-block-title">✦ Απαραίτητα είδη</div>
+        <ul class="rule-list">
+          <li>Μικρή και μεγάλη πετσέτα</li>
+          <li>Σαπούνι</li>
+          <li>Ένα μπουκάλι ελαιόλαδο</li>
+          <li>Σταυρός (κολιέ)</li>
+          <li>Λαμπάδα (Κερί)</li>
+          <li>Καπέλο, μαγιό, νικτικό — για το άτομο που θα βαπτιστεί</li>
+        </ul>
+      </div>
+      <div class="rule-note">Για οποιαδήποτε ερώτηση σχετικά με την τελετή, επικοινωνήστε με τον ιερέα της εκκλησίας μετά τη λειτουργία ή μέσω email.</div>
+    `
+  },
+  {
+    id: 2,
+    title_sq: "Kurorëzimi",
+    title_en: "Marriage",
+    title_el: "Γάμος",
+    content_sq: `
+      <p>Kurorëzimi është Sakramenti i Shenjtë i Martesës Orthodhokse, ku burri dhe gruaja bekohen për të jetuar bashkë në dashuri dhe besim.</p>
+      <div class="rule-block">
+        <div class="rule-block-title">✦ Dokumentet e kërkuara</div>
+        <ul class="rule-list">
+          <li>Certifikatat e Pagëzimit</li>
+          <li>Certifikata e Celebrimit</li>
+        </ul>
+      </div>
+      <div class="rule-block">
+        <div class="rule-block-title">✦ Kushti për kumbarën</div>
+        <p>Kumbara duhet të jetë e kurorëzuar në Kishën Orthodhokse (nëse është e martuar).</p>
+      </div>
+      <div class="rule-block">
+        <div class="rule-block-title">✦ Sende të nevojshme</div>
+        <ul class="rule-list">
+          <li>Kurorat</li>
+          <li>Unazat</li>
+          <li>Buka me qiqër</li>
+          <li>Një shishe me verë</li>
+          <li>Dy lambadha (2 qirinj)</li>
+        </ul>
+      </div>
+      <div class="rule-note">Për çdo pyetje shtesë rreth ceremonisë së kurorëzimit, kontaktoni priftin e kishës pas shërbimit ose nëpërmjet emailit.</div>
+    `,
+    content_en: `
+      <p>Marriage is the Holy Sacrament of Orthodox Matrimony, where husband and wife are blessed to live together in love and faith.</p>
+      <div class="rule-block">
+        <div class="rule-block-title">✦ Required documents</div>
+        <ul class="rule-list">
+          <li>Baptism Certificates</li>
+          <li>Celebration Certificate</li>
+        </ul>
+      </div>
+      <div class="rule-block">
+        <div class="rule-block-title">✦ Condition for godparent</div>
+        <p>The godparent must be married (crowned) in the Orthodox Church (if married).</p>
+      </div>
+      <div class="rule-block">
+        <div class="rule-block-title">✦ Necessary items</div>
+        <ul class="rule-list">
+          <li>Wedding crowns</li>
+          <li>Wedding rings</li>
+          <li>Bread with chickpeas</li>
+          <li>A bottle of wine</li>
+          <li>Two candles (Lambadha)</li>
+        </ul>
+      </div>
+      <div class="rule-note">For any questions regarding the wedding ceremony, contact the church priest after the service or via email.</div>
+    `,
+    content_el: `
+      <p>Ο Γάμος είναι το Άγιο Μυστήριο της Ορθόδοξης Εκκλησίας, όπου ο σύζυγος και η σύζυγος ευλογούνται να ζήσουν μαζί με αγάπη και πίστη.</p>
+      <div class="rule-block">
+        <div class="rule-block-title">✦ Απαιτούμενα έγγραφα</div>
+        <ul class="rule-list">
+          <li>Πιστοποιητικά Βάπτισης</li>
+          <li>Πιστοποιητικό Γάμου</li>
+        </ul>
+      </div>
+      <div class="rule-block">
+        <div class="rule-block-title">✦ Προϋπόθεση για τον κουμπάρο</div>
+        <p>Ο κουμπάρος πρέπει να είναι παντρεμένος (εστεμμένος) στην Ορθόδοξη Εκκλησία (εάν είναι παντρεμένος).</p>
+      </div>
+      <div class="rule-block">
+        <div class="rule-block-title">✦ Απαραίτητα είδη</div>
+        <ul class="rule-list">
+          <li>Στέφανα γάμου</li>
+          <li>Βέρες γάμου</li>
+          <li>Ψωμί με ρεβίθια</li>
+          <li>Ένα μπουκάλι κρασί</li>
+          <li>Δύο λαμπάδες (κεριά)</li>
+        </ul>
+      </div>
+      <div class="rule-note">Για οποιαδήποτε ερώτηση σχετικά με την τελετή γάμου, επικοινωνήστε με τον ιερέα της εκκλησίας μετά τη λειτουργία ή μέσω email.</div>
+    `
+  },
+  {
+    id: 3,
+    title_sq: "[Për të plotësuar] Shërbesa 3",
+    title_en: "[To complete] Service 3",
+    title_el: "[Προς συμπλήρωση] Ιεροσύνη 3",
+    content_sq: `<p><em>Përmbajtja e kësaj shërbese do të shtohet së shpejti. Ju lutemi vizitoni sërish ose kontaktoni kishën për më shumë informacion.</em></p>`,
+    content_en: `<p><em>The content of this service will be added soon. Please visit again or contact the church for more information.</em></p>`,
+    content_el: `<p><em>Το περιεχόμενο αυτής της ιεροσύνης θα προστεθεί σύντομα. Παρακαλούμε επισκεφθείτε ξανά ή επικοινωνήστε με την εκκλησία για περισσότερες πληροφορίες.</em></p>`
+  },
+  {
+    id: 4,
+    title_sq: "[Për të plotësuar] Shërbesa 4",
+    title_en: "[To complete] Service 4",
+    title_el: "[Προς συμπλήρωση] Ιεροσύνη 4",
+    content_sq: `<p><em>Përmbajtja e kësaj shërbese do të shtohet së shpejti. Ju lutemi vizitoni sërish ose kontaktoni kishën për më shumë informacion.</em></p>`,
+    content_en: `<p><em>The content of this service will be added soon. Please visit again or contact the church for more information.</em></p>`,
+    content_el: `<p><em>Το περιεχόμενο αυτής της ιεροσύνης θα προστεθεί σύντομα. Παρακαλούμε επισκεφθείτε ξανά ή επικοινωνήστε με την εκκλησία για περισσότερες πληροφορίες.</em></p>`
+  },
+  {
+    id: 5,
+    title_sq: "[Për të plotësuar] Shërbesa 5",
+    title_en: "[To complete] Service 5",
+    title_el: "[Προς συμπλήρωση] Ιεροσύνη 5",
+    content_sq: `<p><em>Përmbajtja e kësaj shërbese do të shtohet së shpejti. Ju lutemi vizitoni sërish ose kontaktoni kishën për më shumë informacion.</em></p>`,
+    content_en: `<p><em>The content of this service will be added soon. Please visit again or contact the church for more information.</em></p>`,
+    content_el: `<p><em>Το περιεχόμενο αυτής της ιεροσύνης θα προστεθεί σύντομα. Παρακαλούμε επισκεφθείτε ξανά ή επικοινωνήστε με την εκκλησία για περισσότερες πληροφορίες.</em></p>`
+  }
+];
+
+// Translations
 const T = {
+  lang_label: { sq: 'Gjuha', en: 'Language', el: 'Γλώσσα' },
+  header_title: { sq: 'Kisha "Profeti Ilia" Korçë', en: '"Prophet Elijah" Church Korçë', el: 'Εκκλησία του Προφήτη Ηλία, Κορυτσά' },
+  header_subtitle: { sq: 'Mitropolia e Shenjtë Korçë', en: 'Holy Metropolis of Korçë', el: 'Ιερά Μητρόπολη Κορυτσάς' },
   nav_home: { sq: 'Kryefaqja', en: 'Home', el: 'Αρχική' },
   nav_history: { sq: 'Historia', en: 'History', el: 'Ιστορία' },
+  nav_events: { sq: 'Shërbesat', en: 'Services', el: 'Ακολουθίες' },
   nav_gallery: { sq: 'Galeria', en: 'Gallery', el: 'Γκαλερί' },
   nav_catechism: { sq: 'Katekizëm', en: 'Catechism', el: 'Κατήχηση' },
-  nav_events: { sq: 'Shërbesat', en: 'Holy Services', el: 'Ακολουθίες' },
-  lang_label: { sq: 'Gjuha', en: 'Language', el: 'Γλώσσα' },
-  header_title: { sq: 'Kisha "Profeti Ilia" Korçë', en: 'Church "Prophet Elijah" Korçë', el: 'Ναός «Προφήτης Ηλίας» Κορυτσά' },
-  header_subtitle: { sq: 'Mitropolia e Shenjtë Korçë', en: 'Holy Metropolis of Korçë', el: 'Ιερά Μητρόπολη Κορυτσάς' },
+  nav_more: { sq: 'Më shumë', en: 'More', el: 'Περισσότερα' },
   events_eyebrow: { sq: 'Kisha Profeti Ilia', en: 'Prophet Elijah Church', el: 'Ναός Προφήτης Ηλίας' },
-  events_title: { sq: 'Evente', en: 'Events', el: 'Εκδηλώσεις' },
-  tab_baptisms: { sq: 'Pagëzim', en: 'Baptism', el: 'Βαπτισμός' },
-  tab_marriages: { sq: 'Kurorëzim', en: 'Marriage', el: 'Γάμος' },
-  baptisms_heading: { sq: 'Pagëzim', en: 'Baptism', el: 'Βαπτισμός' },
-  marriages_heading: { sq: 'Kurorëzim', en: 'Marriage', el: 'Γάμος' },
-  footer_church_name: { sq: 'Kisha "Profeti Ilia"', en: 'Church "Prophet Elijah"', el: 'Ναός «Προφήτης Ηλίας»' },
+  events_title: { sq: 'Shërbesat', en: 'Services', el: 'Ιεροσύνες' },
+  page_subtitle: { sq: 'Sakramentet dhe shërbesat e Kishës Orthodhokse', en: 'Sacraments and services of the Orthodox Church', el: 'Μυστήρια και ακολουθίες της Ορθόδοξης Εκκλησίας' },
   footer_quick_links: { sq: 'Lidhje të Shpejta', en: 'Quick Links', el: 'Γρήγοροι Σύνδεσμοι' }
 };
 
 let currentLang = 'sq';
+let openItemId = null;
+
+function renderAccordion() {
+  const container = document.getElementById('accordionContainer');
+  container.innerHTML = servicesData.map(service => `
+    <div class="accordion-item ${openItemId === service.id ? 'open' : ''}" data-id="${service.id}">
+      <div class="accordion-header" onclick="toggleAccordion(${service.id})">
+        <span class="accordion-title">${service[`title_${currentLang}`] || service.title_sq}</span>
+        <div class="accordion-icon">
+          <svg viewBox="0 0 24 24" stroke="currentColor"><polyline points="6 9 12 15 18 9"></polyline></svg>
+        </div>
+      </div>
+      <div class="accordion-content">
+        <div class="content-inner">
+          ${service[`content_${currentLang}`] || service.content_sq}
+        </div>
+      </div>
+    </div>
+  `).join('');
+}
+
+function toggleAccordion(id) {
+  if (openItemId === id) {
+    openItemId = null;
+  } else {
+    openItemId = id;
+  }
+  renderAccordion();
+}
 
 function setLang(lang) {
   currentLang = lang;
-  try { localStorage.setItem('churchLang', lang); } catch(e) {}
-  document.querySelectorAll('.lang-btn').forEach(btn => btn.classList.remove('active'));
-  const activeBtn = document.querySelector(`.lang-btn[onclick="setLang('${lang}')"]`);
-  if (activeBtn) activeBtn.classList.add('active');
+  document.querySelectorAll('.lang-btn').forEach(b => b.classList.remove('active'));
+  document.querySelector(`.lang-btn[onclick="setLang('${lang}')"]`).classList.add('active');
   document.getElementById('lang-label-text').textContent = T.lang_label[lang];
   document.documentElement.lang = lang;
+  
   document.querySelectorAll('[data-t]').forEach(el => {
     const key = el.getAttribute('data-t');
     const entry = T[key];
     if (!entry) return;
-    const text = entry[lang] || entry['sq'] || '';
-    el.innerHTML = text.replace(/\n/g, '<br>');
+    el.innerHTML = (entry[lang] || entry['sq'] || '').replace(/\n/g, '<br>');
   });
+  
+  renderAccordion();
 }
 
-(function() { let saved = 'sq'; try { saved = localStorage.getItem('churchLang') || 'sq'; } catch(e) {} setLang(saved); })();
-
-function switchTab(tab) {
-  document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
-  document.querySelectorAll('.events-tab-btn').forEach(b => b.classList.remove('active'));
-  document.getElementById('panel-' + tab).classList.add('active');
-  document.getElementById('tab-' + tab).classList.add('active');
-}
+// Initialize
+setLang('sq');
 </script>
 </body>
 </html>
