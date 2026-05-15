@@ -25,7 +25,7 @@ body { font-family: 'EB Garamond', Georgia, serif; background: var(--parchment);
 
 /* HEADER */
 header { background: var(--deep-blue); position: relative; overflow: hidden; }
-header::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse 60% 80% at 50% -20%, rgba(201,168,76,.12) 0%, transparent 70%), url("data:image/svg+xml,%3Csvg width='60' height='60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M30 5 L35 20 L50 20 L38 29 L43 44 L30 35 L17 44 L22 29 L10 20 L25 20Z' fill='none' stroke='rgba(201,168,76,0.06)' stroke-width='1'/%3E%3C/svg%3E") repeat; pointer-events: none; }
+header::before { content: ''; position: absolute; inset: 0; background: linear-gradient(rgba(26, 31, 60, 0.75), rgba(26, 31, 60, 0.85)), url('Assets/banner.jpg'); background-size: cover; background-position: center 30%; background-repeat: no-repeat; pointer-events: none; opacity: 0.6; }
 .header-inner { position: relative; z-index: 1; display: flex; align-items: center; justify-content: space-between; padding: 28px 40px; }
 .church-identity { display: flex; align-items: center; gap: 20px; text-decoration: none; }
 .cross-icon { width: 52px; height: 52px; flex-shrink: 0; border-radius: 50%; object-fit: cover; }
@@ -57,6 +57,20 @@ nav { background: linear-gradient(135deg, var(--mid-blue), var(--deep-blue)); bo
 .section-heading .rule { flex: 1; height: 1px; background: linear-gradient(90deg, var(--gold) 0%, transparent 100%); }
 .section-heading .ornament { color: var(--gold); font-size: 18px; flex-shrink: 0; }
 .books-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 24px; }
+
+/* Mobile: horizontal cards stacked vertically */
+@media (max-width: 768px) {
+  .books-grid { display: flex; flex-direction: column; gap: 16px; }
+  .book-card { display: flex; align-items: center; justify-content: space-between; padding: 14px 18px; gap: 15px; flex-wrap: nowrap; }
+  .book-info { flex: 1; min-width: 0; }
+  .book-icon { font-size: 24px; margin-right: 10px; display: inline-block; vertical-align: middle; }
+  .book-title { font-size: 14px; display: inline-block; vertical-align: middle; }
+  .book-actions { flex-shrink: 0; gap: 8px; }
+  .book-btn { padding: 5px 10px; font-size: 9px; }
+  .book-btn svg { width: 10px; height: 10px; }
+}
+
+  /*DESKTOP*/
 .book-card { background: #fff; border: 1px solid var(--border); padding: 24px; transition: all 0.3s ease; position: relative; border-radius: 4px; }
 .book-card:hover { transform: translateY(-5px); box-shadow: 0 15px 35px rgba(0,0,0,0.1); border-color: var(--gold); }
 .book-icon { font-size: 48px; margin-bottom: 16px; color: var(--gold); }
@@ -215,12 +229,6 @@ const booksData = [
     title_sq: "Bibla e Shenjtë",
     title_en: "Holy Bible",
     title_el: "Αγία Γραφή",
-    author_sq: "Kisha Orthodhokse",
-    author_en: "Orthodox Church",
-    author_el: "Ορθόδοξη Εκκλησία",
-    desc_sq: "Libri më i shenjtë i krishterimit, përkthimi në shqip i miratuar nga Kisha Orthodhokse.",
-    desc_en: "The holiest book of Christianity, the Albanian translation approved by the Orthodox Church.",
-    desc_el: "Το ιερότερο βιβλίο του Χριστιανισμού, η αλβανική μετάφραση εγκεκριμένη από την Ορθόδοξη Εκκλησία.",
     pdfUrl: "https://drive.google.com/file/d/example1/view",
   },
   {
@@ -228,12 +236,6 @@ const booksData = [
     title_sq: "Lutjet e Përditshme",
     title_en: "Daily Prayers",
     title_el: "Καθημερινές Προσευχές",
-    author_sq: "Kisha Orthodhokse",
-    author_en: "Orthodox Church",
-    author_el: "Ορθόδοξη Εκκλησία",
-    desc_sq: "Përmbledhje lutjesh për mëngjes, mbrëmje dhe raste të veçanta.",
-    desc_en: "Collection of prayers for morning, evening and special occasions.",
-    desc_el: "Συλλογή προσευχών για το πρωί, το βράδυ και ειδικές περιστάσεις.",
     pdfUrl: "https://drive.google.com/file/d/example2/view",
   },
   {
@@ -241,12 +243,6 @@ const booksData = [
     title_sq: "Katekizmi Orthodhoks",
     title_en: "Orthodox Catechism",
     title_el: "Ορθόδοξος Κατήχηση",
-    author_sq: "Shenjtorët e Kishës",
-    author_en: "Church Fathers",
-    author_el: "Πατέρες της Εκκλησίας",
-    desc_sq: "Mësimi themelor i besimit orthodhoks për të rinjtë dhe të rriturit.",
-    desc_en: "Basic teaching of the Orthodox faith for youth and adults.",
-    desc_el: "Βασική διδασκαλία της ορθόδοξης πίστης για νέους και ενήλικες.",
     pdfUrl: "https://drive.google.com/file/d/example3/view",
   },
   {
@@ -254,13 +250,42 @@ const booksData = [
     title_sq: "Jeta e Shenjtorëve",
     title_en: "Lives of the Saints",
     title_el: "Βίοι Αγίων",
-    author_sq: "Shën Dimitri i Rostovit",
-    author_en: "St. Dimitri of Rostov",
-    author_el: "Άγιος Δημήτριος Ροστώβ",
-    desc_sq: "Tregime nga jeta e shenjtorëve të Kishës Orthodhokse.",
-    desc_en: "Stories from the lives of the saints of the Orthodox Church.",
-    desc_el: "Ιστορίες από τη ζωή των αγίων της Ορθόδοξης Εκκλησίας.",
     pdfUrl: "https://drive.google.com/file/d/example4/view",
+  },
+  {
+    id: 5,
+    title_sq: "Agjërimi Orthodhoks",
+    title_en: "Orthodox Fasting",
+    title_el: "Ορθόδοξη Νηστεία",
+    pdfUrl: "https://drive.google.com/file/d/example5/view",
+  },     
+  {
+    id: 6,
+    title_sq: "Misteret e Shenjta",
+    title_en: "Holy Mysteries",
+    title_el: "Άγια Μυστήρια",
+    pdfUrl: "https://drive.google.com/file/d/example6/view",
+  },
+  {
+    id: 7,
+    title_sq: "Misteret e Shenjta",
+    title_en: "Holy Mysteries",
+    title_el: "Άγια Μυστήρια",
+    pdfUrl: "https://drive.google.com/file/d/example6/view",
+  },
+  {
+    id: 8,
+    title_sq: "Misteret e Shenjta",
+    title_en: "Holy Mysteries",
+    title_el: "Άγια Μυστήρια",
+    pdfUrl: "https://drive.google.com/file/d/example6/view",
+  },
+  {
+    id: 9,
+    title_sq: "Misteret e Shenjta",
+    title_en: "Holy Mysteries",
+    title_el: "Άγια Μυστήρια",
+    pdfUrl: "https://drive.google.com/file/d/example6/view",
   }
 ];
 // ==================================================
@@ -310,10 +335,7 @@ function renderBooks() {
   const container = document.getElementById('booksGrid');
   container.innerHTML = booksData.map(book => `
     <div class="book-card">
-      <div class="book-icon">${book.icon}</div>
       <div class="book-title">${book[`title_${currentLang}`] || book.title_sq}</div>
-      <div class="book-author">${book[`author_${currentLang}`] || book.author_sq}</div>
-      <div class="book-description">${book[`desc_${currentLang}`] || book.desc_sq}</div>
       <div class="book-actions">
         <a href="${book.pdfUrl}" target="_blank" class="book-btn pdf"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="10" y1="12" x2="16" y2="12"/><line x1="10" y1="16" x2="16" y2="16"/></svg>${T.btn_view[currentLang]}</a>
         <a href="${book.pdfUrl}" download class="book-btn download"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>${T.btn_download[currentLang]}</a>
