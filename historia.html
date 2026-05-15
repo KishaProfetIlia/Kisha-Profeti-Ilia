@@ -598,15 +598,9 @@
       gap: 8px;
     }
 
-    .footer-links a::before {
-      content: '›';
-      color: var(--gold);
-      opacity: 0;
-      transition: opacity 0.2s;
-    }
-
-    .footer-links a:hover                { color: rgba(255, 255, 255, 0.8); }
-    .footer-links a:hover::before        { opacity: 1; }
+    .footer-links a::before { content: '›'; color: var(--gold); opacity: 0; transition: opacity 0.2s; }
+    .footer-links a:hover { color: rgba(255, 255, 255, 0.8); }
+    .footer-links a:hover::before { opacity: 1; }
 
     .footer-bottom {
       border-top: 1px solid rgba(255, 255, 255, 0.06);
@@ -640,32 +634,33 @@
       margin-left: 5px;
     }
 
-    .footer-instagram svg      { width: 16px; height: 16px; }
-    .footer-instagram:hover    { opacity: 0.7; }
+    .footer-instagram svg { width: 16px; height: 16px; }
+    .footer-instagram:hover { opacity: 0.7; }
 
     /* ─── Responsive ─────────────────────────────────────────────────────────── */
     @media (max-width: 900px) {
-      .footer-inner           { grid-template-columns: 1fr 1fr; }
-      .header-inner           { flex-direction: column; gap: 16px; text-align: center; }
-      .photos-grid            { grid-template-columns: repeat(2, 1fr); }
+      .footer-inner { grid-template-columns: 1fr 1fr; }
+      .header-inner { flex-direction: column; gap: 16px; text-align: center; }
+      .photos-grid { grid-template-columns: repeat(2, 1fr); }
     }
 
     @media (max-width: 600px) {
-      .lang-bar .container    { padding: 0 16px; }
-      .header-inner           { padding: 20px; }
-      .church-name-block h1   { font-size: 16px; }
-      .page-title-section     { padding: 40px 20px 36px; }
-      .page-title-section h2  { font-size: 28px; }
-      .history-body           { padding: 40px 20px 40px; }
-      .history-body p         { font-size: 16px; line-height: 1.8; }
-      .photos-section         { padding-left: 20px; padding-right: 20px; }
-      .photos-grid            { grid-template-columns: 1fr; }
-      .lightbox-arrow         { display: none; }
-      .footer-inner           { grid-template-columns: 1fr; padding: 0 20px 40px; }
-      .footer-bottom          { padding: 16px 20px; flex-direction: column; text-align: center; }
-      nav                     { overflow-x: auto; -webkit-overflow-scrolling: touch; }
-      .nav-inner              { min-width: max-content; padding: 0 16px; }
-      .nav-link               { padding: 14px 14px; font-size: 9px; }
+      .lang-bar .container { padding: 0 16px; }
+      .lang-bar-left svg { width: 20px; height: 20px; }
+      .header-inner { padding: 20px; }
+      .church-name-block h1 { font-size: 16px; }
+      .page-title-section { padding: 40px 20px 36px; }
+      .page-title-section h2 { font-size: 28px; }
+      .history-body { padding: 40px 20px 40px; }
+      .history-body p { font-size: 16px; line-height: 1.8; }
+      .photos-section { padding-left: 20px; padding-right: 20px; }
+      .photos-grid { grid-template-columns: 1fr; }
+      .lightbox-arrow { display: none; }
+      .footer-inner { grid-template-columns: 1fr; padding: 0 20px 40px; }
+      .footer-bottom { padding: 16px 20px; flex-direction: column; text-align: center; }
+      nav { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+      .nav-inner { min-width: max-content; padding: 0 16px; }
+      .nav-link { padding: 14px 14px; font-size: 9px; }
     }
   </style>
 </head>
@@ -735,12 +730,12 @@
   <!-- ─── Navigation ───────────────────────────────────────────────────────── -->
   <nav>
     <div class="nav-inner">
-      <a href="index.html"     class="nav-link"        data-t="nav_home">KRYEFAQJA</a>
-      <a href="historia.html"  class="nav-link active"  data-t="nav_history">HISTORIA</a>
-      <a href="evente.html"    class="nav-link"        data-t="nav_events">SHËRBESAT</a>
-      <a href="galeria.html"   class="nav-link"        data-t="nav_gallery">GALERIA</a>
-      <a href="katekizem.html" class="nav-link"        data-t="nav_catechism">KATEKIZËM</a>
-      <a href="meshume.html"   class="nav-link"        data-t="nav_more">MË SHUMË</a>
+      <a href="index.html"     class="nav-link" data-t="nav_home">KRYEFAQJA</a>
+      <a href="historia.html"  class="nav-link active" data-t="nav_history">HISTORIA</a>
+      <a href="evente.html"    class="nav-link" data-t="nav_events">SHËRBESAT</a>
+      <a href="galeria.html"   class="nav-link" data-t="nav_gallery">GALERIA</a>
+      <a href="katekizem.html" class="nav-link" data-t="nav_catechism">KATEKIZËM</a>
+      <a href="meshume.html"   class="nav-link" data-t="nav_more">MË SHUMË</a>
     </div>
   </nav>
 
