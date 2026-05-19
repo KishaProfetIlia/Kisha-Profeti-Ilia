@@ -122,6 +122,50 @@ footer { background: var(--warm-dark); padding: 60px 0 0; }
 .hero-content > *:nth-child(5) { animation-delay: 0.65s; }
 </style>
 </head>
+
+
+  
+<!-- CUSTOM CURSOR -->
+<style>
+@media (pointer: fine) { *, *::before, *::after { cursor: none !important; } }
+#custom-cursor { position: fixed; top: 0; left: 0; width: 12px; height: 12px; background: #4A6CF7; border-radius: 50%; pointer-events: none; z-index: 999999; transform: translate(-50%, -50%); transition: transform 0.1s ease, background 0.2s ease, width 0.2s ease, height 0.2s ease; }
+#custom-cursor-ring { position: fixed; top: 0; left: 0; width: 36px; height: 36px; border: 1.5px solid rgba(74,108,247,0.6); border-radius: 50%; pointer-events: none; z-index: 999998; transform: translate(-50%, -50%); transition: transform 0.18s ease, width 0.2s ease, height 0.2s ease, border-color 0.2s ease, opacity 0.2s ease; }
+#custom-cursor.hovering { width: 8px; height: 8px; background: #C9A84C; }
+#custom-cursor-ring.hovering { width: 48px; height: 48px; border-color: rgba(201,168,76,0.5); }
+#custom-cursor.clicking { transform: translate(-50%, -50%) scale(0.7); }
+#custom-cursor-ring.clicking { transform: translate(-50%, -50%) scale(0.85); }
+@media (pointer: coarse) { #custom-cursor, #custom-cursor-ring { display: none; } }
+</style>
+
+<div id="custom-cursor"></div>
+<div id="custom-cursor-ring"></div>
+
+<script>
+(function() {
+  if (window.matchMedia('(pointer: fine)').matches) {
+    const dot = document.getElementById('custom-cursor');
+    const ring = document.getElementById('custom-cursor-ring');
+    let mouseX = -100, mouseY = -100;
+    let ringX = -100, ringY = -100;
+
+    document.addEventListener('mousemove', function(e) { mouseX = e.clientX; mouseY = e.clientY; dot.style.left = mouseX + 'px'; dot.style.top = mouseY + 'px'; });
+
+    (function animateRing() { ringX += (mouseX - ringX) * 0.12; ringY += (mouseY - ringY) * 0.12; ring.style.left = ringX + 'px'; ring.style.top = ringY + 'px'; requestAnimationFrame(animateRing); })();
+
+    const hoverTargets = 'a, button, [role="button"], input, textarea, select, label, .nav-link, .lang-btn, .hero-cta';
+    document.addEventListener('mouseover', function(e) { if (e.target.closest(hoverTargets)) { dot.classList.add('hovering'); ring.classList.add('hovering'); } });
+    document.addEventListener('mouseout', function(e) { if (e.target.closest(hoverTargets)) { dot.classList.remove('hovering'); ring.classList.remove('hovering'); } });
+    document.addEventListener('mousedown', function() { dot.classList.add('clicking'); ring.classList.add('clicking'); });
+    document.addEventListener('mouseup', function() { dot.classList.remove('clicking'); ring.classList.remove('clicking'); });
+    document.addEventListener('mouseleave', function() { dot.style.opacity = '0'; ring.style.opacity = '0'; });
+    document.addEventListener('mouseenter', function() { dot.style.opacity = '1'; ring.style.opacity = '1'; });
+  }
+})();
+</script>
+
+
+
+
 <body>
 
 <!-- LANGUAGE BAR -->
