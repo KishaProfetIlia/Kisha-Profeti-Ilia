@@ -124,49 +124,6 @@ footer { background: var(--warm-dark); padding: 60px 0 0; }
 </head>
 
 
-  
-<!-- CUSTOM CURSOR -->
-<style>
-@media (pointer: fine) { *, *::before, *::after { cursor: none !important; } }
-#cc { position: fixed; top: 0; left: 0; pointer-events: none; z-index: 999999; will-change: left, top; transition: opacity 0.2s ease; }
-#cc svg { transition: transform 0.12s ease; }
-#cc.c svg { transform: scale(0.9); }
-#cc-arrow { display: block; }
-#cc-hand { display: none; }
-#cc.h #cc-arrow { display: none; }
-#cc.h #cc-hand { display: block; }
-@media (pointer: coarse) { #cc { display: none; } }
-</style>
-
-<div id="cc">
-  <svg id="cc-arrow" width="32" height="36" viewBox="0 0 32 36" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <path d="M3 2 L28 16 L18 19 L24 32 L19 34 L13 21 L3 28 Z" fill="#5B8EF0" stroke="white" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
-  </svg>
-  <svg id="cc-hand" width="28" height="30" viewBox="0 0 28 30" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <path d="M8 13 L8 6 Q8 4 10 4 Q12 4 12 6 L12 11 M12 11 Q12 9 14 9 Q16 9 16 11 L16 12 M16 12 Q16 10.5 17.8 10.5 Q19.5 10.5 19.5 12.5 L19.5 14 M19.5 14 Q19.5 13 20.8 13 Q22.5 13 22.5 15 L22.5 19.5 Q22.5 24 18.5 25.5 Q17 26 14.5 26 L13 26 Q9 26 7.5 23 L5 18 Q4.2 16 5.8 15 Q7.2 14.2 8.5 15.8 L8 13 Z" fill="#5B8EF0" stroke="white" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round"/>
-  </svg>
-</div>
-
-<script>
-(function () {
-  if (!window.matchMedia('(pointer: fine)').matches) return;
-  const cc = document.getElementById('cc');
-  const sel = 'a, button, [role="button"], input, textarea, select, label, .nav-link, .lang-btn, .hero-cta';
-
-  document.addEventListener('mousemove', function (e) {
-    cc.style.left = e.clientX + 'px'; cc.style.top = e.clientY + 'px';
-  });
-
-  document.addEventListener('mouseover', function (e) { if (e.target.closest(sel)) cc.classList.add('h'); });
-  document.addEventListener('mouseout',  function (e) { if (e.target.closest(sel)) cc.classList.remove('h'); });
-  document.addEventListener('mousedown', function () { cc.classList.add('c'); });
-  document.addEventListener('mouseup',   function () { cc.classList.remove('c'); });
-  document.addEventListener('mouseleave', function () { cc.style.opacity = '0'; });
-  document.addEventListener('mouseenter', function () { cc.style.opacity = '1'; });
-})();
-</script>
-
-
 <body>
 
 <!-- LANGUAGE BAR -->
@@ -395,5 +352,21 @@ document.querySelectorAll('.stat-box').forEach(el => { el.style.opacity = '0'; e
 
 setLang('sq');
 </script>
+
+
+  <style>
+@media (min-width: 769px) { body, body * { cursor: none !important; } a, button, .nav-link, .book-btn, .hero-cta, .accordion-header, .gallery-item, .photo-item, .icon-link, .lang-btn, .footer-links a, [onclick], .lightbox-close, .lightbox-arrow, .instagram-link, .church-identity, .footer-instagram, .book-card, .stat-box, .history-img-frame { cursor: none !important; } }
+.custom-cursor { position: fixed; top: 0; left: 0; width: 32px; height: 32px; pointer-events: none; z-index: 99999; transform: translate(-50%, -50%); transition: width 0.2s ease, height 0.2s ease; will-change: transform; border-radius: 50%; background: #2A52BE; border: 2px solid white; box-shadow: 0 0 6px rgba(0,0,0,0.2); }
+.custom-cursor.hover { width: 48px; height: 48px; background: #2A52BE; border: 2px solid white; }
+.custom-cursor.pressed { width: 24px; height: 24px; background: #1a3a8a; border: 2px solid white; transition: width 0.05s ease, height 0.05s ease; }
+.custom-cursor::after { content: ''; position: absolute; top: 50%; left: 50%; width: 4px; height: 4px; background: white; border-radius: 50%; transform: translate(-50%, -50%); }
+@media (max-width: 768px) { .custom-cursor { display: none !important; } body, body * { cursor: auto !important; } }
+</style>
+<script>
+(function(){if(window.innerWidth<=768)return;var c=null,x=0,y=0,cx=0,cy=0,t=null,p=!1;function d(){var e=document.createElement('div');e.className='custom-cursor';document.body.appendChild(e);return e}function r(){if(!c)return;cx+=(x-cx)*0.2;cy+=(y-cy)*0.2;c.style.transform='translate('+cx+'px,'+cy+'px)';requestAnimationFrame(r)}function i(e){var a=e.target;if(!a)return;var l=!!a.closest&&(a.closest('a,button,.nav-link,.book-btn,.hero-cta,.accordion-header,.gallery-item,.photo-item,.icon-link,.lang-btn,.footer-links a,[onclick],.lightbox-close,.lightbox-arrow,.instagram-link,.church-identity,.footer-instagram,.book-card,.stat-box,.history-img-frame')||a.closest('[role="button"]'));if(l&&t!==a){t=a;c.classList.add('hover')}else if(!l&&t!==null){t=null;c.classList.remove('hover')}}function m(e){if(p)return;p=!0;c.classList.add('pressed')}function u(e){if(!p)return;p=!1;c.classList.remove('pressed')}function v(e){if(c)c.style.opacity='0'}function w(e){if(c)c.style.opacity='1'}c=d();x=window.innerWidth/2;y=window.innerHeight/2;cx=x;cy=y;c.style.transform='translate('+cx+'px,'+cy+'px)';r();document.addEventListener('mousemove',function(e){x=e.clientX;y=e.clientY;i(e)});document.addEventListener('mousedown',m);document.addEventListener('mouseup',u);document.documentElement.addEventListener('mouseleave',v);document.documentElement.addEventListener('mouseenter',w);var lw=window.innerWidth;window.addEventListener('resize',function(){var nw=window.innerWidth;if((lw>768)!==(nw>768))window.location.reload();lw=nw})})();
+</script>
+
+
+  
 </body>
 </html>
