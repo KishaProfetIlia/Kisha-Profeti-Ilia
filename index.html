@@ -126,7 +126,6 @@ footer { background: var(--warm-dark); padding: 60px 0 0; }
 
   
 <!-- CUSTOM CURSOR -->
-<!-- Custom Cursor -->
 <style>
 @media (pointer: fine) { *, *::before, *::after { cursor: none !important; } }
 #cc { position: fixed; top: 0; left: 0; pointer-events: none; z-index: 999999; will-change: left, top; transition: opacity 0.2s ease; }
@@ -140,50 +139,11 @@ footer { background: var(--warm-dark); padding: 60px 0 0; }
 </style>
 
 <div id="cc">
-  <svg id="cc-arrow" width="20" height="22" viewBox="0 0 20 22" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <path d="M3 2 L3 18 L7.5 13.5 L11 20 L13.5 19 L10 12.5 L16.5 12.5 Z" fill="#5B8EF0" stroke="white" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>
+  <svg id="cc-arrow" width="32" height="36" viewBox="0 0 32 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M3 2 L28 16 L18 19 L24 32 L19 34 L13 21 L3 28 Z" fill="#5B8EF0" stroke="white" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
   </svg>
-  <svg id="cc-hand" width="22" height="24" viewBox="0 0 22 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <path d="M7 11.5 L7 5.5 Q7 3.5 9 3.5 Q11 3.5 11 5.5 L11 10 M11 10 Q11 8.5 12.8 8.5 Q14.5 8.5 14.5 10 L14.5 11 M14.5 11 Q14.5 9.8 16 9.8 Q17.5 9.8 17.5 11.5 L17.5 13 M17.5 13 Q17.5 12 18.5 12 Q20 12 20 13.8 L20 17.5 Q20 21 16.5 22 Q15 22.5 12.5 22.5 L11 22.5 Q7.5 22.5 6 20 L3.5 15.5 Q2.8 13.8 4.2 12.8 Q5.5 12 6.8 13.5 L7 13.8 L7 11.5 Z" fill="#5B8EF0" stroke="white" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>
-  </svg>
-</div>
-
-<script>
-(function () {
-  if (!window.matchMedia('(pointer: fine)').matches) return;
-  const cc = document.getElementById('cc');
-  const sel = 'a, button, [role="button"], input, textarea, select, label, .nav-link, .lang-btn, .hero-cta';
-
-  document.addEventListener('mousemove', function (e) {
-    cc.style.left = e.clientX + 'px'; cc.style.top = e.clientY + 'px';
-  });
-
-  document.addEventListener('mouseover', function (e) { if (e.target.closest(sel)) cc.classList.add('h'); });
-  document.addEventListener('mouseout',  function (e) { if (e.target.closest(sel)) cc.classList.remove('h'); });
-  document.addEventListener('mousedown', function () { cc.classList.add('c'); });
-  document.addEventListener('mouseup',   function () { cc.classList.remove('c'); });
-  document.addEventListener('mouseleave', function () { cc.style.opacity = '0'; });
-  document.addEventListener('mouseenter', function () { cc.style.opacity = '1'; });
-})();
-</script><!-- Custom Cursor -->
-<style>
-@media (pointer: fine) { *, *::before, *::after { cursor: none !important; } }
-#cc { position: fixed; top: 0; left: 0; pointer-events: none; z-index: 999999; will-change: left, top; transition: opacity 0.2s ease; }
-#cc svg { transition: transform 0.12s ease; }
-#cc.c svg { transform: scale(0.9); }
-#cc-arrow { display: block; }
-#cc-hand { display: none; }
-#cc.h #cc-arrow { display: none; }
-#cc.h #cc-hand { display: block; }
-@media (pointer: coarse) { #cc { display: none; } }
-</style>
-
-<div id="cc">
-  <svg id="cc-arrow" width="20" height="22" viewBox="0 0 20 22" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <path d="M3 2 L3 18 L7.5 13.5 L11 20 L13.5 19 L10 12.5 L16.5 12.5 Z" fill="#5B8EF0" stroke="white" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>
-  </svg>
-  <svg id="cc-hand" width="22" height="24" viewBox="0 0 22 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <path d="M7 11.5 L7 5.5 Q7 3.5 9 3.5 Q11 3.5 11 5.5 L11 10 M11 10 Q11 8.5 12.8 8.5 Q14.5 8.5 14.5 10 L14.5 11 M14.5 11 Q14.5 9.8 16 9.8 Q17.5 9.8 17.5 11.5 L17.5 13 M17.5 13 Q17.5 12 18.5 12 Q20 12 20 13.8 L20 17.5 Q20 21 16.5 22 Q15 22.5 12.5 22.5 L11 22.5 Q7.5 22.5 6 20 L3.5 15.5 Q2.8 13.8 4.2 12.8 Q5.5 12 6.8 13.5 L7 13.8 L7 11.5 Z" fill="#5B8EF0" stroke="white" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>
+  <svg id="cc-hand" width="28" height="30" viewBox="0 0 28 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M8 13 L8 6 Q8 4 10 4 Q12 4 12 6 L12 11 M12 11 Q12 9 14 9 Q16 9 16 11 L16 12 M16 12 Q16 10.5 17.8 10.5 Q19.5 10.5 19.5 12.5 L19.5 14 M19.5 14 Q19.5 13 20.8 13 Q22.5 13 22.5 15 L22.5 19.5 Q22.5 24 18.5 25.5 Q17 26 14.5 26 L13 26 Q9 26 7.5 23 L5 18 Q4.2 16 5.8 15 Q7.2 14.2 8.5 15.8 L8 13 Z" fill="#5B8EF0" stroke="white" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round"/>
   </svg>
 </div>
 
@@ -205,7 +165,6 @@ footer { background: var(--warm-dark); padding: 60px 0 0; }
   document.addEventListener('mouseenter', function () { cc.style.opacity = '1'; });
 })();
 </script>
-
 
 
 <body>
