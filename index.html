@@ -126,43 +126,37 @@ footer { background: var(--warm-dark); padding: 60px 0 0; }
 
   
 <!-- CUSTOM CURSOR -->
+<!-- Custom Cursor -->
 <style>
 @media (pointer: fine) { *, *::before, *::after { cursor: none !important; } }
-#custom-cursor { position: fixed; top: 0; left: 0; width: 12px; height: 12px; background: #4A6CF7; border-radius: 50%; pointer-events: none; z-index: 999999; transform: translate(-50%, -50%); transition: transform 0.1s ease, background 0.2s ease, width 0.2s ease, height 0.2s ease; }
-#custom-cursor-ring { position: fixed; top: 0; left: 0; width: 36px; height: 36px; border: 1.5px solid rgba(74,108,247,0.6); border-radius: 50%; pointer-events: none; z-index: 999998; transform: translate(-50%, -50%); transition: transform 0.18s ease, width 0.2s ease, height 0.2s ease, border-color 0.2s ease, opacity 0.2s ease; }
-#custom-cursor.hovering { width: 8px; height: 8px; background: #C9A84C; }
-#custom-cursor-ring.hovering { width: 48px; height: 48px; border-color: rgba(201,168,76,0.5); }
-#custom-cursor.clicking { transform: translate(-50%, -50%) scale(0.7); }
-#custom-cursor-ring.clicking { transform: translate(-50%, -50%) scale(0.85); }
-@media (pointer: coarse) { #custom-cursor, #custom-cursor-ring { display: none; } }
+#cc { position: fixed; top: 0; left: 0; pointer-events: none; z-index: 999999; will-change: left, top; transition: opacity 0.2s ease; }
+#cc svg { transition: transform 0.15s ease; filter: drop-shadow(0 2px 6px rgba(91,142,240,0.25)); }
+#cc.c svg { transform: scale(0.88); }
+@media (pointer: coarse) { #cc { display: none; } }
 </style>
 
-<div id="custom-cursor"></div>
-<div id="custom-cursor-ring"></div>
+<div id="cc">
+  <svg width="24" height="28" viewBox="0 0 24 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M4 2.5 L4 22 L8.5 17 L13.5 25.5 L16 24 L11 16 L18 16 Z" fill="#5B8EF0" stroke="#ffffff" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="round"/>
+  </svg>
+</div>
 
 <script>
-(function() {
-  if (window.matchMedia('(pointer: fine)').matches) {
-    const dot = document.getElementById('custom-cursor');
-    const ring = document.getElementById('custom-cursor-ring');
-    let mouseX = -100, mouseY = -100;
-    let ringX = -100, ringY = -100;
+(function () {
+  if (!window.matchMedia('(pointer: fine)').matches) return;
+  const cc = document.getElementById('cc');
+  const sel = 'a, button, [role="button"], input, textarea, select, label, .nav-link, .lang-btn, .hero-cta';
 
-    document.addEventListener('mousemove', function(e) { mouseX = e.clientX; mouseY = e.clientY; dot.style.left = mouseX + 'px'; dot.style.top = mouseY + 'px'; });
+  document.addEventListener('mousemove', function (e) {
+    cc.style.left = e.clientX + 'px'; cc.style.top = e.clientY + 'px';
+  });
 
-    (function animateRing() { ringX += (mouseX - ringX) * 0.12; ringY += (mouseY - ringY) * 0.12; ring.style.left = ringX + 'px'; ring.style.top = ringY + 'px'; requestAnimationFrame(animateRing); })();
-
-    const hoverTargets = 'a, button, [role="button"], input, textarea, select, label, .nav-link, .lang-btn, .hero-cta';
-    document.addEventListener('mouseover', function(e) { if (e.target.closest(hoverTargets)) { dot.classList.add('hovering'); ring.classList.add('hovering'); } });
-    document.addEventListener('mouseout', function(e) { if (e.target.closest(hoverTargets)) { dot.classList.remove('hovering'); ring.classList.remove('hovering'); } });
-    document.addEventListener('mousedown', function() { dot.classList.add('clicking'); ring.classList.add('clicking'); });
-    document.addEventListener('mouseup', function() { dot.classList.remove('clicking'); ring.classList.remove('clicking'); });
-    document.addEventListener('mouseleave', function() { dot.style.opacity = '0'; ring.style.opacity = '0'; });
-    document.addEventListener('mouseenter', function() { dot.style.opacity = '1'; ring.style.opacity = '1'; });
-  }
+  document.addEventListener('mousedown', function () { cc.classList.add('c'); });
+  document.addEventListener('mouseup',   function () { cc.classList.remove('c'); });
+  document.addEventListener('mouseleave', function () { cc.style.opacity = '0'; });
+  document.addEventListener('mouseenter', function () { cc.style.opacity = '1'; });
 })();
 </script>
-
 
 
 
