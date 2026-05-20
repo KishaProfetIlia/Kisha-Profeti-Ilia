@@ -8,6 +8,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Noto+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 
   <style>
+    img { -webkit-user-drag: none; user-select: none; }
     /* ─── CSS Variables ─────────────────────────────────────────────────────── */
     :root {
       --gold:           #C9A84C;
@@ -27,38 +28,14 @@
     }
 
     /* ─── Reset ─────────────────────────────────────────────────────────────── */
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      user-select: none;
-      -webkit-user-select: none;
-    }
-
+    * { margin: 0; padding: 0; box-sizing: border-box; user-select: none; -webkit-user-select: none; }
     html { scroll-behavior: smooth; }
-
-    body {
-      font-family: 'EB Garamond', Georgia, serif;
-      background: var(--parchment);
-      color: var(--text-dark);
-      overflow-x: hidden;
-    }
+    body { font-family: 'EB Garamond', Georgia, serif; background: var(--parchment); color: var(--text-dark); overflow-x: hidden; }
 
     /* ─── Language Bar ───────────────────────────────────────────────────────── */
     .lang-bar { background: var(--deep-blue); padding: 8px 0; }
-
-    .lang-bar .container {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 0 40px;
-    }
-
-    .lang-bar-left {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
+    .lang-bar .container { display: flex; justify-content: space-between; align-items: center; padding: 0 40px; }
+    .lang-bar-left { display: flex; align-items: center; gap: 10px; }
 
     .icon-link {
       display: flex;
@@ -1189,6 +1166,12 @@ function renderLightbox() {
 
     /* ── Init ──────────────────────────────────────────────────────────────── */
     setLang('sq');
+
+document.querySelectorAll('img').forEach(img => {
+  img.addEventListener('contextmenu', e => e.preventDefault());
+});
+
+    
   </script>
 
 </body>
