@@ -103,7 +103,6 @@ footer { background: var(--warm-dark); padding: 60px 0 0; }
   .church-name-block p { font-size: 12px; } 
   .page-title-section { padding: 40px 20px 36px; } 
   .page-title-section h2 { font-size: 28px; letter-spacing: 2px; } 
-  .page-subtitle { font-size: 15px; }
   .accordion-section { padding: 40px 20px 60px; } 
   .accordion-header { padding: 16px 18px; } 
   .accordion-title { font-size: 15px; } 
@@ -174,15 +173,17 @@ footer { background: var(--warm-dark); padding: 60px 0 0; }
   <div class="eyebrow" data-t="events_eyebrow">Kisha Profeti Ilia</div>
   <h2 data-t="events_title">Shërbesat në Kishë</h2>
   <div class="title-line"></div>
-  <div class="page-subtitle" data-t="page_subtitle">Misteret dhe shërbesat në Kishë</div>
 </div>
 
 <!-- ACCORDION SECTION -->
 <section class="accordion-section">
-  <div id="accordionContainer">
-    <!-- Accordion items will be populated by JavaScript -->
+  <div style="margin-bottom: 40px;">
+    <div style="font-family: 'Cinzel', serif; font-size: 13px; font-weight: 700; letter-spacing: 2.5px; text-transform: uppercase; color: var(--gold); margin-bottom: 12px; display: flex; align-items: center; gap: 14px;">
+      Misteret dhe shërbesat në Kishë
+      <span style="flex: 1; height: 1px; background: linear-gradient(90deg, var(--gold) 0%, transparent 100%); opacity: 0.5;"></span>
+    </div>
   </div>
-</section>
+  <div id="accordionContainer">
 
 <!-- FOOTER -->
 <footer>
@@ -369,17 +370,17 @@ const servicesData = [
   {
     id: 3,
     title_sq: "Uji i Bekuar",
-    title_en: "[To complete] Service 3",
-    title_el: "[Προς συμπλήρωση] Ιεροσύνη 3",
+    title_en: "Holy Water",
+    title_el: "Αγιασμός",
     content_sq: `<p>Uji i Bekuar është një nga shërbesat më të njohura të Kishës Ortodokse, ku prifti bekon ujin përmes lutjeve dhe riteve të shenjta, duke kërkuar hirin, paqen dhe mbrojtjen e Perëndisë mbi besimtarët. Ai përdoret për bekimin e familjeve, shtëpive, ambienteve të punës dhe në raste të ndryshme shpirtërore gjatë vitit kishtar. Kjo shërbesë simbolizon pastrimin, bekimin dhe forcimin shpirtëror të njeriut dhe jetës së tij të përditshme.<br>Shërbesa e Ujit të Bekuar zakonisht zhvillohet një herë në muaj në kishë, por mund të kryhet edhe me kërkesë të besimtarëve në familje ose ambiente të tjera. Ndryshe kjo shërbesë njihet edhe si “Bekimi i Ujit” ose “Ajazma”, sipas traditës kishtare ortodokse.</p>`,
-    content_en: `<p><em>The content of this service will be added soon. Please visit again or contact the church for more information.</em></p>`,
-    content_el: `<p><em>Το περιεχόμενο αυτής της ιεροσύνης θα προστεθεί σύντομα. Παρακαλούμε επισκεφθείτε ξανά ή επικοινωνήστε με την εκκλησία για περισσότερες πληροφορίες.</em></p>`
+    content_en: `<p>Holy Water is one of the well-known services of the Orthodox Church, in which the priest blesses water through prayers and sacred rites, asking for God’s grace, peace, and protection upon the faithful. It is used for the blessing of homes, families, workplaces, and various spiritual needs throughout the liturgical year. This service symbolizes purification, blessing, and the spiritual strengthening of human life.<br>The Service of Holy Water is commonly known in Orthodoxy as the Blessing of Water (Agiasmos). There are two forms: the Great Blessing of Waters (performed on the Feast of Theophany) and the Small Blessing of Waters, which is often performed monthly or upon request in churches, homes, or other places.</p>`,
+    content_el: `<p>Ο Αγιασμός είναι μία από τις πιο γνωστές ακολουθίες της Ορθόδοξης Εκκλησίας, κατά την οποία ο ιερέας ευλογεί το νερό με προσευχές και ιερές τελετές, ζητώντας τη χάρη, την ειρήνη και την προστασία του Θεού προς τους πιστούς. Χρησιμοποιείται για τον αγιασμό των οικιών, των οικογενειών, των χώρων εργασίας και για διάφορες πνευματικές ανάγκες κατά τη διάρκεια του εκκλησιαστικού έτους. Η ακολουθία αυτή συμβολίζει τον καθαρισμό, την ευλογία και την πνευματική ενίσχυση της ανθρώπινης ζωής.<br>Η ακολουθία του Αγιασμού είναι γνωστή στην Ορθόδοξη παράδοση ως Αγιασμός. Υπάρχουν δύο μορφές: ο Μέγας Αγιασμός (που τελείται κατά την εορτή των Θεοφανείων) και ο Μικρός Αγιασμός, ο οποίος τελείται συχνά μηνιαίως ή κατ’ αίτηση σε ναούς, σπίτια ή άλλους χώρους.</p>`
   },
   {
     id: 4,
     title_sq: "Urata për futjen në kishë të fëmijës pas dyzet ditësh",
-    title_en: "[To complete] Service 4",
-    title_el: "[Προς συμπλήρωση] Ιεροσύνη 4",
+    title_en: "Churching of a Child (Forty-Day Blessing)",
+    title_el: "Ευχή εις την σαραντήν της μητρός και την είσοδο του βρέφους εις τον ναόν",
     content_sq: `<p>Ditën e lindjes së fëmijës, Kisha Orthodhokse lutet me dashuri për nënën që sapo ka sjellë në jetë foshnjën dhe për mbrojtjen hyjnore të saj. Në lutjet e kësaj dite dëgjojmë:
 “Edhe këtë foshnjë që lindi prej saj, bëje të denjë t’i falet Kishës sate, që të lavdërohet emri yt i shenjtë.”
 <br>Në ditën e tetë, foshnjës i vihet emri, zakonisht emri i një shenjti, si shenjë e hyrjes së saj në bashkësinë e besimit dhe në jetën e hirit. Kisha lutet:
@@ -396,21 +397,21 @@ Kjo traditë lidhet thellësisht me Paraqitjen e Zotit në Tempull, kur e Tërë
   {
     id: 5,
     title_sq: "Efqelia (Lyerja me vaj)",
-    title_en: "[To complete] Service 5",
-    title_el: "[Προς συμπλήρωση] Ιεροσύνη 5",
-    content_sq: `<p>Përmbajtja e kësaj shërbese do të shtohet së shpejti. Ju lutemi vizitoni sërish ose kontaktoni kishën për më shumë informacion.</p>`,
-    content_en: `<p>The content of this service will be added soon. Please visit again or contact the church for more information.</p>`,
-    content_el: `<p>Το περιεχόμενο αυτής της ιεροσύνης θα προστεθεί σύντομα. Παρακαλούμε επισκεφθείτε ξανά ή επικοινωνήστε με την εκκλησία για περισσότερες πληροφορίες.</p>`
+    title_en: "Holy Unction (Anointing with Oil)",
+    title_el: "Ιερό Ευχέλαιο (Χρίσμα με Έλαιο)",
+    content_sq: `<p>Efqelia (Lyerja me Vaj) është një nga Misteret e Shenjta të Kishës Orthodhokse, përmes së cilës besimtarët marrin hirin e Perëndisë për shërimin e shpirtit dhe të trupit. Gjatë shërbesës, prifti bekon vajin dhe lyen besimtarët me të, duke u lutur për faljen e mëkateve, forcimin shpirtëror dhe shëndetin. Efqelia mund të kryhet si për një person të sëmurë, ashtu edhe për shumë besimtarë së bashku, sidomos në periudha të shenjta të vitit kishtar.</p>`,
+    content_en: `<p>Holy Unction is one of the Holy Mysteries of the Orthodox Church, through which the faithful receive God’s grace for the healing of both soul and body. During the service, the priest blesses the oil and anoints the faithful while offering prayers for forgiveness of sins, spiritual strength, and physical health. Holy Unction may be performed for an individual person or for many believers together, especially during sacred periods of the ecclesiastical year.</p>`,
+    content_el: `<p>Το Ιερό Ευχέλαιο είναι ένα από τα Ιερά Μυστήρια της Ορθόδοξης Εκκλησίας, μέσω του οποίου οι πιστοί λαμβάνουν τη χάρη του Θεού για τη θεραπεία της ψυχής και του σώματος. Κατά τη διάρκεια της ακολουθίας, ο ιερέας ευλογεί το λάδι και χρίει τους πιστούς, προσευχόμενος για συγχώρηση αμαρτιών, πνευματική ενίσχυση και σωματική υγεία. Το Ιερό Ευχέλαιο μπορεί να τελεστεί τόσο για έναν ασθενή όσο και για πολλούς πιστούς μαζί, ιδιαίτερα σε ιερές περιόδους του εκκλησιαστικού έτους.</p>`
   },
 
   {
     id: 6,
     title_sq: "Liturgjia Hyjnore",
-    title_en: "[To complete] Service 3",
-    title_el: "[Προς συμπλήρωση] Ιεροσύνη 3",
-    content_sq: `<p>Uji i Bekuar është një nga shërbesat më të njohura të Kishës Ortodokse, ku prifti bekon ujin përmes lutjeve dhe riteve të shenjta, duke kërkuar hirin, paqen dhe mbrojtjen e Perëndisë mbi besimtarët. Ai përdoret për bekimin e familjeve, shtëpive, ambienteve të punës dhe në raste të ndryshme shpirtërore gjatë vitit kishtar. Kjo shërbesë simbolizon pastrimin, bekimin dhe forcimin shpirtëror të njeriut dhe jetës së tij të përditshme.<br>Shërbesa e Ujit të Bekuar zakonisht zhvillohet një herë në muaj në kishë, por mund të kryhet edhe me kërkesë të besimtarëve në familje ose ambiente të tjera. Ndryshe kjo shërbesë njihet edhe si “Bekimi i Ujit” ose “Ajazma”, sipas traditës kishtare ortodokse.</p>`,
-    content_en: `<p>The content of this service will be added soon. Please visit again or contact the church for more information.</p>`,
-    content_el: `<p>Το περιεχόμενο αυτής της ιεροσύνης θα προστεθεί σύντομα. Παρακαλούμε επισκεφθείτε ξανά ή επικοινωνήστε με την εκκλησία για περισσότερες πληροφορίες.</p>`
+    title_en: "Divine Liturgy",
+    title_el: "Θεία Λειτουργία",
+    content_sq: `<p>Liturgjia Hyjnore është shërbesa qëndrore e Kishës Orthodhokse, në të cilën kremtohet Eukaristia e Shenjtë dhe besimtarët marrin Trupin dhe Gjakun e Krishtit.<br>Ajo ekziston kryesisht në dy forma kryesore: Liturgjia e Shën Joan Gojartit dhe Liturgjia e Shën Vasilit të Madh. Liturgjia e Shën Joanit është më e përdorura gjatë vitit kishtar, ndërsa Liturgjia e Shën Vasilit shërbehet në ditë të veçanta dhe në periudha të rëndësishme si Kreshma e Madhe dhe disa festa të mëdha, duke qenë më e gjatë dhe më e thelluar në lutje.</p>`,
+    content_en: `<p>The Divine Liturgy is the central service of the Orthodox Church, in which the Holy Eucharist is celebrated and the faithful receive the Body and Blood of Christ.<br>It is primarily celebrated in two main forms: the Divine Liturgy of Saint John Chrysostom and the Divine Liturgy of Saint Basil the Great. The Liturgy of Saint John Chrysostom is the most commonly used throughout the liturgical year, while the Liturgy of Saint Basil is celebrated on specific occasions, especially during Great Lent and certain major feasts, being longer and more theologically profound in its prayers.</p>`,
+    content_el: `<p>Η Θεία Λειτουργία είναι η κεντρική ακολουθία της Ορθόδοξης Εκκλησίας, στην οποία τελείται η Θεία Ευχαριστία και οι πιστοί κοινωνούν το Σώμα και το Αίμα του Χριστού.<br>Υπάρχει κυρίως σε δύο βασικές μορφές: η Θεία Λειτουργία του Αγίου Ιωάννου του Χρυσοστόμου και η Θεία Λειτουργία του Αγίου Βασιλείου του Μεγάλου. Η Λειτουργία του Αγίου Ιωάννου τελείται συχνότερα κατά τη διάρκεια του εκκλησιαστικού έτους, ενώ η Λειτουργία του Αγίου Βασιλείου τελείται σε συγκεκριμένες ημέρες, κυρίως κατά τη Μεγάλη Τεσσαρακοστή και σε μεγάλες εορτές, και είναι πιο εκτενής και θεολογικά βαθιά στις ευχές της.</p>`
   },
 ];
 
@@ -426,8 +427,7 @@ const T = {
   nav_catechism: { sq: 'Katekizëm', en: 'Catechism', el: 'Κατήχηση' },
   nav_more: { sq: 'Më shumë', en: 'More', el: 'Περισσότερα' },
   events_eyebrow: { sq: 'Kisha Profeti Ilia', en: 'Prophet Elijah Church', el: 'Ναός Προφήτης Ηλίας' },
-  events_title: { sq: 'Shërbesat', en: 'Services', el: 'Ιεροσύνες' },
-  page_subtitle: { sq: 'Sakramentet dhe shërbesat e Kishës Orthodhokse', en: 'Sacraments and services of the Orthodox Church', el: 'Μυστήρια και ακολουθίες της Ορθόδοξης Εκκλησίας' },
+  events_title: { sq: 'Shërbesat Në Kishë', en: 'Church Services', el: 'Ακολουθίες στην Εκκλησία' },
   footer_quick_links: { sq: 'Lidhje të Shpejta', en: 'Quick Links', el: 'Γρήγοροι Σύνδεσμοι' }
 };
 
