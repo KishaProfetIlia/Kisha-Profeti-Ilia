@@ -109,9 +109,43 @@ footer { background: var(--warm-dark); padding: 60px 0 0; }
 .footer-instagram:hover { opacity: 0.7; }
 
 /* RESPONSIVE */
-@media (max-width: 900px) { .history-inner { grid-template-columns: 1fr; gap: 40px; } .footer-inner { grid-template-columns: 1fr 1fr; } .header-inner { flex-direction: column; gap: 16px; text-align: center; } .nav-inner { justify-content: center; } }
-@media (max-width: 600px) { .lang-bar .container { padding: 0 16px; } .lang-bar-left { gap: 6px; } .instagram-link svg { width: 18px; height: 18px; } .header-inner { padding: 20px; } .church-name-block h1 { font-size: 16px; } .church-name-block p { font-size: 12px; } .hero { padding: 60px 20px; min-height: 70vh; } .hero h2 { font-size: 28px; } .hero-subtitle { font-size: 14px; } .hero-cta { padding: 12px 24px; font-size: 11px; } .hero-arch { display: none; } .history-inner { padding: 0 20px; gap: 30px; } .history-text h3 { font-size: 24px; } .history-text p { font-size: 15px; } .history-stats { grid-template-columns: 1fr 1fr; gap: 12px; } .stat-box .num { font-size: 28px; } .footer-inner { grid-template-columns: 1fr; gap: 30px; padding: 0 20px 40px; } .footer-bottom { padding: 16px 20px; flex-direction: column; text-align: center; } .footer-bottom p { justify-content: center; } .lightbox-arrow { display: none; } nav { overflow-x: auto; -webkit-overflow-scrolling: touch; scrollbar-width: thin; } nav::-webkit-scrollbar { height: 3px; } nav::-webkit-scrollbar-track { background: var(--mid-blue); } nav::-webkit-scrollbar-thumb { background: var(--gold); border-radius: 3px; } .nav-inner { min-width: max-content; padding: 0 16px; gap: 2px; } .nav-link { padding: 14px 14px; font-size: 9px; } }
-@media (max-width: 380px) { .hero h2 { font-size: 22px; } .history-stats { grid-template-columns: 1fr; } .church-name-block h1 { font-size: 14px; } }
+@media (max-width: 900px) { 
+  .history-inner { grid-template-columns: 1fr; gap: 40px; } 
+  .footer-inner { grid-template-columns: 1fr 1fr; } 
+  .header-inner { flex-direction: column; gap: 16px; text-align: center; } 
+  .nav-inner { justify-content: center; } }
+@media (max-width: 600px) { 
+  .lang-bar .container { padding: 0 16px; } 
+  .lang-bar-left { gap: 6px; } 
+  .instagram-link svg { width: 18px; height: 18px; } 
+  .header-inner { padding: 20px; } 
+  .church-name-block h1 { font-size: 16px; } 
+  .church-name-block p { font-size: 12px; } 
+  .hero { padding: 60px 20px; min-height: 70vh; } 
+  .hero h2 { font-size: 28px; } 
+  .hero-subtitle { font-size: 14px; } 
+  .hero-cta { padding: 12px 24px; font-size: 11px; } 
+  .hero-arch { display: none; } 
+  .history-inner { padding: 0 20px; gap: 30px; } 
+  .history-text h3 { font-size: 24px; } 
+  .history-text p { font-size: 15px; } 
+  .history-stats { grid-template-columns: 1fr 1fr; gap: 12px; } 
+  .stat-box .num { font-size: 28px; } 
+  .footer-inner { grid-template-columns: 1fr; gap: 30px; padding: 0 20px 40px; }
+  .footer-bottom { padding: 16px 20px; flex-direction: column; text-align: center; } 
+  .footer-bottom p { justify-content: center; } 
+  .lightbox-arrow { display: none; }
+  nav { overflow-x: auto; -webkit-overflow-scrolling: touch; scrollbar-width: thin; } 
+  nav::-webkit-scrollbar { height: 3px; } 
+  nav::-webkit-scrollbar-track { background: var(--mid-blue); } 
+  nav::-webkit-scrollbar-thumb { background: var(--gold); border-radius: 3px; } 
+  .nav-inner { min-width: max-content; padding: 0 16px; gap: 2px; } 
+  .nav-link { padding: 14px 14px; font-size: 9px; } 
+  #welcomeOverlay { align-items: flex-start; padding: 16px; } }
+@media (max-width: 380px) { 
+  .hero h2 { font-size: 22px; } 
+  .history-stats { grid-template-columns: 1fr; } 
+  .church-name-block h1 { font-size: 14px; } }
 
 /* ANIMATIONS */
 @keyframes fadeInUp { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: translateY(0); } }
@@ -126,7 +160,7 @@ footer { background: var(--warm-dark); padding: 60px 0 0; }
 
 
 <!-- WELCOME MODAL -->
-<div id="welcomeOverlay" style="position:fixed;inset:0;background:rgba(15,14,11,0.6);z-index:9999;display:flex;align-items:center;justify-content:center;padding:20px;opacity:0;transition:opacity 0.4s;">
+<div id="welcomeOverlay" style="position:fixed;inset:0;background:rgba(15,14,11,0.6);z-index:9999;display:flex;align-items:center;justify-content:center;padding:20px;opacity:0;transition:opacity 0.4s;overflow-y:auto;">
   <div style="background:#FAF8F3;border-radius:6px;border:1px solid rgba(201,168,76,0.35);max-width:420px;width:100%;overflow:hidden;">
     
     <!-- TOP -->
@@ -477,7 +511,7 @@ window.setLang = function(lang) {
 // Show on first visit
 window.addEventListener('DOMContentLoaded', () => {
   // Remove the line below to re-enable first-visit-only behavior
-  // if (localStorage.getItem('wm_seen')) return;
+  if (localStorage.getItem('wm_seen')) return;
   const o = document.getElementById('welcomeOverlay');
   o.style.display = 'flex';
   document.body.style.overflow = 'hidden';
