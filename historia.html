@@ -14,18 +14,15 @@
     :root {
       --gold:           #C9A84C;
       --gold-light:     #E8C97A;
-      --gold-pale:      #F5EDD8;
       --deep-blue:      #1A1F3C;
       --mid-blue:       #2D3561;
       --warm-dark:      #0F0E0B;
       --parchment:      #FAF6EE;
-      --red-byzantine:  #8B1A1A;
       --cream:          #F2EDE4;
       --text-dark:      #1A1715;
       --text-mid:       #4A4035;
       --text-light:     #9A8E7E;
       --border:         rgba(201, 168, 76, 0.25);
-      --shadow:         0 4px 30px rgba(15, 14, 11, 0.15);
     }
 
     /* ─── Reset ─────────────────────────────────────────────────────────────── */
@@ -37,16 +34,6 @@
     .lang-bar { background: var(--deep-blue); padding: 8px 0; }
     .lang-bar .container { display: flex; justify-content: space-between; align-items: center; padding: 0 40px; }
     .lang-bar-left { display: flex; align-items: center; gap: 10px; }
-
-    .icon-link {
-      display: flex;
-      align-items: center;
-      color: rgba(255, 255, 255, 0.7);
-      text-decoration: none;
-      transition: color 0.25s;
-    }
-
-    .icon-link:hover { color: #fff; }
 
     .lang-bar-right {
       display: flex;
@@ -181,6 +168,8 @@
       text-decoration: none;
       transition: color 0.25s;
     }
+
+    .icon-link:hover { color: #fff; }
 
     /* ─── Page Title ─────────────────────────────────────────────────────────── */
     .page-title-section {
@@ -474,13 +463,6 @@
       display: block;
     }
 
-    .lightbox-placeholder {
-      width: min(600px, 85vw);
-      height: min(420px, 70vh);
-      background: linear-gradient(135deg, var(--deep-blue), var(--mid-blue));
-      border: 1px solid rgba(201, 168, 76, 0.2);
-    }
-
     .lightbox-close {
       position: fixed;
       top: 24px;
@@ -648,7 +630,6 @@
       nav { overflow-x: auto; -webkit-overflow-scrolling: touch; }
       .nav-inner { min-width: max-content; padding: 0 16px; }
       .nav-link { padding: 14px 14px; font-size: 9px; } 
-      .icon-link svg { width: 18px; height: 18px; }
       .icon-link svg { width: 18px; height: 18px; }
     }
   </style>
