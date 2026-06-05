@@ -507,8 +507,10 @@ window.setLang = function(lang) {
 
 // Show on first visit
 window.addEventListener('DOMContentLoaded', () => {
-  // Remove the line below to re-enable first-visit-only behavior
-  if (localStorage.getItem('wm_seen')) return;
+  if (localStorage.getItem('wm_seen')) {
+    document.getElementById('welcomeOverlay').style.display = 'none'; // add this
+    return;
+  }
   const o = document.getElementById('welcomeOverlay');
   o.style.display = 'flex';
   document.body.style.overflow = 'hidden';
