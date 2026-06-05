@@ -173,6 +173,15 @@
       box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
     }
 
+    .icon-link {
+      display: flex;
+      align-items: center;
+      justify-content: center;  /* add this */
+      color: rgba(255, 255, 255, 0.7);
+      text-decoration: none;
+      transition: color 0.25s;
+    }
+
     /* ─── Page Title ─────────────────────────────────────────────────────────── */
     .page-title-section {
       background: var(--deep-blue);
@@ -639,6 +648,7 @@
       nav { overflow-x: auto; -webkit-overflow-scrolling: touch; }
       .nav-inner { min-width: max-content; padding: 0 16px; }
       .nav-link { padding: 14px 14px; font-size: 9px; } 
+      .icon-link svg { width: 18px; height: 18px; }
       .icon-link svg { width: 18px; height: 18px; }
     }
   </style>
