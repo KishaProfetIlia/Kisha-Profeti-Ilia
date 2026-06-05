@@ -8,7 +8,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Noto+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
-:root { --gold: #C9A84C; --gold-light: #E8C97A; --gold-pale: #F5EDD8; --deep-blue: #1A1F3C; --mid-blue: #2D3561; --warm-dark: #0F0E0B; --parchment: #FAF6EE; --stone: #8B7D6B; --red-byzantine: #8B1A1A; --cream: #F2EDE4; --text-dark: #1A1715; --text-mid: #4A4035; --text-light: #9A8E7E; --border: rgba(201,168,76,0.25); --shadow: 0 4px 30px rgba(15,14,11,0.15); }
+:root { --gold: #C9A84C; --gold-light: #E8C97A; --deep-blue: #1A1F3C; --mid-blue: #2D3561; --warm-dark: #0F0E0B; --parchment: #FAF6EE; --cream: #F2EDE4; --text-dark: #1A1715; --text-mid: #4A4035; --text-light: #9A8E7E; --border: rgba(201,168,76,0.25); }
 * { margin: 0; padding: 0; box-sizing: border-box; }
 html { scroll-behavior: smooth; }
 body { font-family: 'EB Garamond', Georgia, serif; background: var(--parchment); color: var(--text-dark); overflow-x: hidden; }
@@ -421,10 +421,8 @@ const T = {
   footer_hours2: { sq: 'Hapur për lutje (pasdite) – 17:00–19:00', en: 'Open for prayer (afternoon) – 17:00–19:00', el: 'Ανοιχτό για προσευχή (απόγευμα) – 17:00–19:00' }
 };
 
-let currentLang = 'sq';
 
 function setLang(lang) {
-  currentLang = lang;
   document.querySelectorAll('.lang-btn').forEach(btn => btn.classList.remove('active'));
   document.querySelector(`.lang-btn[onclick="setLang('${lang}')"]`).classList.add('active');
   document.getElementById('lang-label-text').textContent = T.lang_label[lang];
@@ -478,7 +476,6 @@ const WM_TEXTS = {
 
 function wmUpdateLang(lang) {
   ['eyebrow','title','sub','navlabel','enter','g1h','g1p','g2h','g2p','g3h','g3p','g4h','g4p','g5h','g5p'].forEach(k => {
-    const el = document.getElementById('wm-'+k) || document.getElementById('wm-enter-btn');
     const target = k === 'enter' ? document.getElementById('wm-enter-btn') : document.getElementById('wm-'+k);
     if (target && WM_TEXTS[k]) target.innerHTML = WM_TEXTS[k][lang] || WM_TEXTS[k]['sq'];
   });
