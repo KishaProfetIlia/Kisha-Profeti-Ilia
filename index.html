@@ -168,7 +168,7 @@ footer { background: var(--warm-dark); padding: 60px 0 0; }
     
     <!-- TOP -->
     <div style="padding:32px 32px 22px;text-align:center;border-bottom:1px solid rgba(201,168,76,0.15);">
-      <img src="Assets/logo.png" alt="" style="width:52px;height:52px;border-radius:50%;object-fit:cover;margin-bottom:16px;">
+      <img src="Assets/logo.png" alt="" style="width:76px;height:76px;border-radius:50%;object-fit:cover;margin-bottom:16px;">
       <div style="font-family:'Noto Sans',sans-serif;font-size:10px;font-weight:500;letter-spacing:3px;text-transform:uppercase;color:#C9A84C;margin-bottom:10px;" id="wm-eyebrow">Mirë se vini · Welcome</div>
       <div style="font-family:'Cinzel',serif;font-size:26px;font-weight:700;color:#1A1715;margin-bottom:8px;" id="wm-title">Mirë se Vini!</div>
       <p style="font-family:'EB Garamond',serif;font-size:16px;color:#5A5040;line-height:1.6;" id="wm-sub">Ky është faqja zyrtare e Kishës Orthodhokse <em>"Profeti Ilia"</em> — Korçë.</p>
@@ -185,27 +185,10 @@ footer { background: var(--warm-dark); padding: 60px 0 0; }
 
     <!-- BOTTOM -->
     <div style="padding:20px 32px;">
-      <button id="wmNavBtn" onclick="wmToggleGuide()" style="width:100%;background:transparent;border:1px solid rgba(201,168,76,0.35);color:#5A5040;font-family:'Cinzel',serif;font-size:11px;font-weight:600;letter-spacing:2px;text-transform:uppercase;padding:11px 20px;cursor:pointer;border-radius:3px;transition:all 0.25s;display:flex;align-items:center;justify-content:center;gap:8px;">
-        <span id="wm-nav-label">Si të navigoni faqen</span>
-        <svg id="wmChevron" width="14" height="14" viewBox="0 0 14 14" fill="none" style="transition:transform 0.25s;"><path d="M2 4.5L7 9.5L12 4.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-      </button>
-
-      <div id="wmGuide" style="max-height:0;overflow:hidden;transition:max-height 0.35s ease;">
-        <div style="padding-top:18px;border-top:1px solid rgba(201,168,76,0.15);margin-top:16px;">
-          <div class="wm-row"><div class="wm-num">1</div><div><b class="wm-h" id="wm-g1h">Historia</b><p class="wm-p" id="wm-g1p">Zbuloni historinë e kishës dhe Profetit Ilia.</p></div></div>
-          <div class="wm-row"><div class="wm-num">2</div><div><b class="wm-h" id="wm-g2h">Shërbesat</b><p class="wm-p" id="wm-g2p">Oraret e shërbesave dhe ngjarjeve liturgjike.</p></div></div>
-          <div class="wm-row"><div class="wm-num">3</div><div><b class="wm-h" id="wm-g3h">Galeria</b><p class="wm-p" id="wm-g3p">Foto nga kisha dhe ceremonitë e shenjta.</p></div></div>
-          <div class="wm-row"><div class="wm-num">4</div><div><b class="wm-h" id="wm-g4h">Katekizëm</b><p class="wm-p" id="wm-g4p">Mësime të besimit orthodhoks për të gjithë.</p></div></div>
-          <div class="wm-row" style="margin-bottom:0;"><div class="wm-num">5</div><div><b class="wm-h" id="wm-g5h">Më Shumë</b><p class="wm-p" id="wm-g5p">Informacione shtesë, kontakte dhe lajme.</p></div></div>
-        </div>
-      </div>
-
       <div style="display:flex;gap:10px;margin-top:16px;border-top:1px solid rgba(201,168,76,0.15);padding-top:16px;">
         <button onclick="wmClose()" style="flex:1;background:#C9A84C;border:1px solid #C9A84C;color:#1A1F3C;font-family:'Cinzel',serif;font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;padding:11px 20px;cursor:pointer;border-radius:3px;transition:all 0.25s;" id="wm-enter-btn">Hyr në Faqe</button>
       </div>
     </div>
-  </div>
-</div>
 
 <style>
 .wm-clink { width:38px;height:38px;border-radius:50%;border:1px solid rgba(201,168,76,0.35);display:flex;align-items:center;justify-content:center;color:#C9A84C;text-decoration:none;transition:all 0.2s;background:transparent; }
@@ -214,7 +197,6 @@ footer { background: var(--warm-dark); padding: 60px 0 0; }
 .wm-num { width:26px;height:26px;border-radius:50%;border:1px solid rgba(201,168,76,0.35);color:#C9A84C;font-family:'Cinzel',serif;font-size:12px;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:2px; }
 .wm-h { font-family:'Cinzel',serif;font-size:12px;font-weight:700;letter-spacing:1px;color:#1A1715;display:block;margin-bottom:2px;text-transform:uppercase; }
 .wm-p { font-family:'EB Garamond',serif;font-size:15px;color:#5A5040;line-height:1.5;margin:0; }
-#wmNavBtn:hover { border-color:#C9A84C;color:#C9A84C;background:rgba(201,168,76,0.05); }
 #wm-enter-btn:hover { background:#E8C97A;border-color:#E8C97A; }
 </style>
 
@@ -448,36 +430,15 @@ setLang('sq');
 const WM_TEXTS = {
   eyebrow:  { sq:'Mirë se vini · Welcome', en:'Welcome', el:'Καλώς ήρθατε' },
   title:    { sq:'Mirë se Vini!', en:'Welcome!', el:'Καλώς ήρθατε!' },
-  sub:      { sq:'Ky është faqja zyrtare e Kishës Orthodhokse <em>"Profeti Ilia"</em> — Korçë.', en:'This is the official website of <em>"Prophet Elijah"</em> Orthodox Church — Korçë.', el:'Αυτός είναι ο επίσημος ιστότοπος του Ναού <em>«Προφήτης Ηλίας»</em> — Κορυτσά.' },
-  navlabel: { sq:'Si të navigoni faqen', en:'How to navigate the site', el:'Πώς να περιηγηθείτε' },
+  sub:      { sq:'Kj është faqja zyrtare e Kishës Orthodhokse <em>"Profeti Ilia"</em> — Korçë.', en:'This is the official website of <em>"Prophet Elijah"</em> Orthodox Church — Korçë.', el:'Αυτός είναι ο επίσημος ιστότοπος του Ναού <em>«Προφήτης Ηλίας»</em> — Κορυτσά.' },
   enter:    { sq:'Hyr në Faqe', en:'Enter Site', el:'Είσοδος' },
-  g1h: { sq:'Historia', en:'History', el:'Ιστορία' },
-  g1p: { sq:'Zbuloni historinë e kishës dhe Profetit Ilia.', en:'Discover the history of the church and Prophet Elijah.', el:'Ανακαλύψτε την ιστορία της εκκλησίας.' },
-  g2h: { sq:'Shërbesat', en:'Holy Services', el:'Ακολουθίες' },
-  g2p: { sq:'Oraret e shërbesave dhe ngjarjeve liturgjike.', en:'Service times and liturgical events.', el:'Ώρες ακολουθιών και λειτουργιών.' },
-  g3h: { sq:'Galeria', en:'Gallery', el:'Γκαλερί' },
-  g3p: { sq:'Foto nga kisha dhe ceremonitë e shenjta.', en:'Photos from the church and holy ceremonies.', el:'Φωτογραφίες από την εκκλησία.' },
-  g4h: { sq:'Katekizëm', en:'Catechism', el:'Κατήχηση' },
-  g4p: { sq:'Mësime të besimit orthodhoks për të gjithë.', en:'Orthodox faith teachings for everyone.', el:'Μαθήματα ορθόδοξης πίστης για όλους.' },
-  g5h: { sq:'Më Shumë', en:'More', el:'Περισσότερα' },
-  g5p: { sq:'Informacione shtesë, kontakte dhe lajme.', en:'Additional info, contacts and news.', el:'Πρόσθετες πληροφορίες και επικοινωνία.' },
 };
 
 function wmUpdateLang(lang) {
-  ['eyebrow','title','sub','navlabel','enter','g1h','g1p','g2h','g2p','g3h','g3p','g4h','g4p','g5h','g5p'].forEach(k => {
+  ['eyebrow','title','sub','enter'].forEach(k => {
     const target = k === 'enter' ? document.getElementById('wm-enter-btn') : document.getElementById('wm-'+k);
     if (target && WM_TEXTS[k]) target.innerHTML = WM_TEXTS[k][lang] || WM_TEXTS[k]['sq'];
   });
-  const navLabel = document.getElementById('wm-nav-label');
-  if (navLabel) navLabel.textContent = WM_TEXTS.navlabel[lang] || WM_TEXTS.navlabel['sq'];
-}
-
-function wmToggleGuide() {
-  const g = document.getElementById('wmGuide');
-  const ch = document.getElementById('wmChevron');
-  const open = g.style.maxHeight !== '0px' && g.style.maxHeight !== '';
-  g.style.maxHeight = open ? '0' : '500px';
-  ch.style.transform = open ? '' : 'rotate(180deg)';
 }
 
 function wmClose() {
