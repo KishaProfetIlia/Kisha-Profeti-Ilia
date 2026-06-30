@@ -80,7 +80,7 @@ blockquote p { font-style: italic; font-size: 19px; color: var(--deep-blue); mar
 .photo-item:hover .zoom-icon { opacity: 1; transform: scale(1); }
 
 /* LIGHTBOX */
-.lightbox { position: fixed; inset: 0; background: rgba(10,12,25,.96); z-index: 1000; display: flex; align-items: center; justify-content: center; opacity: 0; pointer-events: none; transition: opacity .3s; }
+.lightbox { position: fixed; inset: 0; background: rgba(10,12,25,.55); backdrop-filter: blur(16px) saturate(140%); -webkit-backdrop-filter: blur(16px) saturate(140%); z-index: 1000; display: flex; align-items: center; justify-content: center; opacity: 0; pointer-events: none; transition: opacity .35s ease; }
 .lightbox.open { opacity: 1; pointer-events: all; }
 .lightbox-backdrop { position: absolute; inset: 0; cursor: pointer; }
 .lightbox-content { position: relative; z-index: 1; max-width: 90vw; max-height: 90vh; display: flex; flex-direction: column; align-items: center; }
@@ -94,6 +94,9 @@ blockquote p { font-style: italic; font-size: 19px; color: var(--deep-blue); mar
 .lightbox-arrow.prev { left: 20px; }
 .lightbox-arrow.next { right: 20px; }
 .lightbox-counter { margin-top: 14px; font-family: 'Noto Sans', sans-serif; font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: rgba(201,168,76,.5); }
+.lightbox-close, .lightbox-arrow { backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); }
+.lightbox-img-wrap img { animation: lightboxIn .35s ease; }
+@keyframes lightboxIn { from { opacity:0; transform:scale(.94); } to { opacity:1; transform:scale(1); } }
 
 /* FOOTER */
 footer { background: var(--warm-dark); padding: 60px 0 0; }
