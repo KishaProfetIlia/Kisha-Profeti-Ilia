@@ -78,7 +78,7 @@ nav { background: linear-gradient(135deg, var(--mid-blue), var(--deep-blue)); bo
 .history-img-frame:hover img { transform: scale(1.03); }
 
 /* LIGHTBOX */
-.lightbox { position: fixed; inset: 0; background: rgba(10,12,25,0.96); z-index: 1000; display: flex; align-items: center; justify-content: center; opacity: 0; pointer-events: none; transition: opacity 0.3s; }
+.lightbox { position: fixed; inset: 0; background: rgba(10,12,25,0.55); backdrop-filter: blur(16px) saturate(140%); -webkit-backdrop-filter: blur(16px) saturate(140%); z-index: 1000; display: flex; align-items: center; justify-content: center; opacity: 0; pointer-events: none; transition: opacity 0.35s ease; }
 .lightbox.open { opacity: 1; pointer-events: all; }
 .lightbox-backdrop { position: absolute; inset: 0; cursor: pointer; }
 .lightbox-content { position: relative; z-index: 1; max-width: 90vw; max-height: 90vh; display: flex; flex-direction: column; align-items: center; }
@@ -91,7 +91,10 @@ nav { background: linear-gradient(135deg, var(--mid-blue), var(--deep-blue)); bo
 .lightbox-arrow.prev { left: 20px; }
 .lightbox-arrow.next { right: 20px; }
 .lightbox-counter { margin-top: 14px; font-family: 'Noto Sans', sans-serif; font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: rgba(201,168,76,0.5); }
-
+.lightbox-close, .lightbox-arrow { backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); }
+.lightbox-img-wrap img { animation: lightboxIn 0.35s ease; }
+@keyframes lightboxIn { from { opacity:0; transform:scale(0.94); } to { opacity:1; transform:scale(1); } }
+  
 /* FOOTER */
 footer { background: var(--warm-dark); padding: 60px 0 0; }
 .footer-inner { max-width: 1200px; margin: 0 auto; padding: 0 40px 50px; display: grid; grid-template-columns: 1.5fr 1fr 1fr; gap: 50px; }
@@ -159,6 +162,8 @@ footer { background: var(--warm-dark); padding: 60px 0 0; }
 </head>
 
 
+  
+<body>
 <!-- WELCOME MODAL -->
 <div id="welcomeOverlay" style="position:fixed;inset:0;background:rgba(15,14,11,0.6);z-index:9999;display:flex;align-items:center;justify-content:center;padding:20px;opacity:0;transition:opacity 0.4s;overflow-y:auto;">
   <div style="background:#FAF8F3;border-radius:6px;border:1px solid rgba(201,168,76,0.35);max-width:420px;width:100%;overflow:hidden;">
@@ -212,19 +217,9 @@ footer { background: var(--warm-dark); padding: 60px 0 0; }
 .wm-h { font-family:'Cinzel',serif;font-size:12px;font-weight:700;letter-spacing:1px;color:#1A1715;display:block;margin-bottom:2px;text-transform:uppercase; }
 .wm-p { font-family:'EB Garamond',serif;font-size:15px;color:#5A5040;line-height:1.5;margin:0; }
 #wmNavBtn:hover { border-color:#C9A84C;color:#C9A84C;background:rgba(201,168,76,0.05); }
-#wmEnterBtn:hover { background:#E8C97A;border-color:#E8C97A; }
+#wm-enter-btn:hover { background:#E8C97A;border-color:#E8C97A; }
 </style>
 
-
-
-
-
-
-
-
-
-  
-<body>
 
 <!-- LANGUAGE BAR -->
 <div class="lang-bar">
