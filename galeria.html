@@ -68,7 +68,7 @@ nav { background: linear-gradient(135deg, var(--mid-blue), var(--deep-blue)); bo
 .gallery-item .caption span { font-family: 'EB Garamond', serif; font-style: italic; font-size: 13px; color: rgba(255,255,255,0.85); line-height: 1.4; }
 
 /* LIGHTBOX */
-.lightbox { position: fixed; inset: 0; background: rgba(10,12,25,0.96); z-index: 1000; display: flex; align-items: center; justify-content: center; opacity: 0; pointer-events: none; transition: opacity 0.3s; }
+.lightbox { position: fixed; inset: 0; background: rgba(10,12,25,.55); backdrop-filter: blur(16px) saturate(140%); -webkit-backdrop-filter: blur(16px) saturate(140%); z-index: 1000; display: flex; align-items: center; justify-content: center; opacity: 0; pointer-events: none; transition: opacity .35s ease; }
 .lightbox.open { opacity: 1; pointer-events: all; }
 .lightbox-backdrop { position: absolute; inset: 0; cursor: pointer; }
 .lightbox-content { position: relative; z-index: 1; max-width: 90vw; max-height: 90vh; display: flex; flex-direction: column; align-items: center; }
@@ -84,7 +84,10 @@ nav { background: linear-gradient(135deg, var(--mid-blue), var(--deep-blue)); bo
 .lightbox-arrow.next { right: 20px; }
 .lightbox-caption { margin-top: 16px; font-family: 'EB Garamond', serif; font-style: italic; font-size: 16px; color: rgba(255,255,255,0.5); text-align: center; letter-spacing: 0.3px; }
 .lightbox-counter { margin-top: 8px; font-family: 'Noto Sans', sans-serif; font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: rgba(201,168,76,0.5); }
-
+.lightbox-close, .lightbox-arrow { backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); }
+.lightbox-img-wrap img { animation: lightboxIn .35s ease; }
+@keyframes lightboxIn { from { opacity:0; transform:scale(.94); } to { opacity:1; transform:scale(1); } }
+  
 /* FOOTER */
 footer { background: var(--warm-dark); padding: 60px 0 0; }
 .footer-inner { max-width: 1200px; margin: 0 auto; padding: 0 40px 50px; display: grid; grid-template-columns: 1.5fr 1fr; gap: 50px; }
@@ -290,7 +293,6 @@ function setLang(lang) {
   const footerNavLinks = document.querySelectorAll('.footer-links a');
   const footerNavKeys = ['footer_nav_home','footer_nav_history','footer_nav_catechism','footer_nav_events'];
   footerNavLinks.forEach((el, i) => { if (footerNavKeys[i]) el.textContent = T[footerNavKeys[i]][lang]; });
-  const copyright = document.querySelector('.footer-bottom p:first-child'); if (copyright) copyright.innerHTML = T.footer_copyright[lang].replace(/\n/g, '<br>');
   photos.forEach((p, i) => { p.caption = (T['photo'+i] || {})[lang] || p.caption; });
   if (document.getElementById('lightbox').classList.contains('open')) renderLightbox();
 }
