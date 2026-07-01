@@ -504,25 +504,6 @@ window.addEventListener('DOMContentLoaded', () => {
   wmUpdateLang('sq');
 });
 
-// Override setLang to also update modal
-const _origSetLang = setLang;
-window.setLang = function(lang) {
-  _origSetLang(lang);
-  wmUpdateLang(lang);
-};
-
-// Show on first visit
-window.addEventListener('DOMContentLoaded', () => {
-  if (localStorage.getItem('wm_seen')) {
-    document.getElementById('welcomeOverlay').style.display = 'none'; // add this
-    return;
-  }
-  const o = document.getElementById('welcomeOverlay');
-  o.style.display = 'flex';
-  document.body.style.overflow = 'hidden';
-  setTimeout(() => { o.style.opacity = '1'; }, 50);
-  wmUpdateLang('sq');
-});
 </script>
 
   
