@@ -87,6 +87,23 @@ nav { background: linear-gradient(135deg, var(--mid-blue), var(--deep-blue)); bo
 .book-btn.download:hover { background: #a02525; }
 .book-btn svg { width: 14px; height: 14px; }
 
+/* FEEDBACK SECTION */
+.feedback-section { max-width: 800px; margin: 0 auto; padding: 60px 40px 80px; }
+.feedback-card { background: #fff; border: 1px solid var(--border); padding: 40px; border-radius: 4px; box-shadow: var(--shadow); }
+.feedback-intro { font-family: 'EB Garamond', serif; font-size: 15px; line-height: 1.7; color: var(--text-mid); margin-bottom: 28px; }
+.form-group { margin-bottom: 20px; }
+.form-group label { display: block; font-family: 'Cinzel', serif; font-size: 11px; font-weight: 600; letter-spacing: 1px; text-transform: uppercase; color: var(--deep-blue); margin-bottom: 8px; }
+.form-group input, .form-group textarea { width: 100%; padding: 12px 14px; font-family: 'EB Garamond', serif; font-size: 15px; color: var(--text-dark); border: 1px solid var(--border); border-radius: 3px; background: var(--parchment); transition: border-color .25s; user-select: text; -webkit-user-select: text; }
+.form-group input:focus, .form-group textarea:focus { outline: none; border-color: var(--gold); }
+.form-group textarea { resize: vertical; min-height: 130px; font-family: inherit; }
+.feedback-submit { display: inline-flex; align-items: center; gap: 8px; background: var(--gold); color: var(--deep-blue); font-family: 'Cinzel', serif; font-size: 12px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; padding: 13px 30px; border: none; cursor: pointer; border-radius: 2px; transition: all .3s; }
+.feedback-submit:hover { background: var(--gold-light); transform: translateY(-2px); }
+.feedback-submit:disabled { opacity: .6; cursor: not-allowed; transform: none; }
+.feedback-status { margin-top: 16px; font-family: 'EB Garamond', serif; font-size: 14px; padding: 12px 16px; border-radius: 3px; display: none; }
+.feedback-status.error { display: block; background: rgba(139,26,26,0.08); border: 1px solid rgba(139,26,26,0.2); color: var(--red-byzantine); }
+.feedback-status.ok { display: block; background: rgba(76,140,74,0.1); border: 1px solid rgba(76,140,74,0.3); color: #3d6b3b; }
+@media (max-width: 600px) { .feedback-section { padding: 40px 20px 60px; } .feedback-card { padding: 26px 20px; } }
+  
 /* PLACEHOLDER SECTION */
 .placeholder-section { max-width: 1200px; margin: 0 auto; padding: 60px 40px; }
 .placeholder-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 30px; }
@@ -180,6 +197,37 @@ footer { background: var(--warm-dark); padding: 60px 0 0; }
   </div>
   <div class="books-grid" id="booksGrid">
     <!-- Books will be populated by JavaScript -->
+  </div>
+</section>
+
+<!-- FEEDBACK SECTION -->
+<section class="feedback-section" id="feedback">
+  <div class="section-heading">
+    <span class="ornament">✦</span>
+    <h3 data-t="feedback_heading">Na Jepni Mendimin Tuaj</h3>
+    <div class="rule"></div>
+  </div>
+  <div class="feedback-card">
+    <p class="feedback-intro" data-t="feedback_intro">Mendimi juaj ka rëndësi për ne. Na tregoni çfarë ju pëlqen, çfarë mund të përmirësojmë, ose çdo sugjerim tjetër.</p>
+    <form id="feedbackForm">
+      <input type="hidden" name="access_key" value="8396ffb3-3372-4d81-844d-d02c654ee97c">
+      <input type="hidden" name="subject" value="Mesazh i ri nga faqja e Kishës Profeti Ilia">
+      <input type="checkbox" name="botcheck" style="display:none" tabindex="-1" autocomplete="off">
+      <div class="form-group">
+        <label for="fb-name" data-t="feedback_name">Emri</label>
+        <input type="text" id="fb-name" name="name" required>
+      </div>
+      <div class="form-group">
+        <label for="fb-email" data-t="feedback_email">Email (opsionale)</label>
+        <input type="email" id="fb-email" name="email">
+      </div>
+      <div class="form-group">
+        <label for="fb-message" data-t="feedback_message">Mesazhi Juaj</label>
+        <textarea id="fb-message" name="message" required></textarea>
+      </div>
+      <button type="submit" class="feedback-submit" id="feedbackSubmitBtn" data-t="feedback_submit">Dërgo Mesazhin</button>
+      <div class="feedback-status" id="feedbackStatus"></div>
+    </form>
   </div>
 </section>
 
@@ -306,6 +354,17 @@ const T = {
   page_title: { sq: 'Më shumë', en: 'More', el: 'Περισσότερα' },
   books_heading: { sq: 'Librat Shpirtërorë', en: 'Spiritual Books', el: 'Πνευματικά Βιβλία' },
   btn_download: { sq: 'Shkarko', en: 'Download', el: 'Λήψη' },
+  
+  feedback_heading: { sq: 'Na Jepni Mendimin Tuaj', en: 'Give Us Your Feedback', el: 'Στείλτε μας τα Σχόλιά σας' },
+  feedback_intro: { sq: 'Mendimi juaj ka rëndësi për ne. Na tregoni çfarë ju pëlqen, çfarë mund të përmirësojmë, ose çdo sugjerim tjetër.', en: 'Your opinion matters to us. Tell us what you like, what we could improve, or any other suggestion.', el: 'Η γνώμη σας μετράει για εμάς. Πείτε μας τι σας αρέσει, τι θα μπορούσαμε να βελτιώσουμε, ή οποιαδήποτε άλλη πρόταση.' },
+  feedback_name: { sq: 'Emri', en: 'Name', el: 'Όνομα' },
+  feedback_email: { sq: 'Email (opsionale)', en: 'Email (optional)', el: 'Email (προαιρετικό)' },
+  feedback_message: { sq: 'Mesazhi Juaj', en: 'Your Message', el: 'Το Μήνυμά σας' },
+  feedback_submit: { sq: 'Dërgo Mesazhin', en: 'Send Message', el: 'Αποστολή Μηνύματος' },
+  feedback_sending: { sq: 'Duke dërguar...', en: 'Sending...', el: 'Αποστολή...' },
+  feedback_success: { sq: 'Faleminderit! Mesazhi juaj u dërgua me sukses.', en: 'Thank you! Your message was sent successfully.', el: 'Ευχαριστούμε! Το μήνυμά σας εστάλη με επιτυχία.' },
+  feedback_error: { sq: 'Diçka shkoi keq. Ju lutemi provoni përsëri.', en: 'Something went wrong. Please try again.', el: 'Κάτι πήγε στραβά. Παρακαλώ δοκιμάστε ξανά.' },
+  
   footer_church_name: { sq: 'Kisha "Profeti Ilia"', en: 'Church "Prophet Elijah"', el: 'Ναός «Προφήτης Ηλίας»' },
   footer_church_desc: { sq: 'Mitropolia e Shenjtë Korçë', en: 'Holy Metropolis of Korçë', el: 'Ιερά Μητρόπολη Κορυτσάς' },
   footer_quick_links: { sq: 'Lidhje të Shpejta', en: 'Quick Links', el: 'Γρήγοροι Σύνδεσμοι' },
@@ -344,6 +403,41 @@ function renderBooks() {
 }
 
 setLang('sq');
+
+
+document.getElementById('feedbackForm').addEventListener('submit', async function(e) {
+  e.preventDefault();
+  const form = e.target;
+  const btn = document.getElementById('feedbackSubmitBtn');
+  const status = document.getElementById('feedbackStatus');
+  btn.disabled = true;
+  btn.textContent = T.feedback_sending[currentLang];
+  status.className = 'feedback-status';
+
+  try {
+    const res = await fetch('https://api.web3forms.com/submit', {
+      method: 'POST',
+      headers: { 'Accept': 'application/json' },
+      body: new FormData(form)
+    });
+    const result = await res.json();
+    if (result.success) {
+      status.textContent = T.feedback_success[currentLang];
+      status.className = 'feedback-status ok';
+      form.reset();
+    } else {
+      status.textContent = T.feedback_error[currentLang];
+      status.className = 'feedback-status error';
+    }
+  } catch (err) {
+    status.textContent = T.feedback_error[currentLang];
+    status.className = 'feedback-status error';
+  } finally {
+    btn.disabled = false;
+    btn.textContent = T.feedback_submit[currentLang];
+  }
+});
+  
 </script>
 </body>
 </html>
