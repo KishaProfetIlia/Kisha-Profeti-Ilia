@@ -164,12 +164,24 @@ footer { background: var(--warm-dark); padding: 60px 0 0; }
 <body>
 <!-- WELCOME MODAL -->
 <div id="welcomeOverlay" style="position:fixed;inset:0;background:rgba(15,14,11,0.6);z-index:9999;display:flex;align-items:center;justify-content:center;padding:20px;opacity:0;transition:opacity 0.4s;overflow-y:auto;">
-  <div style="background:#FAF8F3;border-radius:6px;border:1px solid rgba(201,168,76,0.35);max-width:420px;width:100%;overflow:hidden;">
-    
+  <div style="background:#FAF8F3;border-radius:6px;border:1px solid rgba(201,168,76,0.35);max-width:420px;width:100%;overflow:hidden;position:relative;">
+
+    <!-- LANG DROPDOWN -->
+    <div style="position:absolute;top:14px;right:14px;z-index:10;">
+      <button onclick="wmToggleLang()" id="wmLangBtn" style="background:transparent;border:1px solid rgba(201,168,76,0.35);color:#C9A84C;font-family:'Cinzel',serif;font-size:10px;font-weight:700;letter-spacing:1.5px;padding:5px 10px;border-radius:3px;cursor:pointer;display:flex;align-items:center;gap:5px;">
+        <span id="wmLangLabel">SQ</span>
+        <svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M1 3L5 7L9 3" stroke="#C9A84C" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+      <div id="wmLangMenu" style="display:none;position:absolute;right:0;top:calc(100% + 4px);background:#FAF8F3;border:1px solid rgba(201,168,76,0.3);border-radius:3px;overflow:hidden;min-width:70px;box-shadow:0 4px 16px rgba(0,0,0,0.12);">
+        <button onclick="wmSetLang('sq')" style="width:100%;background:transparent;border:none;color:#1A1715;font-family:'Cinzel',serif;font-size:10px;font-weight:700;letter-spacing:1.5px;padding:8px 14px;cursor:pointer;text-align:left;">SQ</button>
+        <button onclick="wmSetLang('en')" style="width:100%;background:transparent;border:none;color:#1A1715;font-family:'Cinzel',serif;font-size:10px;font-weight:700;letter-spacing:1.5px;padding:8px 14px;cursor:pointer;text-align:left;border-top:1px solid rgba(201,168,76,0.15);">EN</button>
+        <button onclick="wmSetLang('el')" style="width:100%;background:transparent;border:none;color:#1A1715;font-family:'Cinzel',serif;font-size:10px;font-weight:700;letter-spacing:1.5px;padding:8px 14px;cursor:pointer;text-align:left;border-top:1px solid rgba(201,168,76,0.15);">EL</button>
+      </div>
+    </div>
+
     <!-- TOP -->
     <div style="padding:32px 32px 22px;text-align:center;border-bottom:1px solid rgba(201,168,76,0.15);">
       <img src="Assets/logo.png" alt="" style="width:76px;height:76px;border-radius:50%;object-fit:cover;margin-bottom:16px;">
-      <div style="font-family:'Noto Sans',sans-serif;font-size:10px;font-weight:500;letter-spacing:3px;text-transform:uppercase;color:#C9A84C;margin-bottom:10px;" id="wm-eyebrow">Mirë se vini · Welcome</div>
       <div style="font-family:'Cinzel',serif;font-size:26px;font-weight:700;color:#1A1715;margin-bottom:8px;" id="wm-title">Mirë se Vini!</div>
       <p style="font-family:'EB Garamond',serif;font-size:16px;color:#5A5040;line-height:1.6;" id="wm-sub">Ky është faqja zyrtare e Kishës Orthodhokse <em>"Profeti Ilia"</em> — Korçë.</p>
     </div>
@@ -185,13 +197,14 @@ footer { background: var(--warm-dark); padding: 60px 0 0; }
 
     <!-- BOTTOM -->
     <div style="padding:20px 32px;">
-      <div style="display:flex;gap:10px;margin-top:16px;border-top:1px solid rgba(201,168,76,0.15);padding-top:16px;">
-        <button onclick="wmClose()" style="flex:1;background:#C9A84C;border:1px solid #C9A84C;color:#1A1F3C;font-family:'Cinzel',serif;font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;padding:11px 20px;cursor:pointer;border-radius:3px;transition:all 0.25s;" id="wm-enter-btn">Hyr në Faqe</button>
-      </div>
+      <button onclick="wmClose()" style="width:100%;background:#C9A84C;border:1px solid #C9A84C;color:#1A1F3C;font-family:'Cinzel',serif;font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;padding:11px 20px;cursor:pointer;border-radius:3px;transition:all 0.25s;" id="wm-enter-btn">Hyr në Faqe</button>
     </div>
-    </div>
+
   </div>
 </div>
+
+
+  
   
 <style>
 .wm-clink { width:38px;height:38px;border-radius:50%;border:1px solid rgba(201,168,76,0.35);display:flex;align-items:center;justify-content:center;color:#C9A84C;text-decoration:none;transition:all 0.2s;background:transparent; }
@@ -431,16 +444,30 @@ setLang('sq');
 
 // WELCOME MODAL
 const WM_TEXTS = {
-  eyebrow:  { sq:'Mirë se vini · Welcome', en:'Welcome', el:'Καλώς ήρθατε' },
-  title:    { sq:'Mirë se Vini!', en:'Welcome!', el:'Καλώς ήρθατε!' },
-  sub:      { sq:'Kj është faqja zyrtare e Kishës Orthodhokse <em>"Profeti Ilia"</em> — Korçë.', en:'This is the official website of <em>"Prophet Elijah"</em> Orthodox Church — Korçë.', el:'Αυτός είναι ο επίσημος ιστότοπος του Ναού <em>«Προφήτης Ηλίας»</em> — Κορυτσά.' },
-  enter:    { sq:'Hyr në Faqe', en:'Enter Site', el:'Είσοδος' },
+  title: { sq:'Mirë se Vini!', en:'Welcome!', el:'Καλώς ήρθατε!' },
+  sub:   { sq:'Ky është faqja zyrtare e Kishës Orthodhokse <em>"Profeti Ilia"</em> — Korçë.', en:'This is the official website of <em>"Prophet Elijah"</em> Orthodox Church — Korçë.', el:'Αυτός είναι ο επίσημος ιστότοπος του Ναού <em>«Προφήτης Ηλίας»</em> — Κορυτσά.' },
+  enter: { sq:'Hyr në Faqe', en:'Enter Site', el:'Είσοδος' },
 };
 
+let wmCurrentLang = 'sq';
+
+function wmSetLang(lang) {
+  wmCurrentLang = lang;
+  document.getElementById('wmLangLabel').textContent = lang.toUpperCase();
+  document.getElementById('wmLangMenu').style.display = 'none';
+  wmUpdateLang(lang);
+  window.setLang(lang);
+}
+
+function wmToggleLang() {
+  const m = document.getElementById('wmLangMenu');
+  m.style.display = m.style.display === 'none' ? 'block' : 'none';
+}
+
 function wmUpdateLang(lang) {
-  ['eyebrow','title','sub','enter'].forEach(k => {
-    const target = k === 'enter' ? document.getElementById('wm-enter-btn') : document.getElementById('wm-'+k);
-    if (target && WM_TEXTS[k]) target.innerHTML = WM_TEXTS[k][lang] || WM_TEXTS[k]['sq'];
+  ['title','sub','enter'].forEach(k => {
+    const el = k === 'enter' ? document.getElementById('wm-enter-btn') : document.getElementById('wm-'+k);
+    if (el && WM_TEXTS[k]) el.innerHTML = WM_TEXTS[k][lang] || WM_TEXTS[k]['sq'];
   });
 }
 
@@ -450,6 +477,32 @@ function wmClose() {
   setTimeout(() => { o.style.display = 'none'; document.body.style.overflow = ''; }, 400);
   localStorage.setItem('wm_seen', '1');
 }
+
+document.addEventListener('click', function(e) {
+  const menu = document.getElementById('wmLangMenu');
+  const btn = document.getElementById('wmLangBtn');
+  if (menu && !menu.contains(e.target) && !btn.contains(e.target)) {
+    menu.style.display = 'none';
+  }
+});
+
+const _origSetLang = setLang;
+window.setLang = function(lang) {
+  _origSetLang(lang);
+  wmUpdateLang(lang);
+};
+
+window.addEventListener('DOMContentLoaded', () => {
+  if (localStorage.getItem('wm_seen')) {
+    document.getElementById('welcomeOverlay').style.display = 'none';
+    return;
+  }
+  const o = document.getElementById('welcomeOverlay');
+  o.style.display = 'flex';
+  document.body.style.overflow = 'hidden';
+  setTimeout(() => { o.style.opacity = '1'; }, 50);
+  wmUpdateLang('sq');
+});
 
 // Override setLang to also update modal
 const _origSetLang = setLang;
