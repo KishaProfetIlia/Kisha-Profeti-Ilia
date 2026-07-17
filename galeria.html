@@ -110,6 +110,14 @@ footer { background: var(--warm-dark); padding: 60px 0 0; }
 @media (max-width: 800px) { .gallery-grid { grid-template-columns: repeat(3, 1fr); } .lightbox-arrow { display: none; } }
 @media (max-width: 600px) { .lang-bar .container { padding: 0 16px; } .lang-bar-left { gap: 6px; } .instagram-link svg { width: 18px; height: 18px; } .header-inner { padding: 20px; flex-direction: column; gap: 16px; text-align: center; } .church-name-block h1 { font-size: 16px; } .church-name-block p { font-size: 12px; } .page-title-section { padding: 40px 20px 36px; } .page-title-section h2 { font-size: 28px; letter-spacing: 2px; } .gallery-section { padding: 40px 16px 60px; } .gallery-grid { grid-template-columns: repeat(2, 1fr); } .footer-bottom { padding: 16px 20px; flex-direction: column; text-align: center; } .footer-bottom p { justify-content: center; } nav { overflow-x: auto; -webkit-overflow-scrolling: touch; scrollbar-width: thin; } nav::-webkit-scrollbar { height: 3px; } nav::-webkit-scrollbar-track { background: var(--mid-blue); } nav::-webkit-scrollbar-thumb { background: var(--gold); border-radius: 3px; } .nav-inner { min-width: max-content; padding: 0 16px; gap: 2px; } .nav-link { padding: 14px 14px; font-size: 9px; } }
 @media (max-width: 380px) { .gallery-grid { grid-template-columns: 1fr 1fr; } .church-name-block h1 { font-size: 14px; } }
+
+.lightbox-close, .lightbox-arrow, .nav-link, .lang-btn, .accordion-header, button, a {
+  -webkit-tap-highlight-color: transparent;
+}
+.lightbox-close:focus, .lightbox-arrow:focus {
+  outline: none;
+}
+
 </style>
 </head>
 <body>
@@ -229,16 +237,16 @@ footer { background: var(--warm-dark); padding: 60px 0 0; }
 
 <script>
 const photos = [
-  { src: "Assets/galeria1.jpg", caption: 'Kisha nga jashtë' },
-  { src: "Assets/galeria2.jpg", caption: 'Ikonostasi' },
-  { src: "Assets/galeria3.jpg", caption: 'Kryqi i Madh' },
-  { src: "Assets/galeria4.jpg", caption: 'Shërbesa Hyjnore' },
-  { src: "Assets/galeria5.jpg", caption: 'Festa e Profetit Ilia – 20 Korrik' },
-  { src: "Assets/galeria6.jpg", caption: 'Pashkë 2025' },
-  { src: "Assets/galeria7.jpg", caption: 'Krishtlindjet' },
-  { src: "Assets/galeria8.jpg", caption: 'Vajtimi i Krishtit' },
-  { src: "Assets/galeria9.jpg", caption: 'Pamja e brendshme' },
-  { src: "Assets/galeria10.jpg", caption: 'Kori Bizantine' }
+  { src: "Assets/galeria1.jpg"},
+  { src: "Assets/galeria2.jpg"},
+  { src: "Assets/galeria3.jpg"},
+  { src: "Assets/galeria4.jpg"},
+  { src: "Assets/galeria5.jpg"},
+  { src: "Assets/galeria6.jpg"},
+  { src: "Assets/galeria7.jpg"},
+  { src: "Assets/galeria8.jpg"},
+  { src: "Assets/galeria9.jpg"},
+  { src: "Assets/galeria10.jpg"}
 ];
 let current = 0;
 
