@@ -76,6 +76,12 @@ nav { background: linear-gradient(135deg, var(--mid-blue), var(--deep-blue)); bo
 .rule-list li::before { content: '›'; color: var(--gold); font-size: 18px; flex-shrink: 0; }
 .rule-note { background: var(--cream); border-left: 3px solid var(--gold); padding: 14px 20px; font-family: 'EB Garamond', serif; font-style: italic; font-size: 15px; color: var(--text-light); margin-top: 12px; line-height: 1.65; border-radius: 0 6px 6px 0; }
 
+.service-img-frame { width: 100%; max-width: 500px; margin: 20px 0; border: 1px solid var(--border); border-radius: 6px; overflow: hidden; cursor: pointer; background: var(--cream); }
+.service-img-frame img { width: 100%; height: auto; display: block; transition: transform 0.4s ease; }
+.service-img-frame:hover img { transform: scale(1.03); }
+.service-gallery { display: flex; gap: 12px; flex-wrap: wrap; margin: 20px 0; }
+.service-gallery .service-img-frame { width: 160px; margin: 0; }
+  
 /* FOOTER */
 footer { background: var(--warm-dark); padding: 60px 0 0; }
 .footer-inner { max-width: 1200px; margin: 0 auto; padding: 0 40px 50px; display: grid; grid-template-columns: 1.5fr 1fr; gap: 50px; }
@@ -245,6 +251,9 @@ const servicesData = [
           <li>Shapka, rroba banje, niktiko — për personin që do të pagëzohet</li>
         </ul>
       </div>
+      <div class="service-img-frame" onclick="openLightbox('Assets/pagezimi.jpg')">
+        <img src="Assets/pagezimi.jpg" alt="Pagëzimi">
+      </div>
       <div class="rule-note">Për çdo pyetje shtesë rreth ceremonisë, kontaktoni priftin e kishës pas shërbimit ose nëpërmjet emailit.</div>
     `,
     content_en: `
@@ -264,6 +273,9 @@ const servicesData = [
           <li>Hat, swimsuit, nikti — for the person being baptized</li>
         </ul>
       </div>
+      <div class="service-img-frame" onclick="openLightbox('Assets/pagezimi.jpg')">
+        <img src="Assets/pagezimi.jpg" alt="Pagëzimi">
+      </div>
       <div class="rule-note">For any questions regarding the ceremony, contact the church priest after the service or via email.</div>
     `,
     content_el: `
@@ -282,6 +294,9 @@ const servicesData = [
           <li>Λαμπάδα (Κερί)</li>
           <li>Καπέλο, μαγιό, νικτικό — για το άτομο που θα βαπτιστεί</li>
         </ul>
+      </div>
+      <div class="service-img-frame" onclick="openLightbox('Assets/pagezimi.jpg')">
+        <img src="Assets/pagezimi.jpg" alt="Pagëzimi">
       </div>
       <div class="rule-note">Για οποιαδήποτε ερώτηση σχετικά με την τελετή, επικοινωνήστε με τον ιερέα της εκκλησίας μετά τη λειτουργία ή μέσω email.</div>
     `
@@ -481,6 +496,31 @@ function setLang(lang) {
 
 // Initialize
 setLang('sq');
+
+
+function openLightbox(src) {
+  document.getElementById('lightboxImgWrap').innerHTML = `<img src="${src}" alt="">`;
+  document.getElementById('lightbox').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+function closeLightbox() {
+  document.getElementById('lightbox').classList.remove('open');
+  document.body.style.overflow = '';
+}
+document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLightbox(); });
+
+
+
+  
 </script>
+
+<div class="lightbox" id="lightbox">
+  <div class="lightbox-backdrop" onclick="closeLightbox()"></div>
+  <button class="lightbox-close" onclick="closeLightbox()">✕</button>
+  <div class="lightbox-content">
+    <div class="lightbox-img-wrap" id="lightboxImgWrap"></div>
+  </div>
+</div>
+    
 </body>
 </html>
