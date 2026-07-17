@@ -82,6 +82,23 @@ nav { background: linear-gradient(135deg, var(--mid-blue), var(--deep-blue)); bo
 .service-gallery { display: flex; gap: 12px; flex-wrap: wrap; margin: 20px 0; }
 .service-gallery .service-img-frame { width: 160px; margin: 0; }
   
+/* LIGHTBOX */
+.lightbox { position: fixed; inset: 0; background: rgba(10,12,25,0.55); backdrop-filter: blur(16px) saturate(140%); -webkit-backdrop-filter: blur(16px) saturate(140%); z-index: 1000; display: flex; align-items: center; justify-content: center; opacity: 0; pointer-events: none; transition: opacity 0.35s ease; padding: 20px; }
+.lightbox.open { opacity: 1; pointer-events: all; }
+.lightbox-backdrop { position: absolute; inset: 0; cursor: pointer; }
+.lightbox-content { position: relative; z-index: 1; max-width: 90vw; max-height: 90vh; display: flex; flex-direction: column; align-items: center; }
+.lightbox-img-wrap { max-width: 90vw; max-height: 85vh; display: flex; align-items: center; justify-content: center; }
+.lightbox-img-wrap img { max-width: 85vw; max-height: 80vh; object-fit: contain; border: 1px solid rgba(201,168,76,0.2); box-shadow: 0 20px 80px rgba(0,0,0,0.7); display: block; border-radius: 4px; animation: lightboxIn 0.35s ease; }
+.lightbox-close { position: fixed; top: 24px; right: 28px; width: 44px; height: 44px; background: rgba(201,168,76,0.15); border: 1px solid rgba(201,168,76,0.3); border-radius: 50%; color: var(--gold-light); font-size: 20px; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: all 0.2s; z-index: 2; line-height: 1; backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); }
+.lightbox-close:hover { background: var(--gold); color: var(--deep-blue); transform: rotate(90deg); }
+@keyframes lightboxIn { from { opacity:0; transform:scale(0.94); } to { opacity:1; transform:scale(1); } }
+
+@media (max-width: 600px) {
+  .lightbox { padding: 12px; }
+  .lightbox-close { top: 14px; right: 14px; width: 38px; height: 38px; font-size: 16px; }
+  .lightbox-img-wrap img { max-width: 92vw; max-height: 75vh; }
+}
+  
 /* FOOTER */
 footer { background: var(--warm-dark); padding: 60px 0 0; }
 .footer-inner { max-width: 1200px; margin: 0 auto; padding: 0 40px 50px; display: grid; grid-template-columns: 1.5fr 1fr; gap: 50px; }
@@ -189,7 +206,8 @@ footer { background: var(--warm-dark); padding: 60px 0 0; }
       <span style="flex: 1; height: 1px; background: linear-gradient(90deg, var(--gold) 0%, transparent 100%); opacity: 0.5;"></span>
     </div>
   </div>
-  <div id="accordionContainer">
+  <div id="accordionContainer"></div>
+</section>
 
 <!-- FOOTER -->
 <footer>
@@ -252,7 +270,7 @@ const servicesData = [
         </ul>
       </div>
       <div class="service-img-frame" onclick="openLightbox('Assets/pagezimi.jpg')">
-        <img src="Assets/pagezimi.jpg" alt="Pagëzimi">
+        <img src="Assets/pagezimi.jpg">
       </div>
       <div class="rule-note">Për çdo pyetje shtesë rreth ceremonisë, kontaktoni priftin e kishës pas shërbimit ose nëpërmjet emailit.</div>
     `,
@@ -274,7 +292,7 @@ const servicesData = [
         </ul>
       </div>
       <div class="service-img-frame" onclick="openLightbox('Assets/pagezimi.jpg')">
-        <img src="Assets/pagezimi.jpg" alt="Pagëzimi">
+        <img src="Assets/pagezimi.jpg">
       </div>
       <div class="rule-note">For any questions regarding the ceremony, contact the church priest after the service or via email.</div>
     `,
@@ -296,7 +314,7 @@ const servicesData = [
         </ul>
       </div>
       <div class="service-img-frame" onclick="openLightbox('Assets/pagezimi.jpg')">
-        <img src="Assets/pagezimi.jpg" alt="Pagëzimi">
+        <img src="Assets/pagezimi.jpg">
       </div>
       <div class="rule-note">Για οποιαδήποτε ερώτηση σχετικά με την τελετή, επικοινωνήστε με τον ιερέα της εκκλησίας μετά τη λειτουργία ή μέσω email.</div>
     `
@@ -329,6 +347,9 @@ const servicesData = [
           <li>Dy lambadha (2 qirinj)</li>
         </ul>
       </div>
+      <div class="service-img-frame" onclick="openLightbox('Assets/kurorezimi.jpg')">
+        <img src="Assets/kurorezimi.jpg">
+      </div>
       <div class="rule-note">Për çdo pyetje shtesë rreth ceremonisë së kurorëzimit, kontaktoni priftin e kishës pas shërbimit ose nëpërmjet emailit.</div>
     `,
     content_en: `
@@ -353,6 +374,9 @@ const servicesData = [
           <li>A bottle of wine</li>
           <li>Two candles (Lambadha)</li>
         </ul>
+      </div>
+      <div class="service-img-frame" onclick="openLightbox('Assets/kurorezimi.jpg')">
+        <img src="Assets/kurorezimi.jpg">
       </div>
       <div class="rule-note">For any questions regarding the wedding ceremony, contact the church priest after the service or via email.</div>
     `,
@@ -379,6 +403,9 @@ const servicesData = [
           <li>Δύο λαμπάδες (κεριά)</li>
         </ul>
       </div>
+      <div class="service-img-frame" onclick="openLightbox('Assets/kurorezimi.jpg')">
+        <img src="Assets/kurorezimi.jpg">
+      </div>
       <div class="rule-note">Για οποιαδήποτε ερώτηση σχετικά με την τελετή γάμου, επικοινωνήστε με τον ιερέα της εκκλησίας μετά τη λειτουργία ή μέσω email.</div>
     `
   },
@@ -387,7 +414,7 @@ const servicesData = [
     title_sq: "Uji i Bekuar",
     title_en: "Holy Water",
     title_el: "Αγιασμός",
-    content_sq: `<p>Uji i Bekuar është një nga shërbesat më të njohura të Kishës Ortodokse, ku prifti bekon ujin përmes lutjeve dhe riteve të shenjta, duke kërkuar hirin, paqen dhe mbrojtjen e Perëndisë mbi besimtarët. Ai përdoret për bekimin e familjeve, shtëpive, ambienteve të punës dhe në raste të ndryshme shpirtërore gjatë vitit kishtar. Kjo shërbesë simbolizon pastrimin, bekimin dhe forcimin shpirtëror të njeriut dhe jetës së tij të përditshme.<br>Shërbesa e Ujit të Bekuar zakonisht zhvillohet një herë në muaj në kishë, por mund të kryhet edhe me kërkesë të besimtarëve në familje ose ambiente të tjera. Ndryshe kjo shërbesë njihet edhe si “Bekimi i Ujit” ose “Ajazma”, sipas traditës kishtare ortodokse.</p>`,
+    content_sq: `<p>Uji i Bekuar është një nga shërbesat më të njohura të Kishës Ortodokse, ku prifti bekon ujin përmes lutjeve dhe riteve të shenjta, duke kërkuar hirin, paqen dhe mbrojtjen e Perëndisë mbi besimtarët. Ai përdoret për bekimin e familjeve, shtëpive, ambienteve të punës dhe në raste të ndryshme shpirtërore gjatë vitit kishtar. Kjo shërbesë simbolizon pastrimin, bekimin dhe forcimin shpirtëror të njeriut dhe jetës së tij të përditshme.<br>Shërbesa e Ujit të Bekuar zakonisht zhvillohet një herë në muaj në kishë, por mund të kryhet edhe me kërkesë të besimtarëve në familje ose ambiente të tjera. Ndryshe kjo shërbesë njihet edhe si “Bekimi i Ujit” ose “Ajazma”, sipas traditës kishtare ortodokse.</p>`, 
     content_en: `<p>Holy Water is one of the well-known services of the Orthodox Church, in which the priest blesses water through prayers and sacred rites, asking for God’s grace, peace, and protection upon the faithful. It is used for the blessing of homes, families, workplaces, and various spiritual needs throughout the liturgical year. This service symbolizes purification, blessing, and the spiritual strengthening of human life.<br>The Service of Holy Water is commonly known in Orthodoxy as the Blessing of Water (Agiasmos). There are two forms: the Great Blessing of Waters (performed on the Feast of Theophany) and the Small Blessing of Waters, which is often performed monthly or upon request in churches, homes, or other places.</p>`,
     content_el: `<p>Ο Αγιασμός είναι μία από τις πιο γνωστές ακολουθίες της Ορθόδοξης Εκκλησίας, κατά την οποία ο ιερέας ευλογεί το νερό με προσευχές και ιερές τελετές, ζητώντας τη χάρη, την ειρήνη και την προστασία του Θεού προς τους πιστούς. Χρησιμοποιείται για τον αγιασμό των οικιών, των οικογενειών, των χώρων εργασίας και για διάφορες πνευματικές ανάγκες κατά τη διάρκεια του εκκλησιαστικού έτους. Η ακολουθία αυτή συμβολίζει τον καθαρισμό, την ευλογία και την πνευματική ενίσχυση της ανθρώπινης ζωής.<br>Η ακολουθία του Αγιασμού είναι γνωστή στην Ορθόδοξη παράδοση ως Αγιασμός. Υπάρχουν δύο μορφές: ο Μέγας Αγιασμός (που τελείται κατά την εορτή των Θεοφανείων) και ο Μικρός Αγιασμός, ο οποίος τελείται συχνά μηνιαίως ή κατ’ αίτηση σε ναούς, σπίτια ή άλλους χώρους.</p>`
   },
