@@ -91,7 +91,8 @@ blockquote p { font-style: italic; font-size: 19px; color: var(--deep-blue); mar
 .photos-heading { font-family: 'Cinzel', serif; font-size: 13px; font-weight: 700; letter-spacing: 2.5px; text-transform: uppercase; color: var(--deep-blue); margin-bottom: 24px; display: flex; align-items: center; gap: 14px; }
 .photos-heading::after { content: ''; flex: 1; height: 1px; background: linear-gradient(90deg, var(--gold) 0%, transparent 100%); opacity: 0.5; }
 .photos-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; }
-.photo-item { position: relative; aspect-ratio: 4 / 3; overflow: hidden; cursor: pointer; border: 1px solid var(--border); background: linear-gradient(135deg, var(--deep-blue), var(--mid-blue)); opacity: 0; transform: translateY(20px); transition: opacity 0.5s ease, transform 0.5s ease, box-shadow 0.3s; }
+.photo-item { position: relative; aspect-ratio: 4 / 3; overflow: hidden; cursor: pointer; border: 1px solid var(--border); background: linear-gradient(135deg, var(--deep-blue), var(--mid-blue)); opacity: 1; transform: none; transition: opacity 0.5s ease, transform 0.5s ease, box-shadow 0.3s; }
+.photo-item:not(.visible) { opacity: 0; transform: translateY(20px); }
 .photo-item.visible { opacity: 1; transform: translateY(0); }
 .photo-item img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease; display: block; }
 .photo-item:hover img { transform: scale(1.06); }
@@ -164,7 +165,7 @@ nav { overflow-x: auto; -webkit-overflow-scrolling: touch; }
 .nav-link { padding: 14px 14px; font-size: 9px; }
 .icon-link svg { width: 18px; height: 18px; } }
 
-.lightbox-close, .lightbox-arrow, .nav-link, .lang-btn, .accordion-header, button, a {
+.lightbox-close, .lightbox-arrow, .nav-link, .lang-btn, button, a {
   -webkit-tap-highlight-color: transparent;
 }
 .lightbox-close:focus, .lightbox-arrow:focus {
@@ -215,7 +216,7 @@ nav { overflow-x: auto; -webkit-overflow-scrolling: touch; }
 
       <div class="lang-bar-right">
         <span class="lang-label" id="lang-label-text">Gjuha</span>
-        <button class="lang-btn active" onclick="setLang('sq')">AL</button>
+        <button class="lang-btn active" onclick="setLang('sq')">SQ</button>
         <button class="lang-btn" onclick="setLang('en')">EN</button>
         <button class="lang-btn" onclick="setLang('el')">ΕL</button>
       </div>
@@ -261,16 +262,16 @@ nav { overflow-x: auto; -webkit-overflow-scrolling: touch; }
     <div class="chapter">
       <div class="chapter-date" data-t="ch1_date">Rrënjët Mesjetare</div>
       <h3 class="chapter-title" data-t="ch1_title">Themelet e lashta</h3>
-      <p data-t="ch1_p1"></p>
-      <p data-t="ch1_p2"></p>
+      <p data-t="ch1_p1">Kisha e Profetit Ilia, ose e Shën Ilisë, e njohur në popull edhe si Kisha e Shën Dellisë, është ndërtuar mbi një bregore në verilindje të qytetit të Korçës. Kodrina mbi të cilën ngrihet kjo kishë mban të njëjtin emër me vetë kishën. Themelet e para të saj nuk dihen me saktësi se kur janë hedhur, por dihet se bëhet fjalë për një kishë shumë të vjetër, që daton që nga periudha mesjetare, së bashku me toponimin e kodrinës me të njëjtin emër.</p>
+      <p data-t="ch1_p2">Dokumentet më të hershme për këtë kishë gjenden në Kodikun e Mitropolisë së Korçës. Në testamentin e vitit 1725 përmendet një arë poshtë bregut të Kishës së Profetit Ilia. Nga këto dokumente kuptohet se kisha ka ekzistuar shumë kohë përpara viteve 1700.</p>
     </div>
 
     <div class="chapter">
       <div class="chapter-date" data-t="ch2_date">Rindërtimi 1847</div>
       <h3 class="chapter-title" data-t="ch2_title">Ringritja e shekullit XIX</h3>
-      <p data-t="ch2_p1"></p>
-      <p data-t="ch2_p2"></p>
-      <p data-t="ch2_p3"></p>
+      <p data-t="ch2_p1">Duke parë se kisha ishte vjetëruar shumë, komuniteti orthodhoks i Korçës vendosi ta rindërtonte rreth vitit 1847, menjëherë pas rikonstruksionit të Kishës së Shën Marisë. Kjo u bë gjatë kohës së Mitropolitit Neofit Argjirokastriti, me nismën e epitropit Kristo Goda dhe më pas të Kristo Karametës.</p>
+      <p data-t="ch2_p2">Të dhënat për këtë rindërtim gjenden në Kodik. Në dokumentin e 22 mars 1847 përmenden shpenzimet e kryera nga Kristo Goda. Për rindërtimin kontribuan jo vetëm Mitropolia dhe qytetarët, por edhe bashkëqytetarë me banim në Egjipt, si familjet Thanas Marko, Jovan Çiço, Llambo Polit dhe Ilo Grameno.</p>
+      <p data-t="ch2_p3">Kisha e rindërtuar kishte stil të thjeshtë, ndërtim guri dhe përmasa disi më të vogla se ajo e sotmja. Para saj, në anën veriore, u ngrit edhe një kambanore në formë kulle prej guri shtufi.</p>
     </div>
 
     <div class="section-divider">✦ ✦ ✦</div>
@@ -278,34 +279,34 @@ nav { overflow-x: auto; -webkit-overflow-scrolling: touch; }
     <div class="chapter">
       <div class="chapter-date" data-t="ch3_date">1937–1938</div>
       <h3 class="chapter-title" data-t="ch3_title">Kisha e re & ndërtimi gurë-gurë</h3>
-      <p data-t="ch3_p1"></p>
-      <p data-t="ch3_p2"></p>
+      <p data-t="ch3_p1">Me zgjerimin e lagjeve të qytetit, në vitet 1937–1938 u prish kisha e vjetër dhe filloi ndërtimi i kishës së re gjatë kohës së Mitropolitit Evllogji Kurilla, me nismën e priftit At Kanxheri. U përshtat një kishëz provizore ndërsa rreth saj nisi të ngrihej kisha e re, e ndërtuar tërësisht me gurë të punuar dhe të papunuar.</p>
+      <p data-t="ch3_p2">Kisha e re u projektua më e madhe, duke ruajtur tiparet e arkitekturës tradicionale orthodhokse. Në vitet në vijim ajo u bë qendra shpirtërore e lagjes dhe e besimtarëve korçarë.</p>
     </div>
 
     <div class="chapter">
       <div class="chapter-date" data-t="ch4_date">Periudha e ateizmit</div>
       <h3 class="chapter-title" data-t="ch4_title">Mbijetesa nën dhunë</h3>
-      <p data-t="ch4_p1"></p>
-      <p data-t="ch4_p2"></p>
-      <p data-t="ch4_p3"></p>
+      <p data-t="ch4_p1">Gjatë periudhës së ateizmit komunist, kjo kishë arriti t'i shpëtonte rrafshimit të plotë falë ndërhyrjes së të moshuarve të lagjes, të cilët i kërkuan autoriteteve që godina të mos prishej, por të përdorej si klub për pensionistët. Megjithatë, iu bënë ndryshime të qëllimshme: u prishën harqet prej guri të dritareve, u ndërhyrë në çati dhe tavan.</p>
+      <p data-t="ch4_p2">Në vitet 1970–1980, pjesë të saj u përdorën edhe si radio-rele dhe si vend stacionimi për pajisjet e telekomunikacionit. Kisha mbeti në këmbë, e gjymtuar por duke pritur ditën e ringjalljes së saj.</p>
+      <p data-t="ch4_p3">Megjithë gjymtimin, kjo kishë mban nderin të jetë ndër të parat faltore që u rihapën me rikthimin e lirisë fetare dhe ardhjen e sistemit pluralist.</p>
     </div>
 
     <blockquote>
-      <p data-t="quote1"></p>
+      <p data-t="quote1">"Kjo kishë martire, e cila mbijetoi nën gurët e heshtjes, u bë fener i ringjalljes orthodhokse në Korçë — Pashka e parë pas 25 vitesh u kremtua këtu në 1991."</p>
     </blockquote>
 
     <div class="chapter">
       <div class="chapter-date" data-t="ch5_date">1991 – Ringjallja</div>
       <h3 class="chapter-title" data-t="ch5_title">Pashka e parë pas errësirës</h3>
-      <p data-t="ch5_p1"></p>
-      <p data-t="ch5_p2"></p>
+      <p data-t="ch5_p1">Pikërisht në këtë kishë u kremtua Pashka e parë pas afro 25 vitesh ateizëm shtetëror, në vitin 1991, nga priftërinjtë e mbetur gjallë, At Kristo Raçi dhe At Kosta Kotnani. Po këtu kremtoi Meshën Hyjnore edhe Eksarku Patriarkal Anastasi Janullatos, i cili më vonë u bë Kryepeshkop i Shqipërisë.</p>
+      <p data-t="ch5_p2">Këtu shërbyen edhe priftërinjtë shqiptaro-amerikanë At Ilia Ketri dhe At Artur Liolin, të cilët u pritën si lajmëtarë të ringjalljes shpirtërore të kësaj kishe martire.</p>
     </div>
 
     <div class="chapter">
       <div class="chapter-date" data-t="ch6_date">2000 e tutje</div>
       <h3 class="chapter-title" data-t="ch6_title">Rikonstruktimi dhe sot</h3>
-      <p data-t="ch6_p1"></p>
-      <p data-t="ch6_p2"></p>
+      <p data-t="ch6_p1">Në vitin 1998, Mitropolia e Shenjtë e Korçës caktoi klerikun Atë Sotir Dinkën për kryerjen e shërbesave. Me përkushtim dhe frymë baritore, At Sotiri ka shërbyer pandërprerë, duke dhënë kontribut në gjallërimin e jetës kishtare. Mitropoliti Johani Pelushi ndërmori rikonstruktimin e kishës në fillim të viteve 2000.</p>
+      <p data-t="ch6_p2">Në vitin 2003 rifilloi ringritja shpirtërore dhe materiale. Po atë vit u kremtua përsëri Mesha Hyjnore në nder të Shën Profetit Ilia, duke rikthyer plotësisht jetën liturgjike dhe adhurimin orthodhoks në këtë faltore të bekuar.</p>
     </div>
 
   </article>
@@ -669,7 +670,6 @@ function renderLightbox() {
     ? `<div style="text-align: center;">
          <img src="${p.src}" alt="${p.title}" style="max-width:85vw; max-height:70vh; object-fit:contain; border:1px solid rgba(201,168,76,0.2); box-shadow:0 20px 80px rgba(0,0,0,0.7);">
          <div style="margin-top: 16px; font-family: 'Cinzel', serif; color: var(--gold-light); font-size: 14px; letter-spacing: 1px;">${p.title}</div>
-         <div style="margin-top: 6px; font-family: 'EB Garamond', serif; color: rgba(255,255,255,0.6); font-size: 13px; font-style: italic;">${p.description || ''}</div>
        </div>`
     : '<div class="lightbox-placeholder"></div>';
   document.getElementById('lightboxCounter').textContent = `${current + 1} / ${photos.length}`;
