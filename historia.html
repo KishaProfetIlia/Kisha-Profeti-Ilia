@@ -23,12 +23,10 @@
       --border:         rgba(201, 168, 76, 0.25);
     }
 
-    * { box-sizing: border-box; }
-    html, body { margin: 0; padding: 0; }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
     html { scroll-behavior: smooth; }
-    img, button, .nav-link, .lang-btn { margin: 0; padding: 0; user-select: none; -webkit-user-select: none; }
-    body { font-family: 'EB Garamond', Georgia, serif; background: var(--parchment); color: var(--text-dark); overflow-x: hidden; }
-
+    img, button, .nav-link, .lang-btn { user-select: none; -webkit-user-select: none; }
+    
     .lang-bar { background: var(--deep-blue); padding: 8px 0; }
     .lang-bar .container { display: flex; justify-content: space-between; align-items: center; padding: 0 40px; }
     .lang-bar-left { display: flex; align-items: center; gap: 10px; }
@@ -76,6 +74,19 @@
     .section-divider { display: flex; align-items: center; justify-content: center; gap: 14px; margin: 50px 0; color: var(--gold); font-size: 14px; letter-spacing: 8px; }
     .section-divider::before, .section-divider::after { content: ''; flex: 1; height: 1px; background: var(--gold); opacity: 0.3; }
 
+    /* ─── Audio Button ─────────────────────────────────────────────────────────────── */
+    .listen-btn { display: flex; align-items: center; gap: 10px; background: rgba(201,168,76,0.08); border: 1px solid rgba(201,168,76,0.3); border-radius: 999px; padding: 6px 18px 6px 6px; cursor: pointer; transition: all 0.25s; flex-shrink: 0; }
+    .listen-btn:hover { background: rgba(201,168,76,0.15); border-color: var(--gold); }
+    .listen-btn.playing { background: var(--gold); border-color: var(--gold); }
+    .listen-btn.playing .listen-label { color: var(--deep-blue); }
+    .listen-circle { width: 30px; height: 30px; border-radius: 50%; background: var(--gold); display: flex; align-items: center; justify-content: center; flex-shrink: 0; transition: background 0.25s; }
+    .listen-btn.playing .listen-circle { background: var(--deep-blue); }
+    .listen-circle svg { fill: var(--deep-blue); }
+    .listen-btn.playing .listen-circle svg { fill: var(--gold-light); }
+    .listen-label { font-family: 'Noto Sans', sans-serif; font-size: 10px; font-weight: 600; letter-spacing: 1.5px; text-transform: uppercase; color: var(--gold); white-space: nowrap; }
+    .listen-row { display: flex; align-items: center; justify-content: space-between; gap: 16px; margin-bottom: 30px; }
+
+    
     /* ─── Photos ─────────────────────────────────────────────────────────────── */
     .photos-section { max-width: 980px; margin: 0 auto; padding: 0 40px 80px; }
     .photos-heading { font-family: 'Cinzel', serif; font-size: 13px; font-weight: 700; letter-spacing: 2.5px; text-transform: uppercase; color: var(--deep-blue); margin-bottom: 24px; display: flex; align-items: center; gap: 14px; }
@@ -241,7 +252,18 @@
   </div>
 
   <article class="history-body">
-
+    
+    <div class="listen-row">
+      <div class="chapter-date" style="margin-bottom:0;" data-t="ch1_date">Rrënjët Mesjetare</div>
+      <button class="listen-btn" id="mainListenBtn" onclick="toggleListen()">
+        <span class="listen-circle">
+          <svg class="icon-play" width="11" height="11" viewBox="0 0 12 12"><path d="M2 1.5L10 6L2 10.5V1.5Z"/></svg>
+          <svg class="icon-pause" width="11" height="11" viewBox="0 0 12 12" style="display:none;"><rect x="2" y="1.5" width="2.6" height="9"/><rect x="7.4" y="1.5" width="2.6" height="9"/></svg>
+        </span>
+        <span class="listen-label" data-t="listen_label">Dëgjo</span>
+      </button>
+    </div>
+    
     <div class="chapter">
       <div class="chapter-date" data-t="ch1_date">Rrënjët Mesjetare</div>
       <h3 class="chapter-title" data-t="ch1_title">Themelet e lashta</h3>
@@ -498,6 +520,7 @@
       photos_heading:     { sq: 'Foto Historike',                    en: 'Historical Photos',               el: 'Ιστορικές Φωτογραφίες' },
       footer_quick_links: { sq: 'Lidhje të Shpejta',                 en: 'Quick Links',                     el: 'Γρήγοροι Σύνδεσμοι' },
 
+      listen_label: { sq: 'Dëgjo', en: 'Listen', el: 'Άκουσε' },
       ch1_date:  { sq: 'Rrënjët Mesjetare',          en: 'Medieval Roots',          el: 'Μεσαιωνικές Ρίζες' },
       ch1_title: { sq: 'Themelet e lashta',           en: 'Ancient Foundations',     el: 'Αρχαία Θεμέλια' },
       ch1_p1: {
@@ -594,6 +617,7 @@
     };
 
     function setLang(lang) {
+      stopListening();
       document.querySelectorAll('.lang-btn').forEach(b => b.classList.remove('active'));
       document.querySelector(`.lang-btn[onclick="setLang('${lang}')"]`).classList.add('active');
       document.getElementById('lang-label-text').textContent = T.lang_label[lang];
@@ -605,6 +629,56 @@
         el.innerHTML = (entry[lang] || entry['sq'] || '').replace(/\n/g, '<br>');
       });
     }
+
+    
+    const audioPlaylist = {
+  sq: ['audio/ch1_sq.mp3','audio/ch2_sq.mp3','audio/ch3_sq.mp3','audio/ch4_sq.mp3','audio/ch5_sq.mp3','audio/ch6_sq.mp3'],
+  en: ['audio/english.mp3','audio/ch2_en.mp3','audio/ch3_en.mp3','audio/ch4_en.mp3','audio/ch5_en.mp3','audio/ch6_en.mp3'],
+  el: ['audio/ch1_el.mp3','audio/ch2_el.mp3','audio/ch3_el.mp3','audio/ch4_el.mp3','audio/ch5_el.mp3','audio/ch6_el.mp3']
+};
+
+let currentAudio = null;
+let playlistIndex = 0;
+let isPlaying = false;
+
+function getBtn() { return document.getElementById('mainListenBtn'); }
+
+function setBtnPlaying(playing) {
+  const btn = getBtn();
+  btn.classList.toggle('playing', playing);
+  btn.querySelector('.icon-play').style.display = playing ? 'none' : '';
+  btn.querySelector('.icon-pause').style.display = playing ? '' : 'none';
+}
+
+function stopListening() {
+  if (currentAudio) { currentAudio.pause(); currentAudio.currentTime = 0; }
+  currentAudio = null;
+  isPlaying = false;
+  playlistIndex = 0;
+  setBtnPlaying(false);
+}
+
+function playCurrentTrack() {
+  const lang = document.documentElement.lang || 'sq';
+  const list = audioPlaylist[lang] || audioPlaylist.sq;
+  if (playlistIndex >= list.length) { stopListening(); return; }
+
+  currentAudio = new Audio(list[playlistIndex]);
+  currentAudio.onended = () => { playlistIndex++; playCurrentTrack(); };
+  currentAudio.onerror = () => { playlistIndex++; playCurrentTrack(); };
+  currentAudio.play();
+  isPlaying = true;
+  setBtnPlaying(true);
+}
+
+function toggleListen() {
+  if (isPlaying) {
+    stopListening();
+    return;
+  }
+  playlistIndex = 0;
+  playCurrentTrack();
+}
 
     const photos = [
       { src: 'History/1906.jpg', title: 'Fotografi e vjetër e kishës para rindërtimit - 1906' },
