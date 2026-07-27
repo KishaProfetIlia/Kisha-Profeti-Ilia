@@ -132,6 +132,12 @@ footer { background: var(--warm-dark); padding: 60px 0 0; }
   .content-inner { padding: 20px; } 
   .rule-block { padding: 16px 18px; } 
   .rule-list li { font-size: 14px; } 
+
+  .service-img-frame { max-width: 100%; margin: 14px 0; }
+  .service-gallery { gap: 8px; }
+  .service-gallery .service-img-frame { width: calc(50% - 4px); }
+  .service-img-frame img { max-height: 260px; object-fit: cover; }
+  
   .footer-inner { grid-template-columns: 1fr; gap: 30px; padding: 0 20px 40px; } 
   .footer-bottom { padding: 16px 20px; flex-direction: column; text-align: center; } 
   .footer-bottom p { justify-content: center; } 
@@ -159,7 +165,7 @@ footer { background: var(--warm-dark); padding: 60px 0 0; }
     </div>
     <div class="lang-bar-right">
       <span class="lang-label" id="lang-label-text">Gjuha</span>
-      <button class="lang-btn active" onclick="setLang('sq')">AL</button>
+      <button class="lang-btn active" onclick="setLang('sq')">SQ</button>
       <button class="lang-btn" onclick="setLang('en')">EN</button>
       <button class="lang-btn" onclick="setLang('el')">ΕL</button>
     </div>
