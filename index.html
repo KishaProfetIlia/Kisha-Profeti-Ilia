@@ -247,7 +247,7 @@ footer::before { content: ''; position: absolute; bottom: -260px; left: 50%; tra
     </div>
     <div class="lang-bar-right">
       <span class="lang-label" id="lang-label-text">Gjuha</span>
-      <button class="lang-btn active" onclick="setLang('sq')">AL</button>
+      <button class="lang-btn active" onclick="setLang('sq')">SQ</button>
       <button class="lang-btn" onclick="setLang('en')">EN</button>
       <button class="lang-btn" onclick="setLang('el')">ΕL</button>
     </div>
@@ -316,19 +316,18 @@ footer::before { content: ''; position: absolute; bottom: -260px; left: 50%; tra
       <h3 data-t="history_heading"></h3>
       <p data-t="history_p1"></p>
       <p data-t="history_p2"></p>
-    <div class="church-address-box">
+    <div class="history-img-frame" onclick="openLightbox(1)">
+      <img src="Assets/kisha_main2.jpg" alt="Kisha Profeti Ilia">
+    </div>
+    <a href="https://maps.app.goo.gl/imSxKzHyRxWEduUb6" target="_blank" class="church-address-box" style="text-decoration:none; margin-top:16px;">
       <span class="addr-icon">
         <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M12 2C8.7 2 6 4.7 6 8c0 5 6 14 6 14s6-9 6-14c0-3.3-2.7-6-6-6z" stroke="#E8C97A" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/><circle cx="12" cy="8" r="2.5" stroke="#E8C97A" stroke-width="1.6"/></svg>
       </span>
       <div class="addr-text">
         <h4 data-t="church_addr_title">Kisha "Profeti Ilia"</h4>
         <p data-t="church_addr_line"></p>
-        <p style="margin-top:4px;"><a href="https://maps.app.goo.gl/imSxKzHyRxWEduUb6" target="_blank" style="color:#E8C97A;text-decoration:underline;" data-t="church_addr_link"></a></p>
       </div>
-    </div>
-    <div class="history-img-frame" onclick="openLightbox(1)">
-      <img src="Assets/kisha_main2.jpg" alt="Kisha Profeti Ilia">
-    </div>
+    </a>
   </div>
 </section>
 
