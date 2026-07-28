@@ -45,7 +45,14 @@ nav { background: linear-gradient(135deg, var(--mid-blue), var(--deep-blue)); bo
 .nav-link.active { color: var(--gold-light); background: rgba(201,168,76,0.12); box-shadow: 0 2px 8px rgba(0,0,0,0.15); }
 
 /* HERO */
-.hero { background: linear-gradient(170deg, rgba(26,31,60,0.85) 0%, rgba(19,24,58,0.80) 50%, rgba(10,13,30,0.85) 100%), url("Assets/kisha_main1.jpg") center/cover no-repeat; min-height: 100vh; display: flex; align-items: center; justify-content: center; text-align: center; padding: 80px 40px; position: relative; overflow: hidden; }
+.hero { background: linear-gradient(170deg,#1A1F3C,#0A0D1E); min-height: 100vh; display: flex; align-items: center; justify-content: center; text-align: center; padding: 80px 40px; position: relative; overflow: hidden; }
+.hero-slider { position: absolute; inset: 0; z-index: 0; }
+.hero-slide { position: absolute; inset: 0; background-size: cover; background-position: center 30%; opacity: 0; transition: opacity 1.4s ease-in-out; }
+.hero-slide.active { opacity: 1; }
+.hero-overlay { position: absolute; inset: 0; z-index: 1; background: linear-gradient(170deg, rgba(26,31,60,0.85) 0%, rgba(19,24,58,0.80) 50%, rgba(10,13,30,0.85) 100%); pointer-events: none; }
+.hero::before { z-index: 2; }
+.hero-arch { z-index: 2; }
+.hero-content { z-index: 3; }
 .hero::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse 70% 60% at 50% 50%, rgba(201,168,76,0.08) 0%, transparent 70%); }
 .hero-arch { position: absolute; top: 0; left: 50%; transform: translateX(-50%); width: 500px; height: 300px; border: 1px solid rgba(201,168,76,0.08); border-radius: 50% 50% 0 0 / 100% 100% 0 0; pointer-events: none; }
 .hero-content { position: relative; z-index: 1; max-width: 720px; margin: 0 auto; width: 100%; }
@@ -93,6 +100,26 @@ nav { background: linear-gradient(135deg, var(--mid-blue), var(--deep-blue)); bo
 .lightbox-close, .lightbox-arrow { backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); }
 .lightbox-img-wrap img { animation: lightboxIn 0.35s ease; }
 @keyframes lightboxIn { from { opacity:0; transform:scale(0.94); } to { opacity:1; transform:scale(1); } }
+
+/* APP BANNER */
+.app-soon-banner { position: fixed; bottom: 24px; left: 50%; transform: translateX(-50%) translateY(120px); opacity: 0; display: flex; align-items: center; gap: 16px; background: linear-gradient(135deg, rgba(45,53,97,0.92), rgba(26,31,60,0.96)); backdrop-filter: blur(20px) saturate(160%); -webkit-backdrop-filter: blur(20px) saturate(160%); border: 1px solid rgba(201,168,76,0.35); border-radius: 16px; padding: 16px 20px; box-shadow: 0 16px 50px rgba(0,0,0,0.35); z-index: 800; max-width: 480px; width: calc(100% - 40px); animation: appSoonIn 0.7s cubic-bezier(.34,1.56,.64,1) 1.2s forwards; }
+@keyframes appSoonIn { to { transform: translateX(-50%) translateY(0); opacity: 1; } }
+.app-soon-banner.hide { animation: appSoonOut 0.4s ease forwards; }
+@keyframes appSoonOut { to { transform: translateX(-50%) translateY(120px); opacity: 0; } }
+.asb-close { position: absolute; top: 8px; right: 10px; background: transparent; border: none; color: rgba(255,255,255,0.4); font-size: 13px; cursor: pointer; width: 22px; height: 22px; border-radius: 50%; display: flex; align-items: center; justify-content: center; transition: all 0.2s; }
+.asb-close:hover { color: var(--gold-light); background: rgba(255,255,255,0.08); }
+.asb-icon { width: 44px; height: 44px; border-radius: 12px; background: linear-gradient(135deg,var(--gold),var(--gold-light)); flex-shrink: 0; display: flex; align-items: center; justify-content: center; }
+.asb-icon svg { width: 20px; height: 20px; stroke: var(--deep-blue); fill: none; stroke-width: 1.8; }
+.asb-text { flex: 1; min-width: 0; }
+.asb-text strong { font-family: 'Cinzel', serif; font-size: 13px; color: #fff; display: block; margin-bottom: 2px; }
+.asb-text span { font-family: 'EB Garamond', serif; font-size: 13px; color: rgba(255,255,255,0.55); font-style: italic; }
+.asb-download { font-family: 'Noto Sans', sans-serif; font-size: 11px; font-weight: 700; letter-spacing: 0.8px; text-transform: uppercase; background: rgba(201,168,76,0.15); border: 1px solid rgba(201,168,76,0.4); color: var(--gold-light); padding: 9px 16px; border-radius: 999px; cursor: not-allowed; flex-shrink: 0; opacity: 0.7; }
+@media (max-width: 600px) {
+  .app-soon-banner { bottom: 16px; padding: 14px 16px; gap: 12px; width: calc(100% - 24px); }
+  .asb-text span { display: none; }
+  .asb-download { padding: 8px 12px; font-size: 10px; }
+}
+
   
 /* FOOTER */
 footer { background: linear-gradient(180deg, var(--warm-dark) 0%, #0A0912 100%); padding: 60px 0 0; position: relative; overflow: hidden; }
@@ -281,13 +308,13 @@ footer::before { content: ''; position: absolute; bottom: -260px; left: 50%; tra
 
 <!-- HERO -->
 <section class="hero">
+  <div class="hero-slider" id="heroSlider"></div>
+  <div class="hero-overlay"></div>
   <div class="hero-arch"></div>
   <div class="hero-content">
     <div class="hero-eyebrow" data-t="hero_eyebrow"></div>
     <h2><span data-t="hero_title"></span></h2>
-    <div class="hero-divider">
-      <span style="width:140px;"></span>
-    </div>
+    <div class="hero-divider"><span style="width:140px;"></span></div>
     <p class="hero-subtitle" data-t="hero_quote"></p>
   </div>
 </section>
@@ -316,18 +343,21 @@ footer::before { content: ''; position: absolute; bottom: -260px; left: 50%; tra
       <h3 data-t="history_heading"></h3>
       <p data-t="history_p1"></p>
       <p data-t="history_p2"></p>
-    <div class="history-img-frame" onclick="openLightbox(1)">
-      <img src="Assets/kisha_main2.jpg" alt="Kisha Profeti Ilia">
     </div>
-    <a href="https://maps.app.goo.gl/imSxKzHyRxWEduUb6" target="_blank" class="church-address-box" style="text-decoration:none; margin-top:16px;">
-      <span class="addr-icon">
-        <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M12 2C8.7 2 6 4.7 6 8c0 5 6 14 6 14s6-9 6-14c0-3.3-2.7-6-6-6z" stroke="#E8C97A" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/><circle cx="12" cy="8" r="2.5" stroke="#E8C97A" stroke-width="1.6"/></svg>
-      </span>
-      <div class="addr-text">
-        <h4 data-t="church_addr_title">Kisha "Profeti Ilia"</h4>
-        <p data-t="church_addr_line"></p>
+    <div>
+      <div class="history-img-frame" onclick="openLightbox(1)">
+        <img src="Assets/kisha_main2.jpg" alt="Kisha Profeti Ilia">
       </div>
-    </a>
+      <a href="https://maps.app.goo.gl/imSxKzHyRxWEduUb6" target="_blank" class="church-address-box" style="text-decoration:none; margin-top:16px;">
+        <span class="addr-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M12 2C8.7 2 6 4.7 6 8c0 5 6 14 6 14s6-9 6-14c0-3.3-2.7-6-6-6z" stroke="#E8C97A" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/><circle cx="12" cy="8" r="2.5" stroke="#E8C97A" stroke-width="1.6"/></svg>
+        </span>
+        <div class="addr-text">
+          <h4 data-t="church_addr_title">Kisha "Profeti Ilia"</h4>
+          <p data-t="church_addr_line"></p>
+        </div>
+      </a>
+    </div>
   </div>
 </section>
 
@@ -388,6 +418,24 @@ footer::before { content: ''; position: absolute; bottom: -260px; left: 50%; tra
   </div>
 </div>
 
+
+
+  
+<div class="app-soon-banner" id="appSoonBanner">
+  <button class="asb-close" onclick="closeAppSoonBanner()" aria-label="Mbyll">✕</button>
+  <div class="asb-icon">
+    <svg viewBox="0 0 24 24"><rect x="6" y="2" width="12" height="20" rx="2"/><path d="M11 18h2"/></svg>
+  </div>
+  <div class="asb-text">
+    <strong>Aplikacioni po vjen së shpejti</strong>
+    <span>Instalo Kishën "Profeti Ilia" direkt në telefon</span>
+  </div>
+  <button class="asb-download" disabled>Shkarko</button>
+</div>
+
+
+
+  
 <script>
 const T = {
   lang_label: { sq: 'Gjuha', en: 'Language', el: 'Γλώσσα' },
@@ -423,6 +471,25 @@ const T = {
 };
 
 
+// HERO
+const heroImages = ["Assets/kisha_main1.jpg", "Assets/kisha_main2.jpg", "Assets/profeti.jpg", "Assets/banner.jpg", "Assets/kisha_main1.jpg"];
+const heroSlider = document.getElementById('heroSlider');
+heroImages.forEach((src, i) => {
+  const slide = document.createElement('div');
+  slide.className = 'hero-slide' + (i === 0 ? ' active' : '');
+  slide.style.backgroundImage = `url('${src}')`;
+  heroSlider.appendChild(slide);
+});
+let heroIndex = 0;
+setInterval(() => {
+  const slides = heroSlider.querySelectorAll('.hero-slide');
+  slides[heroIndex].classList.remove('active');
+  heroIndex = (heroIndex + 1) % slides.length;
+  slides[heroIndex].classList.add('active');
+}, 3000);
+
+  
+// LANGUAGE
 function setLang(lang) {
   document.querySelectorAll('.lang-btn').forEach(btn => btn.classList.remove('active'));
   document.querySelector(`.lang-btn[onclick="setLang('${lang}')"]`).classList.add('active');
@@ -472,6 +539,23 @@ document.querySelectorAll('.church-address-box').forEach(el => { el.style.opacit
 
 setLang('sq');
 
+
+// APP BANNER 
+function closeAppSoonBanner() {
+  const el = document.getElementById('appSoonBanner');
+  el.classList.add('hide');
+  setTimeout(() => el.style.display = 'none', 400);
+  localStorage.setItem('appSoonDismissed', '1');
+}
+window.addEventListener('DOMContentLoaded', () => {
+  if (localStorage.getItem('appSoonDismissed')) {
+    const el = document.getElementById('appSoonBanner');
+    if (el) el.style.display = 'none';
+  }
+});
+
+
+  
 
 
 
