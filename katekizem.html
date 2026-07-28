@@ -8,7 +8,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Noto+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
-:root { --gold: #C9A84C; --gold-light: #E8C97A; --gold-pale: #F5EDD8; --deep-blue: #1A1F3C; --mid-blue: #2D3561; --warm-dark: #0F0E0B; --parchment: #FAF6EE; --red-byzantine: #8B1A1A; --cream: #F2EDE4; --text-dark: #1A1715; --text-mid: #4A4035; --text-light: #9A8E7E; --border: rgba(201,168,76,0.25); --shadow: 0 4px 30px rgba(15,14,11,0.15); }
+:root { --gold: #C9A84C; --gold-light: #E8C97A; --deep-blue: #1A1F3C; --mid-blue: #2D3561; --warm-dark: #0F0E0B; --parchment: #FAF6EE; --cream: #F2EDE4; --text-dark: #1A1715; --text-mid: #4A4035; --text-light: #9A8E7E; --border: rgba(201,168,76,0.25); }
 * { margin: 0; padding: 0; box-sizing: border-box; user-select: none; -webkit-user-select: none; }
 html { scroll-behavior: smooth; }
 body { font-family: 'EB Garamond', Georgia, serif; background: var(--parchment); color: var(--text-dark); overflow-x: hidden; }
@@ -34,7 +34,7 @@ header::before { content: ''; position: absolute; inset: 0; background: linear-g
 .church-name-block p { font-family: 'EB Garamond', serif; font-style: italic; font-size: 13.5px; color: rgba(255,255,255,.5); margin-top: 3px; letter-spacing: .5px; }
 
 /* NAVIGATION */
-nav { background: linear-gradient(135deg, var(--mid-blue), var(--deep-blue)); border-top: 1px solid rgba(201,168,76,0.3); border-bottom: 1px solid rgba(201,168,76,0.3); position: sticky; top: 0; z-index: 100; box-shadow: 0 4px 20px rgba(0,0,0,0.15); }
+nav { background: linear-gradient(135deg, var(--mid-blue), var(--deep-blue)); border-top: 1px solid rgba(201,168,76,0.3); border-bottom: 1px solid rgba(201,168,76,0.3); position: sticky; top: 0; z-index: 100; box-shadow: 0 4px 20px rgba(0,0,0,0.15); --blur-amount: 0px; backdrop-filter: blur(var(--blur-amount)) saturate(160%); -webkit-backdrop-filter: blur(var(--blur-amount)) saturate(160%); }
 .nav-inner { display: flex; align-items: center; justify-content: center; padding: 0 20px; gap: 4px; }
 .nav-link { font-family: 'Cinzel', serif; font-size: 11px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; color: rgba(255,255,255,0.7); text-decoration: none; padding: 16px 24px; position: relative; transition: all 0.3s ease; white-space: nowrap; border-radius: 40px; }
 .nav-link::before { content: ''; position: absolute; top: 0; left: 50%; width: 0; height: 2px; background: linear-gradient(90deg, transparent, var(--gold), var(--gold-light), var(--gold), transparent); transition: width 0.3s ease, left 0.3s ease; transform: translateX(-50%); border-radius: 2px; }
@@ -99,8 +99,9 @@ blockquote p { font-style: italic; font-size: 19px; color: var(--deep-blue); mar
 @keyframes lightboxIn { from { opacity:0; transform:scale(.94); } to { opacity:1; transform:scale(1); } }
 
 /* FOOTER */
-footer { background: var(--warm-dark); padding: 60px 0 0; }
-.footer-inner { max-width: 1200px; margin: 0 auto; padding: 0 40px 50px; display: grid; grid-template-columns: 1.5fr 1fr; gap: 50px; }
+footer { background: linear-gradient(180deg, var(--warm-dark) 0%, #0A0912 100%); padding: 60px 0 0; position: relative; overflow: hidden; }
+footer::before { content: ''; position: absolute; bottom: -260px; left: 50%; transform: translateX(-50%); width: 1100px; height: 500px; background: radial-gradient(ellipse at center, rgba(201,168,76,0.4) 0%, rgba(45,53,97,0.22) 40%, transparent 72%); filter: blur(90px); pointer-events: none; z-index: 0; }
+.footer-inner { position: relative; z-index: 1; max-width: 1200px; margin: 0 auto; padding: 0 40px 50px; display: grid; grid-template-columns: 1.5fr 1fr; gap: 50px; }
 .footer-col h5 { font-family: 'Cinzel', serif; font-size: 11px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--gold); margin-bottom: 18px; padding-bottom: 10px; border-bottom: 1px solid rgba(201,168,76,.2); }
 .footer-links { list-style: none; }
 .footer-links li { padding: 6px 0; }
@@ -108,7 +109,7 @@ footer { background: var(--warm-dark); padding: 60px 0 0; }
 .footer-links a::before { content: '›'; color: var(--gold); opacity: 0; transition: opacity .2s; }
 .footer-links a:hover { color: rgba(255,255,255,.8); }
 .footer-links a:hover::before { opacity: 1; }
-.footer-bottom { border-top: 1px solid rgba(255,255,255,.06); padding: 20px 40px; max-width: 1200px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 15px; }
+.footer-bottom { position: relative; z-index: 1; border-top: 1px solid rgba(255,255,255,.06); padding: 20px 40px; max-width: 1200px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 15px; }
 .footer-bottom p { font-family: 'Noto Sans', sans-serif; font-size: 11px; color: rgba(255,255,255,.25); letter-spacing: .5px; margin: 0; display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
 .footer-instagram { display: inline-flex; align-items: center; text-decoration: none; transition: opacity 0.25s; margin-left: 5px; }
 .footer-instagram svg { width: 16px; height: 16px; }
@@ -142,7 +143,7 @@ footer { background: var(--warm-dark); padding: 60px 0 0; }
     </div>
     <div class="lang-bar-right">
       <span class="lang-label" id="lang-label-text">Gjuha</span>
-      <button class="lang-btn active" onclick="setLang('sq')">AL</button>
+      <button class="lang-btn active" onclick="setLang('sq')">SQ</button>
       <button class="lang-btn" onclick="setLang('en')">EN</button>
       <button class="lang-btn" onclick="setLang('el')">ΕL</button>
     </div>
@@ -155,8 +156,8 @@ footer { background: var(--warm-dark); padding: 60px 0 0; }
     <a href="index.html" class="church-identity">
       <img class="cross-icon" src="Assets/logo.png" alt="Kisha Profeti Ilia">
       <div class="church-name-block">
-        <h1>Kisha "Profeti Ilia" Korçë</h1>
-        <p>Mitropolia e Shenjtë Korçë</p>
+        <h1 data-t="header_title">Kisha "Profeti Ilia" Korçë</h1>
+        <p data-t="header_subtitle">Mitropolia e Shenjtë Korçë</p>
       </div>
     </a>
   </div>
@@ -165,19 +166,19 @@ footer { background: var(--warm-dark); padding: 60px 0 0; }
 <!-- NAV -->
 <nav>
   <div class="nav-inner">
-    <a href="index.html" class="nav-link">KRYEFAQJA</a>
-    <a href="historia.html" class="nav-link">HISTORIA</a>
-    <a href="evente.html" class="nav-link">SHËRBESAT</a>
-    <a href="galeria.html" class="nav-link">GALERIA</a>
-    <a href="katekizem.html" class="nav-link active">KATEKIZËM</a>
+    <a href="index.html" class="nav-link" data-t="nav_home">KRYEFAQJA</a>
+    <a href="historia.html" class="nav-link" data-t="nav_history">HISTORIA</a>
+    <a href="evente.html" class="nav-link" data-t="nav_events">SHËRBESAT</a>
+    <a href="galeria.html" class="nav-link" data-t="nav_gallery">GALERIA</a>
+    <a href="katekizem.html" class="nav-link active" data-t="nav_catechism">KATEKIZËM</a>
     <a href="meshume.html" class="nav-link" data-t="nav_more">MË SHUMË</a>
   </div>
 </nav>
 
 <!-- PAGE TITLE -->
 <div class="page-title-section">
-  <div class="eyebrow">Kisha Profeti Ilia</div>
-  <h2>Katekizëm</h2>
+  <div class="eyebrow" data-t="page_eyebrow">Kisha Profeti Ilia</div>
+  <h2 data-t="page_title">Katekizëm</h2>
   <div class="title-line"></div>
 </div>
 
@@ -194,7 +195,7 @@ footer { background: var(--warm-dark); padding: 60px 0 0; }
 
 <!-- PHOTOS -->
 <section class="photos-section">
-  <div class="photos-heading">Momente nga Katekizmi</div>
+  <div class="photos-heading" data-t="photos_heading">Momente nga Katekizmi</div>
   <div class="photos-grid">
     <div class="photo-item" onclick="openLightbox(0)"><img src="Assets/katekizem1.jpg" alt="Katekizëm foto 1"><div class="zoom-icon"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="6.5" cy="6.5" r="4.5" stroke="#1A1F3C" stroke-width="1.6"/><path d="M10 10L14 14" stroke="#1A1F3C" stroke-width="1.6" stroke-linecap="round"/><path d="M6.5 4.5v4M4.5 6.5h4" stroke="#1A1F3C" stroke-width="1.4" stroke-linecap="round"/></svg></div></div>
     <div class="photo-item" onclick="openLightbox(1)"><img src="Assets/katekizem2.jpg" alt="Katekizëm foto 2"><div class="zoom-icon"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="6.5" cy="6.5" r="4.5" stroke="#1A1F3C" stroke-width="1.6"/><path d="M10 10L14 14" stroke="#1A1F3C" stroke-width="1.6" stroke-linecap="round"/><path d="M6.5 4.5v4M4.5 6.5h4" stroke="#1A1F3C" stroke-width="1.4" stroke-linecap="round"/></svg></div></div>
@@ -223,13 +224,13 @@ footer { background: var(--warm-dark); padding: 60px 0 0; }
       </a>
     </div>
     <div class="footer-col">
-      <h5>Lidhje të Shpejta</h5>
+      <h5 data-t="footer_quick_links">Lidhje të Shpejta</h5>
       <ul class="footer-links">
-        <li><a href="index.html">Kryefaqja</a></li>
-        <li><a href="historia.html">Historia</a></li>
-        <li><a href="evente.html">Shërbesat</a></li>
-        <li><a href="galeria.html">Galeria</a></li>
-        <li><a href="meshume.html">Më Shumë</a></li>
+        <li><a href="index.html" data-t="nav_home">Kryefaqja</a></li>
+        <li><a href="historia.html" data-t="nav_history">Historia</a></li>
+        <li><a href="evente.html" data-t="nav_events">Shërbesat</a></li>
+        <li><a href="galeria.html" data-t="nav_gallery">Galeria</a></li>
+        <li><a href="meshume.html" data-t="nav_more">Më Shumë</a></li>
       </ul>
     </div>
   </div>
@@ -247,6 +248,58 @@ footer { background: var(--warm-dark); padding: 60px 0 0; }
 const photos = [{ src: "Assets/katekizem1.jpg" }, { src: "Assets/katekizem2.jpg" }];
 let current = 0;
 
+// NAVBAR BLUR EFFECT
+const navEl = document.querySelector('nav');
+const titleEl = document.querySelector('.page-title-section');
+
+function updateNavBlur() {
+  const refHeight = titleEl ? titleEl.offsetHeight : 300;
+  const scrollY = window.scrollY;
+  const progress = Math.min(scrollY / (refHeight * 0.6), 1);
+
+  const blur = progress * 16;
+  const opacity = 1 - progress * 0.25;
+
+  navEl.style.setProperty('--blur-amount', `${blur}px`);
+  navEl.style.background = `linear-gradient(135deg, rgba(45,53,97,${opacity}), rgba(26,31,60,${opacity}))`;
+}
+
+
+// LANGUAGE & T-DATA
+const T = {
+  lang_label: { sq: 'Gjuha', en: 'Language', el: 'Γλώσσα' },
+  header_title: { sq: 'Kisha "Profeti Ilia" Korçë', en: '"Prophet Elijah" Church Korçë', el: 'Ναός «Προφήτης Ηλίας» Κορυτσά' },
+  header_subtitle: { sq: 'Mitropolia e Shenjtë Korçë', en: 'Holy Metropolis of Korçë', el: 'Ιερά Μητρόπολη Κορυτσάς' },
+  nav_home: { sq: 'Kryefaqja', en: 'Home', el: 'Αρχική' },
+  nav_history: { sq: 'Historia', en: 'History', el: 'Ιστορία' },
+  nav_events: { sq: 'Shërbesat', en: 'Holy Services', el: 'Ακολουθίες' },
+  nav_gallery: { sq: 'Galeria', en: 'Gallery', el: 'Γκαλερί' },
+  nav_catechism: { sq: 'Katekizëm', en: 'Catechism', el: 'Κατήχηση' },
+  nav_more: { sq: 'Më Shumë', en: 'More', el: 'Περισσότερα' },
+  page_eyebrow: { sq: 'Kisha Profeti Ilia', en: 'Church Prophet Elijah', el: 'Ναός Προφήτης Ηλίας' },
+  page_title: { sq: 'Katekizëm', en: 'Catechism', el: 'Κατήχηση' },
+  photos_heading: { sq: 'Momente nga Katekizmi', en: 'Moments from Catechism', el: 'Στιγμές από την Κατήχηση' },
+  footer_quick_links: { sq: 'Lidhje të Shpejta', en: 'Quick Links', el: 'Γρήγοροι Σύνδεσμοι' }
+};
+
+function setLang(lang) {
+  document.querySelectorAll('.lang-btn').forEach(b => b.classList.remove('active'));
+  document.querySelector(`.lang-btn[onclick="setLang('${lang}')"]`).classList.add('active');
+  document.documentElement.lang = lang;
+  document.querySelectorAll('[data-t]').forEach(el => {
+    const entry = T[el.getAttribute('data-t')];
+    if (entry) el.textContent = entry[lang] || entry['sq'];
+  });
+}
+setLang('sq');
+
+
+  
+window.addEventListener('scroll', updateNavBlur);
+updateNavBlur();
+
+
+  
 function openLightbox(i) { current = i; renderLightbox(); document.getElementById('lightbox').classList.add('open'); document.body.style.overflow = 'hidden'; }
 function closeLightbox() { document.getElementById('lightbox').classList.remove('open'); document.body.style.overflow = ''; }
 function changePhoto(dir) { current = (current + dir + photos.length) % photos.length; renderLightbox(); }
@@ -257,13 +310,6 @@ document.addEventListener('keydown', e => { if (!document.getElementById('lightb
 const obs = new IntersectionObserver(entries => { entries.forEach(entry => { if (entry.isIntersecting) setTimeout(() => entry.target.classList.add('visible'), entry.target.dataset.delay || 0); }); }, { threshold: 0.08 });
 document.querySelectorAll('.photo-item').forEach((el, i) => { el.dataset.delay = i * 120; obs.observe(el); });
 
-function setLang(lang) {
-  document.querySelectorAll('.lang-btn').forEach(b => b.classList.remove('active'));
-  document.querySelector(`.lang-btn[onclick="setLang('${lang}')"]`).classList.add('active');
-  document.getElementById('lang-label-text').textContent = { sq: 'Gjuha', en: 'Language', el: 'Γλώσσα' }[lang];
-  document.documentElement.lang = lang;
-}
-setLang('sq');
 </script>
 </body>
 </html>
