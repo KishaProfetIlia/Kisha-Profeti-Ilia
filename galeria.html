@@ -34,7 +34,7 @@ header::before { content: ''; position: absolute; inset: 0; background: linear-g
 .church-name-block p { font-family: 'EB Garamond', serif; font-style: italic; font-size: 13.5px; color: rgba(255,255,255,0.5); margin-top: 3px; letter-spacing: 0.5px; }
 
 /* NAVIGATION */
-nav { background: linear-gradient(135deg, var(--mid-blue), var(--deep-blue)); border-top: 1px solid rgba(201,168,76,0.3); border-bottom: 1px solid rgba(201,168,76,0.3); position: sticky; top: 0; z-index: 100; box-shadow: 0 4px 20px rgba(0,0,0,0.15); }
+nav { background: linear-gradient(135deg, var(--mid-blue), var(--deep-blue)); border-top: 1px solid rgba(201,168,76,0.3); border-bottom: 1px solid rgba(201,168,76,0.3); position: sticky; top: 0; z-index: 100; box-shadow: 0 4px 20px rgba(0,0,0,0.15); --blur-amount: 0px; backdrop-filter: blur(var(--blur-amount)) saturate(160%); -webkit-backdrop-filter: blur(var(--blur-amount)) saturate(160%); }
 .nav-inner { display: flex; align-items: center; justify-content: center; padding: 0 20px; gap: 4px; }
 .nav-link { font-family: 'Cinzel', serif; font-size: 11px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; color: rgba(255,255,255,0.7); text-decoration: none; padding: 16px 24px; position: relative; transition: all 0.3s ease; white-space: nowrap; border-radius: 40px; }
 .nav-link::before { content: ''; position: absolute; top: 0; left: 50%; width: 0; height: 2px; background: linear-gradient(90deg, transparent, var(--gold), var(--gold-light), var(--gold), transparent); transition: width 0.3s ease, left 0.3s ease; transform: translateX(-50%); border-radius: 2px; }
@@ -51,6 +51,32 @@ nav { background: linear-gradient(135deg, var(--mid-blue), var(--deep-blue)); bo
 .page-title-section h2 { font-family: 'Cinzel', serif; font-size: clamp(32px, 5vw, 52px); font-weight: 900; color: #fff; letter-spacing: 4px; text-transform: uppercase; position: relative; z-index: 1; }
 .page-title-section .title-line { width: 80px; height: 2px; background: linear-gradient(90deg, transparent, var(--gold), transparent); margin: 18px auto 0; }
 
+/* FOLDER GRID */
+.folder-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 48px 28px; }
+.folder-card { display: flex; flex-direction: column; align-items: center; gap: 18px; cursor: pointer; opacity: 0; transform: translateY(20px); transition: opacity 0.5s ease, transform 0.5s ease; }
+.folder-card.visible { opacity: 1; transform: translateY(0); }
+.folder-visual { position: relative; width: 100%; aspect-ratio: 4/3; }
+.folder-back { position: absolute; inset: 0; top: 14px; background: linear-gradient(150deg, var(--mid-blue), var(--deep-blue)); border: 1px solid var(--border); border-radius: 4px 14px 14px 14px; box-shadow: 0 14px 34px rgba(15,14,11,0.35); transition: box-shadow 0.35s, border-color 0.35s, transform 0.35s; }
+.folder-back::before { content: ''; position: absolute; top: -14px; left: 0; width: 42%; height: 16px; background: linear-gradient(150deg, var(--mid-blue), var(--deep-blue)); border: 1px solid var(--border); border-bottom: none; border-radius: 8px 10px 0 0; }
+.folder-photo { position: absolute; left: 12%; right: 12%; top: 4%; bottom: 16%; object-fit: cover; border-radius: 3px; border: 4px solid var(--parchment); box-shadow: 0 10px 26px rgba(0,0,0,0.4); transform: rotate(-4deg); transition: transform 0.35s ease, box-shadow 0.35s ease; }
+.folder-card:hover .folder-photo { transform: rotate(-1deg) translateY(-6px) scale(1.03); box-shadow: 0 16px 34px rgba(0,0,0,0.5); }
+.folder-card:hover .folder-back { border-color: rgba(201,168,76,0.5); box-shadow: 0 18px 42px rgba(15,14,11,0.45); }
+.folder-info { text-align: center; }
+.folder-name { font-family: 'Cinzel', serif; font-size: 15px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: var(--gold-light); }
+.folder-count { font-family: 'EB Garamond', serif; font-style: italic; font-size: 13px; color: var(--text-light); margin-top: 4px; }
+
+/* GALLERY DETAIL (inside a folder) */
+.gallery-detail-header { display: flex; align-items: center; gap: 18px; margin-bottom: 36px; }
+.gallery-back-btn { display: flex; align-items: center; justify-content: center; width: 44px; height: 44px; border-radius: 50%; background: rgba(201,168,76,0.08); border: 1px solid var(--border); color: var(--deep-blue); cursor: pointer; flex-shrink: 0; transition: all 0.25s; }
+.gallery-back-btn:hover { background: var(--gold); border-color: var(--gold); color: #fff; transform: translateX(-3px); }
+.gallery-detail-title { font-family: 'Cinzel', serif; font-size: 24px; font-weight: 700; color: var(--text-dark); letter-spacing: 0.5px; }
+.gallery-detail-title span { display: block; font-family: 'EB Garamond', serif; font-style: italic; font-size: 14px; font-weight: 400; color: var(--text-light); letter-spacing: 0; margin-top: 2px; }
+
+@media (max-width: 1100px) { .folder-grid { grid-template-columns: repeat(3, 1fr); } }
+@media (max-width: 700px) { .folder-grid { grid-template-columns: repeat(2, 1fr); gap: 36px 18px; } }
+@media (max-width: 420px) { .folder-grid { grid-template-columns: 1fr; } }
+
+  
 /* GALLERY GRID */
 .gallery-section { max-width: 1400px; margin: 0 auto; padding: 60px 40px 80px; }
 .gallery-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 14px; }
@@ -89,8 +115,9 @@ nav { background: linear-gradient(135deg, var(--mid-blue), var(--deep-blue)); bo
 @keyframes lightboxIn { from { opacity:0; transform:scale(.94); } to { opacity:1; transform:scale(1); } }
   
 /* FOOTER */
-footer { background: var(--warm-dark); padding: 60px 0 0; }
-.footer-inner { max-width: 1200px; margin: 0 auto; padding: 0 40px 50px; display: grid; grid-template-columns: 1.5fr 1fr; gap: 50px; }
+footer { background: linear-gradient(180deg, var(--warm-dark) 0%, #0A0912 100%); padding: 60px 0 0; position: relative; overflow: hidden; }
+footer::before { content: ''; position: absolute; bottom: -260px; left: 50%; transform: translateX(-50%); width: 1100px; height: 500px; background: radial-gradient(ellipse at center, rgba(201,168,76,0.4) 0%, rgba(45,53,97,0.22) 40%, transparent 72%); filter: blur(90px); pointer-events: none; z-index: 0; }
+.footer-inner { position: relative; z-index: 1; max-width: 1200px; margin: 0 auto; padding: 0 40px 50px; display: grid; grid-template-columns: 1.5fr 1fr; gap: 50px; }
 .footer-col h5 { font-family: 'Cinzel', serif; font-size: 11px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--gold); margin-bottom: 18px; padding-bottom: 10px; border-bottom: 1px solid rgba(201,168,76,0.2); }
 .footer-links { list-style: none; }
 .footer-links li { padding: 6px 0; }
@@ -98,7 +125,7 @@ footer { background: var(--warm-dark); padding: 60px 0 0; }
 .footer-links a::before { content: '›'; color: var(--gold); opacity: 0; transition: opacity 0.2s; }
 .footer-links a:hover { color: rgba(255,255,255,0.8); }
 .footer-links a:hover::before { opacity: 1; }
-.footer-bottom { border-top: 1px solid rgba(255,255,255,0.06); padding: 20px 40px; max-width: 1200px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 15px; }
+.footer-bottom { position: relative; z-index: 1; border-top: 1px solid rgba(255,255,255,0.06); padding: 20px 40px; max-width: 1200px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 15px; }
 .footer-bottom p { font-family: 'Noto Sans', sans-serif; font-size: 11px; color: rgba(255,255,255,0.25); letter-spacing: 0.5px; margin: 0; display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
 .footer-instagram { display: inline-flex; align-items: center; text-decoration: none; transition: opacity 0.25s; margin-left: 5px; }
 .footer-instagram svg { width: 16px; height: 16px; }
@@ -134,7 +161,7 @@ footer { background: var(--warm-dark); padding: 60px 0 0; }
     </div>
     <div class="lang-bar-right">
       <span class="lang-label" id="lang-label-text">Gjuha</span>
-      <button class="lang-btn active" onclick="setLang('sq')">AL</button>
+      <button class="lang-btn active" onclick="setLang('sq')">SQ</button>
       <button class="lang-btn" onclick="setLang('en')">EN</button>
       <button class="lang-btn" onclick="setLang('el')">ΕL</button>
     </div>
@@ -175,20 +202,24 @@ footer { background: var(--warm-dark); padding: 60px 0 0; }
 
 <!-- GALLERY -->
 <section class="gallery-section">
-  <div class="gallery-grid" id="galleryGrid">
-    <div class="gallery-item" onclick="openLightbox(0)"><img src="Assets/galeria1.jpg" alt="Foto galeria 1"><div class="zoom-icon"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="6.5" cy="6.5" r="4.5" stroke="#1A1F3C" stroke-width="1.6"/><path d="M10 10L14 14" stroke="#1A1F3C" stroke-width="1.6" stroke-linecap="round"/><path d="M6.5 4.5v4M4.5 6.5h4" stroke="#1A1F3C" stroke-width="1.4" stroke-linecap="round"/></svg></div></div>
-    <div class="gallery-item" onclick="openLightbox(1)"><img src="Assets/galeria2.jpg" alt="Foto galeria 2"><div class="zoom-icon"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="6.5" cy="6.5" r="4.5" stroke="#1A1F3C" stroke-width="1.6"/><path d="M10 10L14 14" stroke="#1A1F3C" stroke-width="1.6" stroke-linecap="round"/><path d="M6.5 4.5v4M4.5 6.5h4" stroke="#1A1F3C" stroke-width="1.4" stroke-linecap="round"/></svg></div></div>
-    <div class="gallery-item" onclick="openLightbox(2)"><img src="Assets/galeria3.jpg" alt="Foto galeria 3"><div class="zoom-icon"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="6.5" cy="6.5" r="4.5" stroke="#1A1F3C" stroke-width="1.6"/><path d="M10 10L14 14" stroke="#1A1F3C" stroke-width="1.6" stroke-linecap="round"/><path d="M6.5 4.5v4M4.5 6.5h4" stroke="#1A1F3C" stroke-width="1.4" stroke-linecap="round"/></svg></div></div>
-    <div class="gallery-item" onclick="openLightbox(3)"><img src="Assets/galeria4.jpg" alt="Foto galeria 4"><div class="zoom-icon"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="6.5" cy="6.5" r="4.5" stroke="#1A1F3C" stroke-width="1.6"/><path d="M10 10L14 14" stroke="#1A1F3C" stroke-width="1.6" stroke-linecap="round"/><path d="M6.5 4.5v4M4.5 6.5h4" stroke="#1A1F3C" stroke-width="1.4" stroke-linecap="round"/></svg></div></div>
-    <div class="gallery-item" onclick="openLightbox(4)"><img src="Assets/galeria5.jpg" alt="Foto galeria 5"><div class="zoom-icon"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="6.5" cy="6.5" r="4.5" stroke="#1A1F3C" stroke-width="1.6"/><path d="M10 10L14 14" stroke="#1A1F3C" stroke-width="1.6" stroke-linecap="round"/><path d="M6.5 4.5v4M4.5 6.5h4" stroke="#1A1F3C" stroke-width="1.4" stroke-linecap="round"/></svg></div></div>
-    <div class="gallery-item" onclick="openLightbox(5)"><img src="Assets/galeria6.jpg" alt="Foto galeria 6"><div class="zoom-icon"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="6.5" cy="6.5" r="4.5" stroke="#1A1F3C" stroke-width="1.6"/><path d="M10 10L14 14" stroke="#1A1F3C" stroke-width="1.6" stroke-linecap="round"/><path d="M6.5 4.5v4M4.5 6.5h4" stroke="#1A1F3C" stroke-width="1.4" stroke-linecap="round"/></svg></div></div>
-    <div class="gallery-item" onclick="openLightbox(6)"><img src="Assets/galeria7.jpg" alt="Foto galeria 7"><div class="zoom-icon"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="6.5" cy="6.5" r="4.5" stroke="#1A1F3C" stroke-width="1.6"/><path d="M10 10L14 14" stroke="#1A1F3C" stroke-width="1.6" stroke-linecap="round"/><path d="M6.5 4.5v4M4.5 6.5h4" stroke="#1A1F3C" stroke-width="1.4" stroke-linecap="round"/></svg></div></div>
-    <div class="gallery-item" onclick="openLightbox(7)"><img src="Assets/galeria8.jpg" alt="Foto galeria 8"><div class="zoom-icon"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="6.5" cy="6.5" r="4.5" stroke="#1A1F3C" stroke-width="1.6"/><path d="M10 10L14 14" stroke="#1A1F3C" stroke-width="1.6" stroke-linecap="round"/><path d="M6.5 4.5v4M4.5 6.5h4" stroke="#1A1F3C" stroke-width="1.4" stroke-linecap="round"/></svg></div></div>
-    <div class="gallery-item" onclick="openLightbox(8)"><img src="Assets/galeria9.jpg" alt="Foto galeria 9"><div class="zoom-icon"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="6.5" cy="6.5" r="4.5" stroke="#1A1F3C" stroke-width="1.6"/><path d="M10 10L14 14" stroke="#1A1F3C" stroke-width="1.6" stroke-linecap="round"/><path d="M6.5 4.5v4M4.5 6.5h4" stroke="#1A1F3C" stroke-width="1.4" stroke-linecap="round"/></svg></div></div>
-    <div class="gallery-item" onclick="openLightbox(9)"><img src="Assets/galeria10.jpg" alt="Foto galeria 10"><div class="zoom-icon"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="6.5" cy="6.5" r="4.5" stroke="#1A1F3C" stroke-width="1.6"/><path d="M10 10L14 14" stroke="#1A1F3C" stroke-width="1.6" stroke-linecap="round"/><path d="M6.5 4.5v4M4.5 6.5h4" stroke="#1A1F3C" stroke-width="1.4" stroke-linecap="round"/></svg></div></div>
-  </div>
-</section>
 
+  <!-- FOLDER VIEW -->
+  <div id="folderView">
+    <div class="folder-grid" id="folderGrid"></div>
+  </div>
+
+  <!-- INSIDE-A-FOLDER VIEW -->
+  <div id="galleryDetail" style="display:none;">
+    <div class="gallery-detail-header">
+      <button class="gallery-back-btn" onclick="closeFolder()" aria-label="Kthehu">
+        <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M11 4L6 9L11 14" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+      <div class="gallery-detail-title" id="galleryDetailTitle"></div>
+    </div>
+    <div class="gallery-grid" id="galleryGrid"></div>
+  </div>
+
+</section>
 <!-- LIGHTBOX -->
 <div class="lightbox" id="lightbox">
   <div class="lightbox-backdrop" onclick="closeLightbox()"></div>
@@ -236,19 +267,88 @@ footer { background: var(--warm-dark); padding: 60px 0 0; }
 </footer>
 
 <script>
-const photos = [
-  { src: "Assets/galeria1.jpg"},
-  { src: "Assets/galeria2.jpg"},
-  { src: "Assets/galeria3.jpg"},
-  { src: "Assets/galeria4.jpg"},
-  { src: "Assets/galeria5.jpg"},
-  { src: "Assets/galeria6.jpg"},
-  { src: "Assets/galeria7.jpg"},
-  { src: "Assets/galeria8.jpg"},
-  { src: "Assets/galeria9.jpg"},
-  { src: "Assets/galeria10.jpg"}
+const folders = [
+  { id: 'sherbesat', name: { sq:'Shërbesat', en:'Holy Services', el:'Ακολουθίες' }, photos: ["Assets/galeria1.jpg","Assets/galeria2.jpg","Assets/galeria3.jpg","Assets/galeria4.jpg"] },
+  { id: 'kisha', name: { sq:'Kisha', en:'The Church', el:'Ο Ναός' }, photos: ["Assets/galeria5.jpg","Assets/galeria6.jpg","Assets/galeria7.jpg"] },
+  { id: 'festa', name: { sq:'Festa e Shën Ilisë', en:'Feast of Prophet Elijah', el:'Εορτή Προφήτη Ηλία' }, photos: ["Assets/galeria8.jpg","Assets/galeria9.jpg","Assets/galeria10.jpg"] }
 ];
+const photoCountLabel = { sq:'foto', en:'photos', el:'φωτογραφίες' };
+
+let activeFolder = null;
 let current = 0;
+
+function renderFolders() {
+  const grid = document.getElementById('folderGrid');
+  grid.innerHTML = folders.map((f, i) => `
+    <div class="folder-card" data-delay="${i * 80}" onclick="openFolder(${i})">
+      <div class="folder-visual">
+        <div class="folder-back"></div>
+        <img class="folder-photo" src="${f.photos[0]}" alt="${f.name[currentLang]}">
+      </div>
+      <div class="folder-info">
+        <div class="folder-name">${f.name[currentLang]}</div>
+        <div class="folder-count">${f.photos.length} ${photoCountLabel[currentLang]}</div>
+      </div>
+    </div>
+  `).join('');
+  const obs = new IntersectionObserver((entries) => { entries.forEach((entry) => { if (entry.isIntersecting) { setTimeout(() => entry.target.classList.add('visible'), entry.target.dataset.delay || 0); } }); }, { threshold: 0.08 });
+  grid.querySelectorAll('.folder-card').forEach(el => obs.observe(el));
+}
+
+function zoomIconSvg() {
+  return `<svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="6.5" cy="6.5" r="4.5" stroke="#1A1F3C" stroke-width="1.6"/><path d="M10 10L14 14" stroke="#1A1F3C" stroke-width="1.6" stroke-linecap="round"/><path d="M6.5 4.5v4M4.5 6.5h4" stroke="#1A1F3C" stroke-width="1.4" stroke-linecap="round"/></svg>`;
+}
+
+function openFolder(i) {
+  activeFolder = folders[i];
+  document.getElementById('folderView').style.display = 'none';
+  document.getElementById('galleryDetail').style.display = 'block';
+  document.getElementById('galleryDetailTitle').innerHTML = `${activeFolder.name[currentLang]}<span>${activeFolder.photos.length} ${photoCountLabel[currentLang]}</span>`;
+  const grid = document.getElementById('galleryGrid');
+  grid.innerHTML = activeFolder.photos.map((src, idx) => `
+    <div class="gallery-item visible" onclick="openLightbox(${idx})">
+      <img src="${src}" alt="Foto">
+      <div class="zoom-icon">${zoomIconSvg()}</div>
+    </div>
+  `).join('');
+  window.scrollTo({ top: document.querySelector('.page-title-section').offsetHeight, behavior: 'smooth' });
+}
+
+function closeFolder() {
+  document.getElementById('galleryDetail').style.display = 'none';
+  document.getElementById('folderView').style.display = 'block';
+  activeFolder = null;
+}
+
+function openLightbox(index) { current = index; renderLightbox(); document.getElementById('lightbox').classList.add('open'); document.body.style.overflow = 'hidden'; }
+function closeLightbox() { document.getElementById('lightbox').classList.remove('open'); document.body.style.overflow = ''; }
+function changePhoto(dir) { current = (current + dir + activeFolder.photos.length) % activeFolder.photos.length; renderLightbox(); }
+function renderLightbox() {
+  const wrap = document.getElementById('lightboxImgWrap');
+  wrap.innerHTML = `<img src="${activeFolder.photos[current]}" alt="Foto">`;
+  document.getElementById('lightboxCounter').textContent = `${current + 1} / ${activeFolder.photos.length}`;
+}
+
+document.addEventListener('keydown', e => { if (!document.getElementById('lightbox').classList.contains('open')) return; if (e.key === 'ArrowRight') changePhoto(1); if (e.key === 'ArrowLeft') changePhoto(-1); if (e.key === 'Escape') closeLightbox(); });
+
+// NAVBAR BLUR EFFECT
+const navEl = document.querySelector('nav');
+const titleEl = document.querySelector('.page-title-section');
+
+function updateNavBlur() {
+  const refHeight = titleEl ? titleEl.offsetHeight : 300;
+  const scrollY = window.scrollY;
+  const progress = Math.min(scrollY / (refHeight * 0.6), 1);
+
+  const blur = progress * 16;
+  const opacity = 1 - progress * 0.25;
+
+  navEl.style.setProperty('--blur-amount', `${blur}px`);
+  navEl.style.background = `linear-gradient(135deg, rgba(45,53,97,${opacity}), rgba(26,31,60,${opacity}))`;
+}
+
+window.addEventListener('scroll', updateNavBlur);
+updateNavBlur();
 
 function openLightbox(index) { current = index; renderLightbox(); document.getElementById('lightbox').classList.add('open'); document.body.style.overflow = 'hidden'; }
 function closeLightbox() { document.getElementById('lightbox').classList.remove('open'); document.body.style.overflow = ''; }
@@ -258,7 +358,6 @@ function renderLightbox() { const wrap = document.getElementById('lightboxImgWra
 document.addEventListener('keydown', e => { if (!document.getElementById('lightbox').classList.contains('open')) return; if (e.key === 'ArrowRight') changePhoto(1); if (e.key === 'ArrowLeft') changePhoto(-1); if (e.key === 'Escape') closeLightbox(); });
 
 const observer = new IntersectionObserver((entries) => { entries.forEach((entry) => { if (entry.isIntersecting) { setTimeout(() => entry.target.classList.add('visible'), entry.target.dataset.delay || 0); } }); }, { threshold: 0.08 });
-document.querySelectorAll('.gallery-item').forEach((el, i) => { el.dataset.delay = (i % 5) * 80; observer.observe(el); });
 
 const T = {
   lang_label: { sq: 'Gjuha', en: 'Language', el: 'Γλώσσα' },
@@ -301,10 +400,14 @@ function setLang(lang) {
   const footerNavLinks = document.querySelectorAll('.footer-links a');
   const footerNavKeys = ['footer_nav_home','footer_nav_history','footer_nav_catechism','footer_nav_events'];
   footerNavLinks.forEach((el, i) => { if (footerNavKeys[i]) el.textContent = T[footerNavKeys[i]][lang]; });
-  photos.forEach((p, i) => { p.caption = (T['photo'+i] || {})[lang] || p.caption; });
+  renderFolders();
+  if (activeFolder) document.getElementById('galleryDetailTitle').innerHTML = `${activeFolder.name[lang]}<span>${activeFolder.photos.length} ${photoCountLabel[lang]}</span>`;
   if (document.getElementById('lightbox').classList.contains('open')) renderLightbox();
 }
+  
+renderFolders();
 setLang('sq');
+  
 </script>
 </body>
 </html>
