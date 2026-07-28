@@ -8,7 +8,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Noto+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
-:root { --gold: #C9A84C; --gold-light: #E8C97A; --gold-pale: #F5EDD8; --deep-blue: #1A1F3C; --mid-blue: #2D3561; --warm-dark: #0F0E0B; --parchment: #FAF6EE; --stone: #8B7D6B; --red-byzantine: #8B1A1A; --cream: #F2EDE4; --text-dark: #1A1715; --text-mid: #4A4035; --text-light: #9A8E7E; --border: rgba(201,168,76,0.25); --shadow: 0 4px 30px rgba(15,14,11,0.15); }
+:root { --gold: #C9A84C; --gold-light: #E8C97A; --deep-blue: #1A1F3C; --mid-blue: #2D3561; --warm-dark: #0F0E0B; --parchment: #FAF6EE; --red-byzantine: #8B1A1A; --cream: #F2EDE4; --text-dark: #1A1715; --text-mid: #4A4035; --text-light: #9A8E7E; --border: rgba(201,168,76,0.25); }
 * { margin: 0; padding: 0; box-sizing: border-box; user-select: none; -webkit-user-select: none; }
 html { scroll-behavior: smooth; }
 body { font-family: 'EB Garamond', Georgia, serif; background: var(--parchment); color: var(--text-dark); overflow-x: hidden; }
@@ -34,7 +34,7 @@ header::before { content: ''; position: absolute; inset: 0; background: linear-g
 .church-name-block p { font-family: 'EB Garamond', serif; font-style: italic; font-size: 13.5px; color: rgba(255,255,255,0.5); margin-top: 3px; letter-spacing: 0.5px; }
 
 /* NAVIGATION */
-nav { background: linear-gradient(135deg, var(--mid-blue), var(--deep-blue)); border-top: 1px solid rgba(201,168,76,0.3); border-bottom: 1px solid rgba(201,168,76,0.3); position: sticky; top: 0; z-index: 100; box-shadow: 0 4px 20px rgba(0,0,0,0.15); }
+nav { background: linear-gradient(135deg, var(--mid-blue), var(--deep-blue)); border-top: 1px solid rgba(201,168,76,0.3); border-bottom: 1px solid rgba(201,168,76,0.3); position: sticky; top: 0; z-index: 100; box-shadow: 0 4px 20px rgba(0,0,0,0.15); --blur-amount: 0px; backdrop-filter: blur(var(--blur-amount)) saturate(160%); -webkit-backdrop-filter: blur(var(--blur-amount)) saturate(160%); }
 .nav-inner { display: flex; align-items: center; justify-content: center; padding: 0 20px; gap: 4px; }
 .nav-link { font-family: 'Cinzel', serif; font-size: 11px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; color: rgba(255,255,255,0.7); text-decoration: none; padding: 16px 24px; position: relative; transition: all 0.3s ease; white-space: nowrap; border-radius: 40px; }
 .nav-link::before { content: ''; position: absolute; top: 0; left: 50%; width: 0; height: 2px; background: linear-gradient(90deg, transparent, var(--gold), var(--gold-light), var(--gold), transparent); transition: width 0.3s ease, left 0.3s ease; transform: translateX(-50%); border-radius: 2px; }
@@ -50,7 +50,6 @@ nav { background: linear-gradient(135deg, var(--mid-blue), var(--deep-blue)); bo
 .eyebrow::before, .eyebrow::after { content: ''; display: block; width: 40px; height: 1px; background: var(--gold); opacity: 0.5; }
 .page-title-section h2 { font-family: 'Cinzel', serif; font-size: clamp(32px, 5vw, 52px); font-weight: 900; color: #fff; letter-spacing: 4px; text-transform: uppercase; position: relative; z-index: 1; }
 .title-line { width: 80px; height: 2px; background: linear-gradient(90deg, transparent, var(--gold), transparent); margin: 18px auto 0; }
-.page-subtitle { font-family: 'EB Garamond', serif; font-size: 18px; color: rgba(255,255,255,0.55); margin-top: 20px; font-style: italic; }
 
 /* ACCORDION SECTION */
 .accordion-section { max-width: 900px; margin: 0 auto; padding: 60px 40px 80px; }
@@ -100,8 +99,9 @@ nav { background: linear-gradient(135deg, var(--mid-blue), var(--deep-blue)); bo
 }
   
 /* FOOTER */
-footer { background: var(--warm-dark); padding: 60px 0 0; }
-.footer-inner { max-width: 1200px; margin: 0 auto; padding: 0 40px 50px; display: grid; grid-template-columns: 1.5fr 1fr; gap: 50px; }
+footer { background: linear-gradient(180deg, var(--warm-dark) 0%, #0A0912 100%); padding: 60px 0 0; position: relative; overflow: hidden; }
+footer::before { content: ''; position: absolute; bottom: -260px; left: 50%; transform: translateX(-50%); width: 1100px; height: 500px; background: radial-gradient(ellipse at center, rgba(201,168,76,0.4) 0%, rgba(45,53,97,0.22) 40%, transparent 72%); filter: blur(90px); pointer-events: none; z-index: 0; }
+.footer-inner { position: relative; z-index: 1; max-width: 1200px; margin: 0 auto; padding: 0 40px 50px; display: grid; grid-template-columns: 1.5fr 1fr; gap: 50px; }
 .footer-col h5 { font-family: 'Cinzel', serif; font-size: 11px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--gold); margin-bottom: 18px; padding-bottom: 10px; border-bottom: 1px solid rgba(201,168,76,0.2); }
 .footer-links { list-style: none; }
 .footer-links li { padding: 6px 0; }
@@ -109,7 +109,7 @@ footer { background: var(--warm-dark); padding: 60px 0 0; }
 .footer-links a::before { content: '›'; color: var(--gold); opacity: 0; transition: opacity 0.2s; }
 .footer-links a:hover { color: rgba(255,255,255,0.8); }
 .footer-links a:hover::before { opacity: 1; }
-.footer-bottom { border-top: 1px solid rgba(255,255,255,0.06); padding: 20px 40px; max-width: 1200px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 15px; }
+.footer-bottom { position: relative; z-index: 1; border-top: 1px solid rgba(255,255,255,0.06); padding: 20px 40px; max-width: 1200px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 15px; }
 .footer-bottom p { font-family: 'Noto Sans', sans-serif; font-size: 11px; color: rgba(255,255,255,0.25); letter-spacing: 0.5px; margin: 0; display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
 .footer-instagram { display: inline-flex; align-items: center; text-decoration: none; transition: opacity 0.25s; margin-left: 5px; }
 .footer-instagram svg { width: 16px; height: 16px; }
@@ -482,6 +482,28 @@ const T = {
 let currentLang = 'sq';
 let openItemId = null;
 
+// NAVBAR BLUR EFFECT
+  const navEl = document.querySelector('nav');
+const titleEl = document.querySelector('.page-title-section');
+
+function updateNavBlur() {
+  const refHeight = titleEl ? titleEl.offsetHeight : 300;
+  const scrollY = window.scrollY;
+  const progress = Math.min(scrollY / (refHeight * 0.6), 1);
+
+  const blur = progress * 16;
+  const opacity = 1 - progress * 0.25;
+
+  navEl.style.setProperty('--blur-amount', `${blur}px`);
+  navEl.style.background = `linear-gradient(135deg, rgba(45,53,97,${opacity}), rgba(26,31,60,${opacity}))`;
+}
+
+window.addEventListener('scroll', updateNavBlur);
+updateNavBlur();
+
+
+
+  
 function renderAccordion() {
   const container = document.getElementById('accordionContainer');
   container.innerHTML = servicesData.map(service => `
