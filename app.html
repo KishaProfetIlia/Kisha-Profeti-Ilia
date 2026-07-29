@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="sq">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover, user-scalable=no">
+<meta name="theme-color" content="#1A1F3C">
+<link rel="manifest" href="manifest.json">
+<link rel="icon" href="Assets/logo.png" type="image/png">
+<title>Kisha "Profeti Ilia" — Aplikacioni</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Noto+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --gold: #C9A84C; --gold-light: #E8C97A; --deep-blue: #1A1F3C; --mid-blue: #2D3561;
+  --warm-dark: #0F0E0B; --parchment: #FAF6EE; --cream: #F2EDE4;
+  --text-dark: #1A1715; --text-mid: #4A4035; --border: rgba(201,168,76,0.25);
+}
+* { margin:0; padding:0; box-sizing:border-box; -webkit-tap-highlight-color:transparent; user-select:none; -webkit-user-select:none; }
+html { scroll-behavior:smooth; }
+body { font-family:'EB Garamond', Georgia, serif; background:var(--parchment); color:var(--text-dark); overflow-x:hidden; padding-bottom:76px; }
+
+/* ---------- SPLASH ---------- */
+.splash { position:fixed; inset:0; background:var(--deep-blue); z-index:9999; display:flex; align-items:center; justify-content:center; flex-direction:column; gap:16px; transition:opacity .5s ease; }
+.splash img { width:72px; height:72px; border-radius:50%; object-fit:cover; }
+.splash p { font-family:'Cinzel',serif; color:var(--gold-light); font-size:13px; letter-spacing:2.5px; text-transform:uppercase; }
+.splash.hide { opacity:0; pointer-events:none; }
+
+/* ---------- APP HEADER ---------- */
+.app-header { background:var(--deep-blue); padding:max(16px, env(safe-area-inset-top)) 18px 16px; display:flex; align-items:center; gap:12px; position:sticky; top:0; z-index:50; box-shadow:0 4px 16px rgba(0,0,0,0.15); }
+.app-header .cross-icon { width:40px; height:40px; border-radius:50%; object-fit:cover; flex-shrink:0; }
+.app-header .titles h1 { font-family:'Cinzel',serif; font-size:15px; color:var(--gold-light); font-weight:700; line-height:1.2; }
+.app-header .titles p { font-family:'EB Garamond',serif; font-style:italic; font-size:11px; color:rgba(255,255,255,0.5); margin-top:2px; }
+.lang-toggle { margin-left:auto; display:flex; gap:6px; }
+.lang-toggle button { background:transparent; border:1px solid rgba(201,168,76,0.4); color:rgba(255,255,255,0.6); font-family:'Noto Sans',sans-serif; font-size:10px; font-weight:600; padding:5px 9px; border-radius:999px; }
+.lang-toggle button.active { background:var(--gold); border-color:var(--gold); color:var(--deep-blue); }
+
+/* ---------- HERO SLIDER ---------- */
+.hero { position:relative; min-height:58vh; display:flex; align-items:center; justify-content:center; text-align:center; padding:48px 24px; overflow:hidden; }
+.hero-slider { position:absolute; inset:0; z-index:0; }
+.hero-slide { position:absolute; inset:0; background-size:cover; background-position:center 30%; opacity:0; transition:opacity 1.4s ease-in-out; }
+.hero-slide.active { opacity:1; }
+.hero-overlay { position:absolute; inset:0; z-index:1; background:linear-gradient(170deg, rgba(26,31,60,0.85) 0%, rgba(19,24,58,0.80) 50%, rgba(10,13,30,0.88) 100%); pointer-events:none; }
+.hero-content { position:relative; z-index:2; max-width:420px; }
+.hero-eyebrow { font-family:'Noto Sans',sans-serif; font-size:9.5px; font-weight:500; letter-spacing:3px; text-transform:uppercase; color:var(--gold); margin-bottom:14px; }
+.hero h2 { font-family:'Cinzel',serif; font-size:30px; font-weight:900; color:#fff; line-height:1.15; margin-bottom:12px; text-shadow:0 2px 30px rgba(201,168,76,0.2); }
+.hero-subtitle { font-family:'EB Garamond',serif; font-style:italic; font-size:14.5px; color:rgba(255,255,255,0.55); line-height:1.65; }
+.hero-dots { position:relative; z-index:2; display:flex; gap:6px; justify-content:center; margin-top:22px; }
+.hero-dots span { width:6px; height:6px; border-radius:50%; background:rgba(255,255,255,0.3); transition:all .3s; }
+.hero-dots span.active { background:var(--gold-light); width:18px; border-radius:3px; }
+
+/* ---------- SECTIONS ---------- */
+.section { padding:44px 20px; position:relative; overflow:hidden; }
+.section.dark { background:var(--deep-blue); }
+.eyebrow { font-family:'Noto Sans',sans-serif; font-size:9.5px; font-weight:500; letter-spacing:2.8px; text-transform:uppercase; color:var(--gold); margin-bottom:12px; }
+.section h3 { font-family:'Cinzel',serif; font-size:22px; font-weight:700; color:#fff; line-height:1.25; margin-bottom:16px; }
+.section p { font-family:'EB Garamond',serif; font-size:15.5px; line-height:1.8; color:rgba(255,255,255,0.65); margin-bottom:14px; }
+.img-frame { width:100%; border-radius:8px; margin:18px 0; border:1px solid rgba(201,168,76,0.2); overflow:hidden; cursor:pointer; }
+.img-frame img { width:100%; height:auto; display:block; }
+.address-box { border:1px solid rgba(201,168,76,0.25); border-radius:10px; padding:18px 20px; margin-top:16px; background:rgba(255,255,255,0.03); display:flex; align-items:center; gap:16px; text-decoration:none; }
+.addr-icon { width:44px; height:44px; border-radius:50%; background:linear-gradient(135deg,var(--gold),var(--gold-light)); flex-shrink:0; display:flex; align-items:center; justify-content:center; }
+.addr-icon svg { width:20px; height:20px; }
+.address-box h4 { font-family:'Cinzel',serif; font-size:11px; color:var(--gold-light); text-transform:uppercase; letter-spacing:1px; margin-bottom:4px; }
+.address-box p { font-family:'EB Garamond',serif; font-size:13.5px; color:rgba(255,255,255,0.6); margin:0; line-height:1.4; }
+
+/* ---------- FOOTER ---------- */
+.app-footer { background:var(--warm-dark); padding:32px 20px 24px; text-align:center; }
+.app-footer p { font-family:'Noto Sans',sans-serif; font-size:10px; color:rgba(255,255,255,0.3); line-height:1.7; }
+
+/* ---------- BOTTOM TAB BAR ---------- */
+.tab-bar { position:fixed; bottom:0; left:0; right:0; z-index:100; display:flex; background:rgba(26,31,60,0.94); backdrop-filter:blur(18px) saturate(160%); -webkit-backdrop-filter:blur(18px) saturate(160%); border-top:1px solid rgba(201,168,76,0.25); padding:8px 4px max(8px, env(safe-area-inset-bottom)); }
+.tab-bar a { flex:1; display:flex; flex-direction:column; align-items:center; gap:4px; text-decoration:none; padding:6px 0; border-radius:12px; }
+.tab-bar a:active { background:rgba(201,168,76,0.12); }
+.tab-bar a svg { width:21px; height:21px; stroke:rgba(255,255,255,0.55); fill:none; stroke-width:1.7; }
+.tab-bar a span { font-family:'Noto Sans',sans-serif; font-size:9px; letter-spacing:0.3px; color:rgba(255,255,255,0.5); font-weight:500; }
+.tab-bar a.active svg { stroke:var(--gold-light); }
+.tab-bar a.active span { color:var(--gold-light); font-weight:700; }
+
+/* ---------- LIGHTBOX ---------- */
+.lightbox { position:fixed; inset:0; background:rgba(10,12,25,0.6); backdrop-filter:blur(14px); -webkit-backdrop-filter:blur(14px); z-index:1000; display:flex; align-items:center; justify-content:center; opacity:0; pointer-events:none; transition:opacity .3s ease; padding:20px; }
+.lightbox.open { opacity:1; pointer-events:all; }
+.lightbox img { max-width:92vw; max-height:80vh; object-fit:contain; border-radius:6px; box-shadow:0 20px 60px rgba(0,0,0,0.6); }
+.lightbox-close { position:absolute; top:max(20px, env(safe-area-inset-top)); right:20px; width:40px; height:40px; background:rgba(201,168,76,0.15); border:1px solid rgba(201,168,76,0.3); border-radius:50%; color:var(--gold-light); font-size:18px; display:flex; align-items:center; justify-content:center; }
+</style>
+</head>
+<body>
+
+<div class="splash" id="splash">
+  <img src="Assets/logo.png" alt="Kisha Profeti Ilia">
+  <p>Profeti Ilia</p>
+</div>
+
+<header class="app-header">
+  <img class="cross-icon" src="Assets/logo.png" alt="Kisha Profeti Ilia">
+  <div class="titles">
+    <h1 data-t="header_title"></h1>
+    <p data-t="header_subtitle"></p>
+  </div>
+  <div class="lang-toggle">
+    <button class="active" onclick="setLang('sq')">SQ</button>
+    <button onclick="setLang('en')">EN</button>
+    <button onclick="setLang('el')">EL</button>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="hero-slider" id="heroSlider"></div>
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <div class="hero-eyebrow" data-t="hero_eyebrow"></div>
+    <h2 data-t="hero_title"></h2>
+    <p class="hero-subtitle" data-t="hero_quote"></p>
+  </div>
+  <div class="hero-dots" id="heroDots" style="position:absolute; bottom:20px; left:0; right:0;"></div>
+</section>
+
+<section class="section dark" id="profeti">
+  <div class="eyebrow" data-t="prophet_eyebrow"></div>
+  <h3 data-t="prophet_heading"></h3>
+  <p data-t="prophet_p1"></p>
+  <p data-t="prophet_p2"></p>
+  <p data-t="prophet_p3"></p>
+  <div class="img-frame" onclick="openLightbox('Assets/profeti.jpg')">
+    <img src="Assets/profeti.jpg" alt="Profeti Ilia">
+  </div>
+</section>
+
+<section class="section dark" id="historia" style="padding-top:0;">
+  <div class="eyebrow" data-t="history_eyebrow"></div>
+  <h3 data-t="history_heading"></h3>
+  <p data-t="history_p1"></p>
+  <p data-t="history_p2"></p>
+  <div class="img-frame" onclick="openLightbox('Assets/kisha_main2.jpg')">
+    <img src="Assets/kisha_main2.jpg" alt="Kisha Profeti Ilia">
+  </div>
+  <a href="https://maps.app.goo.gl/imSxKzHyRxWEduUb6" target="_blank" class="address-box">
+    <span class="addr-icon">
+      <svg viewBox="0 0 24 24" fill="none"><path d="M12 2C8.7 2 6 4.7 6 8c0 5 6 14 6 14s6-9 6-14c0-3.3-2.7-6-6-6z" fill="#1A1F3C"/><circle cx="12" cy="8" r="2.6" fill="#E8C97A"/></svg>
+    </span>
+    <div>
+      <h4 data-t="church_addr_title">Kisha "Profeti Ilia"</h4>
+      <p data-t="church_addr_line"></p>
+    </div>
+  </a>
+</section>
+
+<footer class="app-footer">
+  <p>Me bekimin e At Sotir Dinka.<br>© 2026 Kisha Orthodhokse "Profeti Ilia" – Korçë.</p>
+</footer>
+
+<nav class="tab-bar">
+  <a href="app.html" class="active">
+    <svg viewBox="0 0 24 24"><path d="M3 11l9-8 9 8M5 10v10h14V10" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    <span data-t="nav_home"></span>
+  </a>
+  <a href="historia.html">
+    <svg viewBox="0 0 24 24"><path d="M12 2v20M2 12h20" stroke-linecap="round"/></svg>
+    <span data-t="nav_history"></span>
+  </a>
+  <a href="evente.html">
+    <svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M8 2v4M16 2v4M3 10h18" stroke-linecap="round"/></svg>
+    <span data-t="nav_events"></span>
+  </a>
+  <a href="galeria.html">
+    <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
+    <span data-t="nav_gallery"></span>
+  </a>
+  <a href="meshume.html">
+    <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 8v4l3 3" stroke-linecap="round"/></svg>
+    <span data-t="nav_more"></span>
+  </a>
+</nav>
+
+<div class="lightbox" id="lightbox">
+  <button class="lightbox-close" onclick="closeLightbox()">✕</button>
+  <img id="lightboxImg" src="" alt="">
+</div>
+
+<script>
+const T = {
+  header_title: { sq:'Kisha "Profeti Ilia"', en:'"Prophet Elijah" Church', el:'Εκκλησία Προφήτη Ηλία' },
+  header_subtitle: { sq:'Mitropolia e Shenjtë Korçë', en:'Holy Metropolis of Korçë', el:'Ιερά Μητρόπολη Κορυτσάς' },
+  nav_home: { sq:'Kryefaqja', en:'Home', el:'Αρχική' },
+  nav_history: { sq:'Historia', en:'History', el:'Ιστορία' },
+  nav_events: { sq:'Shërbesat', en:'Services', el:'Ακολουθίες' },
+  nav_gallery: { sq:'Galeria', en:'Gallery', el:'Γκαλερί' },
+  nav_more: { sq:'Më Shumë', en:'More', el:'Περισσότερα' },
+  hero_eyebrow: { sq:'Kisha Orthodhokse', en:'Orthodox Church', el:'Ορθόδοξη Εκκλησία' },
+  hero_title: { sq:'Profeti Ilia', en:'Prophet Elijah', el:'Προφήτης Ηλίας' },
+  hero_quote: { sq:'"Engjëlli me trup, stoli e profetëve, pararendës i ardhjes së dytë të Krishtit..."', en:'"The angel in the flesh, the adornment of the prophets and forerunner of the Second Coming of Christ..."', el:'"Άγγελος εν σώματι, των Προφητών το κόσμημα..."' },
+  prophet_eyebrow: { sq:'Profeti i Madh', en:'The Great Prophet', el:'Ο Μέγας Προφήτης' },
+  prophet_heading: { sq:'Profeti Ilia', en:'Prophet Elijah', el:'Προφήτης Ηλίας' },
+  prophet_p1: { sq:'Profeti Ilia Thesviti është një nga profetët më të mëdhenj të Besëlidhjes së Vjetër. Ai jetoi në shekullin e IX para Krishtit.', en:'Prophet Elijah the Tishbite is one of the greatest prophets of the Old Testament. He lived in the 9th century BC.', el:'Ο Προφήτης Ηλίας ο Θεσβίτης είναι ένας από τους μεγαλύτερους προφήτες της Παλαιάς Διαθήκης.' },
+  prophet_p2: { sq:'Me zjarrin e besimit dhe fuqinë e lutjes, Ilia sfidoi profetët e rremë të Baalit në malin Karmel.', en:'With the fire of faith and the power of prayer, Elijah challenged the false prophets of Baal on Mount Carmel.', el:'Με τη φωτιά της πίστης, ο Ηλίας αντιμετώπισε τους ψευδοπροφήτες του Βάαλ στο όρος Κάρμηλος.' },
+  prophet_p3: { sq:'Kisha jonë kremton festën e Profetit Ilia çdo vit me 20 Korrik.', en:'Our church celebrates the feast of Prophet Elijah every year on July 20.', el:'Η εκκλησία μας γιορτάζει την εορτή του Προφήτη Ηλία κάθε χρόνο στις 20 Ιουλίου.' },
+  history_eyebrow: { sq:'Historia e Kishës', en:'Church History', el:'Ιστορία της Εκκλησίας' },
+  history_heading: { sq:'Mbi 100 vjet besimi e traditë orthodhokse', en:'Over 100 years of Orthodox faith and tradition', el:'Πάνω από 100 χρόνια ορθόδοξης πίστης' },
+  history_p1: { sq:'Kisha "Profeti Ilia" është një nga kishat historike të qytetit të Korçës.', en:'The Church of Prophet Elijah is one of the historic churches of Korçë.', el:'Ο Ναός του Προφήτη Ηλία είναι μια από τις ιστορικές εκκλησίες της Κορυτσάς.' },
+  history_p2: { sq:'Festa e Profetit të madh Ilia kremtohet çdo vit me 20 Korrik.', en:'The feast of the great Prophet Elijah is celebrated every year on July 20.', el:'Η εορτή του Προφήτη Ηλία γιορτάζεται κάθε χρόνο στις 20 Ιουλίου.' },
+  church_addr_title: { sq:'Kisha "Profeti Ilia"', en:'"Prophet Elijah" Church', el:'Ναός «Προφήτης Ηλίας»' },
+  church_addr_line: { sq:'Rruga Lola Gjoka, Korçë, Shqipëri', en:'Lola Gjoka Street, Korçë, Albania', el:'Οδός Lola Gjoka, Κορυτσά, Αλβανία' }
+};
+
+function setLang(lang) {
+  document.querySelectorAll('.lang-toggle button').forEach(b => b.classList.remove('active'));
+  event?.target?.classList.add('active');
+  document.documentElement.lang = lang;
+  document.querySelectorAll('[data-t]').forEach(el => {
+    const entry = T[el.getAttribute('data-t')];
+    if (entry) el.textContent = entry[lang] || entry.sq;
+  });
+}
+setLang('sq');
+
+// Hero slider — 5 slides, 3s each
+const heroImages = ["Assets/kisha_main1.jpg", "Assets/kisha_main2.jpg", "Assets/profeti.jpg", "Assets/banner.jpg", "Assets/kisha_main1.jpg"];
+const heroSlider = document.getElementById('heroSlider');
+const heroDots = document.getElementById('heroDots');
+heroImages.forEach((src, i) => {
+  const slide = document.createElement('div');
+  slide.className = 'hero-slide' + (i === 0 ? ' active' : '');
+  slide.style.backgroundImage = `url('${src}')`;
+  heroSlider.appendChild(slide);
+  const dot = document.createElement('span');
+  if (i === 0) dot.classList.add('active');
+  heroDots.appendChild(dot);
+});
+let heroIndex = 0;
+setInterval(() => {
+  const slides = heroSlider.querySelectorAll('.hero-slide');
+  const dots = heroDots.querySelectorAll('span');
+  slides[heroIndex].classList.remove('active');
+  dots[heroIndex].classList.remove('active');
+  heroIndex = (heroIndex + 1) % slides.length;
+  slides[heroIndex].classList.add('active');
+  dots[heroIndex].classList.add('active');
+}, 3000);
+
+// Lightbox
+function openLightbox(src) {
+  document.getElementById('lightboxImg').src = src;
+  document.getElementById('lightbox').classList.add('open');
+}
+function closeLightbox() {
+  document.getElementById('lightbox').classList.remove('open');
+}
+
+// Splash — show briefly only on real app launch (standalone), not every browser visit
+window.addEventListener('DOMContentLoaded', () => {
+  const isStandalone = window.matchMedia('(display-mode: standalone)').matches || window.navigator.standalone === true;
+  const splash = document.getElementById('splash');
+  if (!isStandalone) {
+    splash.style.display = 'none';
+  } else {
+    setTimeout(() => splash.classList.add('hide'), 900);
+    setTimeout(() => splash.style.display = 'none', 1400);
+  }
+});
+
+// Service worker registration
+if ('serviceWorker' in navigator) {
+  navigator.serviceWorker.register('sw.js').catch(() => {});
+}
+</script>
+
+</body>
+</html>
