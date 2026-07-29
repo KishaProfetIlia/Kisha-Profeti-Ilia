@@ -320,17 +320,6 @@ function closeFolder() {
   activeFolder = null;
 }
 
-function openLightbox(index) { current = index; renderLightbox(); document.getElementById('lightbox').classList.add('open'); document.body.style.overflow = 'hidden'; }
-function closeLightbox() { document.getElementById('lightbox').classList.remove('open'); document.body.style.overflow = ''; }
-function changePhoto(dir) { current = (current + dir + activeFolder.photos.length) % activeFolder.photos.length; renderLightbox(); }
-function renderLightbox() {
-  const wrap = document.getElementById('lightboxImgWrap');
-  wrap.innerHTML = `<img src="${activeFolder.photos[current]}" alt="Foto">`;
-  document.getElementById('lightboxCounter').textContent = `${current + 1} / ${activeFolder.photos.length}`;
-}
-
-document.addEventListener('keydown', e => { if (!document.getElementById('lightbox').classList.contains('open')) return; if (e.key === 'ArrowRight') changePhoto(1); if (e.key === 'ArrowLeft') changePhoto(-1); if (e.key === 'Escape') closeLightbox(); });
-
 // NAVBAR BLUR EFFECT
 const navEl = document.querySelector('nav');
 const titleEl = document.querySelector('.page-title-section');
@@ -350,14 +339,26 @@ function updateNavBlur() {
 window.addEventListener('scroll', updateNavBlur);
 updateNavBlur();
 
+// LIGHTBOX FUNCTION
 function openLightbox(index) { current = index; renderLightbox(); document.getElementById('lightbox').classList.add('open'); document.body.style.overflow = 'hidden'; }
 function closeLightbox() { document.getElementById('lightbox').classList.remove('open'); document.body.style.overflow = ''; }
-function changePhoto(dir) { current = (current + dir + photos.length) % photos.length; renderLightbox(); }
-function renderLightbox() { const wrap = document.getElementById('lightboxImgWrap'); const p = photos[current]; wrap.innerHTML = `<img src="${p.src}" alt="${p.caption}">`; document.getElementById('lightboxCounter').textContent = `${current + 1} / ${photos.length}`; }
+function changePhoto(dir) { current = (current + dir + activeFolder.photos.length) % activeFolder.photos.length; renderLightbox(); }
+function renderLightbox() {
+  const wrap = document.getElementById('lightboxImgWrap');
+  wrap.innerHTML = `<img src="${activeFolder.photos[current]}" alt="Foto">`;
+  document.getElementById('lightboxCounter').textContent = `${current + 1} / ${activeFolder.photos.length}`;
+}
 
-document.addEventListener('keydown', e => { if (!document.getElementById('lightbox').classList.contains('open')) return; if (e.key === 'ArrowRight') changePhoto(1); if (e.key === 'ArrowLeft') changePhoto(-1); if (e.key === 'Escape') closeLightbox(); });
+document.addEventListener('keydown', e => {
+  if (!document.getElementById('lightbox').classList.contains('open')) return;
+  if (e.key === 'ArrowRight') changePhoto(1);
+  if (e.key === 'ArrowLeft') changePhoto(-1);
+  if (e.key === 'Escape') closeLightbox();
+});
 
-const observer = new IntersectionObserver((entries) => { entries.forEach((entry) => { if (entry.isIntersecting) { setTimeout(() => entry.target.classList.add('visible'), entry.target.dataset.delay || 0); } }); }, { threshold: 0.08 });
+
+
+  
 
 const T = {
   lang_label: { sq: 'Gjuha', en: 'Language', el: 'Γλώσσα' },
