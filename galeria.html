@@ -55,16 +55,17 @@ nav { background: linear-gradient(135deg, var(--mid-blue), var(--deep-blue)); bo
 .folder-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 48px 28px; }
 .folder-card { display: flex; flex-direction: column; align-items: center; gap: 18px; cursor: pointer; opacity: 0; transform: translateY(20px); transition: opacity 0.5s ease, transform 0.5s ease; }
 .folder-card.visible { opacity: 1; transform: translateY(0); }
-.folder-visual { position: relative; width: 100%; aspect-ratio: 4/3; }
+.folder-visual { position: relative; width: 100%; aspect-ratio: 4/3; overflow: hidden; }
 .folder-back { position: absolute; inset: 0; top: 14px; background: linear-gradient(150deg, var(--mid-blue), var(--deep-blue)); border: 1px solid var(--border); border-radius: 4px 14px 14px 14px; box-shadow: 0 14px 34px rgba(15,14,11,0.35); transition: box-shadow 0.35s, border-color 0.35s, transform 0.35s; }
 .folder-back::before { content: ''; position: absolute; top: -14px; left: 0; width: 42%; height: 16px; background: linear-gradient(150deg, var(--mid-blue), var(--deep-blue)); border: 1px solid var(--border); border-bottom: none; border-radius: 8px 10px 0 0; }
-.folder-photo { position: absolute; left: 12%; right: 12%; top: 4%; bottom: 16%; object-fit: cover; border-radius: 3px; border: 4px solid var(--parchment); box-shadow: 0 10px 26px rgba(0,0,0,0.4); transform: rotate(-4deg); transition: transform 0.35s ease, box-shadow 0.35s ease; }
+.folder-photo { position: absolute; left: 12%; right: 12%; top: 4%; bottom: 16%; width: auto; height: auto; max-width: 100%; max-height: 100%; object-fit: cover; object-position: center; border-radius: 3px; border: 4px solid var(--parchment); box-shadow: 0 10px 26px rgba(0,0,0,0.4); transform: rotate(-4deg); transition: transform 0.35s ease, box-shadow 0.35s ease; }
 .folder-card:hover .folder-photo { transform: rotate(-1deg) translateY(-6px) scale(1.03); box-shadow: 0 16px 34px rgba(0,0,0,0.5); }
 .folder-card:hover .folder-back { border-color: rgba(201,168,76,0.5); box-shadow: 0 18px 42px rgba(15,14,11,0.45); }
 .folder-info { text-align: center; }
 .folder-name { font-family: 'Cinzel', serif; font-size: 15px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: var(--gold-light); }
 .folder-count { font-family: 'EB Garamond', serif; font-style: italic; font-size: 13px; color: var(--text-light); margin-top: 4px; }
 
+  
 /* GALLERY DETAIL (inside a folder) */
 .gallery-detail-header { display: flex; align-items: center; gap: 18px; margin-bottom: 36px; }
 .gallery-back-btn { display: flex; align-items: center; justify-content: center; width: 44px; height: 44px; border-radius: 50%; background: rgba(201,168,76,0.08); border: 1px solid var(--border); color: var(--deep-blue); cursor: pointer; flex-shrink: 0; transition: all 0.25s; }
