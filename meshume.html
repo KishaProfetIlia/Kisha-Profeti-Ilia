@@ -62,6 +62,7 @@ nav { background: linear-gradient(135deg, var(--mid-blue), var(--deep-blue)); bo
 /* Mobile: horizontal cards stacked vertically */
 @media (max-width: 768px) {
   .books-grid { display: flex; flex-direction: column; gap: 16px; }
+  .book-card { display: flex; align-items: center; justify-content: space-between; padding: 14px 18px; gap: 15px; flex-wrap: nowrap; }
   .book-title { font-size: 14px; display: inline-block; vertical-align: middle; }
   .book-actions { flex-shrink: 0; gap: 8px; }
   .book-btn { padding: 5px 10px; font-size: 9px; }
@@ -69,6 +70,8 @@ nav { background: linear-gradient(135deg, var(--mid-blue), var(--deep-blue)); bo
 }
 
   /*DESKTOP*/
+.book-card { background: #fff; border: 1px solid var(--border); padding: 24px; transition: all 0.3s ease; position: relative; border-radius: 4px; }
+.book-card:hover { transform: translateY(-5px); box-shadow: 0 15px 35px rgba(0,0,0,0.1); border-color: var(--gold); }
 .book-title { font-family: 'Cinzel', serif; font-size: 16px; font-weight: 700; color: var(--deep-blue); margin-bottom: 8px; }
 .book-actions { display: flex; gap: 12px; justify-content: flex-start; }
 .book-btn { display: inline-flex; align-items: center; gap: 8px; background: var(--gold); color: var(--deep-blue); font-family: 'Cinzel', serif; font-size: 11px; font-weight: 600; letter-spacing: 1px; text-transform: uppercase; padding: 8px 16px; text-decoration: none; transition: all 0.3s; border-radius: 2px; border: none; cursor: pointer; }
@@ -116,8 +119,8 @@ footer::before { content: ''; position: absolute; bottom: -260px; left: 50%; tra
 
 /* RESPONSIVE */
 @media (max-width: 900px) { .footer-inner { grid-template-columns: 1fr; gap: 30px; } .header-inner { flex-direction: column; gap: 16px; text-align: center; } }
-@media (max-width: 600px) { .lang-bar .container { padding: 0 16px; } .lang-bar-left { gap: 6px; } .icon-link svg { width: 18px; height: 18px; } .header-inner { padding: 20px; flex-direction: column; gap: 16px; text-align: center; } .church-name-block h1 { font-size: 16px; } .church-name-block p { font-size: 12px; } .page-title-section { padding: 40px 20px 36px; } .page-title-section h2 { font-size: 28px; letter-spacing: 2px; } .books-section { padding: 40px 20px 60px; } .books-grid { grid-template-columns: 1fr; } .placeholder-section { padding: 40px 20px; } .placeholder-grid { grid-template-columns: 1fr; } .footer-bottom { padding: 16px 20px; flex-direction: column; text-align: center; } .footer-bottom p { justify-content: center; } nav { overflow-x: auto; -webkit-overflow-scrolling: touch; scrollbar-width: thin; } nav::-webkit-scrollbar { height: 3px; } nav::-webkit-scrollbar-track { background: var(--mid-blue); } nav::-webkit-scrollbar-thumb { background: var(--gold); border-radius: 3px; } .nav-inner { min-width: max-content; padding: 0 16px; gap: 2px; } .nav-link { padding: 14px 14px; font-size: 9px; } }
-@media (max-width: 380px) { .church-name-block h1 { font-size: 14px; } }
+@media (max-width: 600px) { .lang-bar .container { padding: 0 16px; } .lang-bar-left { gap: 6px; } .icon-link svg { width: 18px; height: 18px; } .header-inner { padding: 20px; flex-direction: column; gap: 16px; text-align: center; } .church-name-block h1 { font-size: 16px; } .church-name-block p { font-size: 12px; } .page-title-section { padding: 40px 20px 36px; } .page-title-section h2 { font-size: 28px; letter-spacing: 2px; } .books-section { padding: 40px 20px 60px; } .books-grid { grid-template-columns: 1fr; } .placeholder-section { padding: 40px 20px; } .placeholder-grid { grid-template-columns: 1fr; } .footer-bottom { padding: 16px 20px; flex-direction: column; text-align: center; } .footer-bottom p { justify-content: center; } nav { overflow-x: auto; -webkit-overflow-scrolling: touch; scrollbar-width: thin; } nav::-webkit-scrollbar { height: 3px; } nav::-webkit-scrollbar-track { background: var(--mid-blue); } nav::-webkit-scrollbar-thumb { background: var(--gold); border-radius: 3px; } .nav-inner { min-width: max-content; padding: 0 16px; gap: 2px; } .nav-link { padding: 14px 14px; font-size: 9px; } #lang-label-text { display: none; }}
+@media (max-width: 380px) { .church-name-block h1 { font-size: 14px; } #lang-label-text { display: none; }}
 </style>
 </head>
 <body>
