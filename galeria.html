@@ -459,7 +459,7 @@ setLang('sq');
   
 // BACK ON TOP BUTTON
 const backToTopBtn = document.getElementById('backToTop');
-window.addEventListener('scroll', () => { if (window.scrollY > 400) { backToTopBtn.classList.add('show'); } else { backToTopBtn.classList.remove('show'); } });
+window.addEventListener('scroll', () => { if (window.scrollY > 150) { backToTopBtn.classList.add('show'); } else { backToTopBtn.classList.remove('show'); } });
 function scrollToTop() { window.scrollTo({ top: 0, behavior: 'smooth' }); }
 
   
