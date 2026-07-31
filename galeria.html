@@ -349,13 +349,19 @@ function openFolder(i) {
     </div>
   `).join('');
   window.scrollTo({ top: document.querySelector('.page-title-section').offsetHeight, behavior: 'smooth' });
+  history.pushState({ folderOpen: true }, '');
 }
 
-function closeFolder() {
+function closeFolder(skipHistory) {
   document.getElementById('galleryDetail').style.display = 'none';
   document.getElementById('folderView').style.display = 'block';
   activeFolder = null;
+  if (!skipHistory) history.back();
 }
+
+window.addEventListener('popstate', () => {
+  if (activeFolder) closeFolder(true);
+});
 
 // NAVBAR BLUR EFFECT
 const navEl = document.querySelector('nav');
