@@ -99,6 +99,25 @@ nav { background: linear-gradient(135deg, var(--mid-blue), var(--deep-blue)); bo
 .feedback-status.ok { display: block; background: rgba(76,140,74,0.1); border: 1px solid rgba(76,140,74,0.3); color: #3d6b3b; }
 @media (max-width: 600px) { .feedback-section { padding: 40px 20px 60px; } .feedback-card { padding: 26px 20px; } }
 
+/* APP BANNER (inline section) */
+.app-banner-section { max-width: 900px; margin: 0 auto; padding: 40px 40px 0; }
+.app-banner { position: relative; display: flex; align-items: center; gap: 20px; background: linear-gradient(120deg, var(--deep-blue) 0%, var(--mid-blue) 25%, #3a2f5c 45%, var(--mid-blue) 65%, var(--deep-blue) 100%); background-size: 300% 300%; animation: bannerShimmer 8s ease-in-out infinite; border: 1px solid rgba(201,168,76,0.4); border-radius: 12px; padding: 22px 28px; box-shadow: 0 10px 34px rgba(15,14,11,0.18); overflow: hidden; }
+.app-banner::before { content: ''; position: absolute; inset: 0; background: linear-gradient(115deg, transparent 20%, rgba(201,168,76,0.25) 45%, rgba(232,201,122,0.35) 50%, rgba(201,168,76,0.25) 55%, transparent 80%); background-size: 250% 100%; animation: bannerSweep 5s ease-in-out infinite; pointer-events: none; }
+@keyframes bannerShimmer { 0%,100% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } }
+@keyframes bannerSweep { 0% { background-position: 200% 0; } 100% { background-position: -50% 0; } }
+.ab-icon { position: relative; z-index: 1; width: 52px; height: 52px; border-radius: 14px; background: linear-gradient(135deg,var(--gold),var(--gold-light)); flex-shrink: 0; display: flex; align-items: center; justify-content: center; box-shadow: 0 0 18px rgba(201,168,76,0.4); }
+.ab-icon svg { width: 24px; height: 24px; stroke: var(--deep-blue); fill: none; stroke-width: 1.8; }
+.ab-text { position: relative; z-index: 1; flex: 1; min-width: 0; }
+.ab-text strong { font-family: 'Cinzel', serif; font-size: 15px; color: #fff; display: block; margin-bottom: 4px; letter-spacing: 0.3px; }
+.ab-text span { font-family: 'EB Garamond', serif; font-size: 14px; color: rgba(255,255,255,0.6); font-style: italic; }
+.ab-download { position: relative; z-index: 1; font-family: 'Noto Sans', sans-serif; font-size: 11px; font-weight: 700; letter-spacing: 0.8px; text-transform: uppercase; background: rgba(201,168,76,0.15); border: 1px solid rgba(201,168,76,0.4); color: var(--gold-light); padding: 11px 22px; border-radius: 999px; cursor: not-allowed; flex-shrink: 0; opacity: 0.7; }
+@media (max-width: 600px) {
+  .app-banner-section { padding: 30px 20px 0; }
+  .app-banner { flex-wrap: wrap; padding: 18px 20px; gap: 14px; }
+  .ab-text span { display: block; margin-top: 2px; }
+  .ab-download { width: 100%; padding: 10px; }
+}
+  
 /* SHARE SECTION */
 .share-section { max-width: 980px; margin: 0 auto; padding: 0 40px 70px; }
 .share-inner { display: flex; align-items: center; gap: 18px; flex-wrap: wrap; padding-top: 30px; border-top: 1px solid rgba(201,168,76,0.2); }
@@ -192,6 +211,20 @@ footer::before { content: ''; position: absolute; bottom: -260px; left: 50%; tra
   <div class="title-line"></div>
 </div>
 
+<!-- APP BANNER -->
+<section class="app-banner-section">
+  <div class="app-banner">
+    <div class="ab-icon">
+      <svg viewBox="0 0 24 24"><rect x="6" y="2" width="12" height="20" rx="2"/><path d="M11 18h2"/></svg>
+    </div>
+    <div class="ab-text">
+      <strong>Shkarko Aplikacionin Tonë</strong>
+      <span>Instalo Kishën "Profeti Ilia" direkt në telefon</span>
+    </div>
+    <button class="ab-download" disabled>Shkarko</button>
+  </div>
+</section>
+
 <!-- BOOKS SECTION -->
 <section class="books-section" id="books">
   <div class="section-heading">
@@ -248,7 +281,7 @@ footer::before { content: ''; position: absolute; bottom: -260px; left: 50%; tra
     </div>
   </div>
 </section>
-
+  
 <!-- BACK TO TOP BUTTON -->
 <button class="back-to-top" id="backToTop" onclick="scrollToTop()" aria-label="Kthehu lart"><svg viewBox="0 0 24 24" fill="none"><path d="M6 15L12 9L18 15" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
   
