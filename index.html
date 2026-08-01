@@ -102,18 +102,21 @@ nav { background: linear-gradient(135deg, var(--mid-blue), var(--deep-blue)); bo
 @keyframes lightboxIn { from { opacity:0; transform:scale(0.94); } to { opacity:1; transform:scale(1); } }
 
 /* APP BANNER */
-.app-soon-banner { position: fixed; bottom: 24px; left: 50%; transform: translateX(-50%) translateY(120px); opacity: 0; display: flex; align-items: center; gap: 16px; background: linear-gradient(135deg, rgba(45,53,97,0.92), rgba(26,31,60,0.96)); backdrop-filter: blur(20px) saturate(160%); -webkit-backdrop-filter: blur(20px) saturate(160%); border: 1px solid rgba(201,168,76,0.35); border-radius: 16px; padding: 16px 20px; box-shadow: 0 16px 50px rgba(0,0,0,0.35); z-index: 800; max-width: 480px; width: calc(100% - 40px); animation: appSoonIn 0.7s cubic-bezier(.34,1.56,.64,1) 1.2s forwards; }
+.app-soon-banner { position: fixed; bottom: 24px; left: 50%; transform: translateX(-50%) translateY(120px); opacity: 0; display: flex; align-items: center; gap: 16px; background: linear-gradient(120deg, var(--deep-blue) 0%, var(--mid-blue) 25%, #3a2f5c 45%, var(--mid-blue) 65%, var(--deep-blue) 100%); background-size: 300% 300%; backdrop-filter: blur(20px) saturate(160%); -webkit-backdrop-filter: blur(20px) saturate(160%); border: 1px solid rgba(201,168,76,0.4); border-radius: 16px; padding: 16px 20px; box-shadow: 0 16px 50px rgba(0,0,0,0.35); z-index: 800; max-width: 480px; width: calc(100% - 40px); overflow: hidden; animation: appSoonIn 0.7s cubic-bezier(.34,1.56,.64,1) 1.2s forwards, bannerShimmer 8s ease-in-out infinite; }
+.app-soon-banner::before { content: ''; position: absolute; inset: 0; background: linear-gradient(115deg, transparent 20%, rgba(201,168,76,0.25) 45%, rgba(232,201,122,0.35) 50%, rgba(201,168,76,0.25) 55%, transparent 80%); background-size: 250% 100%; animation: bannerSweep 5s ease-in-out infinite; pointer-events: none; }
+@keyframes bannerShimmer { 0%,100% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } }
+@keyframes bannerSweep { 0% { background-position: 200% 0; } 100% { background-position: -50% 0; } }
 @keyframes appSoonIn { to { transform: translateX(-50%) translateY(0); opacity: 1; } }
 .app-soon-banner.hide { animation: appSoonOut 0.4s ease forwards; }
 @keyframes appSoonOut { to { transform: translateX(-50%) translateY(120px); opacity: 0; } }
-.asb-close { position: absolute; top: -12px; right: -8px; background: var(--deep-blue); border: 1px solid rgba(201,168,76,0.5); color: rgba(255,255,255,0.7); font-size: 12px; cursor: pointer; width: 24px; height: 24px; border-radius: 50%; display: flex; align-items: center; justify-content: center; transition: all 0.2s; box-shadow: 0 2px 10px rgba(0,0,0,0.35); }
+.asb-close { z-index: 2 position: absolute; top: -12px; right: -8px; background: var(--deep-blue); border: 1px solid rgba(201,168,76,0.5); color: rgba(255,255,255,0.7); font-size: 12px; cursor: pointer; width: 24px; height: 24px; border-radius: 50%; display: flex; align-items: center; justify-content: center; transition: all 0.2s; box-shadow: 0 2px 10px rgba(0,0,0,0.35); }
 .asb-close:hover { color: var(--gold-light); border-color: var(--gold); background: var(--mid-blue); }
-.asb-icon { width: 44px; height: 44px; border-radius: 12px; background: linear-gradient(135deg,var(--gold),var(--gold-light)); flex-shrink: 0; display: flex; align-items: center; justify-content: center; }
+.asb-icon { position: relative; z-index: 1; width: 44px; height: 44px; border-radius: 12px; background: linear-gradient(135deg,var(--gold),var(--gold-light)); flex-shrink: 0; display: flex; align-items: center; justify-content: center; }
 .asb-icon svg { width: 20px; height: 20px; stroke: var(--deep-blue); fill: none; stroke-width: 1.8; }
-.asb-text { flex: 1; min-width: 0; }
+.asb-text { position: relative; z-index: 1; flex: 1; min-width: 0; }
 .asb-text strong { font-family: 'Cinzel', serif; font-size: 13px; color: #fff; display: block; margin-bottom: 2px; }
 .asb-text span { font-family: 'EB Garamond', serif; font-size: 13px; color: rgba(255,255,255,0.55); font-style: italic; }
-.asb-download { font-family: 'Noto Sans', sans-serif; font-size: 11px; font-weight: 700; letter-spacing: 0.8px; text-transform: uppercase; background: rgba(201,168,76,0.15); border: 1px solid rgba(201,168,76,0.4); color: var(--gold-light); padding: 9px 16px; border-radius: 999px; cursor: not-allowed; flex-shrink: 0; opacity: 0.7; }
+.asb-download { position: relative; z-index: 1; font-family: 'Noto Sans', sans-serif; font-size: 11px; font-weight: 700; letter-spacing: 0.8px; text-transform: uppercase; background: rgba(201,168,76,0.15); border: 1px solid rgba(201,168,76,0.4); color: var(--gold-light); padding: 9px 16px; border-radius: 999px; cursor: not-allowed; flex-shrink: 0; opacity: 0.7; }
 @media (max-width: 600px) {
   .app-soon-banner { bottom: 16px; padding: 14px 16px; gap: 12px; width: calc(100% - 24px); }
   .asb-text span { display: none; }
