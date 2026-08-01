@@ -82,16 +82,27 @@ nav { background: linear-gradient(135deg, var(--mid-blue), var(--deep-blue)); bo
 .history-text .eyebrow { font-family: 'Noto Sans', sans-serif; font-size: 10px; font-weight: 500; letter-spacing: 3.5px; text-transform: uppercase; color: var(--gold); margin-bottom: 16px; }
 .history-text h3 { font-family: 'Cinzel', serif; font-size: 34px; font-weight: 700; color: #fff; line-height: 1.2; margin-bottom: 22px; }
 .history-text p { font-family: 'EB Garamond', serif; font-size: 17.5px; line-height: 1.85; color: rgba(255,255,255,0.65); margin-bottom: 16px; }
-.church-address-box { border: 1px solid rgba(201,168,76,0.3); padding: 32px 28px; margin-top: 36px; max-width: 400px; background: rgba(255,255,255,0.03); display: flex; flex-direction: column; align-items: center; text-align: center; gap: 14px; border-radius: 8px; transition: background 0.3s, border-color 0.3s, transform 0.3s; }
-.church-address-box:hover { background: rgba(201,168,76,0.07); border-color: rgba(201,168,76,0.5); transform: translateY(-2px); }
-.church-address-box .addr-icon { flex-shrink: 0; width: 64px; height: 64px; border-radius: 50%; background: linear-gradient(135deg, var(--gold), var(--gold-light)); display: flex; align-items: center; justify-content: center; box-shadow: 0 0 0 6px rgba(201,168,76,0.1), 0 8px 24px rgba(201,168,76,0.25); }
-.church-address-box .addr-icon svg { width: 30px; height: 30px; }
-.church-address-box .addr-text { display: flex; flex-direction: column; align-items: center; gap: 6px; }
-.church-address-box .addr-text h4 { font-family: 'Cinzel', serif; font-size: 15px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: var(--gold-light); margin: 0; }
-.church-address-box .addr-text p { font-family: 'EB Garamond', serif; font-style: italic; font-size: 16px; line-height: 1.5; color: rgba(255,255,255,0.7); margin: 0; }
 .history-img-frame { width: 100%; background: linear-gradient(135deg, var(--mid-blue), #0A0D1E); border: 1px solid rgba(201,168,76,0.2); display: flex; align-items: center; justify-content: center; position: relative; cursor: pointer; overflow: hidden; border-radius: 4px; }
 .history-img-frame img { width: 100%; height: auto; display: block; object-fit: cover; transition: transform 0.5s ease; }
 .history-img-frame:hover img { transform: scale(1.03); }
+
+/* CHURCH ADDRESS BOX */
+.church-address-box { border: 1px solid rgba(201,168,76,0.3); padding: 32px 28px; margin-top: 16px; width: 100%; max-width: none; background: rgba(255,255,255,0.03); display: flex; flex-direction: column; align-items: center; text-align: center; gap: 14px; border-radius: 8px; transition: background 0.3s, border-color 0.3s, transform 0.3s; }
+.church-address-box:hover { background: rgba(201,168,76,0.07); border-color: rgba(201,168,76,0.5); transform: translateY(-2px); }
+.church-address-box .addr-icon { position: relative; flex-shrink: 0; width: 64px; height: 64px; border-radius: 50%; background: linear-gradient(135deg, var(--gold), var(--gold-light)); display: flex; align-items: center; justify-content: center; box-shadow: 0 8px 24px rgba(201,168,76,0.25); }
+.church-address-box .addr-icon svg { position: relative; z-index: 2; width: 30px; height: 30px; }
+
+/* RIPPLE WAVES */
+.church-address-box .addr-icon::before,
+.church-address-box .addr-icon::after { content: ''; position: absolute; inset: 0; border-radius: 50%; border: 1.5px solid var(--gold-light); animation: pinRipple 2.8s ease-out infinite; pointer-events: none; }
+.church-address-box .addr-icon::after { animation-delay: 1.4s; }
+@keyframes pinRipple {
+  0% { transform: scale(1); opacity: 0.6; }
+  100% { transform: scale(2.1); opacity: 0; }
+}
+.church-address-box .addr-text { display: flex; flex-direction: column; align-items: center; gap: 6px; }
+.church-address-box .addr-text h4 { font-family: 'Cinzel', serif; font-size: 15px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: var(--gold-light); margin: 0; }
+.church-address-box .addr-text p { font-family: 'EB Garamond', serif; font-style: italic; font-size: 16px; line-height: 1.5; color: rgba(255,255,255,0.7); margin: 0; }
 
 /* LIGHTBOX */
 .lightbox { position: fixed; inset: 0; background: rgba(10,12,25,0.55); backdrop-filter: blur(16px) saturate(140%); -webkit-backdrop-filter: blur(16px) saturate(140%); z-index: 1000; display: flex; align-items: center; justify-content: center; opacity: 0; pointer-events: none; transition: opacity 0.35s ease; }
@@ -358,9 +369,13 @@ footer::before { content: ''; position: absolute; bottom: -260px; left: 50%; tra
       <div class="history-img-frame" onclick="openLightbox(1)">
         <img src="Assets/kisha_main2.jpg" alt="Kisha Profeti Ilia">
       </div>
-      <a href="https://maps.app.goo.gl/imSxKzHyRxWEduUb6" target="_blank" class="church-address-box" style="text-decoration:none; margin-top:16px;">
+      <a href="https://maps.app.goo.gl/imSxKzHyRxWEduUb6" target="_blank" class="church-address-box" style="text-decoration:none;">
         <span class="addr-icon">
-          <svg viewBox="0 0 24 24" fill="none"><path d="M12 2C8.7 2 6 4.7 6 8c0 5 6 14 6 14s6-9 6-14c0-3.3-2.7-6-6-6z" fill="var(--deep-blue)" stroke="var(--deep-blue)" stroke-width="1.4" stroke-linejoin="round"/><circle cx="12" cy="8" r="2.6" fill="var(--gold-light)" stroke="var(--deep-blue)" stroke-width="1"/></svg>
+          <svg viewBox="0 0 24 26" fill="none">
+            <path d="M12 1.5C8.4 1.5 5.5 4.4 5.5 8c0 4.6 5.2 12.3 6.1 13.6.2.3.6.3.8 0 .9-1.3 6.1-9 6.1-13.6 0-3.6-2.9-6.5-6.5-6.5z" fill="var(--deep-blue)"/>
+            <circle cx="12" cy="8" r="2.7" fill="var(--gold-light)"/>
+            <ellipse cx="12" cy="23" rx="3.2" ry="1.3" fill="var(--deep-blue)" opacity="0.35"/>
+          </svg>
         </span>
         <div class="addr-text">
           <h4 data-t="church_addr_title">Kisha "Profeti Ilia"</h4>
@@ -398,7 +413,7 @@ footer::before { content: ''; position: absolute; bottom: -260px; left: 50%; tra
       <ul class="footer-links">
         <li><span data-t="footer_hours1">Hapur për lutje (paradite) – 07:30–10:00</span></li>
         <li><span data-t="footer_hours2">Hapur për lutje (pasdite) – 17:00–19:00</span></li>
-        <li><span>🛈︎ Na kontaktoni për çdo informacion shtesë.</span></li>
+        <li><span>Na kontaktoni për çdo informacion shtesë.</span></li>
       </ul>
     </div>
   </div>
