@@ -1,8 +1,8 @@
-// Service worker for the App (registered from App/index.html as ../sw.js with scope ./)
+// Service worker for the App
 const CACHE = 'profeti-ilia-v1';
 const CORE = [
-  './App/index.html',
-  './Assets/logo.png'
+  './index.html',
+  '../Assets/logo.png'
 ];
 
 self.addEventListener('install', e => {
@@ -17,7 +17,7 @@ self.addEventListener('activate', e => {
   );
 });
 
-// Network first, fall back to cache (so content updates show up when online)
+// Network first, fall back to cache
 self.addEventListener('fetch', e => {
   if (e.request.method !== 'GET' || !e.request.url.startsWith(self.location.origin)) return;
   e.respondWith(
@@ -27,6 +27,6 @@ self.addEventListener('fetch', e => {
         caches.open(CACHE).then(c => c.put(e.request, copy));
         return res;
       })
-      .catch(() => caches.match(e.request).then(r => r || caches.match('./App/index.html')))
+      .catch(() => caches.match(e.request).then(r => r || caches.match('./index.html')))
   );
 });
