@@ -6,7 +6,18 @@
 <meta name="theme-color" content="#1A1F3C">
 <meta name="description" content="Faqja zyrtare e Kishës Orthodhokse Profeti Ilia në Korçë.">
 <link rel="icon" href="/Assets/logo.png" type="image/png">
+<link rel="manifest" href="/App/manifest.json">
 
+<script>
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+      navigator.serviceWorker.register('./sw.js')
+        .then(reg => console.log('SW registered!', reg))
+        .catch(err => console.log('SW registration failed!', err));
+    });
+  }
+</script>
+     
 <title>Kisha "Profeti Ilia" – Korçë</title>
 
 <!-- Device detection runs before first paint. The church app is mobile-only,
